@@ -5,6 +5,8 @@ if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
   exit 0
 fi
 
+echo '{"async": true, "asyncTimeout": 300000}'
+
 # Install ruflo globally from npm (pinned to known-good version for supply-chain security)
 if ! command -v ruflo &>/dev/null; then
   npm install -g ruflo@3.5.80
