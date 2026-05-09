@@ -1,0 +1,6 @@
+projects/
+last_response.json
+*_prompts.md
+__pycache__/
+*.pyc
+.env
