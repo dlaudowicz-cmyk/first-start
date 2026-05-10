@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 28,
   },
+  brandBar: { width: 28, height: 3, backgroundColor: "#caff3d", marginBottom: 6 },
   brand: { fontSize: 16, fontWeight: 700, color: "#14141a", letterSpacing: 1 },
   brandSub: { fontSize: 8, color: "#888893", textTransform: "uppercase", letterSpacing: 1, marginTop: 2 },
   metaCol: { textAlign: "right", fontSize: 9, color: "#454552" },
@@ -109,8 +110,9 @@ export function DocumentPdf({
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <View>
+            <View style={styles.brandBar} />
             <Text style={styles.brand}>{settings.companyName.toUpperCase()}</Text>
-            <Text style={styles.brandSub}>Cinematic Production</Text>
+            <Text style={styles.brandSub}>{settings.tagline || "Cinematic Production"}</Text>
           </View>
           <View style={styles.metaCol}>
             <Text>{settings.owner}</Text>

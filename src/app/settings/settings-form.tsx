@@ -50,6 +50,9 @@ export function SettingsForm({ initial, logoPath }: Props) {
           <Field label="Owner" error={errors.owner?.message}>
             <input className="input" {...register("owner")} />
           </Field>
+          <Field label="Tagline" error={errors.tagline?.message} full>
+            <input className="input" placeholder="We make brands move" {...register("tagline")} />
+          </Field>
           <Field label="Email" error={errors.email?.message}>
             <input className="input" type="email" {...register("email")} />
           </Field>

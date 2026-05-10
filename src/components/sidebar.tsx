@@ -13,6 +13,7 @@ import {
   Settings,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PushlabsMark } from "./pushlabs-mark";
 
 const navigation = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -29,15 +30,15 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden md:flex w-64 shrink-0 flex-col border-r border-graphite-100 bg-white sticky top-0 h-screen">
-      <div className="p-6 border-b border-graphite-100">
-        <div className="flex items-center gap-2.5">
-          <div className="h-8 w-8 rounded-md bg-graphite-900 flex items-center justify-center">
-            <span className="text-white font-display text-base leading-none">P</span>
-          </div>
+    <aside className="hidden md:flex w-64 shrink-0 flex-col bg-graphite-950 text-white sticky top-0 h-screen">
+      <div className="p-6 border-b border-white/10">
+        <div className="flex items-center gap-3">
+          <PushlabsMark size={36} />
           <div>
-            <div className="text-sm font-semibold tracking-tight">Pushlabs</div>
-            <div className="text-[11px] text-graphite-500 -mt-0.5">Production OS</div>
+            <div className="text-sm font-semibold tracking-tight text-neon-300">PUSHLABS</div>
+            <div className="text-[10px] text-white/50 -mt-0.5 uppercase tracking-wider">
+              We make brands move
+            </div>
           </div>
         </div>
       </div>
@@ -53,13 +54,19 @@ export function Sidebar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
+                    "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors relative",
                     active
-                      ? "bg-graphite-900 text-white"
-                      : "text-graphite-700 hover:bg-graphite-100 hover:text-graphite-900",
+                      ? "bg-white/5 text-white"
+                      : "text-white/60 hover:bg-white/5 hover:text-white",
                   )}
                 >
-                  <Icon className="h-4 w-4" />
+                  {active && (
+                    <span
+                      aria-hidden
+                      className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-0.5 bg-neon-300 rounded-r"
+                    />
+                  )}
+                  <Icon className={cn("h-4 w-4", active ? "text-neon-300" : "text-white/50")} />
                   <span>{item.label}</span>
                 </Link>
               </li>
@@ -68,8 +75,8 @@ export function Sidebar() {
         </ul>
       </nav>
 
-      <div className="p-4 border-t border-graphite-100 text-[11px] text-graphite-500">
-        <div className="font-medium text-graphite-700">Daniel Laudowicz</div>
+      <div className="p-4 border-t border-white/10 text-[11px] text-white/50">
+        <div className="font-medium text-white/80">Daniel Laudowicz</div>
         <div>Pushlabs Studio</div>
       </div>
     </aside>

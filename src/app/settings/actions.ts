@@ -10,6 +10,7 @@ export async function updateSettings(formData: FormData) {
   const data = settingsSchema.parse({
     companyName: formData.get("companyName"),
     owner: formData.get("owner"),
+    tagline: formData.get("tagline"),
     address: formData.get("address"),
     taxNumber: formData.get("taxNumber"),
     vatId: formData.get("vatId"),
@@ -31,6 +32,7 @@ export async function updateSettings(formData: FormData) {
     update: {
       companyName: data.companyName,
       owner: data.owner,
+      tagline: data.tagline || null,
       address: data.address || null,
       taxNumber: data.taxNumber || null,
       vatId: data.vatId || null,
@@ -50,6 +52,7 @@ export async function updateSettings(formData: FormData) {
       id: "singleton",
       companyName: data.companyName,
       owner: data.owner,
+      tagline: data.tagline || null,
       address: data.address || null,
       taxNumber: data.taxNumber || null,
       vatId: data.vatId || null,

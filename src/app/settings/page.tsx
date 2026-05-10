@@ -21,6 +21,7 @@ export default async function SettingsPage() {
         initial={{
           companyName: settings.companyName,
           owner: settings.owner,
+          tagline: settings.tagline ?? "",
           address: settings.address ?? "",
           taxNumber: settings.taxNumber ?? "",
           vatId: settings.vatId ?? "",

@@ -17,6 +17,7 @@ async function main() {
       id: "singleton",
       companyName: "Pushlabs",
       owner: "Daniel Laudowicz",
+      tagline: "We make brands move",
       address: "Musterstraße 1\n10115 Berlin\nGermany",
       taxNumber: "DE-TAX-000/000/0000",
       vatId: "DE000000000",

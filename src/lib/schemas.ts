@@ -76,6 +76,7 @@ export type ExpenseInput = z.infer<typeof expenseSchema>;
 export const settingsSchema = z.object({
   companyName: z.string().min(1),
   owner: z.string().min(1),
+  tagline: z.string().optional().or(z.literal("")),
   address: z.string().optional().or(z.literal("")),
   taxNumber: z.string().optional().or(z.literal("")),
   vatId: z.string().optional().or(z.literal("")),

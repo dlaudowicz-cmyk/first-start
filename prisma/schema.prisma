@@ -135,6 +135,7 @@ model CompanySettings {
   id              String    @id @default("singleton")
   companyName     String    @default("Pushlabs")
   owner           String    @default("Daniel Laudowicz")
+  tagline         String?   @default("We make brands move")
   address         String?
   taxNumber       String?
   vatId           String?

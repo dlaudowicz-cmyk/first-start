@@ -30,6 +30,18 @@ const config: Config = {
           800: "#5e4320",
           900: "#3f2d17",
         },
+        neon: {
+          50: "#f7ffd9",
+          100: "#ecffa6",
+          200: "#deff66",
+          300: "#caff3d",
+          400: "#b0f000",
+          500: "#94cc00",
+          600: "#75a300",
+          700: "#587a00",
+          800: "#3f5700",
+          900: "#283600",
+        },
       },
       fontFamily: {
         sans: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
