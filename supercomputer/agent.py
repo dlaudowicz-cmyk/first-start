@@ -32,14 +32,16 @@ Rules:
 
 class Orchestrator:
     def __init__(self, project, backend, model: str = "claude-opus-4-7",
-                 max_iterations: int = 25, verbose: bool = True):
+                 max_iterations: int = 25, verbose: bool = True, client=None):
         self.project = project
         self.backend = backend
         self.model = model
         self.max_iterations = max_iterations
         self.verbose = verbose
-        import anthropic  # imported lazily so the rest of the package works without the SDK
-        self.client = anthropic.Anthropic()
+        if client is None:
+            import anthropic  # lazy so the rest of the package works without the SDK
+            client = anthropic.Anthropic()
+        self.client = client
 
     def _log(self, *a):
         if self.verbose:
@@ -57,7 +59,8 @@ class Orchestrator:
                 tools=TOOLS,
                 messages=messages,
             )
-            messages.append({"role": "assistant", "content": response.content})
+            # Store content as plain dicts so memory stays JSON-serialisable.
+            messages.append({"role": "assistant", "content": [_dump(b) for b in response.content]})
 
             for block in response.content:
                 if block.type == "text" and block.text.strip():
@@ -73,12 +76,17 @@ class Orchestrator:
                 if block.type != "tool_use":
                     continue
                 self._log(f"[tool] {block.name}({_brief(block.input)})")
-                result, done = dispatch(block.name, block.input, self.project, self.backend)
+                try:
+                    result, done = dispatch(block.name, block.input, self.project, self.backend)
+                    is_error = False
+                except Exception as e:  # surface the failure to the agent, keep memory valid
+                    result, done, is_error = f"Tool error: {e}", False, True
                 self._log(f"       -> {result.splitlines()[0] if result else ''}")
                 tool_results.append({
                     "type": "tool_result",
                     "tool_use_id": block.id,
                     "content": result,
+                    "is_error": is_error,
                 })
                 goal_done = goal_done or done
 
@@ -95,6 +103,13 @@ class Orchestrator:
     def _final_text(response) -> str:
         return "".join(b.text for b in response.content if b.type == "text").strip() \
             or "(no further output)"
+
+
+def _dump(block):
+    """SDK content block -> JSON-serialisable dict (already-dict blocks pass through)."""
+    if hasattr(block, "model_dump"):
+        return block.model_dump()
+    return block
 
 
 def _brief(d: dict, limit: int = 60) -> str:
