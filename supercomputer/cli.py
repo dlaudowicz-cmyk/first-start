@@ -63,7 +63,8 @@ def main(argv=None):
     def add_common(p, needs_project=True):
         if needs_project:
             p.add_argument("-p", "--project", default="default", help="Project name.")
-        p.add_argument("--backend", default=None, help="stub (default) or http.")
+        p.add_argument("--backend", default=None,
+                       help="stub (default), openai, gemini, higgsfield, or http.")
         p.add_argument("--model", default="claude-opus-4-7")
         p.add_argument("--max-iters", dest="max_iters", type=int, default=25)
 
