@@ -86,7 +86,9 @@ Jede Bexly-Geschichte und jedes Marken-Asset trägt diese Werte:
   Weil die Mäuse aufgrund ihrer **Größe und ihres Fells** wie Gussoks wirken,
   **verwechselt der Roboter sie mit Gussoks und saugt sie versehentlich in seine
   Kommandozentrale** ein. Von dort aus steuern sie ihn fortan — über Hebel und
-  Cals Stimme. Namensgeber der Marke. (Im alten Pitch: *Jet Baxter*.)
+  Cals Stimme. **Namensgeber der Marke** — die Marke heißt nach ihm "Bexly".
+  Der Figurenname **Jet Bexly ist final/gesetzt** (früherer Arbeitstitel:
+  *Jet Baxter* — nicht mehr verwenden).
 
 ### Verbündete
 - **Cocosia** — junge Gussok-Rebellin und Friedensaktivistin. Hat sich in
@@ -99,8 +101,9 @@ Jede Bexly-Geschichte und jedes Marken-Asset trägt diese Werte:
   Feldmäuse.
 
 ### Antagonisten
-- **General Nogath** — autoritärer Anführer der Gussoks. Tritt als
-  Schokoladenfabrikant und Bürgermeisterkandidat auf, um die Stadt zu
+- **General Nogath** — autoritärer Anführer der Gussoks. **Steuert den
+  Bürgermeister** der Stadt (eine von Nogath gelenkte Roboter-/Marionetten-
+  figur) und tritt als Schokoladenfabrikant auf, um die Stadt heimlich zu
   beherrschen. Will die Menschen mit einer Hypnose-Melodie versklaven.
 - **Die Gussoks** — kleine lilafarbene Aliens mit unstillbarer Schokoladengier.
   Besetzen Roboterhüllen, um die Menschheit zu kontrollieren. (Nicht alle böse —
