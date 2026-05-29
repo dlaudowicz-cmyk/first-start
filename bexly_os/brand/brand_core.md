@@ -119,6 +119,10 @@ Jede Bexly-Geschichte und jedes Marken-Asset trägt diese Werte:
   des Bürgermeisters**, in dem die Mäuse den Roboter Jet Bexly entdecken.
 - **Visuelle Marker:** lilafarbene Gussoks, violett glühende Augen, Schokolade
   als zentrales Motiv, Roboterhüllen, kleine Raumgleiter.
+- **Gussok-Interface:** In der Kommandozentrale des Roboters steuert man über
+  ein **holographisches Half-Dome** (eine halbe Kugel / Hologramm-Kuppel). Beim
+  **ersten Besuch verbindet sich Cal** über dieses Interface mit dem
+  Roboterkörper und übernimmt die Steuerung.
 - **Tonalität:** warmherzig, humorvoll, abenteuerlich — nie zynisch, nie brutal.
 
 ---
