@@ -1,0 +1,9 @@
+# Bexly-KI Gedächtnis (lokal, nicht versionieren)
+.bexly/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/

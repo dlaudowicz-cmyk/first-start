@@ -1,0 +1,72 @@
+# Bexly OS
+
+Das **Betriebssystem für die Marke Bexly** — eine KI, die den gesamten
+Markenkern, die IP und die Tonalität kennt und als Gehirn für alles dient, was
+Bexly groß macht: Social Media, Website, Quests und mehr.
+
+> Bexly ist eine Animations-IP (»Being Bexly«, RED SUN FILMS) für Kinder &
+> Familien, die als **KI-First-IP** zu einer Marke ausgebaut wird.
+
+## Idee
+
+Klassisch verstreut man Markenwissen über viele Köpfe und Dokumente. Bexly OS
+dreht das um: Es gibt **eine zentrale Marken-Bibel** (`bexly_os/brand/brand_core.md`)
+und **eine KI-Engine**, die dieses Wissen lädt. Jedes Modul — Social, Web,
+Quests — nutzt dieselbe Engine und denkt dadurch konsistent im Sinne der Marke.
+
+```
+bexly_os/
+├── brand/
+│   ├── brand_core.md     ← die Marken-Bibel (Werte, Figuren, Tonalität, Tabus)
+│   └── __init__.py       ← lädt den Markenkern in den System-Prompt
+├── core.py               ← BexlyKI: Engine (Claude + Markenkern + Gedächtnis)
+├── cli.py                ← interaktiver Chat mit der Bexly-KI
+└── modules/
+    ├── social.py         ← Beispiel-Modul: Social-Media-Captions
+    ├── web.py            (geplant)
+    └── quests.py         (geplant)
+bexly.py                  ← Einstiegspunkt
+```
+
+## Setup
+
+```bash
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=...   # API-Schlüssel
+```
+
+## Start
+
+```bash
+python bexly.py
+```
+
+Die KI lädt automatisch den Markenkern und merkt sich den Verlauf über
+Sessions hinweg (lokal unter `.bexly/`, nicht im Git).
+
+Befehle im Chat: `/brand` (Markenkern zeigen), `/memory`, `/forget`, `quit`.
+
+### Ein Modul nutzen (Beispiel)
+
+```python
+from bexly_os.modules.social import SocialModule
+
+print(SocialModule().captions("Teaser: Cal trifft zum ersten Mal Bexly", n=3))
+```
+
+## Die Marke pflegen
+
+Alles Markenwissen lebt in **`bexly_os/brand/brand_core.md`** — in normaler
+Sprache. Neue Figuren, Markenfarben, Slogan oder Regeln einfach dort ergänzen;
+die KI und alle Module ziehen die Änderung automatisch.
+
+## Roadmap
+
+- [x] **Brand Core** — Marken-Bibel als zentrale Wahrheit
+- [x] **Bexly-KI** — Engine mit Markenwissen & Gedächtnis
+- [x] **Social (Beispiel)** — Captions/Content-Ideen
+- [ ] **Web** — Landingpage & Website-Texte
+- [ ] **Quests** — Gamification-/Aufgaben-System
+- [ ] Optional: Web-Dashboard als zentrale Steuerzentrale
+- [ ] Anbindung an vorhandene Assets (Drive: Clips, Seedance-Videos)
+```
