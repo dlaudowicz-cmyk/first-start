@@ -79,9 +79,14 @@ Jede Bexly-Geschichte und jedes Marken-Asset trägt diese Werte:
   brenzlige Lagen, hat aber ein großes Herz.
 
 ### Der Roboterjunge
-- **Bexly** — ein menschlich aussehender Roboterjunge (ca. 10 Jahre), gesteuert
-  über Hebel und Cals Stimme. Namensgeber der Marke. (Im alten Pitch:
-  *Jet Baxter*.)
+- **Jet Bexly** — ein menschlich aussehender Roboterjunge (ca. 10 Jahre), der
+  **von den Gussoks gebaut** wurde (ein Roboterkörper, in dem normalerweise ein
+  Gussok als "Pilot" sitzt, um unter Menschen unentdeckt zu agieren). Cal und
+  seine Freunde finden den Roboter im **Keller des Hauses vom Bürgermeister**.
+  Weil die Mäuse aufgrund ihrer **Größe und ihres Fells** wie Gussoks wirken,
+  **verwechselt der Roboter sie mit Gussoks und saugt sie versehentlich in seine
+  Kommandozentrale** ein. Von dort aus steuern sie ihn fortan — über Hebel und
+  Cals Stimme. Namensgeber der Marke. (Im alten Pitch: *Jet Baxter*.)
 
 ### Verbündete
 - **Cocosia** — junge Gussok-Rebellin und Friedensaktivistin. Hat sich in
@@ -107,7 +112,8 @@ Jede Bexly-Geschichte und jedes Marken-Asset trägt diese Werte:
 ## 6. Welt & Wiedererkennung
 
 - **Schauplatz:** Bauer Moes Farm und eine scheinbar perfekte Vorstadtsiedlung,
-  die in Wahrheit von Robotern bewohnt wird.
+  die in Wahrheit von Robotern bewohnt wird. Schlüsselort: der **Keller im Haus
+  des Bürgermeisters**, in dem die Mäuse den Roboter Jet Bexly entdecken.
 - **Visuelle Marker:** lilafarbene Gussoks, violett glühende Augen, Schokolade
   als zentrales Motiv, Roboterhüllen, kleine Raumgleiter.
 - **Tonalität:** warmherzig, humorvoll, abenteuerlich — nie zynisch, nie brutal.
