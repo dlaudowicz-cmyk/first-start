@@ -1,1 +1,4 @@
 anthropic>=0.52.0
+
+# Optional — nur fuer das Research-Modul (bexly_os/modules/research.py)
+firecrawl-py>=2.0.0

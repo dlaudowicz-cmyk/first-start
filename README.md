@@ -22,7 +22,8 @@ bexly_os/
 ├── core.py               ← BexlyKI: Engine (Claude + Markenkern + Gedächtnis)
 ├── cli.py                ← interaktiver Chat mit der Bexly-KI
 └── modules/
-    ├── social.py         ← Beispiel-Modul: Social-Media-Captions
+    ├── social.py         ← Social-Media-Captions
+    ├── research.py        ← Web-Recherche via Firecrawl
     ├── web.py            (geplant)
     └── quests.py         (geplant)
 bexly.py                  ← Einstiegspunkt
@@ -54,6 +55,21 @@ from bexly_os.modules.social import SocialModule
 print(SocialModule().captions("Teaser: Cal trifft zum ersten Mal Bexly", n=3))
 ```
 
+### Web-Recherche (Firecrawl)
+
+```bash
+pip install firecrawl-py
+export FIRECRAWL_API_KEY=fc-...
+```
+
+```python
+from bexly_os.modules.research import ResearchModule
+
+r = ResearchModule()
+print(r.summarize_url("https://example.com"))         # Seite markengerecht auswerten
+print(r.web_insights("Trends Kinder-Animations-IP 2026"))  # Web durchsuchen + Analyse
+```
+
 ## Die Marke pflegen
 
 Alles Markenwissen lebt in **`bexly_os/brand/brand_core.md`** — in normaler
@@ -64,7 +80,8 @@ die KI und alle Module ziehen die Änderung automatisch.
 
 - [x] **Brand Core** — Marken-Bibel als zentrale Wahrheit
 - [x] **Bexly-KI** — Engine mit Markenwissen & Gedächtnis
-- [x] **Social (Beispiel)** — Captions/Content-Ideen
+- [x] **Social** — Captions/Content-Ideen
+- [x] **Research** — Web-Recherche via Firecrawl (Trends, Referenzen)
 - [ ] **Web** — Landingpage & Website-Texte
 - [ ] **Quests** — Gamification-/Aufgaben-System
 - [ ] Optional: Web-Dashboard als zentrale Steuerzentrale
