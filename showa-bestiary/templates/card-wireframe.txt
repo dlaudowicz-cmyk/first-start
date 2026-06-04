@@ -1,0 +1,24 @@
+SHOWA BESTIARY — TRADING CARD WIREFRAME
+Size 63x88mm (standard TCG), corners r=3mm, bleed 2mm.
+
+FRONT                                   BACK (shared)
++-----------------------------+         +-----------------------------+
+| JP-Y001  [極秘]      ◎妖怪  |         |                             |
+| +-------------------------+ |         |        ◎  特殊生物調査局     |
+| |                         | |         |     SPECIAL ORGANISM        |
+| |    CREATURE PORTRAIT    | |         |     INVESTIGATION BUREAU    |
+| |   front-facing, signature| |        |                             |
+| |   color, open mouth      | |        |   +---------------------+   |
+| |                   [骨格] | |         |   | SHOWA BESTIARY 図鑑 |   |
+| +-------------------------+ |         |   |  monogram pattern   |   |
+|   九  尾  狐                |         |   +---------------------+   |
+|   KYUBI NO KITSUNE          |         |                             |
+| +----+----+----+  THREAT    |         |   極秘資料 · 昭和49 · 1974  |
+| |力 4|速 5|知 5| ★★★★★      |         |                             |
+| +----+----+----+  CLASS 極秘|         +-----------------------------+
+| HABITAT 山地・神社          |
+| "field note flavor text..." |         RARITY -> FINISH
+| No.___/500   昭和49年   ◎   |         common=matte  uncommon=spot-gloss
++-----------------------------+         rare=foil      legendary=foil+emboss+serial
+
+All fields from catalog/creatures.json. Portrait = poster art recomposed to card ratio.

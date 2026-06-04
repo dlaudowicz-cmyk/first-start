@@ -1,0 +1,37 @@
+SHOWA BESTIARY — POSTER WIREFRAME (A-series portrait, master @ A2/300dpi)
+Grid: 12 cols x 16 rows.  Bleed 3mm, safe margin 8mm.
+
++==========================================================================+
+| [極秘]   動物大図鑑 · THE GREAT BESTIARY OF EARTH        JP-B002  (◎seal) |  Row 1  HEADER
++--------+-------------------------------------------------+---------------+
+| ICON 1 |                                                 |  FIG.1 · 骨格 |
+| 力 STR |                                                 | +-----------+ |
+| ▮▮▮▮▯  |              M A I N   S U B J E C T             | |  skeleton | |  Rows 2-5
++--------+                                                 | |  diagram  | |
+| ICON 2 |        front-facing creature portrait           | +-----------+ |
+| 速 SPD |        aggressive · direct eye contact          +---------------+
+| ▮▮▮▮▮  |        large open mouth                          |               |
++--------+        dominates 80-90% of the field            |               |  Rows 6-11
+| ICON 3 |        single signature color                   |               |
+| 知 INT |        heavy screenprint + halftone +            |               |
+| ▮▮▮▯▯  |        misregistration + ink bleed               |               |
++--------+-------------------------------------------------+---------------+
+|                                                                          |
+|                  大                                  大                    |  Rows 12-14
+|                       虎   神                                              |  KANJI TITLE
+|                  ( oversized cream brush kanji )                          |  (bottom third)
+|                       K O S H I N  ·  TIGER                               |
++==========================================================================+
+| ID JP-B002 · CLASS 機密 · THREAT ★★★★☆ · HABITAT 山岳/密林 · COL.01      |  Row 15  META
+| [受理 No.____ ]  warning: do not provoke / 警告：刺激しないでください      |  Row 16  FOOTER
++==========================================================================+
+
+LEGEND
+  [極秘]  classification stamp (Zone A)        FIG.1   skeleton panel (Zone D)
+  ICON n  attribute panel x3 (Zone C)          META    metadata strip (Zone F)
+  ▮▮▮▯▯   attribute value bar (0-5)            (◎seal) agency seal
+  大 ..   oversized cream brush kanji (Zone E)
+
+All text/values pull from catalog/creatures.json. Only 7 elements change per creature:
+portrait, signature color, skeleton, 3 icons+values, kanji+names, ID/class/threat/habitat,
+collection mark.

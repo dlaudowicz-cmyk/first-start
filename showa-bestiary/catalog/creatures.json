@@ -1,0 +1,256 @@
+{
+  "$schema": "./SCHEMA.md",
+  "meta": {
+    "brand": "SHOWA BESTIARY",
+    "title": "The Great Japanese Bestiary",
+    "bureau": "特殊生物調査局 / Special Organism Investigation Bureau",
+    "archive_year": "昭和49年 / Shōwa 49 / 1974",
+    "version": "1.0.0",
+    "note": "Single source of truth. All products (posters, cards, artbook, store) read from this file.",
+    "threat_scale": ["無害/HARMLESS", "要注意/CAUTION", "危険/DANGEROUS", "高危険/SEVERE", "災害級/CATASTROPHIC"],
+    "classification_levels": ["公開/OPEN", "部外秘/RESTRICTED", "機密/CONFIDENTIAL", "極秘/TOP-SECRET"],
+    "attribute_keys": ["power", "speed", "intellect", "venom", "stealth", "fire", "wisdom", "flight"]
+  },
+  "collections": [
+    {
+      "id": "01",
+      "name_en": "Beasts",
+      "name_jp": "猛獣シリーズ",
+      "title_jp": "動物大図鑑",
+      "title_en": "The Great Bestiary of Earth",
+      "mark_glyph": "獣"
+    },
+    {
+      "id": "02",
+      "name_en": "Spirits of Japan",
+      "name_jp": "日本の神獣",
+      "title_jp": "日本の神獣図鑑",
+      "title_en": "Spirits of Japan",
+      "mark_glyph": "神"
+    },
+    {
+      "id": "03",
+      "name_en": "Yokai",
+      "name_jp": "妖怪図鑑",
+      "title_jp": "妖怪大図鑑",
+      "title_en": "Yokai Bestiary",
+      "mark_glyph": "妖"
+    }
+  ],
+  "creatures": [
+    {
+      "id": "JP-B001", "collection": "01", "name_en": "Panda", "kanji": "熊猫", "reading": "yūmyō",
+      "classification": "公開", "threat": 2, "rarity": "common", "color": "#3A3A3A",
+      "habitat": "竹林・山地 / bamboo forest, highlands",
+      "attributes": { "power": 4, "speed": 2, "intellect": 3 },
+      "flavor": "Docile in record, devastating in defense. Do not approach the young."
+    },
+    {
+      "id": "JP-B002", "collection": "01", "name_en": "Tiger", "kanji": "虎神", "reading": "koshin",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#D9772B",
+      "habitat": "密林・山岳 / jungle, mountains",
+      "attributes": { "power": 5, "speed": 4, "stealth": 4 },
+      "flavor": "The Tiger God. Strikes once. No second sighting on record."
+    },
+    {
+      "id": "JP-B003", "collection": "01", "name_en": "Wolf", "kanji": "狼神", "reading": "rōshin",
+      "classification": "部外秘", "threat": 3, "rarity": "uncommon", "color": "#2E3A66",
+      "habitat": "森林・雪原 / forest, snowfield",
+      "attributes": { "power": 3, "speed": 5, "intellect": 4 },
+      "flavor": "Never alone. The pack is the weapon."
+    },
+    {
+      "id": "JP-B004", "collection": "01", "name_en": "Gorilla", "kanji": "山王", "reading": "sannō",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#3C4042",
+      "habitat": "山林 / mountain forest",
+      "attributes": { "power": 5, "intellect": 4, "speed": 2 },
+      "flavor": "The Mountain King. Patient. Then it is not."
+    },
+    {
+      "id": "JP-B005", "collection": "01", "name_en": "Orca", "kanji": "海神", "reading": "kaijin",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#1F6B6B",
+      "habitat": "外洋 / open ocean",
+      "attributes": { "power": 5, "speed": 4, "intellect": 5 },
+      "flavor": "The Sea God. Coordinated. Merciless. Leaves nothing."
+    },
+    {
+      "id": "JP-B006", "collection": "01", "name_en": "Rhinoceros", "kanji": "陸神", "reading": "rikujin",
+      "classification": "部外秘", "threat": 3, "rarity": "uncommon", "color": "#7A5C2E",
+      "habitat": "草原 / savanna, plains",
+      "attributes": { "power": 5, "speed": 3, "stealth": 1 },
+      "flavor": "The Land God. A wall that charges."
+    },
+    {
+      "id": "JP-B007", "collection": "01", "name_en": "King Cobra", "kanji": "蛇神", "reading": "jashin",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#1E6B4F",
+      "habitat": "密林・河辺 / jungle, riverbank",
+      "attributes": { "venom": 5, "speed": 3, "stealth": 4 },
+      "flavor": "The Serpent God. One bite ends the report."
+    },
+    {
+      "id": "JP-B008", "collection": "01", "name_en": "Snow Leopard", "kanji": "雪豹", "reading": "yukihyō",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#6E7B85",
+      "habitat": "高山・雪嶺 / alpine, snow peaks",
+      "attributes": { "stealth": 5, "speed": 4, "power": 3 },
+      "flavor": "Ghost of the ridge. Seen only when it chooses."
+    },
+    {
+      "id": "JP-B009", "collection": "01", "name_en": "Polar Bear", "kanji": "白熊", "reading": "shirokuma",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#5B7C8C",
+      "habitat": "氷原 / ice field, arctic",
+      "attributes": { "power": 5, "stealth": 3, "speed": 3 },
+      "flavor": "White against white. Apex of the cold."
+    },
+    {
+      "id": "JP-B010", "collection": "01", "name_en": "Eagle", "kanji": "天空王", "reading": "tenkūō",
+      "classification": "部外秘", "threat": 3, "rarity": "uncommon", "color": "#B6862C",
+      "habitat": "山岳・断崖 / mountains, cliffs",
+      "attributes": { "flight": 5, "speed": 5, "power": 3 },
+      "flavor": "The Sky King. Sees you long before you see it."
+    },
+
+    {
+      "id": "JP-S001", "collection": "02", "name_en": "Kitsune", "kanji": "狐王", "reading": "kō-ō",
+      "classification": "機密", "threat": 3, "rarity": "rare", "color": "#9E2B25",
+      "habitat": "里山・神社 / countryside, shrines",
+      "attributes": { "intellect": 5, "stealth": 4, "wisdom": 4 },
+      "flavor": "The Fox King. Trusts nothing it cannot deceive."
+    },
+    {
+      "id": "JP-S002", "collection": "02", "name_en": "Karasu", "kanji": "烏王", "reading": "u-ō",
+      "classification": "部外秘", "threat": 3, "rarity": "uncommon", "color": "#1E2A33",
+      "habitat": "都市・森林 / cities, forest",
+      "attributes": { "intellect": 5, "flight": 4, "stealth": 3 },
+      "flavor": "The Crow King. It remembers faces. It remembers debts."
+    },
+    {
+      "id": "JP-S003", "collection": "02", "name_en": "Tanuki", "kanji": "狸神", "reading": "rishin",
+      "classification": "公開", "threat": 2, "rarity": "common", "color": "#6B4A2E",
+      "habitat": "里山・森 / hills, woods",
+      "attributes": { "intellect": 4, "stealth": 4, "wisdom": 3 },
+      "flavor": "The Tanuki God. Shapeshifter. Trickster. Underestimated."
+    },
+    {
+      "id": "JP-S004", "collection": "02", "name_en": "Crane", "kanji": "天鶴", "reading": "tenkaku",
+      "classification": "公開", "threat": 1, "rarity": "common", "color": "#B23A48",
+      "habitat": "湿地・河川 / wetlands, rivers",
+      "attributes": { "flight": 4, "wisdom": 5, "speed": 3 },
+      "flavor": "Heaven's Crane. A thousand years in a single gaze."
+    },
+    {
+      "id": "JP-S005", "collection": "02", "name_en": "Sacred Deer", "kanji": "神鹿", "reading": "shinroku",
+      "classification": "部外秘", "threat": 2, "rarity": "uncommon", "color": "#4E6B3A",
+      "habitat": "神域・森林 / sacred groves, forest",
+      "attributes": { "wisdom": 5, "speed": 4, "stealth": 3 },
+      "flavor": "Messenger of the gods. To harm it is to be marked."
+    },
+    {
+      "id": "JP-S006", "collection": "02", "name_en": "Japanese Macaque", "kanji": "山王", "reading": "sannō",
+      "classification": "公開", "threat": 2, "rarity": "common", "color": "#A8552E",
+      "habitat": "山地・温泉 / mountains, hot springs",
+      "attributes": { "intellect": 5, "speed": 3, "wisdom": 3 },
+      "flavor": "Mountain King of the snow valleys. Watches the watchers.",
+      "notes": "Shares kanji 山王 with JP-B004 Gorilla (canon duplicate). Alternate title if needed: 嶺王 (reiō)."
+    },
+    {
+      "id": "JP-S007", "collection": "02", "name_en": "Owl", "kanji": "夜王", "reading": "ya-ō",
+      "classification": "機密", "threat": 3, "rarity": "rare", "color": "#4B3A66",
+      "habitat": "深林・夜 / deep forest, night",
+      "attributes": { "stealth": 5, "wisdom": 5, "flight": 4 },
+      "flavor": "The Night King. Silent wings. You never hear the end."
+    },
+    {
+      "id": "JP-S008", "collection": "02", "name_en": "Mountain Bear", "kanji": "山神", "reading": "yamagami",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#5A3A28",
+      "habitat": "深山 / deep mountains",
+      "attributes": { "power": 5, "intellect": 3, "stealth": 3 },
+      "flavor": "The Mountain God (higuma). The forest belongs to it."
+    },
+    {
+      "id": "JP-S009", "collection": "02", "name_en": "Japanese Wolf", "kanji": "狼神", "reading": "rōshin",
+      "classification": "機密", "threat": 4, "rarity": "legendary", "color": "#3A4A55",
+      "habitat": "山林 / mountain forest (extinct?)",
+      "attributes": { "speed": 5, "intellect": 4, "stealth": 4 },
+      "flavor": "The Wolf God of Japan. Declared lost. The archive disagrees.",
+      "notes": "Shares kanji 狼神 with JP-B003 Wolf (canon duplicate). ID disambiguates."
+    },
+    {
+      "id": "JP-S010", "collection": "02", "name_en": "Dragon Koi", "kanji": "龍鯉", "reading": "ryūri",
+      "classification": "機密", "threat": 3, "rarity": "rare", "color": "#C0392B",
+      "habitat": "滝・河川 / waterfalls, rivers",
+      "attributes": { "wisdom": 5, "power": 4, "speed": 3 },
+      "flavor": "The carp that climbed the falls and became dragon."
+    },
+
+    {
+      "id": "JP-Y001", "collection": "03", "name_en": "Kyūbi no Kitsune", "kanji": "九尾狐", "reading": "kyūbi-gitsune",
+      "classification": "極秘", "threat": 5, "rarity": "legendary", "color": "#B8472A",
+      "habitat": "山地・神社 / mountains, shrines",
+      "attributes": { "fire": 5, "intellect": 5, "wisdom": 5 },
+      "flavor": "Nine tails. Nine ages of cunning. CATASTROPHIC. Do not bargain."
+    },
+    {
+      "id": "JP-Y002", "collection": "03", "name_en": "Tengu", "kanji": "天狗", "reading": "tengu",
+      "classification": "極秘", "threat": 4, "rarity": "rare", "color": "#B0392B",
+      "habitat": "山岳・古社 / high mountains, old shrines",
+      "attributes": { "flight": 5, "intellect": 4, "power": 4 },
+      "flavor": "Master of the mountain wind. Pride is its only weakness."
+    },
+    {
+      "id": "JP-Y003", "collection": "03", "name_en": "Oni", "kanji": "鬼神", "reading": "kishin",
+      "classification": "極秘", "threat": 5, "rarity": "legendary", "color": "#A82B22",
+      "habitat": "地獄・山中 / hells, mountains",
+      "attributes": { "power": 5, "fire": 4, "intellect": 2 },
+      "flavor": "The Demon God. The club falls once. SEVERE to CATASTROPHIC."
+    },
+    {
+      "id": "JP-Y004", "collection": "03", "name_en": "Kappa", "kanji": "河童", "reading": "kappa",
+      "classification": "機密", "threat": 3, "rarity": "uncommon", "color": "#3E7A55",
+      "habitat": "川・沼 / rivers, marshes",
+      "attributes": { "stealth": 4, "intellect": 3, "speed": 4 },
+      "flavor": "The river-child. Keep the dish on its head dry, and you may live."
+    },
+    {
+      "id": "JP-Y005", "collection": "03", "name_en": "Orochi", "kanji": "大蛇", "reading": "orochi",
+      "classification": "極秘", "threat": 5, "rarity": "legendary", "color": "#2E6B4A",
+      "habitat": "山谷・河川 / valleys, great rivers",
+      "attributes": { "power": 5, "venom": 5, "fire": 3 },
+      "flavor": "Eight heads. Eight valleys. The great serpent. CATASTROPHIC."
+    },
+    {
+      "id": "JP-Y006", "collection": "03", "name_en": "Nue", "kanji": "鵺", "reading": "nue",
+      "classification": "極秘", "threat": 4, "rarity": "rare", "color": "#5A3A4A",
+      "habitat": "夜空・宮中 / night sky, palaces",
+      "attributes": { "stealth": 5, "intellect": 4, "flight": 3 },
+      "flavor": "A chimera of nightmare. Brings fever and dread on the wind."
+    },
+    {
+      "id": "JP-Y007", "collection": "03", "name_en": "Kamaitachi", "kanji": "鎌鼬", "reading": "kamaitachi",
+      "classification": "機密", "threat": 3, "rarity": "rare", "color": "#6B5A2E",
+      "habitat": "旋風・峠 / whirlwinds, passes",
+      "attributes": { "speed": 5, "stealth": 4, "power": 3 },
+      "flavor": "The sickle-weasel of the gale. The cut comes before the wound."
+    },
+    {
+      "id": "JP-Y008", "collection": "03", "name_en": "Karasu Tengu", "kanji": "烏天狗", "reading": "karasu-tengu",
+      "classification": "極秘", "threat": 4, "rarity": "rare", "color": "#2A2E38",
+      "habitat": "深山・古杉 / deep mountains, ancient cedars",
+      "attributes": { "flight": 5, "speed": 4, "intellect": 4 },
+      "flavor": "The crow tengu. Swordsman of the peaks. Teaches, then takes."
+    },
+    {
+      "id": "JP-Y009", "collection": "03", "name_en": "Nekomata", "kanji": "猫又", "reading": "nekomata",
+      "classification": "機密", "threat": 4, "rarity": "rare", "color": "#7A2E3A",
+      "habitat": "古家・山中 / old houses, mountains",
+      "attributes": { "stealth": 5, "intellect": 4, "fire": 3 },
+      "flavor": "The forked-tail cat. It remembers every cruelty. It collects them."
+    },
+    {
+      "id": "JP-Y010", "collection": "03", "name_en": "White Serpent", "kanji": "白蛇神", "reading": "hakujashin",
+      "classification": "極秘", "threat": 4, "rarity": "legendary", "color": "#C9C2B0",
+      "habitat": "神域・水辺 / sacred sites, waters",
+      "attributes": { "wisdom": 5, "venom": 4, "intellect": 4 },
+      "flavor": "The White Serpent God. Fortune to the faithful. Ruin to the rest."
+    }
+  ]
+}
