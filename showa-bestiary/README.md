@@ -42,6 +42,9 @@ This repository contains the complete foundational brand & IP system.
 | Card / store data schema | [catalog/SCHEMA.md](catalog/SCHEMA.md) |
 | Poster layout spec (ASCII wireframe) | [templates/poster-wireframe.txt](templates/poster-wireframe.txt) |
 | Trading card layout spec (ASCII wireframe) | [templates/card-wireframe.txt](templates/card-wireframe.txt) |
+| AI image prompt pack (30 creatures) | [production/prompt-pack.md](production/prompt-pack.md) |
+| Etsy listing pack (ready to paste) | [marketing/etsy-listings.md](marketing/etsy-listings.md) |
+| Sample generated artwork | [samples/README.md](samples/README.md) |
 
 ---
 
