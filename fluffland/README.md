@@ -12,6 +12,10 @@ Dieses Verzeichnis enthält die ersten entwickelten Kurzepisoden für **FLUFFLAN
 
 > FLUFFLAND erzählt kleine, weiche Gefühlsabenteuer von Kuscheltieren, die nachts in einer Traumwelt lebendig werden — immer niedlich, ruhig, warm und einfach genug für sehr kleine Kinder.
 
+## Referenzen
+
+- [Figuren & Größenhierarchie](figuren-groessenhierarchie.md) – Proportionen der Crew und was sie für die Inszenierung bedeuten.
+
 ## Episodenstruktur (jede Folge)
 
 1. **Ankommen** – Die Figuren treffen sich in Fluffland.
