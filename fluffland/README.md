@@ -14,8 +14,9 @@ Dieses Verzeichnis enthält die ersten entwickelten Kurzepisoden für **FLUFFLAN
 
 ## Referenzen
 
-- [Visueller Stilguide](stilguide.md) – verbindlicher 2D-Look (weiche Konturen, Soft-Shadow, Pastell) inkl. Key-Visuals.
-- [Figuren & Größenhierarchie](figuren-groessenhierarchie.md) – Proportionen der Crew und was sie für die Inszenierung bedeuten.
+- **[Series Bible v1.0](SERIES-BIBLE.md) – maßgebliche Quelle (single source of truth).** Kein Charakter, keine Umgebung und kein Story-Element darf ihr widersprechen.
+- [Figuren & Größenhierarchie](figuren-groessenhierarchie.md) – Proportionen der Crew (untergeordnet zur Series Bible).
+- [Visueller Stilguide](stilguide.md) – Render-/Produktions-Notizen (untergeordnet zur Series Bible).
 
 ## Episodenstruktur (jede Folge)
 
