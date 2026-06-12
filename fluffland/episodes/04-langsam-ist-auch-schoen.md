@@ -5,6 +5,8 @@
 **Ort:** Zuckerwatte-See
 **Emotionales Thema:** Ich darf langsam sein. / Langsamkeit ist ein Geschenk.
 
+**Key-Visual:** [Manny & Risto am Zuckerwatte-See](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111430_276a451d-aef2-4e27-a7e3-66b45dd29d45.png) · 2D-Stil, 2K/16:9 (siehe [Stilguide](../stilguide.md))
+
 ---
 
 ## Mini-Plot (6 Beats)

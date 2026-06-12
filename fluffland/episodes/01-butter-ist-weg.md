@@ -5,6 +5,8 @@
 **Ort:** Fluff-Café
 **Emotionales Thema:** Ich will dich nicht verlieren.
 
+**Key-Visual:** [Crossi & Butter im Fluff-Café](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111119_ae2b2e13-ca2b-4484-a128-66262ac36ea4.png) · 2D-Stil, 2K/16:9 (siehe [Stilguide](../stilguide.md))
+
 ---
 
 ## Mini-Plot (6 Beats)

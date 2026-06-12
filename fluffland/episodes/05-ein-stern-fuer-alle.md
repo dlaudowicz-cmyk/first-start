@@ -5,6 +5,8 @@
 **Ort:** Sternengarten
 **Emotionales Thema:** Ich gehöre dazu. / Manchmal braucht ein Wunsch ein bisschen Zeit.
 
+**Key-Visual:** [Mini-Fluffs & Lunelle im Sternengarten](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111438_52872199-7e06-4533-9fe4-8198c90fe985.png) · 2D-Stil, 2K/16:9 (siehe [Stilguide](../stilguide.md))
+
 ---
 
 ## Mini-Plot (7 Beats)

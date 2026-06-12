@@ -5,6 +5,8 @@
 **Ort:** Kuschelwald
 **Emotionales Thema:** Ich passe auf dich auf. / Du warst die ganze Zeit ganz nah.
 
+**Key-Visual:** [Nana mit Clip & Clap im Kuschelwald](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111434_4822f299-3b59-41ca-bb34-552e85914826.png) · 2D-Stil, 2K/16:9 (siehe [Stilguide](../stilguide.md))
+
 ---
 
 ## Mini-Plot (7 Beats)

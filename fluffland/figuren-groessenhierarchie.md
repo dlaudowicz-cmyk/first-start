@@ -4,6 +4,8 @@
 
 *Unsere Freunde in ihren natürlichen Proportionen.*
 
+**Crew-Lineup (2D-Stil):** [Alle Figuren nach Größenhierarchie](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111620_bfcbe859-9e16-46b0-b6b7-4cd5c0ae7b5b.png) · 2K/16:9 (siehe [Stilguide](stilguide.md))
+
 ## Größenhierarchie (von groß nach klein)
 
 | Stufe | Figur(en) | Kurzbeschreibung |

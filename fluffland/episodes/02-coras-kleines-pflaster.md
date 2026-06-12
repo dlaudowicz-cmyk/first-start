@@ -5,6 +5,8 @@
 **Ort:** Fluff-Treffpunkt
 **Emotionales Thema:** Ich brauche Trost. / Wehwehchen heilen wieder.
 
+**Key-Visual:** [Cora tröstet einen Mini-Fluff](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111425_93843609-b4d9-4ef8-bda2-790dc44a94c4.png) · 2D-Stil, 2K/16:9 (siehe [Stilguide](../stilguide.md))
+
 ---
 
 ## Mini-Plot (6 Beats)

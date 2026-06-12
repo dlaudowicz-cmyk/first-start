@@ -14,6 +14,7 @@ Dieses Verzeichnis enthält die ersten entwickelten Kurzepisoden für **FLUFFLAN
 
 ## Referenzen
 
+- [Visueller Stilguide](stilguide.md) – verbindlicher 2D-Look (weiche Konturen, Soft-Shadow, Pastell) inkl. Key-Visuals.
 - [Figuren & Größenhierarchie](figuren-groessenhierarchie.md) – Proportionen der Crew und was sie für die Inszenierung bedeuten.
 
 ## Episodenstruktur (jede Folge)
