@@ -1,91 +1,74 @@
-# FLUFFLAND – Visueller Stilguide
+# FLUFFLAND – Produktions-Stilguide (Render-Pipeline)
 
-> **Streng vertraulich.** Verbindliche Vorgabe für alle Bilder, Episoden und Assets.
+> **Untergeordnet zur [Series Bible v1.0](SERIES-BIBLE.md).** Bei Widersprüchen gilt
+> immer die Series Bible. Dieser Guide beschreibt nur, *wie* wir die Bilder erzeugen.
 
-Dieser Stilguide definiert den festgelegten Look von FLUFFLAND. Alle Concept-Visuals,
-Episodenbilder und späteren Animationen folgen diesen Regeln.
+## Render-Pipeline
 
-## Grundhaltung
+- **Plattform:** Higgsfield (`generate_image`)
+- **Modell:** **Seedream 4.5** (`seedream_v4_5`)
+- **Auflösung:** **erst 2K** (`quality: basic`) zum Iterieren → **4K final** (`quality: high`)
+- **Seitenverhältnis:** `16:9` für Szenen/Key-Visuals · `1:1` für Charakter-Karten
+- **Figurentreue:** immer über **Reference Elements** (`<<<element_id>>>` im Prompt) —
+  damit die Figuren exakt den Original-Häkel-/Amigurumi-Kuscheltieren entsprechen.
 
-FLUFFLAND ist **kein** fotorealistischer 3D-Plüsch-Look, sondern eine **flache,
-reduzierte 2D-Cartoon-Welt** im Bilderbuch-/Storybook-Stil – warm, weich, ruhig und
-für sehr kleine Kinder (2–6) angenehm lesbar.
+## Figuren-Registry (NUR diese Elements verwenden)
 
-## Look (Kern)
+| Figur | Element-ID |
+|------|-----------|
+| Crossi (+ Butter) | `4485356f-8698-439f-b078-f2acf90d74d7` |
+| Zeddy | `e8ba46fb-d1b0-4149-8b38-954246b37731` |
+| Risto | `d1c8c996-10f4-4ffb-8a44-9bc330273543` |
+| Manny | `c2fcef57-3ea9-48bb-81a5-f0773f806056` |
+| Cora | `66df984f-ce71-4b33-a7a8-56abdf6a080f` |
+| Nana (+ Clip & Clap) | `62970da1-b9e0-4989-a19e-eb4e99a6482a` |
+| Lunelle | `9d05e09a-7904-4878-917c-d4f01c721a82` |
+| Mini-Fluffs | `d0389b51-0d44-41fd-9d4b-73fcc506b819` |
 
-- **2D-Flat-Illustration**, Storybook-/Preschool-Animationsstil
-- **Weiche Konturlinien** um die Figuren (sanft, dunkel, nicht hart/technisch)
-- **Leichter Soft-Shadow** unter den Figuren für sanfte Tiefe (dezent, nie hart)
-- **Kräftige Pastellfarben** – satt, aber weiterhin weich und milchig-warm
-- **Flaches, sanftes Shading** statt realistischem Volumen-Rendering
-- Klare, einfache, runde Formen
-- Weite, ruhige Bildkomposition (cinematic, 16:9)
+> Alle anderen Elements in der Bibliothek (Willowbrook, Cal, Jet, Gussok … ) gehören zu
+> **anderen Projekten** und werden für FLUFFLAND **nie** verwendet.
 
-## Figuren-DNA (für jede Figur gleich)
+## Material & Welt
 
-- kleine **schwarze Knopfaugen**, eng beieinander
-- **matte Augen** – keine Glanzpunkte/Glossy-Highlights
-- **runde Silhouetten**, keine harten Kanten
-- einfache, klar lesbare Emotionen
-- keine realistischen Tiergesichter, keine zu komplexe Mimik
-- Materialien (Plüsch, Filz, Wolle, Garn) nur **angedeutet** und **flach** gehalten
+- **Figuren:** gehäkelte/gestrickte Amigurumi-Plüsch-Optik (exakt wie Referenz).
+- **Welt:** weiche **Wattewelt** in Pastell — Wolken, Boden, Deko aus Plüsch/Filz/Wolle/Watte.
+- Keine harten Materialien (kein Metall/Glas/Beton/Maschinen).
 
-## Farbpalette (Pastell, kräftig)
+## Farb-Direktion (Hybrid-Entscheidung)
 
-| Rolle | Ton |
-|-------|-----|
-| Basis warm | Creme / weiches Vanille |
-| Akzent 1 | Pfirsich |
-| Akzent 2 | Candy-Pink / zartes Rosa |
-| Akzent 3 | Buttergelb |
-| Himmel/Traum | weiches Lavendel / Pastellblau |
+Basis = **Bible-Palette** (cream, cloud white, peach, lavender, pastel pink, baby blue,
+butter yellow; Akzente mint/soft gold/coral) — **plus FLUFFLAND-Signatur:**
 
-Töne dürfen **satt** sein, aber nie grell, neon oder kalt.
+- **Wasser** = Zuckerwatte-**Rosa mit Glitzer** (kein Blau)
+- **Rasen/Wiese** = **rosa** Fluff-Gras
+- **Baby blue & mint** nur **sparsam als Akzent**
+- **Kompositions-Richtwert (optional):** ~70 % Weiß/Creme · ~30 % Rosa · ~10 % Lila/Akzent
+- Himmel: Sonnenauf-/untergang oder magisches Twilight (nie Sturm/Dunkelheit)
 
-## Do
+## Canon-Reminder für Renders (aus der Series Bible)
 
-- weiche Konturen, leichter Soft-Shadow, kräftige Pastelltöne
-- runde, kuschelige, handgemacht wirkende Formen
-- warmes, ruhiges, geborgenes Licht (z. B. weicher Sonnenstrahl)
-- viel Luft im Bild, klare Hauptfigur
+- **Crossi:** keine Beine/Füße · Butter fast immer oben drauf
+- **Butter:** kleinste Figur (#9) · keine Beine · winzige Arme
+- **Risto:** Affen-**Handpuppe** · keine Beine/kein Unterkörper · Puppenbewegung
+- **Nana:** **integrierter Bauch-Reißverschluss** (kein Beutel!) · Clip & Clap reisen *in ihr*
+- **Mini-Fluffs:** keine Arme/Beine · rund · Vielfalt über Farbe/Frisur-Flausch/Accessoires
+- **Manny:** Hawaiihemd · steht nie wie ein Mensch
+- **Zeddy:** größte Figur · sichtbare Flicken
+- Alle: kleine schwarze Knopfaugen eng beieinander · matt · runde Silhouette · als schwarze Silhouette erkennbar
 
-## Don't
+## Wiederverwendbarer Prompt-Baustein
 
-- kein 3D-Plüsch-Rendering, keine Fotorealistik
-- keine Glanzpunkte / glänzenden Reflexe in den Augen
-- keine harten Kanten, kein Metall, keine Maschinenästhetik
-- keine grellen/neonfarbenen oder kalten Farben
-- keine Dunkelheit/Bedrohung, keine hektische Komposition
+> *`<<<ELEMENT_ID>>>` [Name] … [Szene/Pose]. Keep the character exactly as in the
+> reference: crocheted amigurumi plush, same shape, colors and texture. FLUFFLAND
+> cotton-wool world in pastel tones; water = glittering pink, grass = pink fluff,
+> baby-blue only as a sparing accent. Soft cinematic warm lighting, gentle bokeh,
+> dreamy plush tactile mood. [16:9 scene / 1:1 character card].*
 
-## Technische Defaults (Generierung)
+## Key-Visuals (aktueller Stand)
 
-- **Modell:** Recraft 4.1 (`recraft-v4-1`), `model_type: standard`
-- **Auflösung:** `2k`
-- **Seitenverhältnis:** `16:9` (Episoden-/Key-Visuals)
-- **Plattform:** Higgsfield MCP (`generate_image`)
+- **Charakter-Karten (grauer Hintergrund, 1:1):** 8 Figuren erstellt — referenztreu.
+- **Szenen-Key-Visuals (16:9):** Crew + 5 Episoden erstellt.
+- ⚠️ **Offen:** **Nana** muss mit korrektem **Bauch-Reißverschluss** (statt Nest/Beutel) neu gerendert werden.
 
-### Prompt-Baustein (wiederverwendbar)
-
-> *Flat 2D children's cartoon illustration, FLUFFLAND preschool storybook style with
-> soft gentle outlines and light soft drop shadows for gentle depth, rich and vivid
-> pastel color palette (saturated but still soft). [SZENE]. All characters have tiny
-> black button eyes set close together, matte eyes with no glossy highlights, round
-> soft silhouettes, soft dark outlines, no hard edges. Clean simple shapes, gentle
-> soft shadows, storybook 2D animation look, hand-drawn warm friendly mood, no
-> photorealism, no 3D plush rendering, no glossy reflections, calm dreamy atmosphere.
-> Wide cinematic composition.*
-
-## Key-Visuals (Referenzbilder)
-
-**Crew-Lineup (Title-Visual):** [Alle Figuren nach Größenhierarchie](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111620_bfcbe859-9e16-46b0-b6b7-4cd5c0ae7b5b.png) · 2D-Stil, 2K/16:9
-
-| Episode | Szene | Bild |
-|---------|-------|------|
-| 01 Butter ist weg | Crossi & Butter, Fluff-Café, Sonnenstrahl | [PNG](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111119_ae2b2e13-ca2b-4484-a128-66262ac36ea4.png) |
-| 02 Coras kleines Pflaster | Cora tröstet Mini-Fluff, Fluff-Treffpunkt | [PNG](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111425_93843609-b4d9-4ef8-bda2-790dc44a94c4.png) |
-| 03 Wo seid ihr, Clip und Clap? | Nana mit Clip & Clap, Kuschelwald | [PNG](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111434_4822f299-3b59-41ca-bb34-552e85914826.png) |
-| 04 Langsam ist auch schön | Manny & Risto, Zuckerwatte-See | [PNG](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111430_276a451d-aef2-4e27-a7e3-66b45dd29d45.png) |
-| 05 Ein Stern für alle | Mini-Fluffs & Lunelle, Sternengarten | [PNG](https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/hf_20260612_111438_52872199-7e06-4533-9fe4-8198c90fe985.png) |
-
-> Hinweis: Die Bild-URLs verweisen auf den Higgsfield-/CloudFront-Speicher und können
-> ablaufen. Für dauerhafte Ablage die PNGs herunterladen und im Repo sichern.
+> Hinweis: Bild-URLs liegen auf Higgsfield-CDN und können ablaufen. Für dauerhafte
+> Ablage PNGs herunterladen und unter `fluffland/visuals/` sichern (Host-Allowlist nötig).
