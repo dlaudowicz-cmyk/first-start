@@ -12,6 +12,10 @@ Dieses Verzeichnis enthält die ersten entwickelten Kurzepisoden für **FLUFFLAN
 
 > FLUFFLAND erzählt kleine, weiche Gefühlsabenteuer von Kuscheltieren, die nachts in einer Traumwelt lebendig werden — immer niedlich, ruhig, warm und einfach genug für sehr kleine Kinder.
 
+## Spiele
+
+- [Fluff-Zug](game/) – sanftes Snake-Spiel (Crossi führt einen Mini-Fluff-Zug, sammelt Stoff-Sterne; kein Gewinnen/Verlieren). `game/index.html` im Browser öffnen.
+
 ## Referenzen
 
 - **[Series Bible v1.0](SERIES-BIBLE.md) – maßgebliche Quelle (single source of truth).** Kein Charakter, keine Umgebung und kein Story-Element darf ihr widersprechen.

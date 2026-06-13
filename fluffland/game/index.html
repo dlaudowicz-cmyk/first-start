@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>FLUFFLAND – Fluff-Zug</title>
+<style>
+  :root {
+    --cream: #FFF6FB;
+    --pink: #F7B7CE;
+    --lilac: #C9B6F2;
+    --gold: #FFD66B;
+    --ink: #6b5b73;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; height: 100%;
+    font-family: "Nunito", "Quicksand", system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at 50% 18%, #FFFDFE 0%, #FDEFF6 45%, #F1E6FB 100%);
+    color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    user-select: none; touch-action: none;
+  }
+  h1 {
+    font-size: clamp(20px, 5vw, 30px); margin: 10px 0 2px;
+    letter-spacing: .5px; font-weight: 800;
+  }
+  h1 .heart { color: var(--pink); }
+  .count {
+    font-size: clamp(15px, 4vw, 19px); font-weight: 700; margin: 0 0 8px;
+    background: #fff; padding: 5px 16px; border-radius: 999px;
+    box-shadow: 0 3px 0 #f0dcec; }
+  .count b { color: #d76aa0; }
+  #wrap { position: relative; width: min(94vw, 660px); }
+  canvas {
+    width: 100%; height: auto; display: block;
+    border-radius: 26px;
+    box-shadow: 0 14px 34px rgba(180,150,200,.35), inset 0 0 0 6px #ffffff;
+    background: #FBF0F8;
+  }
+  .pad {
+    margin-top: 12px;
+    display: grid; grid-template-columns: repeat(3, 64px); grid-template-rows: repeat(2, 64px);
+    gap: 8px; justify-content: center;
+  }
+  .pad button {
+    border: none; border-radius: 20px; font-size: 26px; cursor: pointer;
+    background: #fff; color: #b07fc9; box-shadow: 0 4px 0 #e7d6ef; transition: transform .05s;
+  }
+  .pad button:active { transform: translateY(3px); box-shadow: 0 1px 0 #e7d6ef; }
+  .pad .up    { grid-column: 2; grid-row: 1; }
+  .pad .left  { grid-column: 1; grid-row: 2; }
+  .pad .down  { grid-column: 2; grid-row: 2; }
+  .pad .right { grid-column: 3; grid-row: 2; }
+  .hint { font-size: 13px; opacity: .7; margin: 10px 14px 18px; text-align: center; max-width: 520px; }
+</style>
+</head>
+<body>
+  <h1>FLUFFLAND <span class="heart">♥</span> Fluff-Zug</h1>
+  <div class="count">Freunde im Zug: <b id="count">1</b></div>
+  <div id="wrap">
+    <canvas id="game" width="660" height="484"></canvas>
+  </div>
+  <div class="pad" aria-label="Steuerung">
+    <button class="up"    aria-label="hoch"   data-dir="up">▲</button>
+    <button class="left"  aria-label="links"  data-dir="left">◀</button>
+    <button class="down"  aria-label="runter" data-dir="down">▼</button>
+    <button class="right" aria-label="rechts" data-dir="right">▶</button>
+  </div>
+  <p class="hint">Sammle die weichen Stoff-Sterne ⭐ ein – jeder Stern bringt einen neuen Mini-Fluff in deinen Zug.
+  Niemand kann verlieren: Wände sind durchlässig und alles bleibt kuschelig.</p>
+
+<script>
+(() => {
+  "use strict";
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+
+  // --- Grid ---------------------------------------------------------------
+  const CELL = 44;
+  const COLS = canvas.width  / CELL;   // 15
+  const ROWS = canvas.height / CELL;   // 11
+  const TICK = 230;                    // ms per step (gentle)
+
+  // FLUFFLAND pastel palette (no realistic green/blue; baby blue sparing)
+  const FLUFF_COLORS = ["#F7B7CE", "#C9B6F2", "#A8E6CF", "#FFD9A0", "#F6C8DD", "#BFE0F5"];
+
+  // --- State --------------------------------------------------------------
+  let snake, prev, dir, nextDir, food, count, lastTick, sparkles;
+
+  function reset() {
+    snake = [{x:5,y:5},{x:4,y:5},{x:3,y:5},{x:2,y:5}];
+    snake.forEach(s => s.color = FLUFF_COLORS[(s.x) % FLUFF_COLORS.length]);
+    prev = snake.map(s => ({x:s.x, y:s.y}));
+    dir = {x:1, y:0};
+    nextDir = {x:1, y:0};
+    count = snake.length;
+    sparkles = [];
+    placeFood();
+    lastTick = performance.now();
+    updateCount();
+  }
+
+  function placeFood() {
+    let p;
+    do {
+      p = { x: (Math.random()*COLS)|0, y: (Math.random()*ROWS)|0 };
+    } while (snake.some(s => s.x === p.x && s.y === p.y));
+    food = p;
+  }
+
+  function updateCount() {
+    document.getElementById("count").textContent = count;
+  }
+
+  // --- Input --------------------------------------------------------------
+  const DIRS = {
+    up:    {x:0, y:-1}, down: {x:0, y:1},
+    left:  {x:-1,y:0},  right:{x:1, y:0}
+  };
+  function setDir(name) {
+    const d = DIRS[name];
+    if (!d) return;
+    // no instant reverse
+    if (d.x === -dir.x && d.y === -dir.y) return;
+    nextDir = d;
+  }
+  window.addEventListener("keydown", e => {
+    const map = { ArrowUp:"up", ArrowDown:"down", ArrowLeft:"left", ArrowRight:"right",
+                  w:"up", s:"down", a:"left", d:"right", W:"up", S:"down", A:"left", D:"right" };
+    if (map[e.key]) { setDir(map[e.key]); e.preventDefault(); }
+  });
+  document.querySelectorAll(".pad button").forEach(b =>
+    b.addEventListener("click", () => { initAudio(); setDir(b.dataset.dir); }));
+
+  // swipe on canvas
+  let touchStart = null;
+  canvas.addEventListener("touchstart", e => { initAudio(); touchStart = e.touches[0]; }, {passive:true});
+  canvas.addEventListener("touchend", e => {
+    if (!touchStart) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.clientX, dy = t.clientY - touchStart.clientY;
+    if (Math.abs(dx) > Math.abs(dy)) setDir(dx > 0 ? "right" : "left");
+    else                            setDir(dy > 0 ? "down"  : "up");
+    touchStart = null;
+  }, {passive:true});
+
+  // --- Gentle sound (soft chime) -----------------------------------------
+  let audio = null;
+  function initAudio() { if (!audio) { try { audio = new (window.AudioContext||window.webkitAudioContext)(); } catch(_){} } }
+  function chime(freq) {
+    if (!audio) return;
+    const o = audio.createOscillator(), g = audio.createGain();
+    o.type = "sine"; o.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, audio.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.18, audio.currentTime + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + 0.4);
+    o.connect(g); g.connect(audio.destination);
+    o.start(); o.stop(audio.currentTime + 0.42);
+  }
+
+  // --- Step ---------------------------------------------------------------
+  function step() {
+    dir = nextDir;
+    prev = snake.map(s => ({x:s.x, y:s.y, color:s.color}));
+    const head = {
+      x: (snake[0].x + dir.x + COLS) % COLS,   // wrap-around walls (no game over)
+      y: (snake[0].y + dir.y + ROWS) % ROWS,
+      color: snake[0].color
+    };
+    snake.unshift(head);
+    if (head.x === food.x && head.y === food.y) {
+      // grow: new friend joins, give the new tail a fresh pastel color
+      snake[snake.length-1].color = FLUFF_COLORS[(Math.random()*FLUFF_COLORS.length)|0];
+      count = snake.length;
+      updateCount();
+      burst(food.x, food.y);
+      chime(523.25 + Math.min(count,12)*18); // rises a touch as the train grows
+      placeFood();
+    } else {
+      snake.pop();
+    }
+  }
+
+  function burst(cx, cy) {
+    const px = cx*CELL + CELL/2, py = cy*CELL + CELL/2;
+    for (let i=0;i<10;i++){
+      const a = Math.PI*2*i/10;
+      sparkles.push({ x:px, y:py, vx:Math.cos(a)*1.6, vy:Math.sin(a)*1.6, life:1 });
+    }
+  }
+
+  // --- Render -------------------------------------------------------------
+  function lerp(a,b,t){ return a + (b-a)*t; }
+
+  function drawBackground() {
+    ctx.fillStyle = "#FBF0F8";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    // soft polka dots
+    ctx.fillStyle = "rgba(201,182,242,0.10)";
+    for (let y=0;y<ROWS;y++) for (let x=0;x<COLS;x++){
+      ctx.beginPath();
+      ctx.arc(x*CELL+CELL/2, y*CELL+CELL/2, 3, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  function eyes(cx, cy, r, look) {
+    const off = r*0.22, ey = cy - r*0.05;
+    ctx.fillStyle = "#3a3140";
+    for (const s of [-1, 1]) {
+      ctx.beginPath();
+      ctx.arc(cx + s*off + (look?.x||0)*r*0.12, ey + (look?.y||0)*r*0.12, r*0.11, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  function drawFluff(cx, cy, r, color, look) {
+    // fuzzy bumps
+    ctx.fillStyle = color;
+    const bumps = 9;
+    ctx.beginPath();
+    for (let i=0;i<=bumps;i++){
+      const a = Math.PI*2*i/bumps;
+      const rr = r * (i%2 ? 1.0 : 0.86);
+      const x = cx + Math.cos(a)*rr, y = cy + Math.sin(a)*rr;
+      i ? ctx.lineTo(x,y) : ctx.moveTo(x,y);
+    }
+    ctx.closePath(); ctx.fill();
+    // soft body
+    ctx.beginPath(); ctx.arc(cx,cy,r*0.82,0,Math.PI*2); ctx.fill();
+    // cheek
+    ctx.fillStyle = "rgba(255,255,255,0.35)";
+    ctx.beginPath(); ctx.arc(cx - r*0.3, cy - r*0.3, r*0.22, 0, Math.PI*2); ctx.fill();
+    eyes(cx, cy, r, look);
+  }
+
+  function drawCrossi(cx, cy, r, look) {
+    // golden croissant-ish body
+    ctx.fillStyle = "#E8A971";
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
+    // ridges
+    ctx.strokeStyle = "#D2935A"; ctx.lineWidth = r*0.16; ctx.lineCap = "round";
+    for (let i=-1;i<=1;i++){
+      ctx.beginPath();
+      ctx.arc(cx, cy, r*0.62, Math.PI*0.15 + i*0.5, Math.PI*0.55 + i*0.5);
+      ctx.stroke();
+    }
+    // Butter on top (Butter belongs to Crossi)
+    ctx.fillStyle = "#FFE27A";
+    const bw = r*0.5, bh = r*0.36;
+    roundRect(cx - bw/2, cy - r - bh*0.55, bw, bh, 5);
+    ctx.fill();
+    ctx.fillStyle = "#3a3140";
+    ctx.beginPath(); ctx.arc(cx - bw*0.12, cy - r - bh*0.1, 1.6, 0, 7); ctx.fill();
+    ctx.beginPath(); ctx.arc(cx + bw*0.12, cy - r - bh*0.1, 1.6, 0, 7); ctx.fill();
+    eyes(cx, cy, r, look);
+  }
+
+  function roundRect(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.arcTo(x+w,y,x+w,y+h,r);
+    ctx.arcTo(x+w,y+h,x,y+h,r);
+    ctx.arcTo(x,y+h,x,y,r);
+    ctx.arcTo(x,y,x+w,y,r);
+    ctx.closePath();
+  }
+
+  function drawStar(cx, cy, r, t) {
+    const spin = Math.sin(t/500)*0.15;
+    ctx.save(); ctx.translate(cx,cy); ctx.rotate(spin);
+    ctx.fillStyle = "#FFD66B"; ctx.strokeStyle = "#E9A23B"; ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    for (let i=0;i<10;i++){
+      const a = Math.PI/5*i - Math.PI/2;
+      const rr = i%2 ? r*0.45 : r;
+      const x = Math.cos(a)*rr, y = Math.sin(a)*rr;
+      i ? ctx.lineTo(x,y) : ctx.moveTo(x,y);
+    }
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+    // little stitches
+    ctx.strokeStyle = "rgba(233,162,59,0.7)"; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(-r*0.3,0); ctx.lineTo(r*0.3,0); ctx.stroke();
+    ctx.restore();
+  }
+
+  function render(now) {
+    const t = Math.min((now - lastTick) / TICK, 1);
+    drawBackground();
+
+    // bobbing
+    const bob = Math.sin(now/300)*2;
+
+    // food
+    drawStar(food.x*CELL+CELL/2, food.y*CELL+CELL/2 + bob, CELL*0.34, now);
+
+    // sparkles
+    sparkles = sparkles.filter(s => s.life > 0);
+    for (const s of sparkles) {
+      s.x += s.vx; s.y += s.vy; s.life -= 0.04;
+      ctx.fillStyle = `rgba(255,214,107,${s.life})`;
+      ctx.beginPath(); ctx.arc(s.x, s.y, 3*s.life+1, 0, Math.PI*2); ctx.fill();
+    }
+
+    // train: draw tail-first so the head sits on top
+    for (let i = snake.length-1; i >= 0; i--) {
+      const cur = snake[i], pv = prev[i] || cur;
+      let gx, gy;
+      // snap (no lerp) when this segment wrapped across an edge this step
+      if (Math.abs(cur.x - pv.x) > 1 || Math.abs(cur.y - pv.y) > 1) { gx = cur.x; gy = cur.y; }
+      else { gx = lerp(pv.x, cur.x, t); gy = lerp(pv.y, cur.y, t); }
+      const cx = gx*CELL + CELL/2, cy = gy*CELL + CELL/2 + bob;
+      const look = dir;
+      if (i === 0) drawCrossi(cx, cy, CELL*0.40, look);
+      else         drawFluff(cx, cy, CELL*0.36, cur.color || "#F7B7CE", look);
+    }
+
+    if (t >= 1) { step(); lastTick = now; }
+    requestAnimationFrame(render);
+  }
+
+  reset();
+  requestAnimationFrame(render);
+})();
+</script>
+</body>
+</html>
