@@ -34,9 +34,15 @@ offline, ohne Installation, auf Mac und Tablet.
 ## Offizielle Assets
 
 Der Startscreen lädt das Master-Key-Visual und die Charakter-Karten direkt von der
-Higgsfield-CDN (funktioniert im Browser; Links können irgendwann ablaufen).
+Higgsfield-CDN. Die **Zug-Glieder sind echte Plüsch-Mini-Fluff-Sprites** (4 Pastell­farben,
+2 davon mit Zöpfen), per weicher Kreis-Maske eingebunden (weiße Ecken werden weggeschnitten).
+Die Anführer sind aktuell Canvas-gezeichnet (ihre Karten haben grauen Hintergrund).
 
-**Dauerhaft/offline machen:** die PNGs in einen Ordner `fluffland/game/assets/`
+> Hinweis: Echtes Freistellen (transparente PNGs) braucht das `remove_background`-Tool,
+> das in dieser Umgebung freigabepflichtig ist; sobald verfügbar, können die Sprites
+> randlos eingebunden und auch die Anführer als echte Figuren ergänzt werden.
+
+**Dauerhaft/offline machen:** die PNGs in `fluffland/game/assets/`
 herunterladen und in `index.html` `ASSET_BASE = "assets/"` setzen.
 
 ## Technik

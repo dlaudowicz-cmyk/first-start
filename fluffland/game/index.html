@@ -120,6 +120,7 @@
   const FLUFF=["#F7B7CE","#C9B6F2","#A8E6CF","#FFD9A0","#F6C8DD","#BFE0F5"];
   const FLUFF_D=["#E891B0","#A98BDC","#7FCBAd","#F0B870","#E59FC2","#90BfE0"];
   const TUFTS=["none","top","twin","swirl"], ACCS=["none","bow","flower","star","none"];
+  const SPRITE_KEYS=["pink","lilac","mint","peach"];
 
   let leaderType="crossi", place="cafe";
   let snake, prev, dir, nextDir, food, sparkles, lastMilestone, headPulse=0, running=false, muted=false;
@@ -127,7 +128,8 @@
 
   function newStyle(){ const i=(Math.random()*FLUFF.length)|0; return {
     color:FLUFF[i], dark:FLUFF_D[i], tuft:TUFTS[(Math.random()*TUFTS.length)|0],
-    acc:ACCS[(Math.random()*ACCS.length)|0], tone:["#F7B7CE","#C9B6F2","#FFD9A0"][(Math.random()*3)|0] }; }
+    acc:ACCS[(Math.random()*ACCS.length)|0], tone:["#F7B7CE","#C9B6F2","#FFD9A0"][(Math.random()*3)|0],
+    sprite:SPRITE_KEYS[(Math.random()*SPRITE_KEYS.length)|0] }; }
   const friends=()=>snake.length-1;
 
   function reset(){
@@ -322,7 +324,9 @@
       if(Math.abs(cur.x-pv.x)>1||Math.abs(cur.y-pv.y)>1){ gx=cur.x; gy=cur.y; } else { gx=lerp(pv.x,cur.x,t); gy=lerp(pv.y,cur.y,t); }
       const cx=gx*CELL+CELL/2, cy=gy*CELL+CELL/2+bob;
       if(i===0){ const sc=1+0.16*headPulse; drawLeader(cx,cy,CELL*0.40*sc,dir); }
-      else drawFluff(cx,cy,CELL*0.36,cur.style,dir); }
+      else { const sp=cur.style&&fluffImg[cur.style.sprite];
+        if(sp&&sp.complete&&sp.naturalWidth>0) drawSpriteCircle(sp,cx,cy,CELL*0.40);
+        else drawFluff(cx,cy,CELL*0.36,cur.style,dir); } }
 
     vignette();
     if(t>=1){ step(); lastTickT=now; }
@@ -343,6 +347,19 @@
     cora:    "hf_20260612_145526_e202aa2e-7307-43e9-ab14-1e5d22f1629e.png",
     fluffs:  "hf_20260612_145741_822343b9-4b0b-4135-9a03-d25fb1bc7b25.png"
   };
+  // Plush Mini-Fluff sprites for the train body (2 with braids, 2 without)
+  const SPRITES = {
+    pink:  "hf_20260613_103709_5fee7daa-a77b-4809-8d5f-1c3dcbdc8cd2.png",
+    mint:  "hf_20260613_103714_78b008db-25ef-4bc6-8755-bf03c89912b9.png",
+    lilac: "hf_20260613_120457_23934851-bb8c-4c94-b815-bb423a220922.png",
+    peach: "hf_20260613_120458_4729f163-cefd-4657-9a3c-f34c12696c86.png"
+  };
+  const fluffImg = {};
+  Object.keys(SPRITES).forEach(k=>{ const im=new Image(); im.src=ASSET_BASE+SPRITES[k]; fluffImg[k]=im; });
+  // clip an image into a soft circle (cuts the white corners; no pixel access => no CORS issue)
+  function drawSpriteCircle(img,cx,cy,r){ const box=(r*2)/0.66;
+    ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,7); ctx.clip(); ctx.drawImage(img,cx-box/2,cy-box/2,box,box); ctx.restore(); }
+
   // Start-screen background = master key visual (graceful: keeps gradient if it fails)
   (() => {
     const ov=document.getElementById("overlay");
