@@ -333,9 +333,18 @@
     requestAnimationFrame(render);
   }
 
-  // ---- official FLUFFLAND assets (loaded from the user's browser) ----
-  // To make these permanent/offline: download the PNGs into ./assets/ and set ASSET_BASE = "assets/".
-  const ASSET_BASE = "https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/";
+  // ---- official FLUFFLAND assets ----
+  // Offline-first: files load from ./assets/ and fall back to the CDN if a local
+  // copy is missing. Run ./assets/download-assets.sh once to populate ./assets/.
+  const LOCAL_BASE = "assets/";
+  const CDN_BASE   = "https://d8j0ntlcm91z4.cloudfront.net/user_2zgOr7TeJ3XfOp5A4ZVnU1QsvmW/";
+  function loadAsset(file, onload, onfail){            // try local first, then CDN
+    const im = new Image(); let retried = false;
+    im.onload = onload ? () => onload(im) : null;
+    im.onerror = () => { if(!retried){ retried = true; im.src = CDN_BASE + file; }
+                         else if(onfail){ onfail(im); } };
+    im.src = LOCAL_BASE + file; return im;
+  }
   const ASSETS = {
     master:  "hf_20260613_145226_a7c4e419-56c5-46c2-ba70-b5ad1515c9e3.png",
     crossi:  "hf_20260612_145509_c6b54112-1c47-4710-9cd0-0f764f850112.png",
@@ -355,7 +364,7 @@
     peach: "hf_20260613_120458_4729f163-cefd-4657-9a3c-f34c12696c86.png"
   };
   const fluffImg = {};
-  Object.keys(SPRITES).forEach(k=>{ const im=new Image(); im.src=ASSET_BASE+SPRITES[k]; fluffImg[k]=im; });
+  Object.keys(SPRITES).forEach(k=>{ fluffImg[k]=loadAsset(SPRITES[k]); });
   // clip an image into a soft circle (cuts the white corners; no pixel access => no CORS issue)
   function drawSpriteCircle(img,cx,cy,r){ const box=(r*2)/0.66;
     ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,7); ctx.clip(); ctx.drawImage(img,cx-box/2,cy-box/2,box,box); ctx.restore(); }
@@ -364,17 +373,16 @@
   (() => {
     const ov=document.getElementById("overlay");
     const scrim=document.createElement("div"); scrim.className="scrim"; ov.prepend(scrim);
-    const im=new Image();
-    im.onload=()=>{ ov.classList.add("hasart"); ov.style.backgroundImage=`url("${ASSET_BASE+ASSETS.master}")`;
-      ov.style.backgroundSize="cover"; ov.style.backgroundPosition="center"; };
-    im.src=ASSET_BASE+ASSETS.master;
+    loadAsset(ASSETS.master, (im)=>{ ov.classList.add("hasart");
+      ov.style.backgroundImage=`url("${im.currentSrc||im.src}")`;
+      ov.style.backgroundSize="cover"; ov.style.backgroundPosition="center"; });
   })();
   // "Meet the friends" gallery (each thumb hides itself if its link is unavailable)
   (() => {
     const gal=document.getElementById("gallery");
     ["crossi","nana","manny","lunelle","risto","cora","zeddy","fluffs"].forEach(k=>{
-      const i=new Image(); i.className="thumb"; i.alt=k; i.loading="lazy";
-      i.onerror=()=>i.remove(); i.src=ASSET_BASE+ASSETS[k]; gal.appendChild(i);
+      const i=loadAsset(ASSETS[k], null, (im)=>im.remove());
+      i.className="thumb"; i.alt=k; i.loading="lazy"; gal.appendChild(i);
     });
   })();
 

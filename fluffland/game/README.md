@@ -33,17 +33,27 @@ offline, ohne Installation, auf Mac und Tablet.
 
 ## Offizielle Assets
 
-Der Startscreen lädt das Master-Key-Visual und die Charakter-Karten direkt von der
-Higgsfield-CDN. Die **Zug-Glieder sind echte Plüsch-Mini-Fluff-Sprites** (4 Pastell­farben,
-2 davon mit Zöpfen), per weicher Kreis-Maske eingebunden (weiße Ecken werden weggeschnitten).
-Die Anführer sind aktuell Canvas-gezeichnet (ihre Karten haben grauen Hintergrund).
+Der Startscreen nutzt das **Fluffland-Crew-Key-Visual** als Hintergrund und zeigt eine
+„Meet the friends"-Galerie. Die **Zug-Glieder sind echte Plüsch-Mini-Fluff-Sprites**
+(4 Pastellfarben, 2 davon mit Zöpfen), per weicher Kreis-Maske eingebunden (weiße Ecken
+werden weggeschnitten). Die Anführer sind aktuell Canvas-gezeichnet (ihre Karten haben
+grauen Hintergrund).
+
+**Offline-first:** Der Code lädt jedes Bild zuerst aus `./assets/` und greift nur als
+Fallback aufs CDN zurück — das Spiel läuft also auch ohne lokale Dateien. Zum dauerhaften
+Selbst-Enthalten einmal das Download-Skript ausführen:
+
+```bash
+cd fluffland/game/assets && ./download-assets.sh
+```
+
+(Das ließ sich nicht aus der Claude-Code-Web-Umgebung ausführen, weil der CDN-Host
+`d8j0ntlcm91z4.cloudfront.net` nicht auf deren Netzwerk-Allowlist steht — lokal ausführen,
+oder den Host der Allowlist hinzufügen. Danach die PNGs committen.)
 
 > Hinweis: Echtes Freistellen (transparente PNGs) braucht das `remove_background`-Tool,
 > das in dieser Umgebung freigabepflichtig ist; sobald verfügbar, können die Sprites
 > randlos eingebunden und auch die Anführer als echte Figuren ergänzt werden.
-
-**Dauerhaft/offline machen:** die PNGs in `fluffland/game/assets/`
-herunterladen und in `index.html` `ASSET_BASE = "assets/"` setzen.
 
 ## Technik
 
