@@ -23,8 +23,24 @@ offline, ohne Installation, auf Mac und Tablet.
 - **Kein Zeitdruck, kein Punktestand** – nur die fröhliche Zahl der „Freunde im Zug".
 - Pastellpalette und weiche Figuren gemäß FLUFFLAND-Canon.
 
+## Premium-Features
+
+- Retina-scharfes Rendering, plüschige Farbverläufe, weiche Schatten, Vignette & Sonnenlicht.
+- Startbildschirm mit Master-Key-Visual und „Meet the friends"-Galerie.
+- Wählbarer Anführer (Crossi/Nana/Manny/Lunelle) und Ort (Café/Sternengarten/See/Wald).
+- Juice: Squash beim Einsammeln, Glitzer-Staub-Spur, pulsierender Stern, Blinzeln.
+- Meilenstein-Banner + sanfter Akkord alle 5 Freunde · Sound- und Pause-Button.
+
+## Offizielle Assets
+
+Der Startscreen lädt das Master-Key-Visual und die Charakter-Karten direkt von der
+Higgsfield-CDN (funktioniert im Browser; Links können irgendwann ablaufen).
+
+**Dauerhaft/offline machen:** die PNGs in einen Ordner `fluffland/game/assets/`
+herunterladen und in `index.html` `ASSET_BASE = "assets/"` setzen.
+
 ## Technik
 
 - Eine einzelne HTML-Datei (Canvas + Vanilla JS, keine Abhängigkeiten).
-- Figuren sind aktuell mit Canvas gezeichnet (robust/offline). Später können die
-  offiziellen Render-Assets eingebunden werden.
+- Spielfiguren sind mit Canvas gezeichnet (robust/offline, freigestellt); die
+  Render-Assets dienen aktuell für Startbild & Galerie.
