@@ -25,8 +25,11 @@ sessions.
 
 ```bash
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=sk-...
+export ANTHROPIC_API_KEY=sk-ant-...   # required — get one at https://console.anthropic.com/settings/keys
 ```
+
+Friday checks for credentials on startup and exits with a clear message if
+`ANTHROPIC_API_KEY` (or `ANTHROPIC_AUTH_TOKEN`) is missing.
 
 ## Run
 

@@ -1,11 +1,29 @@
 """Interactive chat loop for Friday."""
 
+import os
+import sys
+
 from .client import stream_reply
 from .config import COMMANDS
 from .memory import forget_memory, load_memory, save_memory
 
 
+def _check_credentials() -> None:
+    """Exit early with a helpful message if no Anthropic auth is configured."""
+    if os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"):
+        return
+    print(
+        "Error: no Anthropic credentials found.\n"
+        "Set your API key before running Friday, e.g.:\n\n"
+        "    export ANTHROPIC_API_KEY=sk-ant-...\n\n"
+        "Get a key at https://console.anthropic.com/settings/keys",
+        file=sys.stderr,
+    )
+    raise SystemExit(1)
+
+
 def chat() -> None:
+    _check_credentials()
     messages = load_memory()
     count = len(messages) // 2
     if count:
