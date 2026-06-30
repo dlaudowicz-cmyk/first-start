@@ -3,6 +3,7 @@
 import os
 import sys
 
+from . import config
 from .client import stream_reply
 from .config import COMMANDS
 from .memory import forget_memory, load_memory, save_memory
@@ -10,6 +11,8 @@ from .memory import forget_memory, load_memory, save_memory
 
 def _check_credentials() -> None:
     """Exit early with a helpful message if no Anthropic auth is configured."""
+    if config.PROVIDER != "anthropic":
+        return
     if os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"):
         return
     print(
@@ -63,7 +66,13 @@ def chat() -> None:
         messages.append({"role": "user", "content": user_input})
 
         print("Friday: ", end="", flush=True)
-        response_text = stream_reply(messages)
+        try:
+            response_text = stream_reply(messages)
+        except Exception as e:
+            # Drop the unanswered turn so memory stays consistent, then recover.
+            messages.pop()
+            print(f"\n[error] {e}\n", file=sys.stderr)
+            continue
 
         print()
         messages.append({"role": "assistant", "content": response_text})

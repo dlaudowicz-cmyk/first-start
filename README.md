@@ -41,6 +41,22 @@ python assistant.py     # backwards-compatible
 friday
 ```
 
+## Run locally without an API key (Ollama)
+
+Friday can use a local model via [Ollama](https://ollama.com) — no API key, no
+cost, fully offline:
+
+```bash
+ollama serve            # start Ollama (if not already running)
+ollama pull llama3.1    # download a model once
+
+export FRIDAY_PROVIDER=ollama
+python -m friday
+```
+
+Pick a different local model with `FRIDAY_OLLAMA_MODEL` (e.g. `mistral`,
+`qwen2.5`) and point at a remote Ollama host with `FRIDAY_OLLAMA_HOST`.
+
 ## Commands
 
 | Command   | Description                          |
@@ -53,11 +69,14 @@ friday
 
 Friday reads these environment variables (all optional):
 
-| Variable             | Default                  | Description                  |
-| -------------------- | ------------------------ | ---------------------------- |
-| `FRIDAY_MODEL`       | `claude-opus-4-7`        | Model used for completions   |
-| `FRIDAY_MAX_TOKENS`  | `4096`                   | Max tokens per response      |
-| `FRIDAY_MEMORY_FILE` | `~/.friday_memory.json`  | Where memory is persisted    |
+| Variable              | Default                  | Description                                 |
+| --------------------- | ------------------------ | ------------------------------------------- |
+| `FRIDAY_PROVIDER`     | `anthropic`              | Backend: `anthropic` or `ollama`            |
+| `FRIDAY_MODEL`        | `claude-opus-4-7`        | Anthropic model used for completions        |
+| `FRIDAY_MAX_TOKENS`   | `4096`                   | Max tokens per response                     |
+| `FRIDAY_MEMORY_FILE`  | `~/.friday_memory.json`  | Where memory is persisted                   |
+| `FRIDAY_OLLAMA_MODEL` | `llama3.1`               | Local model name (when provider is ollama)  |
+| `FRIDAY_OLLAMA_HOST`  | `http://localhost:11434` | Ollama server URL (when provider is ollama) |
 
 ## Tests
 
