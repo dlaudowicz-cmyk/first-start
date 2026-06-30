@@ -11,7 +11,7 @@ MEMORY_FILE = os.path.expanduser(
 PROVIDER = os.environ.get("FRIDAY_PROVIDER", "anthropic").lower()
 
 # Model used for completions. Override with FRIDAY_MODEL.
-MODEL = os.environ.get("FRIDAY_MODEL", "claude-opus-4-7")
+MODEL = os.environ.get("FRIDAY_MODEL", "claude-opus-4-8")
 
 # Maximum tokens per response.
 MAX_TOKENS = int(os.environ.get("FRIDAY_MAX_TOKENS", "4096"))

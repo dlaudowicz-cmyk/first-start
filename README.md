@@ -72,7 +72,7 @@ Friday reads these environment variables (all optional):
 | Variable              | Default                  | Description                                 |
 | --------------------- | ------------------------ | ------------------------------------------- |
 | `FRIDAY_PROVIDER`     | `anthropic`              | Backend: `anthropic` or `ollama`            |
-| `FRIDAY_MODEL`        | `claude-opus-4-7`        | Anthropic model used for completions        |
+| `FRIDAY_MODEL`        | `claude-opus-4-8`        | Anthropic model used for completions        |
 | `FRIDAY_MAX_TOKENS`   | `4096`                   | Max tokens per response                     |
 | `FRIDAY_MEMORY_FILE`  | `~/.friday_memory.json`  | Where memory is persisted                   |
 | `FRIDAY_OLLAMA_MODEL` | `llama3.1`               | Local model name (when provider is ollama)  |
