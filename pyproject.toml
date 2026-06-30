@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "friday-assistant"
+version = "0.1.0"
+description = "Friday — a personal AI assistant with infinite memory, powered by Claude."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["anthropic>=0.52.0"]
+
+[project.scripts]
+friday = "friday.cli:chat"
+
+[tool.setuptools]
+packages = ["friday"]
