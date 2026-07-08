@@ -22,6 +22,7 @@ bexly_os/
 ├── core.py               ← BexlyKI: Engine (Claude + Markenkern + Gedächtnis)
 ├── cli.py                ← interaktiver Chat mit der Bexly-KI
 └── modules/
+    ├── studio.py         ← KI-Film-Produktion (CineForge-Shotlist)
     ├── social.py         ← Social-Media-Captions
     ├── research.py        ← Web-Recherche via Firecrawl
     ├── web.py            (geplant)
@@ -55,6 +56,25 @@ from bexly_os.modules.social import SocialModule
 print(SocialModule().captions("Teaser: Cal trifft zum ersten Mal Bexly", n=3))
 ```
 
+### Film-Produktion (Studio / CineForge — im Geist von Cuelist.ai)
+
+```python
+from bexly_os.modules.studio import Studio
+
+s = Studio("being-bexly")
+s.cineforge(
+    "Cal wird in die Kommandozentrale gesaugt und verbindet sich erstmals "
+    "über das holografische Half-Dome mit dem Roboterkörper.",
+    scene="Erste Verbindung",
+)
+print(s.export_markdown())          # Shotlist (Kamera/Licht/Pacing) + Prompts
+jobs = s.generation_jobs("planned")  # fertige Jobs für Bild-/Video-Generator
+s.update_status(1, "generated", output="https://…/shot1.png")
+```
+
+Fertige Szenen-Shotlists liegen unter **`productions/`** (z. B.
+`productions/scene01_the-chase.md`).
+
 ### Web-Recherche (Firecrawl)
 
 ```bash
@@ -80,6 +100,8 @@ die KI und alle Module ziehen die Änderung automatisch.
 
 - [x] **Brand Core** — Marken-Bibel als zentrale Wahrheit
 - [x] **Bexly-KI** — Engine mit Markenwissen & Gedächtnis
+- [x] **Studio** — KI-Film-Produktionssystem: Szene → Shotlist (Kamera/Licht/
+  Pacing/Prompt), Tracking & Routing an Bild-/Video-Generatoren (à la Cuelist.ai)
 - [x] **Social** — Captions/Content-Ideen
 - [x] **Research** — Web-Recherche via Firecrawl (Trends, Referenzen)
 - [ ] **Web** — Landingpage & Website-Texte
