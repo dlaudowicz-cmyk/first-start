@@ -21,6 +21,15 @@
 **Stil-Cue (in jedem Prompt):** *consistent 3D CGI animated feature film look,
 Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
+**Character-Cues (in jedem Shot, in dem die Figur vorkommt):**
+- **@Cal** — anxious but strong-willed leader; runs frantically low to the ground,
+  arms pumping, glancing back over his shoulder and stumbling, long tail streaming.
+- **@Liv** — bold, clever, resourceful; runs athletically, leaping over roots with
+  sharp agile direction changes, leading the group, focused determined face.
+- **@Sammy** — goofy hungry optimist; runs in chaotic bouncy panic, arms
+  windmilling, tumbling head over heels and popping back up, clutching a crumb of
+  food, comedic screaming grin.
+
 ---
 
 ## RUN & FEAR SHEET
@@ -36,63 +45,73 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 1 — Establishing: der Ausbruch
 - **refs:** @Cal @Liv @Sammy @Biff · **genre:** `action`
-> Three tiny field mice @Cal, @Liv and @Sammy burst from the undergrowth and
-> sprint toward camera in full panic, huge farm dog @Biff thundering right behind
-> kicking up dirt and leaves. Wide side-tracking shot moving with them, low golden
-> morning backlight, god-rays, dust, motion blur. Consistent 3D CGI animated
-> feature film look, cinematic, shallow depth of field.
+> Three tiny field mice flee in panic from a huge shaggy farm dog. @Cal, the
+> anxious but strong-willed leader, runs frantically low to the ground with pumping
+> arms, glancing back over his shoulder, long tail streaming. @Liv, bold and agile,
+> leaps over roots with sharp direction changes and leads the way. @Sammy, a goofy
+> hungry optimist, bounces and tumbles chaotically while clutching a crumb of food,
+> comedic panic. @Biff charges right behind kicking up dirt and leaves. Wide
+> side-tracking shot moving with them, low golden morning backlight, god-rays, dust,
+> motion blur. Consistent 3D CGI animated feature film look, cinematic, shallow DOF.
 
 ### Shot 2 — @Cal (Laufstil + Angst)
 - **refs:** @Cal · **genre:** `action`
-> @Cal sprints low to the ground, arms pumping hard, tail streaming behind, wide
-> terrified eyes and ears pinned flat back, glances over his shoulder and stumbles
-> on a root. Close low-angle tracking shot, warm morning rim-light, heavy motion
-> blur, kicked-up dust. Consistent 3D CGI animated feature film look, cinematic.
+> @Cal, the anxious but strong-willed leader of the mice, sprints low to the
+> ground, arms pumping hard, tail streaming behind, wide terrified eyes and ears
+> pinned flat back, glances over his shoulder and stumbles on a root. Close
+> low-angle tracking shot, warm morning rim-light, heavy motion blur, kicked-up
+> dust. Consistent 3D CGI animated feature film look, cinematic.
 - **Dialog** — @Cal (OFF): „Warum habe ich nicht auf mein Bauchgefühl gehört? Ich
   habe ihnen doch gesagt, dass das gefährlich ist!"
 
 ### Shot 3 — @Liv (Laufstil + Angst)
 - **refs:** @Liv · **genre:** `action`
-> @Liv leaps athletically over roots and stones with sharp direction changes,
-> jaw clenched, eyes darting to scan for an escape, leading the group. Dynamic
-> side-tracking shot that jumps with her, crisp morning light, motion blur on the
-> leaps. Consistent 3D CGI animated feature film look, cinematic.
+> @Liv, bold, clever and resourceful, leaps athletically over roots and stones
+> with sharp agile direction changes, jaw clenched, eyes darting to scan for an
+> escape, leading the group. Dynamic side-tracking shot that jumps with her, crisp
+> morning light, motion blur on the leaps. Consistent 3D CGI animated feature film
+> look, cinematic.
 - **Dialog** — @Liv: „Cal! Achtung!"
 
 ### Shot 4 — @Sammy (Laufstil + Angst)
 - **refs:** @Sammy · **genre:** `comedy`
-> @Sammy runs in chaotic panic, arms windmilling, tripping and tumbling head over
-> heels then popping back up mid-run, mouth wide in a comedic scream, still
-> clutching a crumb of food. Half-close tracking shot, slightly low comedic angle,
-> warm playful light, motion blur. Consistent 3D CGI animated feature film look.
+> @Sammy, a goofy hungry optimist, runs in chaotic bouncy panic, arms windmilling,
+> tripping and tumbling head over heels then popping back up mid-run, mouth wide in
+> a comedic screaming grin, still clutching a crumb of food he refuses to drop.
+> Half-close tracking shot, slightly low comedic angle, warm playful light, motion
+> blur. Consistent 3D CGI animated feature film look.
 
 ### Shot 5 — @Biff schnappt nach @Cals Schwanz
 - **refs:** @Biff @Cal · **genre:** `action`
 > The enormous snout of @Biff lunges into foreground, jaws snapping just behind
-> @Cal's streaming tail as Cal's head whips around in fear. Low-angle from behind
-> Cal, dramatic backlit contrast, spraying dirt, extreme motion blur. Consistent
-> 3D CGI animated feature film look, tense, cinematic.
+> the streaming tail of @Cal, the anxious leader, whose head whips around in
+> terror, arms still pumping low to the ground. Low-angle from behind Cal, dramatic
+> backlit contrast, spraying dirt, extreme motion blur. Consistent 3D CGI animated
+> feature film look, tense, cinematic.
 
 ### Shot 6 — @Liv entdeckt den hohlen Baumstamm
 - **refs:** @Liv · **genre:** `drama`
-> @Liv's gaze snaps to a fallen hollow log with a dark opening at its end, a single
-> god-ray highlighting it like an escape; her eyes lock on with a spark of hope
-> through the fear. Quick whip-pan following her look, dewy moss. Consistent 3D CGI
-> animated feature film look, cinematic.
+> @Liv, the clever resourceful one, her gaze snapping to a fallen hollow log with a
+> dark opening at its end while still running agile and low, a single god-ray
+> highlighting the log like an escape; her eyes lock on with a spark of hope through
+> the fear. Quick whip-pan following her look, dewy moss. Consistent 3D CGI animated
+> feature film look, cinematic.
 - **Dialog** — @Liv: „Hier lang!"
 
 ### Shot 7 — Der Sprung in den Stamm
 - **refs:** @Liv @Cal @Sammy @Biff · **genre:** `action`
-> @Liv dives cleanly into the dark opening of the hollow log first, @Cal scrambles
-> in after her, @Sammy tumbles in last still holding his crumb, @Biff bearing down
-> right behind. Side shot, dust and leaves flying, morning light, motion blur.
+> @Liv, agile and bold, dives cleanly into the dark opening of the hollow log
+> first; @Cal, the anxious leader, scrambles in after her glancing back; @Sammy, the
+> goofy optimist, tumbles in last still clutching his crumb; huge dog @Biff bearing
+> down right behind. Side shot, dust and leaves flying, morning light, motion blur.
 > Consistent 3D CGI animated feature film look, cinematic.
 
 ### Shot 8 — @Biff knallt gegen den Stamm, Mäuse schießen heraus
 - **refs:** @Biff @Cal @Liv @Sammy · **genre:** `comedy`
 > @Biff slams his head against the outside of the hollow log and slumps down dazed
-> with swirling stars, while at the far end @Cal, @Liv and @Sammy shoot out and land
-> in a tangled heap on soft green moss. Wide comedic shot, dust cloud, dappled
+> with swirling stars, while at the far end the three mice shoot out and land in a
+> tangled heap on soft green moss: anxious @Cal, agile @Liv, and goofy @Sammy still
+> hugging his crumb with a dizzy grin. Wide comedic shot, dust cloud, dappled
 > morning light. Consistent 3D CGI animated feature film look.
 - **Dialog** — @Sammy (im Moos): „Das war echt aufregend!"
 
