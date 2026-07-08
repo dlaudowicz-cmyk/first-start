@@ -5,10 +5,9 @@
 > Kern der Überarbeitung: **eigener Laufstil pro Maus** + **sichtbare Angst**.
 
 **Workflow:** Seedance · Skills: **CGI** + **Cinema** · Character-Referenzen per
-`@`-Handle (`@Cal`, `@Liv`, `@Sammy`, `@Biff`). Handles ggf. an deine
-Referenz-Namen anpassen. Look/Stil kommt aus den Skills — die Prompts bleiben
-motion- und kamera-fokussiert. **Alle Clips: 10 Sekunden. Mit Dialog** (Deutsch,
-laut Drehbuch-Canon; für Lip-Sync separat je Shot ausgewiesen).
+`@`-Handle (`@Cal`, `@Liv`, `@Sammy`, `@Biff`). Look/Stil kommt aus den Skills.
+**Alle Clips: 10 Sekunden.** Dialog **nur aus dem Drehbuch-Canon** — nichts
+erfunden; Shots ohne Canon-Zeile bleiben ohne Dialog.
 
 ---
 
@@ -31,7 +30,7 @@ laut Drehbuch-Canon; für Lip-Sync separat je Shot ausgewiesen).
 > golden morning backlight, long shadows, god-rays through the trees, dust and
 > motion blur, handheld energy.
 
-**Dialog** — @Cal (keuchend): „Lauft! Nicht stehenbleiben!"
+**Dialog** — (kein Dialog)
 
 ### Shot 2 — @Cal (Laufstil + Angst) · 10s
 > @Cal sprints low to the ground, arms pumping hard, wide terrified eyes, ears
@@ -39,8 +38,8 @@ laut Drehbuch-Canon; für Lip-Sync separat je Shot ausgewiesen).
 > his long tail streaming behind him. Close low-angle tracking shot, warm morning
 > rim-light, heavy motion blur, kicked-up dust.
 
-**Dialog** — @Cal: „Warum hab ich nicht auf mein Bauchgefühl gehört? Ich hab's
-euch doch gesagt, dass das gefährlich ist!"
+**Dialog** — @Cal (OFF): „Warum habe ich nicht auf mein Bauchgefühl gehört? Ich
+habe ihnen doch gesagt, dass das gefährlich ist!"
 
 ### Shot 3 — @Liv (Laufstil + Angst) · 10s
 > @Liv leaps athletically over tree roots and stones with sharp changes of
@@ -48,7 +47,7 @@ euch doch gesagt, dass das gefährlich ist!"
 > scanning for an escape, leading the group. Dynamic side-tracking shot that jumps
 > with her, crisp morning light, motion blur on the leaps.
 
-**Dialog** — @Liv (ruft zurück): „Cal! Achtung!"
+**Dialog** — @Liv: „Cal! Achtung!"
 
 ### Shot 4 — @Sammy (Laufstil + Angst) · 10s
 > @Sammy runs in chaotic panic, arms windmilling, bouncing and tripping, tumbling
@@ -56,8 +55,7 @@ euch doch gesagt, dass das gefährlich ist!"
 > cheeks wobbling, still clutching a crumb of food he refuses to drop. Half-close
 > tracking shot, slightly low comedic angle, warm playful light, motion blur.
 
-**Dialog** — @Sammy (panisch, aber grinsend): „Ich geb mein Frühstück nicht her!
-Niemaaals!"
+**Dialog** — (kein Dialog)
 
 ### Shot 5 — @Biff schnappt nach @Cals Schwanz · 10s
 > The enormous snapping snout of @Biff lunges into the foreground, jaws snapping
@@ -65,7 +63,7 @@ Niemaaals!"
 > Low-angle shot from behind Cal, dramatic backlit contrast, spraying dirt, extreme
 > motion blur, tense.
 
-**Dialog** — @Cal (schreit): „Mein Schwaaanz!" · @Biff: (lautes Bellen, Knurren)
+**Dialog** — (kein Dialog)
 
 ### Shot 6 — @Liv entdeckt den hohlen Baumstamm · 10s
 > @Liv's gaze snaps to a fallen hollow log on the forest floor with a dark opening
@@ -73,14 +71,14 @@ Niemaaals!"
 > with a spark of hope through the fear. Quick whip-pan following her look, dewy moss
 > around the log.
 
-**Dialog** — @Liv: „Da lang! In den Baumstamm — schnell!"
+**Dialog** — @Liv: „Hier lang!"
 
 ### Shot 7 — Der Sprung in den Stamm · 10s
 > @Liv dives cleanly into the dark opening of the hollow log first, @Cal scrambles in
 > after her, @Sammy tumbles in last still holding his crumb, while @Biff bears down
 > right behind them. Side shot, dust and leaves flying, morning light, motion blur.
 
-**Dialog** — @Sammy (im Sturzflug): „Ich pass da niiie rein!"
+**Dialog** — (kein Dialog)
 
 ### Shot 8 — @Biff knallt gegen den Stamm, Mäuse schießen heraus · 10s
 > @Biff slams his head hard against the outside of the hollow log and slumps down
@@ -88,8 +86,7 @@ Niemaaals!"
 > the log and land in a tangled heap on soft green moss. Wide comedic shot, dust
 > cloud, dappled morning light, relief-after-tension beat.
 
-**Dialog** — @Biff: (dumpfer BONK, Winseln) · @Sammy (selig im Moos): „Das war
-echt aufregend!"
+**Dialog** — @Sammy (im Moos): „Das war echt aufregend!"
 
 ---
 
@@ -97,5 +94,5 @@ echt aufregend!"
 - Shots 2–4 bewusst getrennt → jeder Laufstil einzeln generierbar & vergleichbar.
 - `@`-Handles = deine hochgeladenen Character-Referenzen; Skills **CGI + Cinema**
   aktiviert lassen, damit alle Shots im selben Look bleiben.
-- Dialog je Shot separat ausgewiesen → direkt für Lip-Sync/Voice nutzbar.
+- Dialog ausschließlich Drehbuch-Canon; Shots ohne Zeile bleiben stumm.
 - In Studio-Modul ladbar (`Studio.add_shot(...)`) zum Tracking von Status & Assets.
