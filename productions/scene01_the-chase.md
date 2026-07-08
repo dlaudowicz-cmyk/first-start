@@ -6,8 +6,8 @@
 
 ## Setup (Higgsfield / Seedance 2.0)
 
-- **Model:** `seedance_2_0`  ·  **Mode:** `std`  ·  **Auflösung:** `1080p` (bei
-  Bedarf `4k`)  ·  **bitrate_mode:** `high` (sauberes CGI)
+- **Model:** `seedance_2_0`  ·  **Mode:** `fast`  ·  **Auflösung:** `720p`  ·
+  **bitrate_mode:** `high` (sauberes CGI)
 - **Dauer:** **10s** (jeder Shot)  ·  **aspect_ratio:** `16:9`
 - **image_references:** deine Character-Refs `@Cal`, `@Liv`, `@Sammy`, `@Biff`
   (für konsistente Identität)  ·  **generate_audio:** `false` (Ton/VO separat)
@@ -99,7 +99,7 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 ---
 
 ## Nutzung
-- Pro Shot: `seedance_2_0`, `duration:10`, `resolution:1080p`, `mode:std`,
+- Pro Shot: `seedance_2_0`, `duration:10`, `resolution:720p`, `mode:fast`,
   `bitrate_mode:high`, `aspect_ratio:16:9`, Character-Refs als `image_references`,
   `genre` wie oben, `generate_audio:false`.
 - Dialog ausschließlich Drehbuch-Canon; Shots ohne Zeile bleiben stumm.
