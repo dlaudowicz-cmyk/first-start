@@ -30,6 +30,10 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
   windmilling, tumbling head over heels and popping back up, clutching a crumb of
   food, comedic screaming grin.
 
+**Stimmungs-Bogen der Szene:** blanke Panik/Todesangst → ein Funke Hoffnung
+(Liv entdeckt den Stamm) → Erleichterung & Schwindel am Ende. Pro Shot als
+**Stimmung** ausgewiesen und in den Emotionswörtern des Prompts gespiegelt.
+
 ---
 
 ## RUN & FEAR SHEET
@@ -45,7 +49,9 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 1 — Establishing: der Ausbruch
 - **refs:** @Cal @Liv @Sammy @Biff · **genre:** `action`
-> Three tiny field mice flee in panic from a huge shaggy farm dog. @Cal, the
+- **Stimmung:** blanke Panik/Todesangst — Cal hektische Verzweiflung, Liv
+  fokussierte Entschlossenheit, Sammy nervenkitzel-getriebene Aufregung
+> Three tiny field mice flee in blind terror from a huge shaggy farm dog. @Cal, the
 > anxious but strong-willed leader, runs frantically low to the ground with pumping
 > arms, glancing back over his shoulder, long tail streaming. @Liv, bold and agile,
 > leaps over roots with sharp direction changes and leads the way. @Sammy, a goofy
@@ -56,7 +62,9 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 2 — @Cal (Laufstil + Angst)
 - **refs:** @Cal · **genre:** `action`
-> @Cal, the anxious but strong-willed leader of the mice, sprints low to the
+- **Stimmung:** Angst + Selbstvorwurf, „ich hab's doch gewusst"
+> @Cal, the anxious but strong-willed leader of the mice, panicked and full of
+> self-reproach, sprints low to the
 > ground, arms pumping hard, tail streaming behind, wide terrified eyes and ears
 > pinned flat back, glances over his shoulder and stumbles on a root. Close
 > low-angle tracking shot, warm morning rim-light, heavy motion blur, kicked-up
@@ -66,7 +74,8 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 3 — @Liv (Laufstil + Angst)
 - **refs:** @Liv · **genre:** `action`
-> @Liv, bold, clever and resourceful, leaps athletically over roots and stones
+- **Stimmung:** entschlossen, beschützerisch, fokussiert
+> @Liv, bold, clever and resourceful, determined and protective, leaps athletically over roots and stones
 > with sharp agile direction changes, jaw clenched, eyes darting to scan for an
 > escape, leading the group. Dynamic side-tracking shot that jumps with her, crisp
 > morning light, motion blur on the leaps. Consistent 3D CGI animated feature film
@@ -75,7 +84,9 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 4 — @Sammy (Laufstil + Angst)
 - **refs:** @Sammy · **genre:** `comedy`
-> @Sammy, a goofy hungry optimist, runs in chaotic bouncy panic, arms windmilling,
+- **Stimmung:** Panik, aber heimlich begeistert/thrilled
+> @Sammy, a goofy hungry optimist, terrified yet secretly thrilled, runs in chaotic
+> bouncy panic, arms windmilling,
 > tripping and tumbling head over heels then popping back up mid-run, mouth wide in
 > a comedic screaming grin, still clutching a crumb of food he refuses to drop.
 > Half-close tracking shot, slightly low comedic angle, warm playful light, motion
@@ -83,6 +94,7 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 5 — @Biff schnappt nach @Cals Schwanz
 - **refs:** @Biff @Cal · **genre:** `action`
+- **Stimmung:** blanke Todesangst, Schockmoment
 > The enormous snout of @Biff lunges into foreground, jaws snapping just behind
 > the streaming tail of @Cal, the anxious leader, whose head whips around in
 > terror, arms still pumping low to the ground. Low-angle from behind Cal, dramatic
@@ -91,6 +103,7 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 6 — @Liv entdeckt den hohlen Baumstamm
 - **refs:** @Liv · **genre:** `drama`
+- **Stimmung:** ein Funke Hoffnung flackert durch die Angst
 > @Liv, the clever resourceful one, her gaze snapping to a fallen hollow log with a
 > dark opening at its end while still running agile and low, a single god-ray
 > highlighting the log like an escape; her eyes lock on with a spark of hope through
@@ -100,6 +113,7 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 7 — Der Sprung in den Stamm
 - **refs:** @Liv @Cal @Sammy @Biff · **genre:** `action`
+- **Stimmung:** verzweifelte Rettungshoffnung — Liv entschlossen, Sammy ahnungslos vergnügt
 > @Liv, agile and bold, dives cleanly into the dark opening of the hollow log
 > first; @Cal, the anxious leader, scrambles in after her glancing back; @Sammy, the
 > goofy optimist, tumbles in last still clutching his crumb; huge dog @Biff bearing
@@ -108,6 +122,7 @@ Pixar/DreamWorks quality, cinematic lighting, shallow depth of field, 24fps.*
 
 ### Shot 8 — @Biff knallt gegen den Stamm, Mäuse schießen heraus
 - **refs:** @Biff @Cal @Liv @Sammy · **genre:** `comedy`
+- **Stimmung:** Erleichterung & Schwindel — Sammy euphorisch, Cal erschöpft erleichtert, Liv aufatmend
 > @Biff slams his head against the outside of the hollow log and slumps down dazed
 > with swirling stars, while at the far end the three mice shoot out and land in a
 > tangled heap on soft green moss: anxious @Cal, agile @Liv, and goofy @Sammy still
