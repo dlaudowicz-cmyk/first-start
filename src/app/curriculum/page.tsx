@@ -22,7 +22,7 @@ export default async function CurriculumPage() {
           <form action={createModuleWithProject}>
             <button
               type="submit"
-              className="text-sm rounded-md bg-accent text-accent-foreground px-3 py-1.5 font-medium hover:opacity-90"
+              className="text-sm btn-primary"
             >
               + Lernbereich
             </button>

@@ -58,7 +58,7 @@ export default async function WorkshopPage() {
                 <form action={bound} className="space-y-4">
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3 min-w-0 flex-1">
-                      <span className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent text-accent-foreground text-sm font-semibold">
+                      <span className="avatar-gradient shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-semibold shadow-md">
                         {day.dayNumber}
                       </span>
                       <input
@@ -83,7 +83,7 @@ export default async function WorkshopPage() {
                       {relatedModules.map((m) => (
                         <span
                           key={m.number}
-                          className="text-xs rounded-full bg-border px-2 py-0.5 text-muted"
+                          className="text-xs rounded-full px-2 py-0.5 text-accent bg-[color-mix(in_srgb,var(--accent)_12%,transparent)] border border-[color-mix(in_srgb,var(--accent)_25%,transparent)]"
                         >
                           LB {m.number} · {m.title}
                         </span>
@@ -108,7 +108,7 @@ export default async function WorkshopPage() {
 
                   <button
                     type="submit"
-                    className="text-sm rounded-md bg-accent text-accent-foreground px-3 py-1.5 font-medium hover:opacity-90"
+                    className="text-sm btn-primary"
                   >
                     Speichern
                   </button>

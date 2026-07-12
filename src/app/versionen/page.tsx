@@ -57,7 +57,7 @@ export default async function VersionsPage() {
             </label>
             <button
               type="submit"
-              className="text-sm rounded-md bg-accent text-accent-foreground px-4 py-2 font-medium hover:opacity-90 h-fit"
+              className="text-sm btn-primary h-fit"
             >
               Version speichern
             </button>

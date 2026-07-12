@@ -155,7 +155,7 @@ export default async function ModuleEditPage({
 
           <button
             type="submit"
-            className="text-sm rounded-md bg-accent text-accent-foreground px-4 py-2 font-medium hover:opacity-90"
+            className="text-sm btn-primary"
           >
             Speichern
           </button>

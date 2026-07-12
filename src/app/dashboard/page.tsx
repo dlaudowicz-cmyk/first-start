@@ -33,7 +33,7 @@ export default async function DashboardPage() {
         actions={
           <Link
             href="/curriculum"
-            className="text-sm rounded-md bg-accent text-accent-foreground px-3 py-1.5 font-medium hover:opacity-90"
+            className="text-sm btn-primary"
           >
             Curriculum bearbeiten
           </Link>
@@ -43,31 +43,39 @@ export default async function DashboardPage() {
       <div className="p-8 space-y-8">
         <section>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Stat
-              label="Gesamtstunden"
-              value={`${report.totalHours}`}
-              hint={`Ziel: ${report.targetHours} Std.`}
-              tone={report.deviation === 0 ? "success" : report.deviation > 0 ? "error" : "warning"}
-            />
-            <Stat
-              label="Abweichung"
-              value={`${report.deviation > 0 ? "+" : ""}${report.deviation} Std.`}
-              hint={report.deviation === 0 ? "Zielumfang erreicht" : undefined}
-            />
-            <Stat
-              label="Theorie / Praxis"
-              value={`${Math.round(report.theoryPercent)} / ${Math.round(report.practicePercent)} %`}
-              hint="Zielverteilung: 30 / 70"
-            />
-            <Stat
-              label="Lernbereiche"
-              value={`${modules.length}`}
-              hint={`${modules.filter((m) => m.status === "freigegeben").length} freigegeben`}
-            />
+            <div className="animate-fade-up stagger-1">
+              <Stat
+                label="Gesamtstunden"
+                value={`${report.totalHours}`}
+                hint={`Ziel: ${report.targetHours} Std.`}
+                tone={report.deviation === 0 ? "success" : report.deviation > 0 ? "error" : "warning"}
+              />
+            </div>
+            <div className="animate-fade-up stagger-2">
+              <Stat
+                label="Abweichung"
+                value={`${report.deviation > 0 ? "+" : ""}${report.deviation} Std.`}
+                hint={report.deviation === 0 ? "Zielumfang erreicht" : undefined}
+              />
+            </div>
+            <div className="animate-fade-up stagger-3">
+              <Stat
+                label="Theorie / Praxis"
+                value={`${Math.round(report.theoryPercent)} / ${Math.round(report.practicePercent)} %`}
+                hint="Zielverteilung: 30 / 70"
+              />
+            </div>
+            <div className="animate-fade-up stagger-4">
+              <Stat
+                label="Lernbereiche"
+                value={`${modules.length}`}
+                hint={`${modules.filter((m) => m.status === "freigegeben").length} freigegeben`}
+              />
+            </div>
           </div>
         </section>
 
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fade-up stagger-2">
           <Card className="lg:col-span-2 p-5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-semibold">Stundenprüfung</h2>
@@ -101,7 +109,7 @@ export default async function DashboardPage() {
           </Card>
         </section>
 
-        <section>
+        <section className="animate-fade-up stagger-3">
           <Card className="p-5">
             <h2 className="text-sm font-semibold mb-4">Lernbereiche im Überblick</h2>
             <div className="overflow-x-auto">
@@ -119,7 +127,7 @@ export default async function DashboardPage() {
                     <tr key={m.id} className="border-b border-border last:border-0">
                       <td className="py-2 pr-4 text-muted">{m.number}</td>
                       <td className="py-2 pr-4">
-                        <Link href={`/curriculum/${m.id}`} className="hover:underline">
+                        <Link href={`/curriculum/${m.id}`} className="hover:text-accent transition-colors">
                           {m.title}
                         </Link>
                       </td>

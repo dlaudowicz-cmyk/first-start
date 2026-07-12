@@ -1,19 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf9;
-  --surface: #ffffff;
-  --foreground: #1c1c1a;
-  --muted: #6b6b66;
-  --border: #e4e4e1;
-  --accent: #3f5f52;
+  --background: #f7f6fb;
+  --surface: #ffffffee;
+  --foreground: #1a1523;
+  --muted: #6f6a7d;
+  --border: #e6e1f2;
+  --accent: #7c3aed;
   --accent-foreground: #ffffff;
+  --accent-from: #7c3aed;
+  --accent-via: #a855f7;
+  --accent-to: #ec4899;
+  --accent-glow: rgba(168, 85, 247, 0.35);
   --warning: #92400e;
   --warning-bg: #fef3c7;
   --error: #991b1b;
   --error-bg: #fee2e2;
   --success: #166534;
   --success-bg: #dcfce7;
+  --blob-1: #a855f733;
+  --blob-2: #ec489922;
+  --blob-3: #22d3ee22;
 }
 
 @theme inline {
@@ -36,19 +43,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #17181a;
-    --surface: #1f2023;
-    --foreground: #e8e8e6;
-    --muted: #9a9a94;
-    --border: #303134;
-    --accent: #7fa08e;
-    --accent-foreground: #10120f;
+    --background: #121016;
+    --surface: #1c1926ee;
+    --foreground: #f1eef8;
+    --muted: #a49eb5;
+    --border: #322c42;
+    --accent: #a855f7;
+    --accent-foreground: #ffffff;
+    --accent-from: #a855f7;
+    --accent-via: #d946ef;
+    --accent-to: #f472b6;
+    --accent-glow: rgba(217, 70, 239, 0.45);
     --warning: #fbbf24;
     --warning-bg: #3f2d0a;
     --error: #f87171;
     --error-bg: #3f1414;
     --success: #4ade80;
     --success-bg: #0f2f1a;
+    --blob-1: #a855f744;
+    --blob-2: #f472b633;
+    --blob-3: #22d3ee2e;
   }
 }
 
@@ -56,10 +70,152 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* Decorative, fixed gradient mesh behind the whole app — subtle, slow, non-distracting. */
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-mesh::before,
+.bg-mesh::after,
+.bg-mesh > .blob {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  animation: drift 22s ease-in-out infinite alternate;
+}
+.bg-mesh::before {
+  width: 42vw;
+  height: 42vw;
+  top: -10%;
+  left: -8%;
+  background: var(--blob-1);
+}
+.bg-mesh::after {
+  width: 38vw;
+  height: 38vw;
+  bottom: -12%;
+  right: -6%;
+  background: var(--blob-2);
+  animation-delay: -8s;
+}
+.bg-mesh > .blob {
+  width: 30vw;
+  height: 30vw;
+  top: 30%;
+  right: 20%;
+  background: var(--blob-3);
+  animation-delay: -14s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(4%, 6%) scale(1.08);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-via), var(--accent-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  color: var(--accent-foreground);
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-via), var(--accent-to));
+  background-size: 160% 160%;
+  box-shadow: 0 4px 18px -4px var(--accent-glow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-position 0.4s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.015);
+  box-shadow: 0 8px 24px -4px var(--accent-glow);
+  background-position: 100% 0;
+}
+.btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+.card-glow {
+  position: relative;
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -12px var(--accent-glow);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.avatar-gradient {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-via), var(--accent-to));
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.stagger-1 {
+  animation-delay: 0.03s;
+}
+.stagger-2 {
+  animation-delay: 0.08s;
+}
+.stagger-3 {
+  animation-delay: 0.13s;
+}
+.stagger-4 {
+  animation-delay: 0.18s;
 }
 
 @media print {
   .no-print {
     display: none !important;
+  }
+  .bg-mesh {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-mesh::before,
+  .bg-mesh::after,
+  .bg-mesh > .blob,
+  .animate-fade-up,
+  .btn-primary,
+  .card-glow {
+    animation: none !important;
+    transition: none !important;
   }
 }

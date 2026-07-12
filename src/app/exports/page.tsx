@@ -36,7 +36,7 @@ export default function ExportsPage() {
             <Link
               href={e.href}
               target={e.download ? undefined : "_blank"}
-              className="text-sm rounded-md bg-accent text-accent-foreground px-3 py-1.5 font-medium hover:opacity-90 whitespace-nowrap"
+              className="text-sm btn-primary whitespace-nowrap"
             >
               {e.download ? "Herunterladen" : "Öffnen"}
             </Link>
