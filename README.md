@@ -35,27 +35,38 @@ Vollständige Begründung aller Abweichungen vom Dokument-Vorschlag: `docs/CONCE
 ```
 src/
   db/
-    schema.ts            Drizzle-Schema, 1:1 zu Übergabedokument §11
+    schema.ts            Drizzle-Schema: Curriculum Studio (§11) + Academy-Tabellen (§40, Klick-Dummy-Scope)
     index.ts              DB-Client (better-sqlite3)
-    seed.ts               Seed-Daten aus §6/§7/§8/§19
+    seed.ts               Seed-Daten Studio aus §6/§7/§8/§19
+    academy-seed.ts        Mock-Daten Academy: Programm, Kurse, Lektionen, Abgaben, Zertifikat
     migrate-and-seed.ts    Läuft vor jedem dev/build
   lib/
     hours.ts               Stundenprüfung (§5.3) — reine Funktion, testbar
-    data.ts                 Datenzugriff (Server-seitig)
+    data.ts                 Studio-Datenzugriff (Server-seitig)
+    academy-data.ts         Academy-Datenzugriff
+    academy-role.ts          Rollen-Cookie (Ersatz für Auth im Klick-Dummy)
     export.ts               Markdown-/JSON-Exportgenerierung
   components/
-    sidebar.tsx, ui.tsx      Layout- und UI-Primitiven (§13 Designrichtung)
+    sidebar.tsx, ui.tsx      Studio-Layout und geteilte UI-Primitiven
+    academy/                 Academy-Sidebar, Rollen-Umschalter
   app/
-    dashboard/               §5.1
-    curriculum/[id]/         §5.2 Editor + Server Actions
-    workshop/                §5.4
-    tools/                   §5.6
-    versionen/                §5.7 (vereinfachte Snapshot-Versionierung)
-    exporte/                  §5.9
-    dozentenhandbuch/, kommentare/, einstellungen/   Stub-Seiten (Priorität 2/3)
+    (studio)/                eigene Route-Gruppe (keine URL-Auswirkung), eigener Sidebar-Layout
+      dashboard/, curriculum/[id]/, workshop/, tools/, versionen/, exporte/, ...
+    akademie/                Online-Academy-Klick-Dummy (docs/ACADEMY-PLAN.md)
+      dashboard/, programme/[id]/, kurse/[courseId]/, aufgaben/, dozent/, zertifikate/, admin/
 drizzle/                     generierte SQL-Migrationen (committed)
-docs/CONCEPT-REVIEW.md       Konzeptprüfung, Annahmen, MVP-Abgrenzung
+docs/CONCEPT-REVIEW.md       Konzeptprüfung, Annahmen, MVP-Abgrenzung (Curriculum Studio)
+docs/ACADEMY-PLAN.md          Architektur, Datenmodell, Roadmap für die Online Academy (§47)
 ```
+
+## Online Academy (Klick-Dummy)
+
+Unter `/akademie` liegt ein UI/UX-Klick-Dummy der in `docs/ACADEMY-PLAN.md` geplanten Online Academy — auf
+ausdrücklichen Wunsch **auf dem bestehenden SQLite-Stack**, ohne echte Authentifizierung. Da es kein Login gibt,
+schaltet ein Cookie-basierter Rollen-Umschalter in der Academy-Sidebar zwischen drei Ansichten um: Teilnehmer,
+Dozent, Admin. Interaktionen sind echt und persistieren (Lektion abschließen, Aufgabe einreichen, Feedback
+geben, Lernbereich aus dem Studio als Kurs übernehmen) — es fehlt nur die Zugriffskontrolle. Die Migration auf
+Supabase (echte Auth/RLS/Storage) ist bewusst zurückgestellt, siehe `docs/ACADEMY-PLAN.md` §9.
 
 ## Datenbank-Befehle
 
@@ -64,6 +75,7 @@ npm run db:generate   # neue Migration aus schema.ts erzeugen
 npm run db:migrate     # Migrationen anwenden
 npm run db:studio      # Drizzle Studio (DB-Browser im Browser)
 npm run db:seed        # Seed-Daten erneut einspielen
+npm run db:seed:academy # Academy-Mock-Daten erneut einspielen
 ```
 
 ## Migrationspfad zu Supabase/Postgres
@@ -103,3 +115,6 @@ KI-Assistenzfunktionen, lokale KI-Modelle, DOCX/XLSX-Export.
 - Browser-Smoke-Test (Playwright): Dashboard, Curriculum-Liste/Editor (anlegen/bearbeiten/löschen), Workshop-Tage
   bearbeiten, Tool-Matrix, Versionserstellung, Markdown-/JSON-Export, PDF-Druckansicht, Stub-Seiten — alle ohne
   Konsolenfehler, Datenpersistenz in SQLite verifiziert.
+- Academy-Klick-Dummy in allen drei Rollen durchgeklickt (Teilnehmer, Dozent, Admin): Lektion abschließen,
+  Aufgabe einreichen, Dozenten-Feedback speichern, Curriculum-Modul als Kurs übernehmen — alle Interaktionen
+  in SQLite verifiziert, keine Konsolenfehler.

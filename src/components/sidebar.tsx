@@ -79,6 +79,11 @@ export function Sidebar(): ReactNode {
           );
         })}
       </nav>
+      <div className="px-5 py-3 border-t border-border">
+        <Link href="/akademie" className="text-xs text-muted hover:text-accent transition-colors">
+          Online Academy →
+        </Link>
+      </div>
       <div className="px-5 py-4 border-t border-border flex items-center gap-2.5">
         <span className="avatar-gradient w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-white text-xs font-semibold">
           D

@@ -95,6 +95,23 @@ const STATUS_LABELS: Record<string, string> = {
   aktiv: "Aktiv",
   veraltet: "Veraltet",
   ersetzt: "Ersetzt",
+  // Academy (docs/ACADEMY-PLAN.md)
+  buchbar: "Buchbar",
+  ausgebucht: "Ausgebucht",
+  geplant: "Geplant",
+  eingeschrieben: "Eingeschrieben",
+  abgeschlossen: "Abgeschlossen",
+  abgebrochen: "Abgebrochen",
+  nicht_erreicht: "Nicht erreicht",
+  erreicht: "Erreicht",
+  beantragt: "Beantragt",
+  ausgestellt: "Ausgestellt",
+  widerrufen: "Widerrufen",
+  eingereicht: "Eingereicht",
+  in_pruefung: "In Prüfung",
+  ueberarbeitung_erforderlich: "Überarbeitung erforderlich",
+  bestanden: "Bestanden",
+  nicht_bestanden: "Nicht bestanden",
 };
 
 const STATUS_TONE: Record<string, string> = {
@@ -112,6 +129,23 @@ const STATUS_TONE: Record<string, string> = {
   aktiv: "bg-success-bg text-success",
   veraltet: "bg-error-bg text-error",
   ersetzt: "bg-border text-muted",
+  // Academy
+  buchbar: "bg-success-bg text-success",
+  ausgebucht: "bg-warning-bg text-warning",
+  geplant: "bg-border text-muted",
+  eingeschrieben: "bg-warning-bg text-warning",
+  abgeschlossen: "bg-success-bg text-success",
+  abgebrochen: "bg-error-bg text-error",
+  nicht_erreicht: "bg-border text-muted",
+  erreicht: "bg-success-bg text-success",
+  beantragt: "bg-warning-bg text-warning",
+  ausgestellt: "bg-success-bg text-success",
+  widerrufen: "bg-error-bg text-error",
+  eingereicht: "bg-warning-bg text-warning",
+  in_pruefung: "bg-warning-bg text-warning",
+  ueberarbeitung_erforderlich: "bg-error-bg text-error",
+  bestanden: "bg-success-bg text-success",
+  nicht_bestanden: "bg-error-bg text-error",
 };
 
 const STATUS_DOT: Record<string, string> = {
