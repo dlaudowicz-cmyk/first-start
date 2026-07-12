@@ -56,18 +56,18 @@ export default async function WorkshopPage() {
             return (
               <Card key={day.id} className="p-5">
                 <form action={bound} className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent text-accent-foreground text-sm font-semibold">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3 min-w-0 flex-1">
+                      <span className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent text-accent-foreground text-sm font-semibold">
                         {day.dayNumber}
                       </span>
                       <input
                         name="title"
                         defaultValue={day.title}
-                        className="text-sm font-semibold bg-transparent border-0 focus:outline-none focus:ring-1 focus:ring-accent rounded px-1 -ml-1"
+                        className="flex-1 min-w-0 text-sm font-semibold bg-transparent border-0 focus:outline-none focus:ring-1 focus:ring-accent rounded px-1 -ml-1"
                       />
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-muted">
+                    <div className="flex items-center gap-2 text-xs text-muted shrink-0">
                       <span>Stunden:</span>
                       <input
                         name="hours"
