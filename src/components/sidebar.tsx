@@ -44,8 +44,10 @@ export function Sidebar(): ReactNode {
       <div className="px-5 py-5 border-b border-border flex items-center gap-3">
         <span className="avatar-gradient w-8 h-8 rounded-xl shrink-0 shadow-lg" style={{ boxShadow: "0 4px 16px -4px var(--accent-glow)" }} />
         <div className="min-w-0">
-          <p className="text-sm font-semibold tracking-tight gradient-text">AI Creator Curriculum</p>
-          <p className="text-xs text-muted mt-0.5 truncate">Fernseh Akademie Mitteldeutschland</p>
+          <p className="text-sm font-bold tracking-tight gradient-text">AI CREATOR CURRICULUM</p>
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-accent mt-1">
+            FAM <span className="text-muted">×</span> Pushlabs
+          </p>
         </div>
       </div>
       <nav className="flex-1 overflow-y-auto py-3 px-2">

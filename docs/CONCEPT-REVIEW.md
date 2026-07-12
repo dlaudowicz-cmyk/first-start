@@ -52,8 +52,10 @@ Bewusst **nicht gebaut** (Abschnitt 16): Auth/Rechteprüfung, Teilnehmerverwaltu
 
 §13 verlangt explizit ein ruhiges, editoriales Design ohne Farbe/Animation ("kein verspieltes EdTech-Design, keine bunte
 Gamification, keine KI-typische Neonoptik, keine unnötigen Animationen"). Auf ausdrücklichen Wunsch wurde die Optik danach
-bewusst aufwendiger gestaltet: Gradient-Akzentfarbe (Violett→Pink), animierter Gradient-Hintergrund, animierte Kennzahlen,
-Hover-/Eintritts-Animationen, Icon-Set in der Navigation. Funktional unverändert: Formularfelder, Tabellen und Warnungen
-bleiben nüchtern lesbar, `prefers-reduced-motion` wird respektiert, der Druckexport (`/exports/print`) blendet die
-Dekoration komplett aus. Falls FAM/IHK das ruhigere §13-Erscheinungsbild für die Abgabefassung bevorzugen, ist das eine
-reine CSS-Variablen-Änderung in `src/app/globals.css` (Akzentfarben, `.bg-mesh`, `.animate-fade-up` entfernen/deaktivieren).
+bewusst aufwendiger gestaltet und anschließend auf die Corporate Identity von Pushlabs (pushlabs.de, Daniels Firma)
+umgestellt: Schwarz/Neon-Lime-Akzent (`#d7ff3f`-Ton im Dark Mode, dunkleres Oliv-Lime im Light Mode für Kontrast auf
+Weiß), animierter Gradient-Hintergrund, animierte Kennzahlen, Hover-/Eintritts-Animationen, Icon-Set in der Navigation,
+"FAM × PUSHLABS"-Eyebrow-Label im Sidebar-Header. Funktional unverändert: Formularfelder, Tabellen und Warnungen bleiben
+nüchtern lesbar, `prefers-reduced-motion` wird respektiert, der Druckexport (`/exports/print`) blendet die Dekoration
+komplett aus. Falls FAM/IHK das ruhigere §13-Erscheinungsbild für die Abgabefassung bevorzugen, ist das eine reine
+CSS-Variablen-Änderung in `src/app/globals.css` (Akzentfarben, `.bg-mesh`, `.animate-fade-up` entfernen/deaktivieren).
