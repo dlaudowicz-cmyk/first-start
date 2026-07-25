@@ -48,6 +48,20 @@
 | WB-Gated-Community-Street | `a7636e96-8c3d-4408-b49f-11cc2812c36a` | Vorstadt (Bexly's erste Schritte) |
 | Willowbrook-Aerial | `72c3bb1e-2a83-4215-9e3c-30dee6ca44a9` | Stadt-Geografie (verbindlich) |
 
-## Test-Ergebnis (Szene 01, Shot 1)
-- Video-Job `e2d72321-d8d1-4465-8f44-715c57862581` — 10s/720p/fast, aus
-  Forest-Master-HQ animiert (seedance_2_0). Identitätstreu. 35 Credits.
+## Test-Ergebnisse (Szene 01)
+- **Shot 1 (Establishing)** Video-Job `e2d72321-d8d1-4465-8f44-715c57862581` —
+  aus Forest-Master-HQ animiert. 35 Credits.
+- **Locomotion-Tests** (Charakter-Element + Forest-Plate als image_references):
+  - **Cal (ängstlich)** `0b0f2264-4fe6-40da-9c76-b04afa75acb7` — genre action
+  - **Liv (energisch)** `0c5a4f7a-8b9a-4dfa-83da-c35441d25530` — genre action
+  - **Sammy (Gewicht)** `330cfec2-9fbf-4725-bb42-1ab5db874d9d` — genre comedy
+  Alle 10s/720p/fast, je 35 Credits. Distinkte Bewegungssignaturen bestätigt.
+
+## Rezept (identitätstreue Einzel-Shots)
+`seedance_2_0`, 720p, fast, 10s, 16:9, `generate_audio:false`,
+`medias:[{role:image_references, value:<charakter-media-id>}, {role:image_references,
+value:548e9db0-Forest-Plate-media d3830738-7ff2-4939-b550-26d13ef3d501}]`,
+Prompt mit distinkter Locomotion + Kamera-Move + genre.
+Charakter-Media-IDs: Cal `620065cb-75d1-46dc-9f55-b50220b26136`,
+Liv `459f435b-5dca-41dd-b9a4-8297b7616ff1`,
+Sammy `1db3bdb3-8d06-49bd-bf25-55df06591af4`.
