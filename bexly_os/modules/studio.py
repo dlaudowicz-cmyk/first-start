@@ -55,6 +55,10 @@ STANDARD FUER JEDE SZENE:
   180-Grad-Regel (wer links/rechts bzw. vorne/hinten steht, bleibt so), achte auf
   konsistente Eyelines, Positionen, Auftritte/Abgaenge und Raum-Geografie. Pro
   Shot eine konkrete Blocking-Notiz.
+- LOCOMOTION/BEWEGUNGS-SIGNATUR: Jede Figur bewegt sich einzigartig (nach den
+  Animationsprinzipien Gewicht, Timing, Energie). Beschreibe im Prompt fuer jede
+  Figur ihren eigenen Bewegungsablauf (z. B. leicht/zittrig/aengstlich vs.
+  federnd/explosiv/energisch vs. schwer/traege/mit Wucht). Nie generisch "rennt".
 - CAMERA MOVEMENT ist Pflicht: Waehle pro Shot EINEN Bewegungsstil aus diesem
   Vokabular (passend zu Emotion & Tempo):
   static/locked-off, handheld, gimbal, steadicam, dolly-in, dolly-out,

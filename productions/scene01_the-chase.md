@@ -22,13 +22,19 @@ ears flicking, tiny finger and toe movements, tail micro-adjustments, muscles
 flexing under the fur, subtle weight shifts and breathing; lifelike and
 understated, never stiff.*
 
-**Character-Cues:**
-- **@Cal** — anxious but strong-willed leader; runs low to the ground, arms
-  pumping, glancing back and stumbling, long tail streaming.
-- **@Liv** — bold, clever, resourceful; agile athletic run, leaping over roots,
-  sharp direction changes, leading.
-- **@Sammy** — goofy hungry optimist; chaotic bouncy run, windmilling arms,
-  tumbling and popping back up, clutching a crumb of food.
+**Character-Cues + Bewegungs-Signatur (Locomotion — je Figur einzigartig):**
+- **@Cal — ängstlich/angespannt:** tense, jittery, hunched-low locomotion; short
+  nervous quick steps, stutter-steps and flinches when he glances back, light but
+  frantic footfalls, rigid then whipping tail. *anxious, twitchy, hesitant-yet-driven
+  motion; light weight.*
+- **@Liv — energisch:** athletic, springy, explosive locomotion; long bounding
+  strides, powerful push-offs, agile mid-air corrections, snappy decisive direction
+  changes, confident upright posture, leads. *high-energy, punchy timing; light and
+  explosive.*
+- **@Sammy — mehr Gewicht:** heavier, rolling, bouncy locomotion; his weight throws
+  him around, big momentum-driven bounces that overshoot, belly and cheeks jiggling,
+  heavy landings, slow to change direction, tumbles from his own momentum. *comedic
+  weight, lumbering-yet-bouncy; heavy, momentum-led.*
 
 **Stimmungs-Bogen:** blanke Panik/Todesangst → Funke Hoffnung (Liv entdeckt den
 Stamm) → Erleichterung & Schwindel.
