@@ -115,6 +115,12 @@ pro Maus**, **sichtbare Angst**, **Stimmung** und **subtile Micro-Gestures**
 - 8 Shots inkl. Kamera, Licht, Stimmung, Micro-Motion; Dialog **nur aus
   Drehbuch-Canon** (Shots ohne Zeile bleiben stumm).
 
+**Produktions-Standard (gilt für jede Szene):** Jeder Shot hat **Blocking**
+(Screen Direction, 180°-Regel, Staging) und einen **Kamera-Bewegungsstil**
+(handheld, steadicam, dolly, crane, drone, whip-pan, crash-zoom …). Vokabular &
+Regeln in `productions/CAMERA_AND_BLOCKING.md`; im Studio-Modul fest verankert
+(CineForge liefert Blocking + camera_movement automatisch).
+
 **Erkenntnis Higgsfield-Library:** Die „Presets/Skills" dort sind virale
 One-Shot-Templates (kein generischer CGI/Cinema-Skill). Der Look entsteht bei
 uns über Referenzen + `genre` + Prompt (Stil-Cue „consistent 3D CGI animated

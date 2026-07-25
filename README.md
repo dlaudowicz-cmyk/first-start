@@ -72,8 +72,11 @@ jobs = s.generation_jobs("planned")  # fertige Jobs für Bild-/Video-Generator
 s.update_status(1, "generated", output="https://…/shot1.png")
 ```
 
-Fertige Szenen-Shotlists liegen unter **`productions/`** (z. B.
-`productions/scene01_the-chase.md`).
+Jeder Shot enthält als **Standard**: Blocking (Screen Direction/180°-Regel),
+Kamera-Einstellung **und Kamera-Bewegungsstil** (handheld, steadicam, dolly,
+crane, drone …), Licht, Pacing, Stimmung, Prompt. Vokabular & Regeln:
+**`productions/CAMERA_AND_BLOCKING.md`**. Fertige Szenen-Shotlists liegen unter
+**`productions/`** (z. B. `productions/scene01_the-chase.md`).
 
 ### Web-Recherche (Firecrawl)
 

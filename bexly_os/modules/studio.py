@@ -32,7 +32,17 @@ from pathlib import Path
 STUDIO_DIR = Path(__file__).resolve().parent.parent.parent / ".bexly" / "studio"
 
 # Felder, die CineForge pro Shot liefert.
-SHOT_FIELDS = ("beat", "action", "camera", "composition", "lighting", "pacing", "prompt")
+SHOT_FIELDS = ("beat", "action", "blocking", "camera", "camera_movement",
+               "composition", "lighting", "pacing", "mood", "prompt")
+
+# Standard-Vokabular fuer Kamerabewegung (siehe productions/CAMERA_AND_BLOCKING.md).
+CAMERA_MOVES = (
+    "static/locked-off", "handheld", "gimbal", "steadicam", "dolly-in", "dolly-out",
+    "tracking/trucking", "arc/orbit", "crane/jib", "drone/aerial", "pedestal",
+    "push-in", "pull-out", "follow/chase-cam", "pan", "tilt", "whip-pan",
+    "zoom-in", "zoom-out", "crash-zoom", "dolly-zoom/vertigo", "POV", "dutch-angle",
+    "snorricam", "speed-ramp/slow-mo",
+)
 
 ROLE = """\
 Du bist der KI-Kameramann/Regisseur ("CineForge") der Marke Bexly. Du zerlegst
@@ -40,16 +50,32 @@ eine Szene oder Sequenz in einzelne, klar abgegrenzte SHOTS. Jeder Beat ist ein
 eigener Shot. Du kennst Figuren, Welt und Tonalitaet aus dem Markenkern und
 haeltst dich strikt daran (kindgerecht, warmherzig, humorvoll).
 
+STANDARD FUER JEDE SZENE:
+- BLOCKING ist Pflicht: Lege eine durchgehende Screen Direction fest, halte die
+  180-Grad-Regel (wer links/rechts bzw. vorne/hinten steht, bleibt so), achte auf
+  konsistente Eyelines, Positionen, Auftritte/Abgaenge und Raum-Geografie. Pro
+  Shot eine konkrete Blocking-Notiz.
+- CAMERA MOVEMENT ist Pflicht: Waehle pro Shot EINEN Bewegungsstil aus diesem
+  Vokabular (passend zu Emotion & Tempo):
+  static/locked-off, handheld, gimbal, steadicam, dolly-in, dolly-out,
+  tracking/trucking, arc/orbit, crane/jib, drone/aerial, pedestal, push-in,
+  pull-out, follow/chase-cam, pan, tilt, whip-pan, zoom-in, zoom-out, crash-zoom,
+  dolly-zoom/vertigo, POV, dutch-angle, snorricam, speed-ramp/slow-mo.
+
 Antworte AUSSCHLIESSLICH mit einem JSON-Array. Jedes Element ist ein Shot mit
 exakt diesen Schluesseln:
-  "beat"        : kurzer Name des Beats
-  "action"      : was im Shot passiert (1-2 Saetze)
-  "camera"      : Kameraeinstellung & -bewegung (z. B. "Low-Angle, langsamer Push-in")
-  "composition" : Bildaufbau (Vorder-/Hintergrund, Position der Figuren)
-  "lighting"    : Lichtstimmung
-  "pacing"      : Dauer/Rhythmus (z. B. "3s, baut Spannung auf")
-  "prompt"      : ein generierfertiger Bild-/Video-Prompt (Englisch ok), der
-                  Stil, Figur(en), Kamera, Licht und Stimmung buendelt
+  "beat"            : kurzer Name des Beats
+  "action"          : was im Shot passiert (1-2 Saetze)
+  "blocking"        : Staging/Screen Direction/180-Grad/Positionen fuer diesen Shot
+  "camera"          : Einstellungsgroesse & Winkel (z. B. "Low-Angle Close-up")
+  "camera_movement" : EIN Stil aus dem Vokabular oben
+  "composition"     : Bildaufbau (Vorder-/Hintergrund, Position der Figuren)
+  "lighting"        : Lichtstimmung
+  "pacing"          : Dauer/Rhythmus (z. B. "3s, baut Spannung auf")
+  "mood"            : Stimmung/Emotion der Figuren im Shot
+  "prompt"          : ein generierfertiger Bild-/Video-Prompt (Englisch ok), der
+                      Stil, Figur(en), Blocking, Kamera + Bewegung, Licht und
+                      Stimmung buendelt
 Keine Erklaerungen, kein Text ausserhalb des JSON-Arrays."""
 
 
@@ -59,10 +85,13 @@ class Shot:
     scene: str = ""
     beat: str = ""
     action: str = ""
-    camera: str = ""
+    blocking: str = ""             # Staging / Screen Direction / 180-Grad
+    camera: str = ""               # Einstellungsgroesse & Winkel
+    camera_movement: str = ""      # Bewegungsstil (siehe CAMERA_MOVES)
     composition: str = ""
     lighting: str = ""
     pacing: str = ""
+    mood: str = ""                 # Stimmung/Emotion
     prompt: str = ""
     medium: str = "image"          # "image" oder "video"
     status: str = "planned"        # planned -> generated -> approved
@@ -175,16 +204,22 @@ class Studio:
             return f"Projekt '{self.project}' hat noch keine Shots."
         lines = [
             f"# Shotlist — {self.project}", "",
-            "| # | Szene | Beat | Kamera | Licht | Pacing | Medium | Status |",
-            "|---|-------|------|--------|-------|--------|--------|--------|",
+            "| # | Szene | Beat | Kamera | Move | Licht | Pacing | Stimmung | Medium | Status |",
+            "|---|-------|------|--------|------|-------|--------|----------|--------|--------|",
         ]
         for s in self.shots:
             lines.append(
-                f"| {s.number} | {s.scene} | {s.beat} | {s.camera} | "
-                f"{s.lighting} | {s.pacing} | {s.medium} | {s.status} |")
-        lines += ["", "## Prompts", ""]
+                f"| {s.number} | {s.scene} | {s.beat} | {s.camera} | {s.camera_movement} | "
+                f"{s.lighting} | {s.pacing} | {s.mood} | {s.medium} | {s.status} |")
+        lines += ["", "## Shots (Detail)", ""]
         for s in self.shots:
-            lines.append(f"**Shot {s.number} — {s.beat}**\n\n> {s.prompt}\n")
+            lines += [
+                f"### Shot {s.number} — {s.beat}",
+                f"- **Blocking:** {s.blocking}",
+                f"- **Kamera:** {s.camera} · **Move:** {s.camera_movement}",
+                f"- **Licht:** {s.lighting} · **Pacing:** {s.pacing} · **Stimmung:** {s.mood}",
+                f"\n> {s.prompt}\n",
+            ]
         return "\n".join(lines)
 
 
