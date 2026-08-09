@@ -12,11 +12,17 @@ client = anthropic.Anthropic()
 MEMORY_FILE = os.path.expanduser("~/.assistant_memory.json")
 VAULT_FILE = Path(__file__).resolve().parent / "vault.json"
 
-MODEL = "claude-opus-4-7"
+MODEL = "claude-opus-5"
+# Thinking and response text share this budget, so leave room for both.
+MAX_TOKENS = 16000
 EFFORT_LEVELS = ("low", "medium", "high", "xhigh", "max")
 
-BASE_SYSTEM_PROMPT = """You are a helpful personal AI assistant. You are direct, knowledgeable, and concise.
-You remember everything said across all conversations and use it to give better answers over time."""
+BASE_SYSTEM_PROMPT = """You are a helpful personal AI assistant. You are direct and knowledgeable.
+You remember everything said across all conversations and use it to give better answers over time.
+
+Keep responses focused, brief, and concise to avoid overwhelming the person. Disclaimers and caveats
+are brief, with most of the response on the main answer; when asked to explain something, give a
+high-level summary unless an in-depth one is specifically requested."""
 
 VAULT_PROMPT = """The user keeps a personal resource vault. These are the entries in it:
 
@@ -312,9 +318,13 @@ def chat():
         print("Assistant: ", end="", flush=True)
         response_text = ""
 
-        with client.messages.stream(
+        with client.beta.messages.stream(
             model=MODEL,
-            max_tokens=4096,
+            max_tokens=MAX_TOKENS,
+            # Claude Opus 5's safety classifiers can decline a request. "default" lets the
+            # API re-run it server-side on Anthropic's recommended fallback model.
+            betas=["server-side-fallback-2026-07-01"],
+            fallbacks="default",
             thinking={"type": "adaptive"},
             output_config={"effort": session.effort},
             system=session.system_prompt,
@@ -323,8 +333,23 @@ def chat():
             for text in stream.text_stream:
                 print(text, end="", flush=True)
                 response_text += text
+            final = stream.get_final_message()
 
         print()
+
+        if final.stop_reason == "refusal":
+            category = getattr(final.stop_details, "category", None) or "unspecified"
+            print(
+                f"[Declined by the safety classifiers ({category}). Anything printed above is a "
+                f"partial response and was discarded, along with your message, so the rest of "
+                f"the conversation stays usable.]\n"
+            )
+            session.messages.pop()
+            continue
+
+        if final.stop_reason == "max_tokens":
+            print(f"[Truncated at the {MAX_TOKENS}-token limit — ask to continue.]\n")
+
         session.messages.append({"role": "assistant", "content": response_text})
         save_memory(session.messages)
 
