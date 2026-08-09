@@ -65,3 +65,11 @@ Prompt mit distinkter Locomotion + Kamera-Move + genre.
 Charakter-Media-IDs: Cal `620065cb-75d1-46dc-9f55-b50220b26136`,
 Liv `459f435b-5dca-41dd-b9a4-8297b7616ff1`,
 Sammy `1db3bdb3-8d06-49bd-bf25-55df06591af4`.
+
+## Demo-Reel (für Partner-Gespräche)
+`BEXLY_Character_Pipeline_Demo.mp4` — 44s, 1280×720, 24fps. Aufbau:
+Intro-Card (3s) → Szene 01 Verfolgung (10s) → Cal (10s) → Liv (10s) →
+Sammy (10s) → Outro-Card (4s), je mit Lower-Third und 0.5s-Crossfades.
+Quelle: die vier Test-Jobs (e2d72321 / 0b0f2264 / 0c5a4f7a / 330cfec2).
+Zweck: Figurentreue + drei distinkte Bewegungssignaturen in einem Stück zeigen.
+Schnitt via ffmpeg (Karten/Lower-Thirds mit PIL erzeugt).
