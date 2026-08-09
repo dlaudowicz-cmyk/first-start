@@ -1,19 +1,26 @@
 import { prisma } from "@/lib/db";
 import { PageHeader } from "@/components/page-header";
 import { ExpenseCalculator } from "./expense-calculator";
+import { getActiveVenture, ventureScope } from "@/lib/venture-context";
 import { formatCurrency, formatDate } from "@/lib/utils";
 import { ExpensesList } from "./expenses-list";
 
 export const dynamic = "force-dynamic";
 
 export default async function ExpensesPage() {
+  const active = await getActiveVenture();
   const [expenses, projects] = await Promise.all([
     prisma.expense.findMany({
+      where: ventureScope(active),
       orderBy: { travelDate: "desc" },
       include: { project: true },
       take: 50,
     }),
-    prisma.project.findMany({ orderBy: { updatedAt: "desc" }, select: { id: true, title: true } }),
+    prisma.project.findMany({
+      where: ventureScope(active),
+      orderBy: { updatedAt: "desc" },
+      select: { id: true, title: true },
+    }),
   ]);
 
   const monthTotal = expenses

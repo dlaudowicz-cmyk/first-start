@@ -16,6 +16,7 @@ function parse(formData: FormData) {
     location: String(formData.get("location") || ""),
     budget: formData.get("budget") ? Number(formData.get("budget")) : undefined,
     notes: String(formData.get("notes") || ""),
+    ventureId: String(formData.get("ventureId") || ""),
   };
 }
 
@@ -36,6 +37,7 @@ export async function createProject(formData: FormData) {
       location: data.location || null,
       budget: data.budget ?? null,
       notes: data.notes || null,
+      ventureId: data.ventureId || null,
     },
   });
   revalidatePath("/projects");
@@ -56,6 +58,7 @@ export async function updateProject(id: string, formData: FormData) {
       location: data.location || null,
       budget: data.budget ?? null,
       notes: data.notes || null,
+      ventureId: data.ventureId || null,
     },
   });
   revalidatePath("/projects");

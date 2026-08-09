@@ -1,4 +1,13 @@
-// Pushlabs Production OS — Prisma schema (SQLite)
+// Pushlabs Company OS — Prisma schema (SQLite)
+//
+// Two layers:
+//   1. COMPANY layer  — Venture, Person, Contract, Credential, ToolSubscription, Task
+//   2. OPERATIONS     — Client, Project, Offer, Invoice, Expense (venture-scoped)
+//
+// Ventures are softly separated: every operational record carries a nullable
+// ventureId (null = company-wide / unassigned). Clients are many-to-many
+// because the same customer can book more than one venture; the export marks
+// those records as shared.
 
 generator client {
   provider = "prisma-client-js"
@@ -9,8 +18,163 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Client {
+// ─────────────────────────────── COMPANY LAYER ───────────────────────────────
+
+model Venture {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  kind        String    @default("studio")
+  status      String    @default("active")
+  tagline     String?
+  description String?
+  accent      String?
+  foundedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  clients     ClientVenture[]
+  members     VentureMember[]
+  projects    Project[]
+  offers      Offer[]
+  invoices    Invoice[]
+  expenses    Expense[]
+  contracts   Contract[]
+  credentials Credential[]
+  tools       ToolSubscription[]
+  tasks       Task[]
+}
+
+model Person {
+  id        String   @id @default(cuid())
+  name      String
+  type      String   @default("freelancer")
+  role      String?
+  email     String?
+  phone     String?
+  location  String?
+  dayRate   Float?
+  skills    String?
+  notes     String?
+  status    String   @default("active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  memberships      VentureMember[]
+  ownedCredentials Credential[]       @relation("CredentialOwner")
+  ownedTools       ToolSubscription[] @relation("ToolOwner")
+  contracts        Contract[]
+  tasks            Task[]
+}
+
+model VentureMember {
+  id         String @id @default(cuid())
+  role       String
+  allocation Int?
+
+  personId  String
+  person    Person  @relation(fields: [personId], references: [id], onDelete: Cascade)
+  ventureId String
+  venture   Venture @relation(fields: [ventureId], references: [id], onDelete: Cascade)
+
+  @@unique([personId, ventureId])
+}
+
+model Contract {
+  id               String    @id @default(cuid())
+  title            String
+  type             String    @default("client")
+  counterparty     String
+  status           String    @default("draft")
+  signedAt         DateTime?
+  startDate        DateTime?
+  endDate          DateTime?
+  noticePeriodDays Int?
+  value            Float?
+  filePath         String?
+  notes            String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  ventureId String?
+  venture   Venture? @relation(fields: [ventureId], references: [id])
+  clientId  String?
+  client    Client?  @relation(fields: [clientId], references: [id])
+  personId  String?
+  person    Person?  @relation(fields: [personId], references: [id])
+}
+
+/// Reference-only vault. Deliberately stores NO secret values — only where the
+/// secret lives, who owns it and when it was last rotated.
+model Credential {
+  id              String    @id @default(cuid())
+  service         String
+  category        String    @default("account")
+  url             String?
+  identifier      String?
+  storageLocation String    @default("1Password")
+  vaultRef        String?
+  mfaLocation     String?
+  sharedWith      String?
+  criticality     String    @default("normal")
+  rotatedAt       DateTime?
+  rotateEveryDays Int?
+  notes           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  ownerId   String?
+  owner     Person?  @relation("CredentialOwner", fields: [ownerId], references: [id])
+  ventureId String?
+  venture   Venture? @relation(fields: [ventureId], references: [id])
+}
+
+model ToolSubscription {
+  id           String    @id @default(cuid())
+  name         String
+  category     String    @default("production")
+  plan         String?
+  seats        Int?
+  costPerMonth Float?
+  billingCycle String    @default("monthly")
+  renewalDate  DateTime?
+  status       String    @default("active")
+  url          String?
+  notes        String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  ownerId   String?
+  owner     Person?  @relation("ToolOwner", fields: [ownerId], references: [id])
+  ventureId String?
+  venture   Venture? @relation(fields: [ventureId], references: [id])
+}
+
+model Task {
   id            String    @id @default(cuid())
+  title         String
+  detail        String?
+  status        String    @default("open")
+  priority      String    @default("normal")
+  dueDate       DateTime?
+  source        String?
+  assigneeLabel String?
+  completedAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  assigneeId String?
+  assignee   Person?  @relation(fields: [assigneeId], references: [id])
+  ventureId  String?
+  venture    Venture? @relation(fields: [ventureId], references: [id])
+  projectId  String?
+  project    Project? @relation(fields: [projectId], references: [id])
+}
+
+// ────────────────────────────── OPERATIONS LAYER ─────────────────────────────
+
+model Client {
+  id            String   @id @default(cuid())
   companyName   String
   contactPerson String?
   email         String?
@@ -18,53 +182,71 @@ model Client {
   address       String?
   vatId         String?
   notes         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
-  projects Project[]
-  offers   Offer[]
-  invoices Invoice[]
+  ventures  ClientVenture[]
+  projects  Project[]
+  offers    Offer[]
+  invoices  Invoice[]
+  contracts Contract[]
+}
+
+model ClientVenture {
+  id String @id @default(cuid())
+
+  clientId  String
+  client    Client  @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  ventureId String
+  venture   Venture @relation(fields: [ventureId], references: [id], onDelete: Cascade)
+
+  @@unique([clientId, ventureId])
 }
 
 model Project {
-  id          String        @id @default(cuid())
-  title       String
-  type        String
-  status      String        @default("lead")
-  shootStart  DateTime?
-  shootEnd    DateTime?
-  location    String?
-  budget      Float?
-  notes       String?
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+  id         String    @id @default(cuid())
+  title      String
+  type       String
+  status     String    @default("lead")
+  shootStart DateTime?
+  shootEnd   DateTime?
+  location   String?
+  budget     Float?
+  notes      String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
-  clientId    String
-  client      Client        @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  clientId  String
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  ventureId String?
+  venture   Venture? @relation(fields: [ventureId], references: [id])
 
-  offers      Offer[]
-  invoices    Invoice[]
-  expenses    Expense[]
+  offers   Offer[]
+  invoices Invoice[]
+  expenses Expense[]
+  tasks    Task[]
 }
 
 model Offer {
-  id            String      @id @default(cuid())
-  number        String      @unique
-  date          DateTime    @default(now())
-  validUntil    DateTime?
-  paymentTerms  String?
-  notes         String?
-  vatRate       Float       @default(19)
-  status        String      @default("draft")
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  id           String    @id @default(cuid())
+  number       String    @unique
+  date         DateTime  @default(now())
+  validUntil   DateTime?
+  paymentTerms String?
+  notes        String?
+  vatRate      Float     @default(19)
+  status       String    @default("draft")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 
-  clientId      String
-  client        Client      @relation(fields: [clientId], references: [id])
-  projectId     String?
-  project       Project?    @relation(fields: [projectId], references: [id])
+  clientId  String
+  client    Client   @relation(fields: [clientId], references: [id])
+  projectId String?
+  project   Project? @relation(fields: [projectId], references: [id])
+  ventureId String?
+  venture   Venture? @relation(fields: [ventureId], references: [id])
 
-  items         OfferItem[]
+  items OfferItem[]
 }
 
 model OfferItem {
@@ -75,29 +257,31 @@ model OfferItem {
   unit        String? @default("Stk.")
   position    Int     @default(0)
 
-  offerId     String
-  offer       Offer   @relation(fields: [offerId], references: [id], onDelete: Cascade)
+  offerId String
+  offer   Offer  @relation(fields: [offerId], references: [id], onDelete: Cascade)
 }
 
 model Invoice {
-  id            String        @id @default(cuid())
-  number        String        @unique
-  date          DateTime      @default(now())
-  dueDate       DateTime?
-  paymentTerms  String?
-  notes         String?
-  vatRate       Float         @default(19)
-  status        String        @default("draft")
-  paidAt        DateTime?
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  id           String    @id @default(cuid())
+  number       String    @unique
+  date         DateTime  @default(now())
+  dueDate      DateTime?
+  paymentTerms String?
+  notes        String?
+  vatRate      Float     @default(19)
+  status       String    @default("draft")
+  paidAt       DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 
-  clientId      String
-  client        Client        @relation(fields: [clientId], references: [id])
-  projectId     String?
-  project       Project?      @relation(fields: [projectId], references: [id])
+  clientId  String
+  client    Client   @relation(fields: [clientId], references: [id])
+  projectId String?
+  project   Project? @relation(fields: [projectId], references: [id])
+  ventureId String?
+  venture   Venture? @relation(fields: [ventureId], references: [id])
 
-  items         InvoiceItem[]
+  items InvoiceItem[]
 }
 
 model InvoiceItem {
@@ -108,48 +292,50 @@ model InvoiceItem {
   unit        String? @default("Stk.")
   position    Int     @default(0)
 
-  invoiceId   String
-  invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  invoiceId String
+  invoice   Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
 }
 
 model Expense {
-  id              String    @id @default(cuid())
-  travelDate      DateTime
-  startTime       String?
-  endTime         String?
-  overnight       Boolean   @default(false)
-  breakfast       Boolean   @default(false)
-  lunch           Boolean   @default(false)
-  dinner          Boolean   @default(false)
-  people          Int       @default(1)
-  allowance       Float     @default(0)
-  notes           String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+  id         String   @id @default(cuid())
+  travelDate DateTime
+  startTime  String?
+  endTime    String?
+  overnight  Boolean  @default(false)
+  breakfast  Boolean  @default(false)
+  lunch      Boolean  @default(false)
+  dinner     Boolean  @default(false)
+  people     Int      @default(1)
+  allowance  Float    @default(0)
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
-  projectId       String?
-  project         Project?  @relation(fields: [projectId], references: [id])
+  projectId String?
+  project   Project? @relation(fields: [projectId], references: [id])
+  ventureId String?
+  venture   Venture? @relation(fields: [ventureId], references: [id])
 }
 
 model CompanySettings {
-  id              String    @id @default("singleton")
-  companyName     String    @default("Pushlabs")
-  owner           String    @default("Daniel Laudowicz")
-  tagline         String?   @default("We make brands move")
-  address         String?
-  taxNumber       String?
-  vatId           String?
-  email           String?
-  phone           String?
-  website         String?
-  bankName        String?
-  iban            String?
-  bic             String?
-  logoPath        String?
-  defaultVatRate  Float     @default(19)
-  invoicePrefix   String    @default("RE-001-")
-  nextInvoiceNo   Int       @default(26)
-  offerPrefix     String    @default("AN-")
-  nextOfferNo     Int       @default(1)
-  updatedAt       DateTime  @updatedAt
+  id             String   @id @default("singleton")
+  companyName    String   @default("Pushlabs")
+  owner          String   @default("Daniel Laudowicz")
+  tagline        String?  @default("We make brands move")
+  address        String?
+  taxNumber      String?
+  vatId          String?
+  email          String?
+  phone          String?
+  website        String?
+  bankName       String?
+  iban           String?
+  bic            String?
+  logoPath       String?
+  defaultVatRate Float    @default(19)
+  invoicePrefix  String   @default("RE-001-")
+  nextInvoiceNo  Int      @default(26)
+  offerPrefix    String   @default("AN-")
+  nextOfferNo    Int      @default(1)
+  updatedAt      DateTime @updatedAt
 }

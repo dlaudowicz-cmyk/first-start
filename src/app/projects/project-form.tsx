@@ -11,9 +11,10 @@ import { createProject, updateProject, deleteProject } from "./actions";
 type Props = {
   initial?: Partial<ProjectInput> & { id?: string };
   clients: { id: string; companyName: string }[];
+  ventures: { id: string; name: string }[];
 };
 
-export function ProjectForm({ initial, clients }: Props) {
+export function ProjectForm({ initial, clients, ventures }: Props) {
   const isEdit = Boolean(initial?.id);
   const [pending, startTransition] = useTransition();
 
@@ -33,6 +34,7 @@ export function ProjectForm({ initial, clients }: Props) {
       location: initial?.location ?? "",
       budget: initial?.budget ?? undefined,
       notes: initial?.notes ?? "",
+      ventureId: initial?.ventureId ?? "",
     },
   });
 
@@ -79,6 +81,17 @@ export function ProjectForm({ initial, clients }: Props) {
             {PROJECT_TYPES.map((t) => (
               <option key={t} value={t} className="capitalize">
                 {t}
+              </option>
+            ))}
+          </select>
+        </Field>
+
+        <Field label="Venture" error={errors.ventureId?.message}>
+          <select className="input" {...register("ventureId")}>
+            <option value="">Unassigned</option>
+            {ventures.map((v) => (
+              <option key={v.id} value={v.id}>
+                {v.name}
               </option>
             ))}
           </select>

@@ -5,19 +5,24 @@ import { prisma } from "@/lib/db";
 import { PageHeader } from "@/components/page-header";
 import { StatusBadge } from "@/components/status-badge";
 import { formatDate } from "@/lib/utils";
+import { VentureLinks } from "./venture-links";
 
 export const dynamic = "force-dynamic";
 
 export default async function ClientDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const client = await prisma.client.findUnique({
-    where: { id },
-    include: {
-      projects: { orderBy: { updatedAt: "desc" } },
-      invoices: { orderBy: { date: "desc" } },
-      offers: { orderBy: { date: "desc" } },
-    },
-  });
+  const [client, ventures] = await Promise.all([
+    prisma.client.findUnique({
+      where: { id },
+      include: {
+        ventures: true,
+        projects: { orderBy: { updatedAt: "desc" }, include: { venture: true } },
+        invoices: { orderBy: { date: "desc" } },
+        offers: { orderBy: { date: "desc" } },
+      },
+    }),
+    prisma.venture.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true, accent: true } }),
+  ]);
   if (!client) notFound();
 
   return (
@@ -49,7 +54,15 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
           </dl>
         </section>
 
-        <section className="card p-5 lg:col-span-2">
+        <section className="card p-5 lg:col-span-1">
+          <VentureLinks
+            clientId={client.id}
+            ventures={ventures}
+            linkedIds={client.ventures.map((cv) => cv.ventureId)}
+          />
+        </section>
+
+        <section className="card p-5 lg:col-span-3">
           <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Projects</h2>
           {client.projects.length === 0 ? (
             <p className="text-sm text-graphite-500">No projects yet.</p>

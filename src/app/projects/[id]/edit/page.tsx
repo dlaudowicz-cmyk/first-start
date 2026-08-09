@@ -10,9 +10,10 @@ function dateInputValue(d: Date | null) {
 
 export default async function EditProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const [project, clients] = await Promise.all([
+  const [project, clients, ventures] = await Promise.all([
     prisma.project.findUnique({ where: { id } }),
     prisma.client.findMany({ orderBy: { companyName: "asc" }, select: { id: true, companyName: true } }),
+    prisma.venture.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true } }),
   ]);
   if (!project) notFound();
 
@@ -21,6 +22,7 @@ export default async function EditProjectPage({ params }: { params: Promise<{ id
       <PageHeader title={`Edit · ${project.title}`} />
       <ProjectForm
         clients={clients}
+        ventures={ventures}
         initial={{
           id: project.id,
           title: project.title,
@@ -32,6 +34,7 @@ export default async function EditProjectPage({ params }: { params: Promise<{ id
           location: project.location ?? "",
           budget: project.budget ?? undefined,
           notes: project.notes ?? "",
+          ventureId: project.ventureId ?? "",
         }}
       />
     </>

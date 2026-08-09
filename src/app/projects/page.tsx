@@ -4,21 +4,27 @@ import { prisma } from "@/lib/db";
 import { PageHeader } from "@/components/page-header";
 import { StatusBadge } from "@/components/status-badge";
 import { EmptyState } from "@/components/empty-state";
+import { VentureBadge } from "@/components/venture-badge";
+import { getActiveVenture, ventureScope } from "@/lib/venture-context";
 import { formatCurrency, formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
 export default async function ProjectsPage() {
+  const active = await getActiveVenture();
   const projects = await prisma.project.findMany({
+    where: ventureScope(active),
     orderBy: { updatedAt: "desc" },
-    include: { client: true },
+    include: { client: true, venture: true },
   });
 
   return (
     <>
       <PageHeader
         title="Projects"
-        description="Every production from lead to delivered."
+        description={
+          active ? `Productions inside ${active.name}.` : "Every production from lead to delivered."
+        }
         actions={
           <Link href="/projects/new" className="btn-primary">
             <Plus className="h-4 w-4" /> New project
@@ -44,6 +50,7 @@ export default async function ProjectsPage() {
                 <th>Project</th>
                 <th>Client</th>
                 <th>Type</th>
+                {!active && <th>Venture</th>}
                 <th>Shoot dates</th>
                 <th>Status</th>
                 <th className="text-right">Budget</th>
@@ -63,6 +70,11 @@ export default async function ProjectsPage() {
                     </Link>
                   </td>
                   <td className="capitalize text-graphite-700">{p.type}</td>
+                  {!active && (
+                    <td>
+                      <VentureBadge name={p.venture?.name} accent={p.venture?.accent} muted />
+                    </td>
+                  )}
                   <td className="text-graphite-500 text-xs">
                     {p.shootStart ? formatDate(p.shootStart) : "—"}
                     {p.shootEnd ? ` → ${formatDate(p.shootEnd)}` : ""}

@@ -7,6 +7,18 @@ fi
 
 echo '{"async": true, "asyncTimeout": 300000}'
 
+# Pushlabs OS: .env and node_modules are gitignored, so a fresh container starts
+# without them. Restore the local dev setup so the app is runnable immediately.
+cd "${CLAUDE_PROJECT_DIR}"
+if [ -f package.json ] && grep -q '"pushlabs-production-os"' package.json; then
+  [ -f .env ] || cp .env.example .env
+  if [ ! -d node_modules ]; then
+    npm install --no-audit --no-fund
+    ./node_modules/.bin/prisma db push --skip-generate
+    npm run db:seed
+  fi
+fi
+
 RUFLO_VERSION="3.5.80"
 
 # Install ruflo globally from npm (pinned version; npm verifies tarball integrity via registry SRI)

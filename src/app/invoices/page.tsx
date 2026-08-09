@@ -5,21 +5,29 @@ import { PageHeader } from "@/components/page-header";
 import { StatusBadge } from "@/components/status-badge";
 import { EmptyState } from "@/components/empty-state";
 import { calculateTotals } from "@/lib/calculations";
+import { VentureBadge } from "@/components/venture-badge";
+import { getActiveVenture, ventureScope } from "@/lib/venture-context";
 import { formatCurrency, formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
 export default async function InvoicesPage() {
+  const active = await getActiveVenture();
   const invoices = await prisma.invoice.findMany({
+    where: ventureScope(active),
     orderBy: [{ date: "desc" }, { number: "desc" }],
-    include: { items: true, client: true, project: true },
+    include: { items: true, client: true, project: true, venture: true },
   });
 
   return (
     <>
       <PageHeader
         title="Invoices"
-        description="ZUGFeRD-ready invoice structure with PDF + JSON export."
+        description={
+          active
+            ? `Invoices issued by ${active.name}.`
+            : "ZUGFeRD-ready invoice structure with PDF + JSON export."
+        }
         actions={
           <Link href="/invoices/new" className="btn-primary">
             <Plus className="h-4 w-4" /> New invoice
@@ -46,6 +54,7 @@ export default async function InvoicesPage() {
                 <th>Date</th>
                 <th>Due</th>
                 <th>Client</th>
+                {!active && <th>Venture</th>}
                 <th>Project</th>
                 <th>Status</th>
                 <th className="text-right">Gross</th>
@@ -64,6 +73,11 @@ export default async function InvoicesPage() {
                     <td>{formatDate(inv.date)}</td>
                     <td>{inv.dueDate ? formatDate(inv.dueDate) : "—"}</td>
                     <td>{inv.client.companyName}</td>
+                    {!active && (
+                      <td>
+                        <VentureBadge name={inv.venture?.name} accent={inv.venture?.accent} muted />
+                      </td>
+                    )}
                     <td className="text-graphite-500 truncate max-w-[200px]">{inv.project?.title || "—"}</td>
                     <td>
                       <StatusBadge status={inv.status} />

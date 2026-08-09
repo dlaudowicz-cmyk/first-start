@@ -5,15 +5,35 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { offerSchema, type OfferInput } from "@/lib/schemas";
 import { reserveNextOfferNumber } from "@/lib/invoice-numbering";
+import { getActiveVenture } from "@/lib/venture-context";
+
+/**
+ * A document belongs to the venture of its project; when no project is linked
+ * we fall back to the venture the user is currently scoped to.
+ */
+async function resolveVentureId(projectId: string | null | undefined): Promise<string | null> {
+  if (projectId) {
+    const project = await prisma.project.findUnique({
+      where: { id: projectId },
+      select: { ventureId: true },
+    });
+    if (project?.ventureId) return project.ventureId;
+  }
+  const active = await getActiveVenture();
+  return active?.id ?? null;
+}
+
 
 export async function createOffer(data: OfferInput) {
   const parsed = offerSchema.parse(data);
   const number = await reserveNextOfferNumber();
+  const ventureId = await resolveVentureId(parsed.projectId);
   const created = await prisma.offer.create({
     data: {
       number,
       clientId: parsed.clientId,
       projectId: parsed.projectId || null,
+      ventureId,
       date: new Date(parsed.date),
       validUntil: parsed.validUntil ? new Date(parsed.validUntil) : null,
       paymentTerms: parsed.paymentTerms || null,
@@ -37,6 +57,7 @@ export async function createOffer(data: OfferInput) {
 
 export async function updateOffer(id: string, data: OfferInput) {
   const parsed = offerSchema.parse(data);
+  const ventureId = await resolveVentureId(parsed.projectId);
   await prisma.$transaction([
     prisma.offerItem.deleteMany({ where: { offerId: id } }),
     prisma.offer.update({
@@ -44,6 +65,7 @@ export async function updateOffer(id: string, data: OfferInput) {
       data: {
         clientId: parsed.clientId,
         projectId: parsed.projectId || null,
+        ventureId,
         date: new Date(parsed.date),
         validUntil: parsed.validUntil ? new Date(parsed.validUntil) : null,
         paymentTerms: parsed.paymentTerms || null,

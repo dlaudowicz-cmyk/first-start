@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { clientSchema } from "@/lib/schemas";
+import { getActiveVenture } from "@/lib/venture-context";
 
 function parseFormData(formData: FormData) {
   return {
@@ -19,6 +20,9 @@ function parseFormData(formData: FormData) {
 
 export async function createClient(formData: FormData) {
   const data = clientSchema.parse(parseFormData(formData));
+  // Link the new client to whichever venture the user is currently scoped to,
+  // so it does not immediately disappear from their filtered list.
+  const active = await getActiveVenture();
   const created = await prisma.client.create({
     data: {
       ...data,
@@ -28,6 +32,7 @@ export async function createClient(formData: FormData) {
       address: data.address || null,
       vatId: data.vatId || null,
       notes: data.notes || null,
+      ventures: active ? { create: [{ ventureId: active.id }] } : undefined,
     },
   });
   revalidatePath("/clients");

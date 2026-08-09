@@ -5,15 +5,35 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { invoiceSchema, type InvoiceInput } from "@/lib/schemas";
 import { reserveNextInvoiceNumber } from "@/lib/invoice-numbering";
+import { getActiveVenture } from "@/lib/venture-context";
+
+/**
+ * A document belongs to the venture of its project; when no project is linked
+ * we fall back to the venture the user is currently scoped to.
+ */
+async function resolveVentureId(projectId: string | null | undefined): Promise<string | null> {
+  if (projectId) {
+    const project = await prisma.project.findUnique({
+      where: { id: projectId },
+      select: { ventureId: true },
+    });
+    if (project?.ventureId) return project.ventureId;
+  }
+  const active = await getActiveVenture();
+  return active?.id ?? null;
+}
+
 
 export async function createInvoice(data: InvoiceInput) {
   const parsed = invoiceSchema.parse(data);
   const number = await reserveNextInvoiceNumber();
+  const ventureId = await resolveVentureId(parsed.projectId);
   const created = await prisma.invoice.create({
     data: {
       number,
       clientId: parsed.clientId,
       projectId: parsed.projectId || null,
+      ventureId,
       date: new Date(parsed.date),
       dueDate: parsed.dueDate ? new Date(parsed.dueDate) : null,
       paymentTerms: parsed.paymentTerms || null,
@@ -43,6 +63,7 @@ export async function updateInvoice(id: string, data: InvoiceInput) {
   if (parsed.status === "paid" && !paidAt) paidAt = new Date();
   if (parsed.status !== "paid") paidAt = null;
 
+  const ventureId = await resolveVentureId(parsed.projectId);
   await prisma.$transaction([
     prisma.invoiceItem.deleteMany({ where: { invoiceId: id } }),
     prisma.invoice.update({
@@ -50,6 +71,7 @@ export async function updateInvoice(id: string, data: InvoiceInput) {
       data: {
         clientId: parsed.clientId,
         projectId: parsed.projectId || null,
+        ventureId,
         date: new Date(parsed.date),
         dueDate: parsed.dueDate ? new Date(parsed.dueDate) : null,
         paymentTerms: parsed.paymentTerms || null,
