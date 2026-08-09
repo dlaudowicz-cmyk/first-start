@@ -1,0 +1,140 @@
+{
+  "title": "Free Resource Vault",
+  "subtitle": "Prompts, tool stacks, guides and link packs — browse by category or search by name.",
+  "updated": "2026-08-09",
+  "note": "Seeded from a screenshot of Charlie Hills' public resource vault. The source links in that screenshot were truncated, so `url` is null on those entries and `source` records the visible domain only. Fill in `url` as you collect the real links, or add your own entries and re-run build_vault.py.",
+  "categories": [
+    {
+      "name": "AI Image & Video",
+      "entries": [
+        {
+          "title": "AI Headshot Prompts",
+          "type": "Prompt",
+          "description": "Studio-grade prompts for professional AI headshots.",
+          "source": "assets.stanwith.me",
+          "url": null
+        },
+        {
+          "title": "Fix Face Inconsistency in Gemini",
+          "type": "Prompt",
+          "description": "A face-lock prompt for consistent faces in Gemini images.",
+          "source": "drive.google.com",
+          "url": null
+        },
+        {
+          "title": "Higgsfield + Claude Connector",
+          "type": "Link",
+          "description": "Connect Higgsfield video generation to Claude.",
+          "source": "higgsfield.ai",
+          "url": null
+        },
+        {
+          "title": "Nano Banana JSON Gem Prompt",
+          "type": "Prompt",
+          "description": "A reusable JSON gem for consistent Nano Banana images.",
+          "source": "assets.stanwith.me",
+          "url": null
+        }
+      ]
+    },
+    {
+      "name": "AI Tool Stacks",
+      "entries": [
+        {
+          "title": "16-App Creator Blueprint",
+          "type": "Link Pack",
+          "description": "A 16-app creator stack for running content end to end.",
+          "source": "assets.stanwith.me",
+          "url": null
+        },
+        {
+          "title": "2026 AI Tool Stack Across 12 Categories",
+          "type": "Link Pack",
+          "description": "A full 2026 AI stack, sorted into 12 categories.",
+          "source": "assets.stanwith.me",
+          "url": null
+        },
+        {
+          "title": "AI Study Tools",
+          "type": "Guide",
+          "description": "The top 10 AI tools for studying and learning faster.",
+          "source": "assets.stanwith.me",
+          "url": null
+        },
+        {
+          "title": "Charlie Hills Personal Tech Stack",
+          "type": "Link Pack",
+          "description": "The exact tool stack used to scale to 30k.",
+          "source": "assets.stanwith.me",
+          "url": null
+        }
+      ]
+    },
+    {
+      "name": "Claude & Claude Code",
+      "entries": [
+        {
+          "title": "5-Day Claude Setup Roadmap",
+          "type": "Guide",
+          "description": "A 5-day checklist to get set up with Claude from scratch.",
+          "source": "drive.google.com",
+          "url": null
+        },
+        {
+          "title": "6 MCP Servers for Claude Code",
+          "type": "Guide",
+          "description": "Install commands and setup steps for six MCP servers: Granola, NotebookLM, Notion, Gmail, Gemini and Higgsfield.",
+          "source": "drive.google.com",
+          "url": null
+        },
+        {
+          "title": "10-Agent Finance Cheat Sheet",
+          "type": "Cheat Sheet",
+          "description": "A 10-agent finance workflow cheat sheet for Claude.",
+          "source": "drive.google.com",
+          "url": null
+        },
+        {
+          "title": "20 Claude Commands That Actually Work",
+          "type": "Guide",
+          "description": "20 slash commands that make Claude Code far more useful.",
+          "source": "drive.google.com",
+          "url": null
+        }
+      ]
+    },
+    {
+      "name": "Courses & Link Packs",
+      "entries": [
+        {
+          "title": "3,000 Free Google Skills Courses",
+          "type": "Link",
+          "description": "Direct access to 3,000 free Google Skills courses.",
+          "source": "skills.google",
+          "url": "https://skills.google/"
+        },
+        {
+          "title": "22 Zapier Free AI Agents",
+          "type": "Guide",
+          "description": "22 free Zapier AI agents to automate your workflow.",
+          "source": "assets.stanwith.me",
+          "url": null
+        },
+        {
+          "title": "Anthropic Academy Guide",
+          "type": "Guide",
+          "description": "A guided path through Anthropic's free Academy.",
+          "source": "assets.stanwith.me",
+          "url": null
+        },
+        {
+          "title": "Anthropic Free Courses Links",
+          "type": "Link Pack",
+          "description": "Direct links to every free Anthropic course.",
+          "source": "assets.stanwith.me",
+          "url": null
+        }
+      ]
+    }
+  ]
+}
