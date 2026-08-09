@@ -2,6 +2,7 @@ import { renderToBuffer } from "@react-pdf/renderer";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { DocumentPdf } from "@/lib/pdf/document";
+import { loadLogoDataUri } from "@/lib/pdf/logo";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +19,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     create: { id: "singleton" },
   });
 
+  const logo = await loadLogoDataUri(settings.logoPath);
+
   const buffer = await renderToBuffer(
     DocumentPdf({
       kind: "Angebot",
@@ -31,6 +34,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
       settings,
       items: offer.items,
       projectTitle: offer.project?.title ?? null,
+      logo,
     }),
   );
 

@@ -26,7 +26,7 @@ export async function buildVentureExport(slug: string) {
           },
         },
       },
-      projects: { include: { client: true } },
+      projects: { include: { client: true, files: true } },
       offers: { include: { items: true, client: true, project: true } },
       invoices: { include: { items: true, client: true, project: true } },
       expenses: { include: { project: true } },
@@ -69,7 +69,24 @@ export async function buildVentureExport(slug: string) {
     location: p.location,
     budget: p.budget,
     notes: p.notes,
+    fileCount: p.files.length,
   }));
+
+  /** Filed documents, so the export can carry the actual bytes too. */
+  const files = venture.projects.flatMap((p) =>
+    p.files.map((f) => ({
+      id: f.id,
+      projectId: p.id,
+      projectTitle: p.title,
+      category: f.category,
+      originalName: f.originalName,
+      storedName: f.storedName,
+      mimeType: f.mimeType,
+      size: f.size,
+      notes: f.notes,
+      createdAt: f.createdAt,
+    })),
+  );
 
   const offers = venture.offers.map((o) => {
     const totals = calculateTotals(o.items, o.vatRate);
@@ -262,6 +279,7 @@ export async function buildVentureExport(slug: string) {
       tools: tools.length,
       tasks: tasks.length,
       openTasks: tasks.filter((t) => t.status !== "done").length,
+      files: files.length,
       teamSize: people.length,
       revenuePaid,
       revenueOpen,
@@ -280,6 +298,7 @@ export async function buildVentureExport(slug: string) {
     credentials,
     tools,
     tasks,
+    files,
   };
 }
 
@@ -307,6 +326,7 @@ export function exportCsvFiles(data: NonNullable<VentureExport>) {
         shootEnd: p.shootEnd,
         location: p.location,
         budget: p.budget,
+        fileCount: p.fileCount,
       })),
     ),
     "invoices.csv": toCsv(

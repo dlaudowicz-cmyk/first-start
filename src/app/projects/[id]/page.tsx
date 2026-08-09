@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Pencil, FilePlus2, ReceiptEuro } from "lucide-react";
+import { Pencil, FilePlus2, ReceiptEuro, FileText } from "lucide-react";
 import { prisma } from "@/lib/db";
 import { PageHeader } from "@/components/page-header";
 import { StatusBadge } from "@/components/status-badge";
 import { calculateTotals } from "@/lib/calculations";
 import { formatCurrency, formatDate } from "@/lib/utils";
+import { FileVault } from "./file-vault";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +19,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       offers: { include: { items: true }, orderBy: { date: "desc" } },
       invoices: { include: { items: true }, orderBy: { date: "desc" } },
       expenses: { orderBy: { travelDate: "desc" } },
+      files: { orderBy: [{ category: "asc" }, { createdAt: "desc" }] },
     },
   });
   if (!project) notFound();
@@ -29,6 +31,14 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         description={`${project.client.companyName} · ${project.type}`}
         actions={
           <>
+            <a
+              href={`/projects/${project.id}/report`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-secondary"
+            >
+              <FileText className="h-4 w-4" /> Status report
+            </a>
             <Link href={`/projects/${project.id}/edit`} className="btn-secondary">
               <Pencil className="h-4 w-4" /> Edit
             </Link>
@@ -112,6 +122,20 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 })}
               </ul>
             )}
+          </section>
+
+          <section className="card p-5">
+            <FileVault
+              projectId={project.id}
+              files={project.files.map((f) => ({
+                id: f.id,
+                category: f.category,
+                originalName: f.originalName,
+                size: f.size,
+                notes: f.notes,
+                createdAt: f.createdAt.toISOString(),
+              }))}
+            />
           </section>
 
           <section className="card p-5">

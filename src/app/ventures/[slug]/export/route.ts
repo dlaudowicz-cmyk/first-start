@@ -7,6 +7,11 @@ import { buildExportReadme } from "@/lib/venture-export-readme";
 import { buildZugferdInvoice } from "@/lib/zugferd";
 import { DocumentPdf } from "@/lib/pdf/document";
 import { VentureDossierPdf } from "@/lib/pdf/venture-dossier";
+import { loadLogoDataUri } from "@/lib/pdf/logo";
+import { ProjectReportPdf } from "@/lib/pdf/project-report";
+import { buildProjectReport } from "@/lib/project-report";
+import { categoryLabel } from "@/lib/project-files";
+import { readProjectFile } from "@/lib/project-files-storage";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +45,11 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
   dataFolder.file("credentials.json", json(data.credentials));
   dataFolder.file("tools.json", json(data.tools));
   dataFolder.file("tasks.json", json(data.tasks));
+  // Stored filenames are internal; the archive exposes the original names only.
+  dataFolder.file(
+    "files.json",
+    json(data.files.map(({ storedName: _storedName, ...rest }) => rest)),
+  );
 
   for (const [name, content] of Object.entries(exportCsvFiles(data))) {
     if (content) dataFolder.file(name, content);
@@ -52,8 +62,13 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     create: { id: "singleton" },
   });
 
+  const logo = await loadLogoDataUri(settings.logoPath);
+
   const documents = zip.folder("documents")!;
-  documents.file(`${safeName(slug)}-dossier-${stamp}.pdf`, await renderToBuffer(VentureDossierPdf({ data, generatedAt })));
+  documents.file(
+    `${safeName(slug)}-dossier-${stamp}.pdf`,
+    await renderToBuffer(VentureDossierPdf({ data, generatedAt, logo })),
+  );
 
   if (data.offers.length > 0) {
     const offerRecords = await prisma.offer.findMany({
@@ -75,6 +90,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
           settings,
           items: offer.items,
           projectTitle: offer.project?.title ?? null,
+          logo,
         }),
       );
       offersFolder.file(`${safeName(offer.number)}.pdf`, pdf);
@@ -102,6 +118,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
           settings,
           items: invoice.items,
           projectTitle: invoice.project?.title ?? null,
+          logo,
         }),
       );
       invoicesFolder.file(`${safeName(invoice.number)}.pdf`, pdf);
@@ -109,6 +126,30 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
         `${safeName(invoice.number)}.zugferd.json`,
         json(buildZugferdInvoice({ invoice, settings })),
       );
+    }
+  }
+
+  // ── Project documents: status report plus the filed bytes ─────────────────
+  if (data.projects.length > 0) {
+    const projectsFolder = documents.folder("projects")!;
+    for (const project of data.projects) {
+      const folderName = safeName(project.title);
+      const projectFolder = projectsFolder.folder(folderName)!;
+
+      const report = await buildProjectReport(project.id);
+      if (report) {
+        projectFolder.file(
+          `${folderName}-status-${stamp}.pdf`,
+          await renderToBuffer(ProjectReportPdf({ data: report, generatedAt, logo })),
+        );
+      }
+
+      for (const file of data.files.filter((f) => f.projectId === project.id)) {
+        const bytes = await readProjectFile(file.projectId, file.storedName);
+        // A metadata row whose bytes went missing must not abort the export.
+        if (!bytes) continue;
+        projectFolder.folder(safeName(categoryLabel(file.category)))!.file(safeName(file.originalName), bytes);
+      }
     }
   }
 

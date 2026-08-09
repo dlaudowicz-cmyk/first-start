@@ -47,6 +47,7 @@ ${v.description ? `${v.description}\n` : ""}
 | Vault references | ${s.credentials} |
 | Tool subscriptions | ${s.tools} |
 | Tasks | ${s.tasks} (${s.openTasks} open) |
+| Project files | ${s.files} |
 
 ## Archive layout
 
@@ -56,6 +57,7 @@ data/*.json            complete records, machine-readable and re-importable
 data/*.csv             flat views for Excel / accounting
 documents/offers/      offer PDFs
 documents/invoices/    invoice PDFs
+documents/projects/    filed project documents, grouped by project and category
 zugferd/               structured invoice data, ready for ZUGFeRD XML mapping
 \`\`\`
 

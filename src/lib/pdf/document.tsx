@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import type { Client, CompanySettings, InvoiceItem, OfferItem } from "@prisma/client";
 import { calculateTotals } from "@/lib/calculations";
 
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 28,
   },
   brandBar: { width: 28, height: 3, backgroundColor: "#caff3d", marginBottom: 6 },
+  logo: { height: 34, maxWidth: 150, objectFit: "contain", marginBottom: 6 },
   brand: { fontSize: 16, fontWeight: 700, color: "#14141a", letterSpacing: 1 },
   brandSub: { fontSize: 8, color: "#888893", textTransform: "uppercase", letterSpacing: 1, marginTop: 2 },
   metaCol: { textAlign: "right", fontSize: 9, color: "#454552" },
@@ -84,6 +85,8 @@ export type DocumentPdfProps = {
   settings: CompanySettings;
   items: Item[];
   projectTitle?: string | null;
+  /** Data URI from `loadLogoDataUri`; null falls back to the text wordmark. */
+  logo?: string | null;
 };
 
 export function DocumentPdf({
@@ -98,6 +101,7 @@ export function DocumentPdf({
   settings,
   items,
   projectTitle,
+  logo,
 }: DocumentPdfProps) {
   const sortedItems = [...items].sort((a, b) => (a.position || 0) - (b.position || 0));
   const totals = calculateTotals(
@@ -110,8 +114,15 @@ export function DocumentPdf({
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <View>
-            <View style={styles.brandBar} />
-            <Text style={styles.brand}>{settings.companyName.toUpperCase()}</Text>
+            {logo ? (
+              // eslint-disable-next-line jsx-a11y/alt-text
+              <Image src={logo} style={styles.logo} />
+            ) : (
+              <>
+                <View style={styles.brandBar} />
+                <Text style={styles.brand}>{settings.companyName.toUpperCase()}</Text>
+              </>
+            )}
             <Text style={styles.brandSub}>{settings.tagline || "Cinematic Production"}</Text>
           </View>
           <View style={styles.metaCol}>

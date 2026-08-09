@@ -63,12 +63,40 @@ npm run db:reset     # wipe and re-seed
 |---|---|
 | **Dashboard** | Scoped or holding-wide: active projects, unpaid invoices, monthly revenue, open tasks, expiring contracts, venture tiles |
 | **Clients** | CRUD, VAT ID, **many-to-many venture links** (a client can book several ventures) |
-| **Projects** | 7 production types, 6-step status workflow, shoot dates, budget, venture assignment |
+| **Projects** | 7 production types, 6-step status workflow, shoot dates, budget, venture assignment, **status report PDF**, **file vault** |
 | **Offers** | Dynamic line items, live totals, validity, payment terms, PDF export |
 | **Invoices** | Auto-numbered from `RE-001-0026`, PDF export, **ZUGFeRD-ready JSON** |
 | **Travel / Spesen** | German per-diem calculator with configurable rates |
 | **AI Assistant** | 7 structured prompt templates with live preview + copy (no API call yet) |
 | **Settings** | Company info, banking, tax, VAT default, numbering, logo upload |
+
+## Documents
+
+Three PDF families, all sharing the brand header (uploaded logo when it is a PNG or JPEG, otherwise the wordmark — `@react-pdf` cannot rasterize SVG):
+
+| Document | Route |
+|---|---|
+| Offer | `/offers/<id>/pdf` |
+| Invoice | `/invoices/<id>/pdf` |
+| **Project status report** | `/projects/<id>/report` |
+| Venture dossier | `/ventures/<slug>/dossier` |
+
+The **status report** is the client-facing counterpart to an invoice: project meta, shoot window, a budget-usage bar (red past 100%), all offers and invoices with totals, Spesen, and the task list. Figures come from `src/lib/project-report.ts`, so they can be reused without rendering.
+
+## Project file vault
+
+Every project gets the **same eight categories**, defined once in `src/lib/project-files.ts`:
+
+```
+Briefing & Konzept · Verträge · Drehbuch & Storyboard · Dispo & Zeitplan
+Rushes & Footage · Deliverables · Belege & Rechnungen · Sonstiges
+```
+
+Add a category there and it appears for every project at once — that is the "einheitliche Ordnerstruktur", enforced by the app rather than by discipline.
+
+Bytes are stored in `storage/projects/<projectId>/` (gitignored), **not** under `public/`, and served through `/projects/<id>/files/<fileId>`. That route checks the file belongs to the project in the URL, forces `Content-Disposition: attachment` and sets `nosniff`, so a contract is never reachable by guessing a URL and an upload is never rendered inline. Stored names are UUIDs; the original name lives in the database. Limit is 50 MB per file.
+
+Filesystem access sits in `project-files-storage.ts` (server only) while categories and formatting live in `project-files.ts`, so client components can import the shared parts without pulling in `fs`.
 
 ## Venture scoping
 
@@ -97,6 +125,7 @@ backsley-export-2026-08-09.zip
 ├── documents/<slug>-dossier-*.pdf   venture dossier
 ├── documents/offers/*.pdf           offer PDFs
 ├── documents/invoices/*.pdf         invoice PDFs
+├── documents/projects/<project>/    status report + filed documents by category
 └── zugferd/*.zugferd.json           structured invoice data
 ```
 
@@ -143,7 +172,9 @@ src/
     people/                       list, new, [id] (+ membership editor), [id]/edit
     contracts/ vault/ tools/      list, new, [id], [id]/edit
     tasks/                        board, new, [id]
-    clients/ projects/            list, new, [id], [id]/edit
+    clients/                      list, new, [id] (+ venture links), [id]/edit
+    projects/                     list, new, [id] (+ file vault), [id]/edit,
+                                  [id]/report (PDF), [id]/files/[fileId] (download)
     offers/ invoices/             list, new, [id], [id]/edit, [id]/pdf
     invoices/[id]/zugferd.json    ZUGFeRD-ready payload
     expenses/ assistant/ settings/
@@ -157,13 +188,18 @@ src/
   lib/
     db.ts  schemas.ts  form.ts  utils.ts  csv.ts
     calculations.ts              net / vat / gross — single source of truth
+    project-report.ts            status report figures
+    project-files.ts             categories + formatting (client-safe)
+    project-files-storage.ts     filesystem access (server only)
     venture-context.ts           active venture + scope helpers
     venture-export.ts            export builder
     venture-export-readme.ts     archive README generator
     zugferd.ts  invoice-numbering.ts  spesen.ts  spesen-rates.ts
     prompt-templates.ts
     pdf/document.tsx             offers + invoices
+    pdf/project-report.tsx       project status report
     pdf/venture-dossier.tsx      venture dossier
+    pdf/logo.ts                  logo → data URI, with format guard
 prisma/
   schema.prisma  seed.ts  dev.db (gitignored)
 ```
@@ -205,10 +241,9 @@ Today the app ships clean structured JSON. For a valid Factur-X / ZUGFeRD 2.x PD
 `@react-pdf/renderer` does not emit PDF/A-3 — render first, then post-process with `pdf-lib`.
 
 ### Other
-- Logo embedded in PDF headers (currently text + accent bar; the uploaded logo shows in Settings)
-- File vault per project (briefings, contracts, rushes) to back the "einheitliche Ordnerstruktur"
-- Project status report PDF for clients
 - Multi-user / auth (currently single-user local)
+- SVG logo support in PDFs (needs rasterizing before `@react-pdf` can embed it)
+- Streaming uploads for large rushes (current limit is 50 MB in memory)
 - Recurring invoices, partial payments, dunning
 - Reverse-charge VAT (0% intra-EU B2B with note)
 - DATEV export

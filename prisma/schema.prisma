@@ -225,6 +225,25 @@ model Project {
   invoices Invoice[]
   expenses Expense[]
   tasks    Task[]
+  files    ProjectFile[]
+}
+
+/// A document filed against a project. Bytes live outside `public/` and are
+/// served through a route handler; only metadata is stored here.
+model ProjectFile {
+  id           String   @id @default(cuid())
+  category     String   @default("other")
+  originalName String
+  storedName   String
+  mimeType     String
+  size         Int
+  notes        String?
+  createdAt    DateTime @default(now())
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId, category])
 }
 
 model Offer {

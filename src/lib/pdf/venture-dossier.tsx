@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import type { VentureExport } from "@/lib/venture-export";
 
 const styles = StyleSheet.create({
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
   },
   accentBar: { width: 28, height: 3, backgroundColor: "#caff3d", marginBottom: 6 },
+  logo: { height: 34, maxWidth: 150, objectFit: "contain", marginBottom: 6 },
   holding: { fontSize: 11, fontWeight: 700, color: "#14141a", letterSpacing: 1 },
   sub: { fontSize: 8, color: "#888893", textTransform: "uppercase", letterSpacing: 1, marginTop: 2 },
   title: { fontSize: 26, fontWeight: 700, color: "#14141a", marginTop: 28 },
@@ -67,9 +68,12 @@ const fmtDate = (d: Date | string | null | undefined) =>
 export function VentureDossierPdf({
   data,
   generatedAt,
+  logo,
 }: {
   data: NonNullable<VentureExport>;
   generatedAt: Date;
+  /** Data URI from `loadLogoDataUri`; null falls back to the text wordmark. */
+  logo?: string | null;
 }) {
   const { venture: v, summary: s, holding } = data;
   const sharedClients = data.clients.filter((c) => c.shared);
@@ -78,8 +82,15 @@ export function VentureDossierPdf({
     <Document>
       <Page size="A4" style={styles.page}>
         <View>
-          <View style={styles.accentBar} />
-          <Text style={styles.holding}>{(holding?.companyName ?? "PUSHLABS").toUpperCase()}</Text>
+          {logo ? (
+            // eslint-disable-next-line jsx-a11y/alt-text
+            <Image src={logo} style={styles.logo} />
+          ) : (
+            <>
+              <View style={styles.accentBar} />
+              <Text style={styles.holding}>{(holding?.companyName ?? "PUSHLABS").toUpperCase()}</Text>
+            </>
+          )}
           <Text style={styles.sub}>Venture Dossier</Text>
         </View>
 
