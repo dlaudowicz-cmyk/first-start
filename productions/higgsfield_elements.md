@@ -73,3 +73,27 @@ Sammy (10s) → Outro-Card (4s), je mit Lower-Third und 0.5s-Crossfades.
 Quelle: die vier Test-Jobs (e2d72321 / 0b0f2264 / 0c5a4f7a / 330cfec2).
 Zweck: Figurentreue + drei distinkte Bewegungssignaturen in einem Stück zeigen.
 Schnitt via ffmpeg (Karten/Lower-Thirds mit PIL erzeugt).
+
+## VERIFIZIERT: Nachträgliche Vertonung ohne Bildverlust
+**Seedance 2.5 · `mode: "video_edit"` · `generate_audio: true`** — fertigen Clip
+als `video_references` (Job-ID reicht, kein Upload) reingeben, Prompt beschreibt
+NUR das gewünschte Sounddesign.
+
+- **Kosten:** 20 Credits / 10s (vs. 35 für Neugenerierung)
+- **Bild bleibt erhalten:** mittlere Pixel-Differenz 2,9–4,0 / 255 (≈1,5 %,
+  reine Re-Encoding-Artefakte). Länge identisch (10,04 → 10,05 s).
+- **Dauer:** deutlich länger als eine normale Generierung (~6–8 Min), da das
+  Quellvideo analysiert wird.
+- **Testjob:** `901c285e-db3a-4463-8e7c-3c37e76de2e1` (Verfolgung, Szene 01)
+- **Prompt-Muster:** „Keep the visuals exactly as they are. Add rich cinematic
+  sound design only: …" + konkrete SFX-Liste + Mix-Stil.
+
+**Bedeutung für die Produktion:** Freigegebene Clips können nachträglich
+vertont werden, ohne die abgenommene Animation zu verlieren. Damit ist die
+Reihenfolge **Bild freigeben → dann vertonen** möglich (statt Ton und Bild in
+einem Wurf zu riskieren).
+
+**Dialog getrennt davon:** Higgsfield TTS (`seed_audio`) mit vorhandenen
+Stimm-Elementen — Cal-1 `ad0025cf-be0b-4e9c-83dd-db3c8c0692be`,
+Cocosia-1 `ae475a9e-…`, nogath `25afcfb7-…`. **0,7 Credits/Zeile.**
+Musik: über Higgsfield NICHT verfügbar → lizenzierte Bibliothek nötig.
