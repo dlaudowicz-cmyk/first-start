@@ -86,6 +86,30 @@ Monetarisierung auf allen Plattformen nutzbar.
 
 ---
 
+### Wie wir zusammenarbeiten könnten
+
+**Deine IP bleibt vollständig Deine.** Stoff, Figuren, Canon und sämtliche
+Filmrechte liegen zu 100 % bei Red Sun Films – daran ändert sich nichts.
+Pushlabs bringt Technologie und Produktionsleistung ein und trägt im Piloten die
+Produktionskosten.
+
+Geteilt wird ausschließlich **die neue Ebene, die dadurch erst entsteht**:
+Reichweite, Community und digitale Erlöse (Brand Integrations, Merch-Tests,
+Plattform-Payouts). Klassisches Licensing, Film, TV und Verlag bleiben
+unberührt bei Dir.
+
+| | |
+|---|---|
+| **Red Sun Films** | Being Bexly – Stoff, Canon, Figuren, Filmrechte · kreative Hoheit & Freigabe |
+| **Pushlabs** | Produktionsplattform & Technologie · Content-Produktion · Kostenvorleistung im Piloten |
+| **Gemeinsam** | Social Hub: Audience, Community, digitale Erlöse |
+
+Format: schlanker Kooperationsvertrag für die 90 Tage – kein
+Gesellschaftsaufbau, beidseitige Ausstiegsoption am Gate. Ein Term Sheet mit den
+Eckpunkten liegt vor.
+
+---
+
 ### Der Vorschlag
 
 **Nicht „Optimize Film Marketing" – sondern „Build & Monetize the IP".**
