@@ -59,8 +59,17 @@ Anzahl Versuche je verwendbarem Clip.
 > des bereits bezahlten Vertrags.
 
 ### ⚠️ Kino-Qualität — Schätzung, NICHT verifiziert
-Die 35 Credits gelten für **720p im fast-Modus**. Kinoauswertung braucht höhere
-Auflösung und Qualitätsstufe. Mit einem **angenommenen Faktor 2,5**:
+Die 35 Credits gelten für **720p im fast-Modus**.
+**Zielformate laut Produktion: Kino 4K/10-bit, Social Full HD/10-bit.**
+
+Technische Einschränkung: **Seedance rendert maximal 720p.** 4K entsteht nur
+über eine **Upscale-Kette**; echte 10-bit-Farbtiefe kann aus einer 8-bit-Quelle
+nicht nachträglich erzeugt werden (der Container ist 10-bit, die Information
+bleibt 8-bit — für Grading hilfreich, aber kein echtes 10-bit-Negativ).
+**Das ist vor jeder Kinozusage zu klären.** Der Aufwand liegt zudem **am Anfang
+höher**, solange Look und Trefferquote noch nicht eingespielt sind.
+
+Mit einem **angenommenen Faktor 2,5**:
 
 | Umfang | Credits | € (Liste) |
 |---|---|---|
@@ -117,8 +126,19 @@ Nicht enthalten:
 
 ## 6. Der Vergleich zur klassischen Produktion
 
-Die Vergleichszahl für klassische 3D-Animation (Kosten je Filmminute) sollte
-**von Red Sun Films kommen** — Rainer kennt reale Kalkulationen aus der Branche.
+**Recherchiert — Details in `marktvergleich_animation.md`.**
+
+| | €/Minute | 90-Minüter (Animation) |
+|---|---|---|
+| Mittelklasse Europa 3D (Vergleichsklasse) | 8.000–15.000 € | 0,72–1,35 Mio € |
+| **Bexly-Pipeline, Vollkosten inkl. Arbeitszeit** | **800–2.400 €** | **72.000–216.000 €** |
+
+**→ Faktor 4–10 günstiger.** Wichtig: Es wird mit **Vollkosten** verglichen
+(Arbeitszeit + Rechenleistung), nicht mit den nackten 34 €/Min Rechenkosten —
+sonst ist das Argument sachlich falsch und vor Fachleuten wertlos.
+
+Die Vergleichszahl sollte zusätzlich **von Red Sun Films validiert werden** —
+Rainer kennt reale Kalkulationen aus der Branche.
 
 Das ist auch strategisch besser:
 - Eine Zahl vom erfahrenen Produzenten ist vor Gremien belastbarer als eine
