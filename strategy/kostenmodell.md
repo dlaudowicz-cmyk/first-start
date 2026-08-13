@@ -58,18 +58,33 @@ Anzahl Versuche je verwendbarem Clip.
 > Der 90-Minüter entspricht **12,2 Monatskontingenten** — also gut einem Jahr
 > des bereits bezahlten Vertrags.
 
-### ⚠️ Kino-Qualität — Schätzung, NICHT verifiziert
-Die 35 Credits gelten für **720p im fast-Modus**.
-**Zielformate laut Produktion: Kino 4K/10-bit, Social Full HD/10-bit.**
+### ⚠️ Kino-Qualität — Zielformate und der Weg dahin
+Die 35 Credits gelten für **720p im fast-Modus über Higgsfield**.
+**Zielformate: Kino 4K/10-bit, Social Full HD/10-bit.**
 
-Technische Einschränkung: **Seedance rendert maximal 720p.** 4K entsteht nur
-über eine **Upscale-Kette**; echte 10-bit-Farbtiefe kann aus einer 8-bit-Quelle
-nicht nachträglich erzeugt werden (der Container ist 10-bit, die Information
-bleibt 8-bit — für Grading hilfreich, aber kein echtes 10-bit-Negativ).
-**Das ist vor jeder Kinozusage zu klären.** Der Aufwand liegt zudem **am Anfang
-höher**, solange Look und Trefferquote noch nicht eingespielt sind.
+#### Korrektur: Die Auflösungsgrenze ist Higgsfield, nicht Seedance
+| | Auflösung | Quelle |
+|---|---|---|
+| **Seedance 2.5 nativ** | **bis 4K** (720p / 1080p / 4K), 21:9 möglich, 30s Single-Shot, bis 50 Referenzen | Modell-Dokumentation |
+| **Higgsfield-Durchreichung** | nur **480p / 720p** | `models_explore`, verifiziert |
+| **Unsere gelieferten Dateien** | 720p, h264 High, `yuv420p` = **8-bit** | ffprobe, verifiziert |
 
-Mit einem **angenommenen Faktor 2,5**:
+**Das ist die wichtigste technische Erkenntnis für die Kinoauswertung:** Der
+Flaschenhals ist die **Plattform, nicht das Modell**. Für Kinoformate führt der
+Weg über **direkten Modellzugang (Volcano Engine / ByteDance-API)** statt über
+Higgsfield — mit eigener, noch zu ermittelnder Preisstruktur.
+
+**10-bit:** Nach Produktionsangabe unterstützt Seedance 10-bit. Öffentlich
+dokumentiert ist das nicht; unsere Higgsfield-Ausgabe ist nachweislich 8-bit.
+**Vor der Kalkulation gegen die offizielle Volcano-Engine-Dokumentation
+verifizieren** — davon hängt ab, ob ein echtes 10-bit-Negativ entsteht oder nur
+ein 10-bit-Container über 8-bit-Information.
+
+**Nebeneffekt für die Produktion:** 30s natives Single-Shot statt 10s bedeutet
+weniger Schnitte, bessere Kontinuität — und verändert die Stückkostenrechnung
+zugunsten längerer Einstellungen.
+
+Für die Zwischenzeit, mit **angenommenem Faktor 2,5** (720p→Zielqualität):
 
 | Umfang | Credits | € (Liste) |
 |---|---|---|
@@ -158,6 +173,9 @@ unsere gestellt ergibt die entscheidende Folie des Pitches.
 | Stückkosten (35/20/0,7/2 Credits) | ✅ real verifiziert |
 | Trefferquote 1:3 | ⚠️ Schätzung aus kleiner Stichprobe — mit jedem Batch nachschärfen |
 | Faktor 2,5 für Kinoqualität | ⚠️ **unverifiziert** — Testlauf nötig |
+| Seedance nativ bis 4K (nicht 720p) | ✅ recherchiert — Higgsfield ist der Flaschenhals |
+| 10-bit-Fähigkeit von Seedance | ⚠️ Produktionsangabe; öffentlich nicht dokumentiert — gegen Volcano-Engine-Doku prüfen |
+| Preisstruktur bei Direktzugang (Volcano Engine) | ⚠️ **unbekannt** — muss für Kino-Kalkulation ermittelt werden |
 | Higgsfield-Preisstabilität | ⚠️ Anbieterrisiko; Pipeline ist modell-agnostisch angelegt (Blueprint V2) — als Risikoargument aktiv nutzen |
 | Qualitätsniveau für Kinoauswertung | ⚠️ Muss am Proof of Concept bewiesen werden, nicht behauptet |
 
