@@ -88,6 +88,41 @@ ByteDance betreibt **zwei nicht austauschbare** Plattformen:
 - BytePlus ModelArk führt **eigene Seedance-2.5-Preise** — diese sind für die
   Kino-Kalkulation maßgeblich, nicht der Higgsfield-Creditpreis.
 
+#### BytePlus-Preise — recherchiert (Stand 08/2026)
+| Auflösung | Preis | 10s-Clip | je Minute |
+|---|---|---|---|
+| 480p | $0,09/s | $0,90 | ≈ 4,97 € |
+| **720p** | **$0,21/s** | $2,10 | ≈ 11,59 € |
+| **1080p** | **nicht veröffentlicht** | — | — |
+| **4K** | **nicht veröffentlicht** | — | — |
+
+Abrechnung tokenbasiert ($10,70/1 Mio. Token ohne Video-Input, $6,40 mit
+Video-Input), fester Sekundenpreis je Auflösung, Clips 4–30 s, **keine
+Grundgebühr und kein Aufpreis für Audio**. *(Umrechnung mit angenommenem Kurs
+1 USD ≈ 0,92 €.)*
+
+#### ⚠️ Zwei Ergebnisse, die die Erwartung umkehren
+
+**1. Die Kino-Kalkulation lässt sich noch nicht abschließen.**
+BytePlus veröffentlicht Preise **nur für 480p und 720p**. Ohne offizielle
+1080p-/4K-Tarife ist jede Kinokalkulation eine Erfindung. Der angenommene
+Faktor 2,5 bleibt damit **offen** — das ist die ehrliche Antwort.
+
+**2. Higgsfield ist bei 720p günstiger als der Direktzugang.**
+| | 10s-Clip 720p | je Minute (3 Versuche) |
+|---|---|---|
+| Higgsfield (Listenpreis) | **1,46 €** | 26,25 € |
+| BytePlus direkt | 1,93 € | 34,78 € |
+| Higgsfield (dein Rabatt) | 0,17 € | 3,06 € |
+
+Higgsfield ist zum **Listenpreis rund 25 % günstiger** als der direkte
+Modellzugang — Abo-Bündelung schlägt Pay-per-Use. **Der Grund, zu BytePlus zu
+wechseln, ist also die Auflösung, nicht der Preis.**
+
+Für Social (Full HD) und Kino (4K) führt der Weg trotzdem über BytePlus, sobald
+die Tarife dort veröffentlicht sind — **oder über einen anderen Anbieter, der
+1080p+ durchreicht.** Das ist vor der Kalkulation zu klären.
+
 ⚠️ **Zusätzlicher Prüfpunkt:** In der Fachpresse wird zu Seedance 2.5 auf
 **ungeklärte urheberrechtliche Fragen** hingewiesen. Für einen öffentlich
 geförderten Film ist Rechtekette und Rechteklarheit ein Prüfkriterium —
@@ -195,7 +230,9 @@ unsere gestellt ergibt die entscheidende Folie des Pitches.
 | Faktor 2,5 für Kinoqualität | ⚠️ **unverifiziert** — Testlauf nötig |
 | Seedance nativ bis 4K (nicht 720p) | ✅ recherchiert — Higgsfield ist der Flaschenhals |
 | 10-bit-Fähigkeit von Seedance | ⚠️ Produktionsangabe; öffentlich nicht dokumentiert — gegen Volcano-Engine-Doku prüfen |
-| Preisstruktur bei Direktzugang (**BytePlus ModelArk**, nicht Volcano Engine Ark) | ⚠️ **unbekannt** — muss für Kino-Kalkulation ermittelt werden |
+| BytePlus-Preise 480p/720p | ✅ recherchiert ($0,09 / $0,21 je Sekunde) — **Sekundärquellen**, offizielle Doku war nicht erreichbar; vor Kalkulation gegenprüfen |
+| **BytePlus-Preise 1080p/4K** | ❌ **nicht veröffentlicht** — Kino-Kalkulation bis dahin nicht abschließbar |
+| Higgsfield vs. Direktzugang bei 720p | ✅ Higgsfield (Liste) ~25 % günstiger — Wechselgrund ist Auflösung, nicht Preis |
 | Rechtliche Nutzungsbedingungen des Modellanbieters | ⚠️ **ungeprüft** — Rechte am Output, kommerzielle Nutzung, Trainingsdaten. Für Förderanträge kritisch. |
 | EU-Datenebene `eu-west-1` verfügbar | ✅ recherchiert — DSGVO-Argument für Anträge |
 | Higgsfield-Preisstabilität | ⚠️ Anbieterrisiko; Pipeline ist modell-agnostisch angelegt (Blueprint V2) — als Risikoargument aktiv nutzen |
