@@ -71,8 +71,28 @@ Die 35 Credits gelten für **720p im fast-Modus über Higgsfield**.
 
 **Das ist die wichtigste technische Erkenntnis für die Kinoauswertung:** Der
 Flaschenhals ist die **Plattform, nicht das Modell**. Für Kinoformate führt der
-Weg über **direkten Modellzugang (Volcano Engine / ByteDance-API)** statt über
-Higgsfield — mit eigener, noch zu ermittelnder Preisstruktur.
+Weg über **direkten Modellzugang** statt über Higgsfield — mit eigener, noch zu
+ermittelnder Preisstruktur.
+
+#### Welcher Direktzugang? (präzisiert)
+ByteDance betreibt **zwei nicht austauschbare** Plattformen:
+
+| Plattform | Region | Für uns |
+|---|---|---|
+| **Volcano Engine Ark** | China-Konsole, CNY-Abrechnung | ❌ nicht relevant |
+| **BytePlus ModelArk** | international, **USD-Abrechnung**, internationale Compliance | ✅ **das ist unser Weg** |
+
+- Seedance 2.5 API international verfügbar seit **16.07.2026** über BytePlus ModelArk.
+- **Es gibt eine EU-Datenebene (`eu-west-1`)** — relevant für DSGVO und für
+  Förderanträge, bei denen Datenverarbeitung geprüft wird. Aktiv als Argument nutzen.
+- BytePlus ModelArk führt **eigene Seedance-2.5-Preise** — diese sind für die
+  Kino-Kalkulation maßgeblich, nicht der Higgsfield-Creditpreis.
+
+⚠️ **Zusätzlicher Prüfpunkt:** In der Fachpresse wird zu Seedance 2.5 auf
+**ungeklärte urheberrechtliche Fragen** hingewiesen. Für einen öffentlich
+geförderten Film ist Rechtekette und Rechteklarheit ein Prüfkriterium —
+**vor Antragstellung die Nutzungsbedingungen von BytePlus prüfen** (kommerzielle
+Nutzung, Rechteübertragung am Output, Trainingsdaten-Zusicherungen).
 
 **10-bit:** Nach Produktionsangabe unterstützt Seedance 10-bit. Öffentlich
 dokumentiert ist das nicht; unsere Higgsfield-Ausgabe ist nachweislich 8-bit.
@@ -175,7 +195,9 @@ unsere gestellt ergibt die entscheidende Folie des Pitches.
 | Faktor 2,5 für Kinoqualität | ⚠️ **unverifiziert** — Testlauf nötig |
 | Seedance nativ bis 4K (nicht 720p) | ✅ recherchiert — Higgsfield ist der Flaschenhals |
 | 10-bit-Fähigkeit von Seedance | ⚠️ Produktionsangabe; öffentlich nicht dokumentiert — gegen Volcano-Engine-Doku prüfen |
-| Preisstruktur bei Direktzugang (Volcano Engine) | ⚠️ **unbekannt** — muss für Kino-Kalkulation ermittelt werden |
+| Preisstruktur bei Direktzugang (**BytePlus ModelArk**, nicht Volcano Engine Ark) | ⚠️ **unbekannt** — muss für Kino-Kalkulation ermittelt werden |
+| Rechtliche Nutzungsbedingungen des Modellanbieters | ⚠️ **ungeprüft** — Rechte am Output, kommerzielle Nutzung, Trainingsdaten. Für Förderanträge kritisch. |
+| EU-Datenebene `eu-west-1` verfügbar | ✅ recherchiert — DSGVO-Argument für Anträge |
 | Higgsfield-Preisstabilität | ⚠️ Anbieterrisiko; Pipeline ist modell-agnostisch angelegt (Blueprint V2) — als Risikoargument aktiv nutzen |
 | Qualitätsniveau für Kinoauswertung | ⚠️ Muss am Proof of Concept bewiesen werden, nicht behauptet |
 
