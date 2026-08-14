@@ -7,6 +7,8 @@ import { StatusBadge } from "@/components/status-badge";
 import { calculateTotals } from "@/lib/calculations";
 import { formatCurrency, formatDate } from "@/lib/utils";
 import { FileVault } from "./file-vault";
+import { PipelinePanel } from "./pipeline-panel";
+import { getPipeline } from "@/lib/pipelines";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +25,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     },
   });
   if (!project) notFound();
+
+  const pipeline = getPipeline(project.pipelineKey);
 
   return (
     <>
@@ -65,6 +69,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <Row label="Shoot start" value={project.shootStart ? formatDate(project.shootStart) : null} />
             <Row label="Shoot end" value={project.shootEnd ? formatDate(project.shootEnd) : null} />
             <Row label="Budget" value={project.budget != null ? formatCurrency(project.budget) : null} />
+            <Row label="Pipeline" value={pipeline ? `${pipeline.name} ${pipeline.version}` : null} />
             {project.notes && <Row label="Notes" value={project.notes} multiline />}
           </dl>
         </section>
@@ -123,6 +128,12 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </ul>
             )}
           </section>
+
+          {pipeline && (
+            <section className="card p-5">
+              <PipelinePanel projectId={project.id} pipeline={pipeline} />
+            </section>
+          )}
 
           <section className="card p-5">
             <FileVault

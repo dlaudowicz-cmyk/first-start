@@ -53,6 +53,7 @@ export const projectSchema = z.object({
   budget: z.coerce.number().optional(),
   notes: z.string().optional().or(z.literal("")),
   ventureId: optionalText,
+  pipelineKey: optionalText,
 });
 export type ProjectInput = z.infer<typeof projectSchema>;
 

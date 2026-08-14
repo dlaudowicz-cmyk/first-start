@@ -17,6 +17,7 @@ function parse(formData: FormData) {
     budget: formData.get("budget") ? Number(formData.get("budget")) : undefined,
     notes: String(formData.get("notes") || ""),
     ventureId: String(formData.get("ventureId") || ""),
+    pipelineKey: String(formData.get("pipelineKey") || ""),
   };
 }
 
@@ -38,6 +39,7 @@ export async function createProject(formData: FormData) {
       budget: data.budget ?? null,
       notes: data.notes || null,
       ventureId: data.ventureId || null,
+      pipelineKey: data.pipelineKey || null,
     },
   });
   revalidatePath("/projects");
@@ -59,6 +61,7 @@ export async function updateProject(id: string, formData: FormData) {
       budget: data.budget ?? null,
       notes: data.notes || null,
       ventureId: data.ventureId || null,
+      pipelineKey: data.pipelineKey || null,
     },
   });
   revalidatePath("/projects");

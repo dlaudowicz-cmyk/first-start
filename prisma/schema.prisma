@@ -213,6 +213,9 @@ model Project {
   location   String?
   budget     Float?
   notes      String?
+  /// Key into PIPELINES in src/lib/pipelines.ts — the technical standard this
+  /// production runs on. Null means no pipeline assigned yet.
+  pipelineKey String?
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 

@@ -63,11 +63,11 @@ npm run db:reset     # wipe and re-seed
 |---|---|
 | **Dashboard** | Scoped or holding-wide: active projects, unpaid invoices, monthly revenue, open tasks, expiring contracts, venture tiles |
 | **Clients** | CRUD, VAT ID, **many-to-many venture links** (a client can book several ventures) |
-| **Projects** | 7 production types, 6-step status workflow, shoot dates, budget, venture assignment, **status report PDF**, **file vault** |
+| **Projects** | 7 production types, 6-step status workflow, shoot dates, budget, venture assignment, **pipeline**, **status report PDF**, **file vault** |
 | **Offers** | Dynamic line items, live totals, validity, payment terms, PDF export |
 | **Invoices** | Auto-numbered from `RE-001-0026`, PDF export, **ZUGFeRD-ready JSON** |
 | **Travel / Spesen** | German per-diem calculator with configurable rates |
-| **AI Assistant** | 7 structured prompt templates with live preview + copy (no API call yet) |
+| **AI Assistant** | 9 structured prompt templates with live preview + copy (no API call yet), incl. two QC protocols |
 | **Settings** | Company info, banking, tax, VAT default, numbering, logo upload |
 
 ## Documents
@@ -82,6 +82,23 @@ Three PDF families, all sharing the brand header (uploaded logo when it is a PNG
 | Venture dossier | `/ventures/<slug>/dossier` |
 
 The **status report** is the client-facing counterpart to an invoice: project meta, shoot window, a budget-usage bar (red past 100%), all offers and invoices with totals, Spesen, and the task list. Figures come from `src/lib/project-report.ts`, so they can be reused without rendering.
+
+## Production pipelines
+
+A project can be assigned a **pipeline** — the technical standard it runs on. Pipelines are defined once in `src/lib/pipelines.ts`, alongside the Spesen rates and file categories, and carry:
+
+- **rules** — handles, plate length, export formats, viewing standard, chunking
+- **stages** grouped by track: sources & conform, graded Rec709 (the AI path), ungraded ACEScg EXR (the negative), master, and future
+- **QC gates** with concrete checks
+- **open decisions** and **deliberate trade-offs**
+
+Ships with **Masterclass Color Pipeline V2** (Timor Kardum, August 2026): dual-path colour management where the graded Rec709 branch feeds the AI steps while an ungraded linear ACEScg EXR sequence is retained as negative and grain reference.
+
+### Spec vs. recommendation
+
+Every QC gate carries a `source` of either `spec` or `recommendation`, and the UI badges them differently. What the pipeline author wrote and what this OS proposes on top of it stay distinguishable — when the spec is revised, the reviewer can tell which is which. Spec gates seed as high priority, recommendations as normal.
+
+The **QC-Gates als Aufgaben** button turns the gates into project tasks. Re-running is safe: `planQcTasks` in `src/lib/qc-tasks.ts` skips gates that already have a task, so it can be pressed again after the pipeline gains a gate.
 
 ## Project file vault
 
@@ -173,8 +190,9 @@ src/
     contracts/ vault/ tools/      list, new, [id], [id]/edit
     tasks/                        board, new, [id]
     clients/                      list, new, [id] (+ venture links), [id]/edit
-    projects/                     list, new, [id] (+ file vault), [id]/edit,
-                                  [id]/report (PDF), [id]/files/[fileId] (download)
+    projects/                     list, new, [id] (+ pipeline panel, file vault),
+                                  [id]/edit, [id]/report (PDF),
+                                  [id]/files/[fileId] (download)
     offers/ invoices/             list, new, [id], [id]/edit, [id]/pdf
     invoices/[id]/zugferd.json    ZUGFeRD-ready payload
     expenses/ assistant/ settings/
@@ -189,6 +207,8 @@ src/
     db.ts  schemas.ts  form.ts  utils.ts  csv.ts
     calculations.ts              net / vat / gross — single source of truth
     project-report.ts            status report figures
+    pipelines.ts                 production pipeline standards
+    qc-tasks.ts                  which QC gates still need a task (pure)
     project-files.ts             categories + formatting (client-safe)
     project-files-storage.ts     filesystem access (server only)
     venture-context.ts           active venture + scope helpers

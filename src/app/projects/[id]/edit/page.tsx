@@ -35,6 +35,7 @@ export default async function EditProjectPage({ params }: { params: Promise<{ id
           budget: project.budget ?? undefined,
           notes: project.notes ?? "",
           ventureId: project.ventureId ?? "",
+          pipelineKey: project.pipelineKey ?? "",
         }}
       />
     </>

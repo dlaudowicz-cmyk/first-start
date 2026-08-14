@@ -153,6 +153,91 @@ ${input.trim() || "<describe the email context>"}
 """`,
   },
   {
+    id: "qc-ki-schritt",
+    title: "QC-Gate nach KI-Schritt",
+    description:
+      "Prüfprotokoll nach jedem KI-Schritt der Color Pipeline — Framecount, Retiming, Duplikate, Null-Test.",
+    inputLabel: "Was wurde gemacht?",
+    inputPlaceholder:
+      "z.B. Shot 042, Plate 96 Frames inkl. Handles, durch LTX lokal, Output 16bit PNG-Seq, 94 Frames zurück…",
+    build: (input) => `${sys}
+
+Du prüfst einen KI-Schritt in der Masterclass Color Pipeline (Timor Kardum, V2).
+Arbeite das QC-Gate ab und melde jeden Punkt einzeln als BESTANDEN / FEHLER / UNKLAR.
+
+Pipeline-Regeln, gegen die geprüft wird:
+- Handles: 10 Frames je Seite
+- Plate inkl. Handles ≥ 3 s @ 24 fps
+- PNG 16-bit · MP4 > 50 Mbit · Native-Rez + 4K
+- Viewing: BT.1886
+- Shots > 30 s sind gechunkt (Seedance 2.5 Max-Länge) + Frame-Bridging
+
+QC-Gate:
+1. Framecount — Output gegen Plate. Jede Abweichung ist ein Fehler, auch ±1.
+2. Retiming — keine ungewollte Geschwindigkeitsänderung. Prüfe Bewegungsphasen an einem eindeutigen Motiv.
+3. Duplikate — keine wiederholten oder ausgelassenen Frames, besonders an Chunk-Grenzen.
+4. Null-Test — auf einem unveränderten Frame: geht Rec709 rein und Rec709 identisch raus?
+5. Bittiefe — ist irgendwo eine 8-bit- oder MP4-Zwischenstufe entstanden, die später gegradet wird?
+6. Chunk-Zuordnung — falls gechunkt: sind alle Teile eindeutig auf den Ursprungs-Shot rückführbar?
+
+Gib zusätzlich an:
+- welche Prüfung sich nicht aus den Angaben beantworten lässt und welche Information dafür fehlt
+- eine konkrete nächste Aktion pro Fehler, keine allgemeinen Hinweise
+
+Durchgeführter Schritt:
+"""
+${input.trim() || "<Schritt beschreiben: Shot, Plate-Länge, Tool, Modell, Ein- und Ausgabeformat>"}
+"""`,
+  },
+  {
+    id: "qc-master-abnahme",
+    title: "QC Master-Abnahme",
+    description:
+      "Abnahmeprotokoll vor Freigabe des SDR- bzw. HDR-Masters — inklusive Grain-Konsistenz zwischen beiden Pfaden.",
+    inputLabel: "Was liegt zur Abnahme vor?",
+    inputPlaceholder:
+      "z.B. SDR Master Rec709, 42 Shots, davon 12 über Upscale-Zweig und 8 über Nuke-Comp, Rest ungetoucht…",
+    build: (input) => `${sys}
+
+Du nimmst einen Master aus der Masterclass Color Pipeline (Timor Kardum, V2) ab.
+Melde jeden Punkt als BESTANDEN / FEHLER / UNKLAR mit Begründung.
+
+Kritische Punkte dieser Pipeline:
+
+1. GRAIN-KONSISTENZ (häufigster Fehler)
+   Der Upscale-Zweig (KI via API → Topaz → Conform) hat KEIN Re-Grain.
+   Der Compositing-Zweig (KI lokal → Nuke) hat eins.
+   Laufen beide in dieselbe Timeline, stehen KI-geglättete Shots neben re-gekörnten.
+   Das fällt im Schnitt als Schnittfehler auf, nicht als Grainfehler.
+   → Prüfe Shot für Shot, über welchen Zweig er kam, und ob die Textur zum Nachbarshot passt.
+
+2. BITTIEFE
+   „KI via API" liefert Stills als 8-bit PNG. Prüfe auf Banding in Himmel,
+   Hautübergängen und weichen Lichtabfällen — dort zuerst.
+
+3. CHROMA
+   MP4-Zwischenstufen bringen 4:2:0. Prüfe gesättigte Kanten und Rot-/Blauflächen
+   auf ausgefranste Chroma-Übergänge.
+
+4. VIEWING
+   Wurde tatsächlich auf BT.1886 abgenommen?
+
+5. HDR-PASS (falls gefahren)
+   Der SDR→HDR-Weg ist inverses Tone-Mapping aus einem SDR-Master.
+   Prüfe Spitzlichter auf Clipping-Artefakte und unnatürliche Highlight-Rolloffs.
+
+6. VOLLSTÄNDIGKEIT
+   Framecount des Masters gegen die Schnittliste. Handles korrekt abgeschnitten.
+
+Nenne am Ende die Shots, die vor Freigabe zwingend nachbearbeitet werden müssen,
+getrennt von denen, die nur beobachtet werden sollten.
+
+Zur Abnahme vorgelegt:
+"""
+${input.trim() || "<Master beschreiben: Fassung, Shot-Anzahl, welche Shots über welchen Zweig kamen>"}
+"""`,
+  },
+  {
     id: "ai-video-prompt",
     title: "Generate AI video prompt",
     description: "Detailed text prompt for an AI video model (Veo / Runway / Sora-class).",

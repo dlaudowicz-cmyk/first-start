@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useTransition } from "react";
 import { projectSchema, type ProjectInput } from "@/lib/schemas";
 import { PROJECT_STATUSES, PROJECT_TYPES } from "@/lib/utils";
+import { PIPELINES } from "@/lib/pipelines";
 import { createProject, updateProject, deleteProject } from "./actions";
 
 type Props = {
@@ -35,6 +36,7 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
       budget: initial?.budget ?? undefined,
       notes: initial?.notes ?? "",
       ventureId: initial?.ventureId ?? "",
+      pipelineKey: initial?.pipelineKey ?? "",
     },
   });
 
@@ -117,6 +119,21 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
 
         <Field label="Shoot end" error={errors.shootEnd?.message}>
           <input className="input" type="date" {...register("shootEnd")} />
+        </Field>
+
+        <Field
+          label="Pipeline"
+          error={errors.pipelineKey?.message}
+          className="md:col-span-2"
+        >
+          <select className="input" {...register("pipelineKey")}>
+            <option value="">Keine Pipeline zugewiesen</option>
+            {PIPELINES.map((pl) => (
+              <option key={pl.key} value={pl.key}>
+                {pl.name} {pl.version} — {pl.author}
+              </option>
+            ))}
+          </select>
         </Field>
 
         <Field label="Location" error={errors.location?.message} className="md:col-span-2">
