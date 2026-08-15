@@ -7,3 +7,6 @@ __pycache__/
 .venv/
 venv/
 *.egg-info/
+
+# Eigene IP-Projekte (privat halten, bis entschieden)
+ips/
