@@ -1,5 +1,10 @@
 # Bexly Social Hub — 90-Tage-Plan: „Build & Monetize the IP"
 
+> ⚠️ **TEILWEISE ÜBERHOLT.** Dieser Plan unterstellt tägliches Posten und
+> Community-Management (~25–30 h/Woche). Bei 15 h/Woche solo nicht machbar.
+> **Maßgeblich ist `MASTERPLAN.md`** (2–3 Posts/Woche, Doppelnutzung des
+> Materials). Die Strategie-Analyse hier bleibt gültig und lesenswert.
+
 > Strategie-Frame: Der Social-Hub ist **kein Film-Marketing**, sondern ein
 > eigenständiger Motor, der **vier Funktionen gleichzeitig** fährt:
 > **Content Lab · Audience Building · Marktforschung · Monetarisierung.**

@@ -1,181 +1,164 @@
-# Bexly OS — Übergabedokument
+# Being Bexly — Übergabe & Projektstand
 
-> Stand: 2026-07-08 · Repo: `dlaudowicz-cmyk/first-start` · Branch:
-> `claude/bexly-os-ai-9RgQb`
-> Dieses Dokument gibt den kompletten Projektstand weiter — Vision, Marke,
-> Code, Produktion, Tools und offene Punkte. Es ist so geschrieben, dass eine
-> neue Person **oder eine neue KI-Session** sofort weiterarbeiten kann.
+> Stand: 08/2026 · Repo `dlaudowicz-cmyk/first-start` · Branch `claude/bexly-os-ai-9RgQb`
+> **Einstiegsdokument.** Wer hier neu dazukommt (Mensch oder neue Session), liest
+> zuerst diese Datei, dann `strategy/MASTERPLAN.md`.
 
 ---
 
-## 1. Was ist das Projekt?
+## ⚠️ Aktueller Status: BEXLY PAUSIERT
 
-**Bexly** ist eine Animations-IP (»Being Bexly«), die zu einer Marke für Kinder
-& Familien ausgebaut wird. **Bexly OS** ist das „Betriebssystem" dahinter: eine
-markenbewusste KI, die den gesamten Markenkern kennt und als Gehirn für alle
-Aktivitäten dient (Content, Social, Web, Film-Produktion, Quests …).
+**Die Produktion ruht, bis die Verträge mit Red Sun Films stehen.**
 
-- **Ausgangswerk:** Animationsfilm »Being Bexly« (früher »Being Baxter«)
-- **Produktion:** RED SUN FILMS GMBH, Grünwald · Idee/Konzept: Rainer Matsutani ·
-  Drehbuch: Rainer Matsutani & Sandro Lang
-- **Strategie:** „KI-First-IP" — erst Reichweite über Buch, Hörspiel, kurze
-  Clips & Food-Partnerschaften aufbauen, dann der große Film.
-- **Logline:** Drei Feldmäuse entdecken, dass die Menschheit von
-  schokoladensüchtigen Aliens infiltriert wurde – und bekämpfen im Körper eines
-  Roboterjungen die Invasion.
+Begründung: An fremder IP wurde ohne dokumentierte Position gearbeitet. Bis zur
+Unterschrift entstehen **keine neuen Bexly-Assets** — sonst verliert das Argument
+„erst der Vertrag" seine Wirkung.
+
+**Was als Nächstes ansteht:** die acht offenen Entscheidungen im Term Sheet
+(§16), dann Gespräch mit Rainer, dann anwaltliche Prüfung.
 
 ---
 
-## 2. Repository-Struktur
+## 1. Das Projekt in Kürze
+
+**Being Bexly** — Animationsspielfilm für Kinder (6–11) & Familien.
+Drei Feldmäuse entdecken, dass die Menschheit von schokoladensüchtigen Aliens
+infiltriert wurde, und bekämpfen im Körper eines Roboterjungen die Invasion.
+
+| | |
+|---|---|
+| **IP-Inhaber** | RED SUN FILMS GMBH, Grünwald — Rainer Matsutani (Idee/Konzept), Drehbuch mit Sandro Lang |
+| **Technologie/Produktion** | Pushlabs — Daniel Laudowicz, Leipzig |
+| **Ziel (12 Monate)** | **Filmfinanzierung** — finanzierungsreifes Paket, erste Entwicklungsförderung beantragt |
+| **Ressourcen** | Daniel solo, **15 h/Woche** |
+
+---
+
+## 2. Die vier Kernerkenntnisse dieser Arbeitsphase
+
+**1. Der stärkste Hebel ist das Kostenargument, nicht die Reichweite.**
+Verifizierte Pipeline: figurentreue, vertonte Character-Clips zu einem Bruchteil
+klassischer Kosten. Faktor **4–10 günstiger** als vergleichbare klassische
+Produktion (Vollkostenvergleich, siehe `strategy/marktvergleich_animation.md`).
+
+**2. Der Engpass ist die Arbeitszeit, nicht das Geld.**
+Rechenleistung reicht für ~7,4 Min/Monat, ein Mensch schafft 2–4 Min/Monat.
+→ Die Finanzierungsbitte lautet **„bezahlt ein kleines Team"**, nicht
+„bezahlt die Animation".
+
+**3. Rainer treibt die Förderung, Pushlabs liefert Material und Zahlen.**
+Er kennt die Förderlandschaft; Daniel muss sie nicht lernen. Ohne diese
+Arbeitsteilung ist der Plan bei 15 h/Woche nicht machbar.
+
+**4. Zwei getrennte IPs treffen aufeinander.**
+Being Bexly gehört Red Sun, die Produktionsplattform gehört Pushlabs. Geteilt
+wird nur die **neu entstehende digitale Ebene**. Muss vertraglich sauber
+getrennt werden — inklusive Produktname der Plattform.
+
+---
+
+## 3. Repository
 
 ```
-bexly_os/
-├── brand/
-│   ├── brand_core.md     ← DIE MARKEN-BIBEL (einzige Quelle der Wahrheit)
-│   └── __init__.py       ← lädt den Markenkern in den System-Prompt
-├── core.py               ← BexlyKI: Engine (Claude + Markenkern + Gedächtnis)
-├── cli.py                ← interaktiver Chat mit der Bexly-KI
-└── modules/
-    ├── studio.py         ← KI-Film-Produktion (CineForge-Shotlist)  ← Cuelist.ai-artig
-    ├── social.py         ← Social-Media-Captions
-    └── research.py       ← Web-Recherche via Firecrawl
-bexly.py                  ← Einstiegspunkt (python bexly.py)
-productions/
-└── scene01_the-chase.md  ← fertige Seedance-Shotlist (Szene 01)
-requirements.txt          ← anthropic, firecrawl-py (optional)
-README.md                 ← Nutzer-/Entwickler-Doku
-assistant.py              ← Alt-Prototyp (Vorläufer, kann bleiben)
+strategy/                    ← Entscheidungsgrundlagen
+├── MASTERPLAN.md            ★ zuerst lesen — Ziel, Phasen, Wochenrhythmus
+├── kostenmodell.md          ★ verifizierte Stückkosten + BytePlus-Recherche
+├── marktvergleich_animation.md   Vergleichszahlen klassischer Animation
+├── term_sheet_pushlabs_redsun.md ★ aktives Verhandlungsdokument
+├── kooperation_pushlabs_redsun.md  Deal-Logik, 3 Modelle, Empfehlung
+├── onepager_rainer.md       Einstiegsdokument für Rainer
+└── social-hub-90-days.md    Social-Strategie (⚠ für 15 h/Woche zu groß — durch MASTERPLAN ersetzt)
+
+productions/                 ← Produktionsstandards & Material
+├── CAMERA_AND_BLOCKING.md   ★ verbindliche Kamera-/Blocking-Standards
+├── higgsfield_elements.md   ★ Element-IDs + verifizierte Rezepte
+├── scene01_the-chase.md     fertige Shotlist (Verfolgung)
+├── social_batch01.md        18 Social-Konzepte
+└── 3d_druck.md              3D-Druck: Verfahren, Einstellungen, Fallstricke
+
+bexly_os/                    ← markenbewusste KI
+├── brand/brand_core.md      ★ Marken-Bibel (einzige Quelle der Wahrheit)
+├── core.py, cli.py          Engine + Chat (python bexly.py)
+└── modules/                 studio (CineForge), social, research
+
+ip_studio/                   ← für eine EIGENE IP (getrennt von Bexly)
+├── PLAYBOOK.md              5 Regeln, 5 Phasen, Rechte ab Tag 1
+├── scaffold.py              IP anlegen, Figuren, Trefferquote, Kosten
+└── templates/
+
+tools/kostenrechner.py       Kosten je Minute, Annahmen justierbar
 ```
 
-**Wichtig:** Das Repo wird in Cloud-Sessions frisch geklont und der Container ist
-flüchtig. **Nur was committet & gepusht ist, bleibt erhalten.** Gedächtnis der
-KI liegt lokal unter `.bexly/` (gitignored, nicht dauerhaft).
+---
+
+## 4. Verifizierte Produktionsdaten
+
+### Stückkosten (real gemessen, Higgsfield/Seedance)
+| Leistung | Credits |
+|---|---|
+| 10s Clip, figurentreu (720p, fast) | 35 |
+| 10s nachträglich vertonen (`video_edit`) | 20 |
+| Dialogzeile (TTS, eigenes Stimm-Element) | 0,7 |
+| Keyframe (1k) | 2 |
+| 3D-Mesh aus Bild (Meshy `image_to_3d`) | 20 |
+
+Credit-Preis **4,167 Cent** (Listenpreis; nach außen immer damit rechnen, nie
+mit dem Rabatt). → ~34 €/Min, PoC 3 Min ≈ 102 €, 90-Minüter ≈ 3.053 €.
+
+### Verfahren, die nachweislich funktionieren
+- **Figurentreue** über Reference Elements + Environment-Clean-Plate als `image_references`
+- **Distinkte Bewegungssignatur je Figur** (Gewicht/Timing/Energie im Prompt)
+- **Nachträgliche Vertonung ohne Bildverlust**: `seedance_2_5`, `mode: video_edit`,
+  `generate_audio: true`, Job-ID als `video_references` (Pixel-Differenz ~1,5 %)
+- **Blocking** (Screen Direction, 180°-Regel) sobald mehrere Clips eine Szene bilden
+- **Micro-Motion-Cue** für Lebendigkeit (Fell, Schnurrhaare, Ohren, Atmung)
+- **3D-Mesh:** `target_polycount: 200000` kostet nicht mehr als 30000
+
+### Bekannte Grenzen
+- Higgsfield reicht nur **480p/720p** durch; Seedance kann nativ bis 4K
+- **BytePlus ModelArk** (international) für höhere Auflösung — 480p $0,09/s,
+  720p $0,21/s, **1080p/4K unbepreist** → Kino-Kalkulation noch nicht abschließbar
+- Bei 720p ist Higgsfield ~25 % **günstiger** als der Direktzugang
+- **Musik** ist über Higgsfield nicht verfügbar → Lizenzbibliothek nötig
+- 3D-Meshes sind **nicht wasserdicht** und brauchen Nachbearbeitung; Referenzbilder
+  müssen **Einzelfiguren** sein (Character-Sheets erzeugen Mehrfach-Meshes)
 
 ---
 
-## 3. Code-Stand (was funktioniert)
-
-| Komponente | Status | Beschreibung |
-|-----------|--------|--------------|
-| **Brand Core** | ✅ | `brand_core.md` — Werte, Figuren-Canon, Welt, Tonalität, Tabus |
-| **Bexly-KI (core)** | ✅ | Lädt Markenkern als System-Prompt, dauerhaftes Gedächtnis, Streaming |
-| **CLI** | ✅ | `python bexly.py` — Chat mit `/brand`, `/memory`, `/forget` |
-| **Studio-Modul** | ✅ | Szene → Shotlist (Kamera/Licht/Pacing/Prompt), Tracking, Routing an Generatoren |
-| **Social-Modul** | ✅ | Captions/Content-Ideen |
-| **Research-Modul** | ✅ | Web-Recherche via Firecrawl (Cloud-API) |
-| **Web-Modul** | ⬜ geplant | Landingpage & Website-Texte |
-| **Quest-System** | ⬜ geplant | Gamification (noch zu definieren) |
-
-**Setup / Start:**
-```bash
-pip install -r requirements.txt
-export ANTHROPIC_API_KEY=...        # Pflicht
-export FIRECRAWL_API_KEY=fc-...     # nur für Research-Modul
-python bexly.py
-```
-Verifiziert: Code kompiliert; Markenkern lädt; Studio-Datenmodell/Parser/Export
-laufen ohne API-Key (Engine wird lazy geladen). Live-KI-Calls brauchen den
-API-Key (in der Build-Umgebung nicht getestet, da kein Key/`anthropic`).
+## 5. Erzeugte Nachweise
+- **Demo-Reel 44 s** — Verfolgung + drei Bewegungssignaturen (Cal/Liv/Sammy), mit Lower-Thirds
+- **Vertonter Clip** — Sounddesign nachträglich, Bild unverändert
+- **Cal-Sprachzeile** über eigenes Stimm-Element
+- **3D-Druck** — vier bemalte Figuren (Cal, Liv, Sammy, Jet) als Handmuster
 
 ---
 
-## 4. Marken-Canon (in dieser Session festgelegt)
+## 6. Offene Punkte
 
-Diese Fakten sind in `brand_core.md` verankert:
+**Vertraglich (blockiert alles andere)**
+- [ ] Acht Entscheidungen im Term Sheet §16 (Exklusivität, Struktur, Quoten, Recoup, Accounts, Laufzeit, Produktname)
+- [ ] Gespräch mit Rainer · [ ] anwaltliche Prüfung
 
-- **Figuren:** Cal (ängstlicher, willensstarker Anführer-Maus), Liv (forsch,
-  clever; früher „Becky"), Sammy (tollpatschiger Optimist) · Biff (Hofhund) ·
-  **Jet Bexly** (Roboterjunge, **finaler Name**, Namensgeber der Marke) ·
-  Cocosia (Gussok-Rebellin, Tochter von Präsidentin Hazela) · General Nogath
-  (Antagonist) · Bauer Moe · Amy & Rob.
-- **Jet Bexly:** ein **von den Gussoks gebauter Roboter**. Cal & Freunde finden
-  ihn im **Keller des Bürgermeister-Hauses**. Wegen **Größe & Fell** hält der
-  Roboter die Mäuse für Gussoks und **saugt sie versehentlich in die
-  Kommandozentrale**. Steuerung über ein **holografisches Half-Dome
-  (Halbkugel)**; **Cal verbindet sich beim ersten Besuch** darüber mit dem Körper.
-- **Der Bürgermeister** wird von **General Nogath gesteuert** (Marionette/Roboter).
-- **Werte:** Freundschaft, Frieden, Akzeptanz, Mut · **Zielgruppe:** 6–11 + Familien.
-- **Tabus:** keine Gewalt/Angstmache, keine alten Namen (Baxter/Becky/Jet Baxter),
-  Schokolade ist Story-Motiv (kein Ernährungs-Vorbild).
+**Fachlich vor Förderantrag**
+- [ ] Nutzungsbedingungen des Modellanbieters prüfen (Rechte am Output, kommerzielle Nutzung, Trainingsdaten)
+- [ ] BytePlus-Preise 1080p/4K ermitteln
+- [ ] Vergleichszahl klassischer Animation von Rainer bestätigen lassen
+- [ ] Trefferquote messen (Schätzung 1:3 durch echte Daten ersetzen)
+- [ ] Qualitätsäquivalenz am Proof of Concept beweisen
+
+**Marke**
+- [ ] Markenfarben, Logo, Claim, Handles, Domain
 
 ---
 
-## 5. Produktions-Stand (Film)
-
-### Szene 01 — „Die Verfolgung" → `productions/scene01_the-chase.md`
-Fertige, generierfertige Shotlist. Kern der Überarbeitung: **eigener Laufstil
-pro Maus**, **sichtbare Angst**, **Stimmung** und **subtile Micro-Gestures**
-(Secondary Animation: Fell, Arme, Beine, Schwanz, Schnurrhaare, Ohren).
-
-**Seedance-Workflow (Higgsfield):**
-- **Model:** `seedance_2_0` · **720p** · **mode: fast** · `bitrate_mode: high`
-- **10s** je Shot · **16:9** · `generate_audio: false`
-- Character-Referenzen per `@`-Handle als `image_references` (`@Cal @Liv @Sammy @Biff`)
-- **`genre`-Parameter** pro Shot (action/comedy/drama) = „Cinema-Look"
-- 8 Shots inkl. Kamera, Licht, Stimmung, Micro-Motion; Dialog **nur aus
-  Drehbuch-Canon** (Shots ohne Zeile bleiben stumm).
-
-**Produktions-Standard (gilt für jede Szene):** Jeder Shot hat **Blocking**
-(Screen Direction, 180°-Regel, Staging) und einen **Kamera-Bewegungsstil**
-(handheld, steadicam, dolly, crane, drone, whip-pan, crash-zoom …). Vokabular &
-Regeln in `productions/CAMERA_AND_BLOCKING.md`; im Studio-Modul fest verankert
-(CineForge liefert Blocking + camera_movement automatisch).
-
-**Erkenntnis Higgsfield-Library:** Die „Presets/Skills" dort sind virale
-One-Shot-Templates (kein generischer CGI/Cinema-Skill). Der Look entsteht bei
-uns über Referenzen + `genre` + Prompt (Stil-Cue „consistent 3D CGI animated
-feature film look").
+## 7. Für die nächste Session
+1. `strategy/MASTERPLAN.md` lesen — dort steht Ziel, Reihenfolge und was bewusst **nicht** getan wird
+2. Bexly ist pausiert — keine neuen Assets ohne Vertrag
+3. Produktionsstandards aus `productions/CAMERA_AND_BLOCKING.md` und die Rezepte aus `productions/higgsfield_elements.md` gelten unverändert
+4. Markenwissen immer in `bexly_os/brand/brand_core.md` pflegen, nie im Code
 
 ---
 
-## 6. Externe Ressourcen & Tools
-
-| Ressource | Wofür | Zugang |
-|-----------|-------|--------|
-| **Google Drive** | Alle Film-Assets: Drehbuch/Trailer-PDFs, Proof-of-Concept, Seedance-Videos, Premiere-Projekte, Social-Clips (`Wondering_Bexly_Social`) | Drive-MCP (User dlaudowicz@googlemail.com) |
-| **Higgsfield / Seedance** | Bild- & Video-Generierung (Film-Shots) | MCP `generate_image`/`generate_video`, `models_explore`, `presets_show` |
-| **Firecrawl** | Web-Recherche fürs Research-Modul | Cloud-API, Key `FIRECRAWL_API_KEY` |
-| **GitHub** | Repo, PRs, CI | MCP (nur Repo `dlaudowicz-cmyk/first-start`) |
-
-Schlüssel-Dokumente im Drive:
-- `09032026.BEING BEXLY_DREHBUCH_TRAILER.pdf` — Trailer-Drehbuch
-- `BeingBexleyCalSammyLiv.v3_PROD._CLEAN.pdf` — Proof of Concept (Szene 1–12)
-- `2025.11.27_BEING BAXTER_PITCH_PROJEKT.pdf` — Pitch/Strategie (alter Titel)
-
----
-
-## 7. Offene Punkte / To-dos
-
-**Marke (in `brand_core.md` ergänzen, sobald festgelegt):**
-- [ ] Offizielle Markenfarben (Hex), Logo-Final, Claim/Slogan
-- [ ] Social-Handles, Website-Domain
-
-**Produktion:**
-- [ ] Szene 01 tatsächlich generieren (Seedance) & Assets ablegen/tracken
-- [ ] Character-Referenzen (`@`-Handles) final anlegen/bestätigen
-- [ ] Weitere Szenen ausarbeiten (nächste: Keller / erste Half-Dome-Verbindung)
-
-**Bexly OS (Code):**
-- [ ] Web-Modul (Landingpage-Texte)
-- [ ] Quest-System definieren & bauen
-- [ ] Optional: Web-Dashboard als Steuerzentrale
-- [ ] Studio: Import fertiger Shotlists aus `productions/*.md` ins Trackingmodell
-
----
-
-## 8. Wie geht's weiter? (für die nächste Session)
-
-1. **Lies zuerst** `brand_core.md` (Markenkern) und dieses Dokument.
-2. Der Branch ist `claude/bexly-os-ai-9RgQb` — dort committen & pushen.
-3. Für Film-Prompts: Muster in `productions/scene01_the-chase.md` übernehmen
-   (Seedance 720p/fast, `@`-Refs, `genre`, Laufstil + Angst + Stimmung +
-   Micro-Motion, Canon-Dialoge).
-4. Marken-Änderungen immer in `brand_core.md` — nie im Code.
-5. Neue Deliverables committen (Container ist flüchtig!).
-
----
-
-## 9. Kontakt / Rechte
-
-- **RED SUN FILMS GMBH**, Dr.-Max-Straße 10, 82031 Grünwald · info@redsunfilms.com
-- IP vollständig eigen (KI-First, rechtlich sauber — keine Fremd-Copyrights).
+## 8. Kontakt
+RED SUN FILMS GMBH · Dr.-Max-Straße 10, 82031 Grünwald · info@redsunfilms.com
+Pushlabs · Gutenbergplatz 3, 04103 Leipzig · hello@pushlabs.de
