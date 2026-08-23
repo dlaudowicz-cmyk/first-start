@@ -1,514 +1,514 @@
-# Pushlabs — Venture Strategy Analysis
+# Pushlabs — Venture-Strategie-Analyse
 
-**Prepared:** August 2026
-**Question:** Where is the scalable business, given Daniel's skills, assets, network and unfair advantages?
-**Method:** First-principles analysis, market research (sources at the end), competitor evidence, adversarial review of the final recommendation.
-
----
-
-## 0. Executive summary
-
-**The recommendation is not "make AI films faster" and it is not "sell a course."**
-
-It is this: **become the body that defines and certifies professional competence in generative visual production for the German-speaking media industry — and license that standard outward.**
-
-Working name: **the Pushlabs GVP Standard** (Generative Bildgestaltung / Generative Visual Production).
-
-The reasoning in one line: when generation becomes free, output stops being scarce and *judgment, consistency, accountability and verified competence* become scarce. You are one of a very small number of people in DACH who can credibly author what "correct" means — and, unusually for someone with your background, you have already started encoding that judgment into machine-executable form.
-
-Three things in this document may be uncomfortable:
-
-1. **Your stated advantage — "I understand both traditional production AND generative AI" — is real but has a shelf life as a *production capability*.** By 2028 that intersection is a commodity skill. Its durable value is as an *authority position*, not a service offering.
-2. **Education, in the normal sense, is a €1–3M business with a structural margin problem** (curriculum rots every quarter as models change). It only becomes a real business when it is infrastructure: certification + licensing + institutional adoption.
-3. **Your rarest asset is probably not your eye.** It is that you are already formalising your eye into rubrics and executable pipelines. Almost no 20-year DoP does this. That is the thing to build the company on.
+**Stand:** August 2026
+**Frage:** Wo liegt das skalierbare Geschäft — auf Basis von Daniels Fähigkeiten, Assets, Netzwerk und strukturellen Vorteilen?
+**Methode:** Analyse aus ersten Prinzipien, Marktrecherche (Quellen am Ende), belegte Wettbewerbsanalyse, adversariale Prüfung der finalen Empfehlung.
 
 ---
 
-## 1. Analysing you
+## 0. Zusammenfassung
 
-### 1.1 What you actually have
+**Die Empfehlung lautet nicht „KI-Filme schneller produzieren“, und sie lautet nicht „einen Kurs verkaufen“.**
 
-| Asset | Why it is rare |
+Sie lautet: **werde die Instanz, die professionelle Kompetenz in generativer Bildgestaltung für die deutschsprachige Medienbranche definiert und zertifiziert — und lizenziere diesen Standard nach außen.**
+
+Arbeitstitel: **der Pushlabs GVP-Standard** (Generative Bildgestaltung / Generative Visual Production).
+
+Die Begründung in einem Satz: Wenn Generierung kostenlos wird, hört Output auf, knapp zu sein — und *Urteilsvermögen, Konsistenz, Nachweisbarkeit und geprüfte Kompetenz* werden knapp. Du bist einer von sehr wenigen Menschen im DACH-Raum, die glaubwürdig definieren können, was „richtig“ heißt — und, ungewöhnlich für jemanden mit deinem Hintergrund, du hast bereits begonnen, dieses Urteilsvermögen in maschinenlesbare Form zu überführen.
+
+Drei Punkte in diesem Dokument dürften unangenehm sein:
+
+1. **Dein genannter Vorteil — „ich verstehe klassische Produktion UND generative KI“ — ist real, hat aber als *Produktionsfähigkeit* ein Verfallsdatum.** Bis 2028 ist diese Schnittmenge eine Commodity-Kompetenz. Ihr dauerhafter Wert liegt in einer *Autoritätsposition*, nicht in einem Leistungsangebot.
+2. **Bildung im üblichen Sinn ist ein 1–3-Mio.-€-Geschäft mit einem strukturellen Margenproblem** (Curricula veralten quartalsweise, weil sich die Modelle ändern). Ein echtes Geschäft wird daraus erst als Infrastruktur: Zertifizierung, Lizenzierung, institutionelle Verankerung.
+3. **Dein seltenstes Asset ist vermutlich nicht dein Auge.** Es ist, dass du dein Auge bereits *formalisierst* — in Rubriken und ausführbare Pipelines. Fast kein DoP mit 20 Jahren Erfahrung tut das. Darauf ist das Unternehmen zu bauen.
+
+---
+
+## 1. Analyse: Du
+
+### 1.1 Was du tatsächlich hast
+
+| Asset | Warum es selten ist |
 |---|---|
-| 20 years of calibrated visual judgment | You can look at a frame and say *why* it is wrong in the working vocabulary of professional production: lens, blocking, key-to-fill, grade, continuity. This is tacit knowledge that takes a career to acquire. |
-| Full-stack production competence (DoP + editor + producer + creative director) | You understand cost, schedule and delivery, not just aesthetics. You can price a system, not just admire one. |
-| Genuine hybrid practice (real actors + real locations + AI) | The overwhelming majority of AI-video practitioners have never been on a set with a crew, a client and a schedule. The overwhelming majority of set people cannot drive a generative pipeline. |
-| Institutional access in DACH | Production companies, professional clients, the education/apprenticeship world. These are relationship markets that take years to enter and are effectively closed to outsiders. |
-| Native command of the German professional/regulatory context | Broadcaster requirements, Produktionsallianz norms, the ver.di AI collective agreement, IHK/Ausbildung structures, funding mechanics. Not translatable by a US startup. |
-| **You already encode workflow as software** | Your `movie-studio` pipeline is a three-phase production system with a formal **review gate** scoring six criteria — composition, light/atmosphere, colour grade, character fidelity, continuity, prompt delta — with an Approved / Revision / Regenerate verdict. That is not a prompt collection. That is a **quality-control specification**. |
-| **You own the vocabulary** | "Generative Bildgestaltung" is your term for a discipline that does not yet have an agreed German name. In a new field, whoever names the discipline has a head start on defining it. |
+| 20 Jahre kalibriertes visuelles Urteilsvermögen | Du siehst ein Frame und kannst *begründen*, warum es falsch ist — im Arbeitsvokabular professioneller Produktion: Optik, Auflösung, Lichtführung, Grading, Continuity. Implizites Wissen, das ein Berufsleben braucht. |
+| Vollständige Produktionskompetenz (DoP + Editor + Producer + Creative Director) | Du verstehst Kosten, Zeitplan und Abnahme — nicht nur Ästhetik. Du kannst ein System kalkulieren, nicht nur bewundern. |
+| Echte Hybridpraxis (reale Darsteller + reale Locations + KI) | Die überwiegende Mehrheit der KI-Video-Praktiker stand nie mit Crew, Kunde und Drehplan am Set. Die überwiegende Mehrheit der Set-Leute kann keine generative Pipeline fahren. |
+| Institutioneller Zugang im DACH-Raum | Produktionsfirmen, professionelle Kunden, die Aus- und Weiterbildungswelt. Beziehungsmärkte, in die man Jahre hineinwächst und die Außenstehenden faktisch verschlossen sind. |
+| Muttersprachliche Beherrschung des deutschen Fach- und Regulierungskontexts | Sender-Anforderungen, Normen der Produktionsallianz, der ver.di-KI-Tarifvertrag, IHK- und Ausbildungsstrukturen, Förderlogik. Für ein US-Startup nicht übersetzbar. |
+| **Du kodierst Workflow bereits als Software** | Deine `movie-studio`-Pipeline ist ein dreiphasiges Produktionssystem mit einem formalen **Review Gate**, das sechs Kriterien bewertet — Komposition, Licht & Atmosphäre, Color Grade, Charakter-Treue, Continuity, Prompt-Delta — mit dem Urteil Approved / Revision / Regenerate. Das ist keine Prompt-Sammlung. Das ist eine **Qualitätssicherungs-Spezifikation**. |
+| **Dir gehört das Vokabular** | „Generative Bildgestaltung“ ist dein Begriff für eine Disziplin, die im Deutschen noch keinen etablierten Namen hat. Wer ein Feld benennt, hat einen Vorsprung darin, es zu definieren. |
 
-### 1.2 The four "why you" questions, answered honestly
+### 1.2 Die vier „Warum du“-Fragen, ehrlich beantwortet
 
-**Why could you build this better than a random AI entrepreneur?**
-Because the product is a *judgment standard*, and they cannot author one. They can build the software; they cannot say what a bad frame is, and they cannot walk into a room with a producer, a DoP and a broadcaster commissioning editor and be taken seriously. In this market, credibility is a prerequisite, not a marketing asset.
+**Warum könntest du das besser bauen als ein beliebiger KI-Unternehmer?**
+Weil das Produkt ein *Urteilsstandard* ist, und den können sie nicht verfassen. Sie können die Software bauen; sie können nicht sagen, was ein schlechtes Frame ist, und sie werden in einem Raum mit Producer, DoP und Redaktion nicht ernst genommen. In diesem Markt ist Glaubwürdigkeit eine Voraussetzung, kein Marketing-Asset.
 
-**Why could you build this better than a traditional production company?**
-Because they treat AI as a threat to be managed, sell days rather than systems, do not build software, and have no incentive to publish a method that helps their competitors. You have the opposite incentive: the more of the market that runs your standard, the more valuable it is.
+**Warum könntest du das besser bauen als eine klassische Produktionsfirma?**
+Weil sie KI als zu verwaltende Bedrohung behandelt, Tage statt Systeme verkauft, keine Software baut und keinerlei Anreiz hat, eine Methode zu veröffentlichen, die der Konkurrenz hilft. Dein Anreiz ist der umgekehrte: Je größer der Marktanteil, der nach deinem Standard arbeitet, desto wertvoller ist er.
 
-**Why could you build this better than a pure AI startup?**
-Because they can ship the tooling in a quarter but cannot manufacture 20 years of standing, cannot get into the German institutional education and broadcaster ecosystem, and cannot produce a calibrated assessor corps. Their instinct is to sell seats; the value here is in the *verdict*, which requires humans who have been trained to agree with each other.
+**Warum könntest du das besser bauen als ein reines KI-Startup?**
+Weil sie das Tooling in einem Quartal liefern, aber keine 20 Jahre Standing herstellen können, keinen Zugang zum deutschen institutionellen Bildungs- und Sender-Ökosystem haben und kein kalibriertes Prüferkorps aufbauen können. Ihr Reflex ist, Seats zu verkaufen; der Wert liegt hier im *Urteil*, und das setzt Menschen voraus, die darauf trainiert sind, miteinander übereinzustimmen.
 
-**Where does your credibility create a moat?**
-Specifically at the point where somebody must sign off. Standards need an author with standing. A rubric written by an unknown is a blog post; the same rubric written by a working cinematographer with two decades of credits, and applied consistently by trained assessors, becomes a credential an employer will pay for.
+**Wo erzeugt deine Glaubwürdigkeit einen Moat?**
+Genau an dem Punkt, an dem jemand unterschreiben muss. Standards brauchen einen Autor mit Standing. Eine Rubrik von einem Unbekannten ist ein Blogbeitrag; dieselbe Rubrik, verfasst von einem arbeitenden Kameramann mit zwei Jahrzehnten Credits und konsistent angewendet von geschulten Prüfern, wird zu einem Zertifikat, für das ein Arbeitgeber zahlt.
 
-### 1.3 Where Pushlabs becomes a product rather than a production company
+### 1.3 Wo Pushlabs zum Produkt statt zur Produktionsfirma wird
 
-Today, Pushlabs sells *outcomes made by Daniel*. The product version sells *a method that others run, under Pushlabs' name, with Pushlabs' verdict attached*. The test is whether the sentence "we work to the Pushlabs standard" can be said by somebody who has never met you.
+Heute verkauft Pushlabs *Ergebnisse, die Daniel herstellt*. Die Produktversion verkauft *eine Methode, die andere ausführen — unter dem Namen Pushlabs, mit dem Urteil von Pushlabs*. Der Test: Kann der Satz „Wir arbeiten nach dem Pushlabs-Standard“ von jemandem gesagt werden, der dich nie getroffen hat?
 
 ---
 
-## 2. The market: what generative AI actually breaks
+## 2. Der Markt: Was generative KI tatsächlich zerbricht
 
-Do not start from "what can AI do." Start from **what breaks when it becomes free.**
+Nicht bei „Was kann KI?“ anfangen, sondern bei **„Was zerbricht, wenn es kostenlos wird?“**
 
-### 2.1 The first-order shift (already priced in, mostly commoditised)
+### 2.1 Der Effekt erster Ordnung (weitgehend eingepreist, weitgehend Commodity)
 
-Cost per asset collapses. Anyone can generate. This creates *volume*, not value. Everyone can see this, which is why the AI-production-services layer is already crowded and deflating.
+Kosten pro Asset kollabieren. Jeder kann generieren. Das erzeugt *Menge*, nicht Wert. Das sehen alle — deshalb ist die Ebene der KI-Produktionsdienstleistungen bereits überfüllt und im Preisverfall.
 
-### 2.2 The second-order effects (where the money is)
+### 2.2 Die Effekte zweiter Ordnung (dort liegt das Geld)
 
-**(a) When output is infinite, the bottleneck moves to the verdict.**
-Someone must decide which of 400 generated options is usable. That decision requires calibrated taste — and it does not scale by hiring, because taste is not evenly distributed. Organisations will pay for a *system* that makes the verdict reproducible.
+**(a) Wenn Output unendlich ist, wandert der Engpass zum Urteil.**
+Jemand muss entscheiden, welche von 400 generierten Optionen brauchbar ist. Diese Entscheidung braucht kalibrierten Geschmack — und Geschmack skaliert nicht durch Einstellen. Organisationen zahlen für ein *System*, das das Urteil reproduzierbar macht.
 
-**(b) When everyone can generate, consistency becomes the scarce good.**
-Not "a nice image" — *the same look, across 3,000 assets, across 6 markets, across 18 months, across three model generations.* Models change every quarter and silently break the look. Nobody has solved this operationally.
+**(b) Wenn alle generieren können, wird Konsistenz zum knappen Gut.**
+Nicht „ein schönes Bild“ — sondern *derselbe Look über 3.000 Assets, sechs Märkte, 18 Monate und drei Modellgenerationen hinweg.* Modelle ändern sich quartalsweise und zerstören den Look lautlos. Operativ hat das niemand gelöst.
 
-**(c) Generative assets are, today, not archivable as production assets.**
-You keep the MP4. You do not keep the recipe — model version, weights, seeds, conditioning inputs, parameter set, reference corpus. In 24 months the model is deprecated and you cannot re-version, re-localise, re-cut or defend the asset. Every IP owner is quietly accumulating an un-maintainable library. This pain is small in 2026 and large by 2028–2029.
+**(c) Generative Assets sind heute nicht archivierbar wie Produktionsassets.**
+Man behält das MP4. Man behält nicht das Rezept — Modellversion, Seeds, Conditioning-Inputs, Parameter, Referenzkorpus. In 24 Monaten ist das Modell abgekündigt, und man kann das Asset nicht mehr neu versionieren, lokalisieren, umschneiden oder verteidigen. Jeder IP-Inhaber sammelt still eine nicht wartbare Bibliothek an. 2026 ein kleiner Schmerz, 2028–2029 ein großer.
 
-**(d) Accountability becomes a legal requirement, not a nicety.**
-EU AI Act Article 50 transparency obligations apply from **2 August 2026**, with the machine-readable marking sub-obligation running to **2 December 2026**, and penalties up to **€15M or 3% of worldwide turnover**. Separately, ZDF already publishes AI principles and labelling rules, ARD/ZDF and the Produktionsallianz have AI guidance inside the production handbook framework, and Germany has the first collective agreement covering generative AI use in the industry (ver.di, 2024). Broadcasters and brands are now contractually asking production companies to *declare* AI use. Most production companies have no process for producing that declaration.
+**(d) Nachweisbarkeit wird zur Rechtspflicht, nicht zur Kür.**
+Die Transparenzpflichten aus **Artikel 50 EU AI Act** gelten ab dem **2. August 2026**, die Unterpflicht zur maschinenlesbaren Kennzeichnung läuft bis zum **2. Dezember 2026**, Bußgelder bis **15 Mio. € oder 3 % des weltweiten Jahresumsatzes**. Parallel veröffentlicht das ZDF KI-Grundsätze und Kennzeichnungsregeln, ARD/ZDF und die Produktionsallianz führen KI-Hinweise im Rahmen des Produktionshandbuchs, und Deutschland hat den ersten Tarifvertrag zum Einsatz generativer KI in der Branche (ver.di, 2024). Sender und Marken verlangen inzwischen vertraglich, dass Produktionsfirmen den KI-Einsatz *erklären*. Die meisten haben keinen Prozess, um diese Erklärung zu erzeugen.
 
-**(e) The workforce has to be re-skilled, and the state will pay for it.**
-Qualifizierungsgeld (since 1 April 2024) pays 60–67% of net salary while employees train, where a structural-change qualification need affects ≥10% of the workforce (≥20% for firms over 250). Qualifizierungschancengesetz subsidises course fees. AZAV/Bildungsgutschein covers the unemployed segment. **Structural change caused by AI is an explicitly named qualifying condition.** There is public money attached to exactly your topic.
+**(e) Die Belegschaft muss requalifiziert werden — und der Staat zahlt dafür.**
+**Qualifizierungsgeld** (seit 1. April 2024) zahlt Beschäftigten 60–67 % des letzten Nettoentgelts während der Weiterbildung, wenn ein strukturwandelbedingter Qualifizierungsbedarf mindestens 10 % der Belegschaft betrifft (ab 250 Beschäftigten mindestens 20 %). Das **QCG** bezuschusst die Lehrgangskosten. **Strukturwandel durch KI ist ausdrücklich als qualifizierender Tatbestand genannt.** Es liegt öffentliches Geld auf exakt deinem Thema.
 
-**(f) When AI output is everywhere, provably real capture becomes premium.**
-Your hybrid practice sits on the right side of this. But as a *service* it does not scale; as *licensed, rights-cleared, AI-ready conditioning material* it might.
+**(f) Wenn KI-Output überall ist, wird beweisbar reale Aufnahme zum Premium.**
+Deine Hybridpraxis sitzt auf der richtigen Seite dieser Entwicklung. Als *Dienstleistung* skaliert das nicht; als *lizenziertes, rechtegeklärtes, KI-taugliches Conditioning-Material* vielleicht schon.
 
-### 2.3 Where money + urgency + confusion + recurring need overlap
+### 2.3 Wo Geld + Dringlichkeit + Unsicherheit + wiederkehrender Bedarf zusammenfallen
 
-| Segment | Money | Urgency | Confusion | Recurring |
+| Segment | Geld | Dringlichkeit | Unsicherheit | Wiederkehrend |
 |---|---|---|---|---|
-| Production companies (DACH, 20–150 staff) | Medium | **High** (losing pitches; client AI declarations) | **Very high** | Yes (per project) |
-| Broadcaster production subsidiaries | High | **High** (compliance + internal guidelines) | High | Yes |
-| Corporate in-house video studios (DAX/large Mittelstand) | **High** | High | **Very high** | **Yes** (continuous content) |
-| Agencies / brand in-house studios | **High** | High | Medium (holding cos. building own) | Yes |
-| Bildungsträger, Berufsschulen, Medienakademien | Low–Medium | **High** (curriculum obsolete) | **Very high** | **Yes** (annual licence) |
-| Personalentwicklung / Ausbildungsleitung (same firms) | Medium, **subsidised** | High | **Very high** | **Yes** (annual cohorts) |
+| Produktionsfirmen DACH (20–150 MA) | mittel | **hoch** (verlorene Pitches, KI-Erklärungen für Kunden) | **sehr hoch** | ja (projektweise) |
+| Produktionstöchter von Sendern | hoch | **hoch** (Compliance + interne Richtlinien) | hoch | ja |
+| Inhouse-Bewegtbild-Studios (DAX / großer Mittelstand) | **hoch** | hoch | **sehr hoch** | **ja** (laufender Content) |
+| Agenturen / Brand-Inhouse-Studios | **hoch** | hoch | mittel (Holdings bauen eigenes) | ja |
+| Bildungsträger, Berufsschulen, Medienakademien | gering–mittel | **hoch** (Curriculum veraltet) | **sehr hoch** | **ja** (Jahreslizenz) |
+| Personalentwicklung / Ausbildungsleitung (gleiche Häuser) | mittel, **gefördert** | hoch | **sehr hoch** | **ja** (jährliche Kohorten) |
 
-The row that matters most is the last one: it is the only one where **someone else's money** (Agentur für Arbeit / QCG) partially pays, which shortens the sales cycle dramatically.
+Die wichtigste Zeile ist die letzte: Es ist das einzige Segment, in dem **fremdes Geld** (Agentur für Arbeit / QCG) mitzahlt. Das verkürzt den Vertriebszyklus stärker als jedes Pitch-Deck.
 
 ---
 
-## 3. Ten candidate businesses
+## 3. Zehn Geschäftsmodelle
 
-Excluded by your constraints and by my own assessment: AI agency, generic course, prompt products, content farms, undifferentiated SaaS, dropshipping, affiliate, newsletter, low-value automation, AI-flavoured freelancing. None of the ten below is any of those.
+Ausgeschlossen durch deine Vorgaben und durch meine eigene Einschätzung: KI-Agentur, generischer Kurs, Prompt-Produkte, Content-Farmen, undifferenzierte SaaS, Dropshipping, Affiliate, Newsletter, geringwertige Automatisierung, Freelancing mit KI-Anstrich. Keines der zehn folgenden Modelle fällt darunter.
 
-1. **GVP Standard & Certification** — a proprietary, versioned professional standard for generative visual production; certification of individuals; org licences; certified partner trainers; production audits/seal.
-2. **Generative Bildgestaltung Academy (DACH)** — employer-funded workforce transformation programmes (QCG/Qualifizierungsgeld), open cohorts, and an apprenticeship module licensed to Ausbildungsbetriebe and Berufsschulen.
-3. **Brand Visual System operator** — build, own and operate a brand's executable generative visual system (reference corpus, locks, look spec, approved model configs, QC rubric) under annual licence, with a look-continuity guarantee.
-4. **Look-Continuity / Model-Migration service** — keep a brand's or IP's look stable across model generations; re-derive and re-certify on every model change.
-5. **Production Provenance & AI-Act compliance layer** — AI-usage declarations, C2PA signing, production records for deliveries to broadcasters and brands.
-6. **Hybrid Production OS** — software: prompt/asset/version/review-gate registry that makes generative work reproducible and auditable.
-7. **White-label AI production department** — Pushlabs powers other production companies' AI offerings under their brand.
-8. **Rights-cleared, AI-ready capture library** — professionally shot, C2PA-signed conditioning material (plates, locations, talent) licensed as generative inputs.
-9. **AI-native IP / format studio** — own shows and formats, licensed to platforms.
-10. **DACH digital-double & likeness licensing** — rights-managed digital doubles of German talent.
+1. **GVP-Standard & Zertifizierung** — ein proprietärer, versionierter Berufsstandard für generative Bildgestaltung; Zertifizierung von Personen; Organisationslizenzen; zertifizierte Partner-Trainer; Produktionsaudits und Siegel.
+2. **Akademie Generative Bildgestaltung (DACH)** — arbeitgeberfinanzierte Transformationsprogramme (QCG / Qualifizierungsgeld), offene Kohorten und ein Ausbildungsmodul, lizenziert an Ausbildungsbetriebe und Berufsschulen.
+3. **Brand Visual System Operator** — Aufbau, Besitz und Betrieb des ausführbaren generativen Bildsystems einer Marke (Referenzkorpus, Locks, Look-Spezifikation, freigegebene Modellkonfigurationen, QC-Rubrik) unter Jahreslizenz, mit Look-Kontinuitätsgarantie.
+4. **Look-Kontinuität / Model-Migration** — den Look einer Marke oder IP über Modellgenerationen hinweg stabil halten; bei jedem Modellwechsel neu ableiten und re-zertifizieren.
+5. **Provenance- & AI-Act-Compliance-Ebene** — KI-Einsatz-Erklärungen, C2PA-Signierung, Produktionsprotokolle für Lieferungen an Sender und Marken.
+6. **Hybrid Production OS** — Software: Prompt-/Asset-/Versions-/Review-Gate-Register, das generative Arbeit reproduzierbar und auditierbar macht.
+7. **White-Label-KI-Abteilung** — Pushlabs betreibt das KI-Angebot anderer Produktionsfirmen unter deren Marke.
+8. **Rechtegeklärte, KI-taugliche Aufnahmebibliothek** — professionell gedrehtes, C2PA-signiertes Conditioning-Material (Plates, Locations, Darsteller) als generative Inputs lizenziert.
+9. **KI-natives IP-/Format-Studio** — eigene Serien und Formate, an Plattformen lizenziert.
+10. **DACH Digital Double & Likeness-Lizenzierung** — rechteverwaltete digitale Doubles deutscher Darsteller.
 
-### 3.1 Scoring (1–10; "startup cost" scored so 10 = cheapest)
+### 3.1 Bewertung (1–10; „Startkosten“ so skaliert, dass 10 = günstigste)
 
-| # | Business | Mkt size | WTP | Recur. | Scale | Defens. | Founder fit | Speed to rev. | Startup cost | AI leverage | Intl | →€1M | →€10M | **Avg** |
+| # | Geschäft | Markt | Zahlungs­bereit. | Wieder­kehrend | Skalier. | Verteidig. | Founder-Fit | Tempo | Startkost. | KI-Hebel | Intl. | →1 Mio. | →10 Mio. | **Ø** |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | **GVP Standard & Certification** | 7 | 7 | 9 | 9 | 8 | **10** | 7 | 9 | 8 | 8 | 8 | 7 | **8.1** |
-| 3 | **Brand Visual System operator** | **9** | **9** | 8 | 7 | 6 | 7 | 7 | 7 | **9** | 8 | 8 | 7 | **7.7** |
-| 2 | **Generative Bildgestaltung Academy** | 7 | 8 | 8 | 7 | 6 | **10** | **9** | 8 | 7 | 5 | **9** | 5 | **7.4** |
-| 4 | Look-Continuity / Model-Migration | 6 | 7 | 9 | 7 | 7 | 8 | 5 | 8 | **9** | 7 | 6 | 5 | **7.0** |
-| 5 | Provenance & AI-Act compliance | 7 | 6 | 8 | 7 | 4 | 5 | 6 | 7 | 6 | 7 | 6 | 4 | **6.1** |
-| 6 | Hybrid Production OS (software) | 6 | 6 | 9 | **9** | 5 | 5 | 3 | 3 | 8 | 8 | 4 | 5 | **5.9** |
-| 7 | White-label AI production dept. | 5 | 6 | 6 | 4 | 4 | 9 | **9** | 9 | 7 | 4 | 6 | 2 | **5.9** |
-| 8 | Rights-cleared capture library | 6 | 5 | 7 | 8 | 5 | 8 | 3 | 3 | 8 | 8 | 4 | 4 | **5.8** |
-| 9 | AI-native IP / format studio | **9** | 3 | 3 | 6 | 4 | 8 | 2 | 2 | **9** | 8 | 3 | 3 | **5.0** |
-| 10 | DACH likeness licensing | 6 | 5 | 8 | 7 | 3 | 3 | 3 | 4 | 5 | 5 | 3 | 3 | **4.6** |
+| 1 | **GVP-Standard & Zertifizierung** | 7 | 7 | 9 | 9 | 8 | **10** | 7 | 9 | 8 | 8 | 8 | 7 | **8,1** |
+| 3 | **Brand Visual System Operator** | **9** | **9** | 8 | 7 | 6 | 7 | 7 | 7 | **9** | 8 | 8 | 7 | **7,7** |
+| 2 | **Akademie Generative Bildgestaltung** | 7 | 8 | 8 | 7 | 6 | **10** | **9** | 8 | 7 | 5 | **9** | 5 | **7,4** |
+| 4 | Look-Kontinuität / Model-Migration | 6 | 7 | 9 | 7 | 7 | 8 | 5 | 8 | **9** | 7 | 6 | 5 | **7,0** |
+| 5 | Provenance & AI-Act-Compliance | 7 | 6 | 8 | 7 | 4 | 5 | 6 | 7 | 6 | 7 | 6 | 4 | **6,1** |
+| 6 | Production OS (reine Software) | 6 | 6 | 9 | **9** | 5 | 5 | 3 | 3 | 8 | 8 | 4 | 5 | **5,9** |
+| 7 | White-Label-KI-Abteilung | 5 | 6 | 6 | 4 | 4 | 9 | **9** | 9 | 7 | 4 | 6 | 2 | **5,9** |
+| 8 | Rechtegeklärte Aufnahmebibliothek | 6 | 5 | 7 | 8 | 5 | 8 | 3 | 3 | 8 | 8 | 4 | 4 | **5,8** |
+| 9 | KI-natives IP-/Format-Studio | **9** | 3 | 3 | 6 | 4 | 8 | 2 | 2 | **9** | 8 | 3 | 3 | **5,0** |
+| 10 | DACH Likeness-Lizenzierung | 6 | 5 | 8 | 7 | 3 | 3 | 3 | 4 | 5 | 5 | 3 | 3 | **4,6** |
 
-### 3.2 Kills, with reasons
+### 3.2 Die Absagen, mit Begründung
 
-- **#10 Likeness licensing — dead.** Vermillio raised a $16M Series A led by Sony Music with a WME partnership; Loti signed CMG Worldwide and reports 95% takedown success within 17 hours. This is a legal-tech/platform business with entrenched, funded incumbents and no craft component. Your founder-market fit is close to zero.
-- **#9 IP/format studio — dead as a core business.** Hit-driven, capital-hungry, distribution owned by others, and directly contested by Promise (backed by a16z, North Road, Google, Michael Ovitz's Crossbeam; it also acquired Curious Refuge) and Asteria (partnered with ZeroSpace). You would be the least-capitalised entrant in a lottery.
-- **#8 Capture library — dead as a standalone.** Getty, Shutterstock and Adobe are pivoting to licensed AI-ready data, plus a specialist training-data licensing sector. Volume game, wrong shape for you. Survives only as a *component* of #3.
-- **#7 White-label AI department — dead as the core.** Good margin, fast cash, but the customers are small and cash-poor and there is no leverage. Ceiling around €1.5–2M. Keep it as **distribution**, not as the business.
-- **#6 Production OS as pure software — dead for now.** You would compete with Autodesk Flow (the institutional standard, now shipping Flow Studio and generative scheduling), ftrack, Frame.io, Anchorpoint. Long build, long sales cycle, no distribution advantage. Survives only as tooling *inside* #1.
-- **#5 Compliance layer — dead as a company.** Real deadline, real fines, but it is documentation plumbing that C2PA tooling and the Vanta/Drata-style compliance vendors will absorb, and you are not a legal firm. Survives as a **required artefact inside the standard** — which is exactly where it belongs.
-- **#4 Look-continuity — not a company, a killer feature.** The insight is genuinely good and under-served, but it is one capability, not a business. Fold into #3 (and reference it in #1's "production record" requirement).
+- **#10 Likeness-Lizenzierung — tot.** Vermillio hat eine 16-Mio.-$-Series-A unter Führung von Sony Music aufgenommen, mit einer Partnerschaft mit der Agentur WME; Loti hat CMG Worldwide gewonnen und meldet 95 % erfolgreiche Takedowns innerhalb von 17 Stunden. Legal-Tech-Plattformgeschäft mit etablierten, finanzierten Playern und ohne Handwerksanteil. Dein Founder-Market-Fit ist nahe null.
+- **#9 IP-/Format-Studio — tot als Kerngeschäft.** Hit-getrieben, kapitalintensiv, Distribution in fremder Hand, und direkt bestritten von Promise (a16z, North Road, Google, Michael Ovitz' Crossbeam; hat außerdem Curious Refuge übernommen) und Asteria (Partnerschaft mit ZeroSpace). Du wärst der am schlechtesten kapitalisierte Teilnehmer einer Lotterie.
+- **#8 Aufnahmebibliothek — tot als eigenständiges Modell.** Getty, Shutterstock und Adobe drehen auf lizenzierte KI-taugliche Daten, dazu ein spezialisierter Sektor für Trainingsdaten-Lizenzierung. Mengenspiel, falsche Form. Überlebt nur als *Baustein* von #3.
+- **#7 White-Label-KI-Abteilung — tot als Kern.** Gute Marge, schnelles Geld, aber kleine, finanzschwache Kunden und kein Hebel. Decke bei etwa 1,5–2 Mio. €. Behalte es als **Distribution**, nicht als Geschäft.
+- **#6 Production OS als reine Software — vorerst tot.** Du würdest gegen Autodesk Flow antreten (der Institutionsstandard, inzwischen mit Flow Studio und generativer Disposition), gegen ftrack, Frame.io, Anchorpoint. Langer Build, langer Vertriebszyklus, kein Distributionsvorteil. Überlebt nur als Tooling *innerhalb* von #1.
+- **#5 Compliance-Ebene — tot als Unternehmen.** Echte Frist, echte Bußgelder, aber im Kern Dokumentations-Infrastruktur, die C2PA-Tooling und Compliance-Anbieter vom Typ Vanta/Drata absorbieren werden — und du bist keine Kanzlei. Überlebt als **verpflichtendes Artefakt innerhalb des Standards**, wo es hingehört.
+- **#4 Look-Kontinuität — kein Unternehmen, aber ein starkes Feature.** Die Einsicht ist wirklich gut und unterversorgt, aber es ist eine Fähigkeit, kein Geschäft. In #3 integrieren (und in der Produktionsprotokoll-Anforderung von #1 referenzieren).
 
-**Finalists: #1, #3, #2.**
+**Finalisten: #1, #3, #2.**
 
 ---
 
-## 4. Finalist A — Pushlabs GVP Standard & Certification
+## 4. Finalist A — Pushlabs GVP-Standard & Zertifizierung
 
-### The business
+### Das Geschäft
 
-**One sentence:** A licensed professional standard, certification and audit system for generative visual production — the method the German-speaking media industry runs on, and the credential it hires against.
+**Ein Satz:** Ein lizenzierter Berufsstandard mit Zertifizierung und Audit für generative Bildgestaltung — die Methode, nach der die deutschsprachige Medienbranche arbeitet, und das Zertifikat, gegen das sie einstellt.
 
-**Investor pitch:** Generative video is entering professional production faster than professional production can absorb it. Production companies, broadcasters and corporate studios must now deliver AI-assisted work, price it, quality-control it, staff it and legally declare it — with no shared method, no shared vocabulary, no way to verify that a hire can actually do the job, and, from August 2026, a regulatory transparency obligation carrying fines up to €15M or 3% of turnover. We publish and license the standard: the roles, the production gates, the quality rubric, the documentation and declaration requirements, and the executable playbooks. Organisations license it annually. Their people get certified. Certified partner trainers deliver at scale. Revenue is recurring, gross margins are 85%+ at maturity, the asset compounds with every certified practitioner, and the business gets *more* valuable as the underlying models get better — because the more output there is, the more the verdict, the record and the credential are worth. This is the Scaled Agile playbook (2M+ certified professionals, 20,000+ organisations, delivery exclusively through certified partners, enterprise licences) applied to a discipline that is being created right now, by an author with 20 years of standing in it.
+**Investorenpitch:** Generatives Video kommt schneller in die professionelle Produktion, als die professionelle Produktion es aufnehmen kann. Produktionsfirmen, Sender und Inhouse-Studios müssen KI-gestützte Arbeit jetzt liefern, kalkulieren, qualitätssichern, besetzen und rechtlich erklären — ohne gemeinsame Methode, ohne gemeinsames Vokabular, ohne Möglichkeit zu prüfen, ob eine Einstellung die Arbeit wirklich kann, und ab August 2026 unter einer Transparenzpflicht mit Bußgeldern bis 15 Mio. € oder 3 % des Umsatzes. Wir veröffentlichen und lizenzieren den Standard: Rollen, Produktions-Gates, Qualitätsrubrik, Dokumentations- und Erklärungspflichten, ausführbare Playbooks. Organisationen lizenzieren ihn jährlich. Ihre Leute werden zertifiziert. Zertifizierte Partner-Trainer liefern in der Breite. Die Erlöse sind wiederkehrend, die Bruttomarge erreicht in der Reife 85 %+, das Asset verstärkt sich mit jedem zertifizierten Praktiker — und das Geschäft wird *wertvoller*, je besser die Modelle werden, weil mehr Output das Urteil, das Protokoll und das Zertifikat wertvoller macht. Das ist das Scaled-Agile-Modell (2 Mio.+ zertifizierte Fachkräfte, 20.000+ Organisationen, Auslieferung ausschließlich über zertifizierte Partner, Enterprise-Lizenzen) angewandt auf eine Disziplin, die gerade erst entsteht — durch einen Autor mit 20 Jahren Standing darin.
 
-### Customer — the actual buyer
+### Kunde — der tatsächliche Käufer
 
-| Buyer | Company type | Size | Budget they control |
+| Käufer | Unternehmenstyp | Größe | Verantwortetes Budget |
 |---|---|---|---|
-| **Geschäftsführer / Produktionsleiter** | Film/TV/commercial production company | 20–150 staff, €5–60M rev. (the Markenfilm ~€58M / Tempomedia ~€32M tier and one layer below) | Production technology + training, €30–200k/yr |
-| **Leiter Bewegtbild / Head of In-house Studio** | DAX/MDAX or large Mittelstand corporate | Internal video team 5–40, €2–20M annual content spend | €100–500k/yr discretionary |
-| **Bereichsleiter Produktion / Head of Production Technology** | Broadcaster production subsidiary (ZDF Digital, WDR mediagroup, Bavaria, Studio Hamburg tier) | 100–800 | €50–300k/yr |
-| **Leiter Personalentwicklung / Ausbildungsleitung** | All of the above | — | Training budget **plus** the Qualifizierungsgeld/QCG lever |
-| **Schulleitung / Programmleitung** (phase 2) | Bildungsträger, Berufsschule, Medienakademie | 10–200 | €10–60k/yr curriculum licensing |
+| **Geschäftsführer / Produktionsleiter** | Film-, TV-, Werbefilmproduktion | 20–150 MA, 5–60 Mio. € Umsatz (Markenfilm ~58 Mio. € / Tempomedia ~32 Mio. € und eine Ebene darunter) | Produktionstechnik + Weiterbildung, 30–200 T€/Jahr |
+| **Leiter Bewegtbild / Head of Inhouse-Studio** | DAX/MDAX oder großer Mittelstand | Internes Videoteam 5–40, 2–20 Mio. € Content-Budget p. a. | 100–500 T€/Jahr frei disponibel |
+| **Bereichsleiter Produktion / Produktionstechnik** | Produktionstochter eines Senders (ZDF Digital, WDR mediagroup, Bavaria, Studio Hamburg) | 100–800 | 50–300 T€/Jahr |
+| **Leiter Personalentwicklung / Ausbildungsleitung** | alle obigen | — | Weiterbildungsbudget **plus** Hebel Qualifizierungsgeld/QCG |
+| **Schulleitung / Programmleitung** (Phase 2) | Bildungsträger, Berufsschule, Medienakademie | 10–200 | 10–60 T€/Jahr Curriculum-Lizenz |
 
-The Personalentwicklung buyer is the wedge. They have a budget, an explicit mandate from AI-driven structural change, and access to public co-funding. They are also the easiest meeting to get.
+Der Personalentwicklungs-Käufer ist der Keil: Budget, ausdrückliches Mandat aus dem KI-getriebenen Strukturwandel, Zugang zu öffentlicher Kofinanzierung — und der Termin, der am leichtesten zu bekommen ist.
 
-### Pain
+### Der Schmerz
 
-**Today they are solving it by:** letting individual editors learn from YouTube; running uncontrolled experiments; hiring a freelance "AI person"; buying a generic AI course that is obsolete in four months; or refusing to engage and quietly losing pitches.
+**Wie sie es heute lösen:** einzelne Cutter lernen über YouTube; unkontrollierte Experimente; eine freie „KI-Person“; ein generischer Kurs, der nach vier Monaten veraltet ist; oder Verweigerung und stiller Verlust von Pitches.
 
-**What it costs them today:** unquotable projects (they cannot estimate an AI-assisted job because there is no defined process); erratic output quality that burns client trust; senior staff attrition and junior staff anxiety; rework; and an emerging inability to answer the client's question "which parts of this were AI-generated, with what, and can you sign that?"
+**Was es sie heute kostet:** nicht kalkulierbare Projekte (ein KI-gestützter Job lässt sich nicht schätzen, wenn es keinen definierten Prozess gibt); schwankende Qualität, die Kundenvertrauen verbrennt; Abwanderung von Senioren und Verunsicherung von Junioren; Nacharbeit; und die wachsende Unfähigkeit, die Kundenfrage zu beantworten: *Welche Teile davon sind KI-generiert, womit, und unterschreibt ihr das?*
 
-**If they do nothing:** by 2028 they are structurally uncompetitive against AI-native shops on price, *and* untrusted by risk-averse clients on compliance. That is the worst possible position — expensive and unsafe.
+**Wenn sie nichts tun:** Bis 2028 sind sie gegenüber KI-nativen Anbietern strukturell zu teuer *und* für risikoscheue Kunden nicht compliancefähig. Die schlechtestmögliche Position — teuer und unsicher zugleich.
 
-### Product — tangible
+### Produkt — konkret
 
-1. **GVP Standard v1.x** — a versioned, licensed specification document (~60–90 pp.): role definitions (Generative DoP, Look Supervisor, Continuity Supervisor, Production Record Keeper), the mandatory production gates, the **six-criterion QC rubric with scoring anchors**, naming/versioning conventions, and the **Production Record** spec (model, version, seeds, conditioning inputs, parameters, reference corpus, approvals) that makes a generative asset reproducible and auditable.
-2. **Declaration & compliance pack** — AI-usage declaration templates mapped to AI Act Art. 50 and to broadcaster requirements; C2PA signing procedure; retention policy.
-3. **Playbook library** — executable workflows (script → shot list → first/last frame → video → assembly → QA), shipped as agent skills, prompt systems and templates. *You already have v0 of this in production.*
-4. **Implementation** — 6–10 week onboarding into the client's actual toolchain and approval structure.
-5. **Certification** — Level 1 Practitioner, Level 2 Supervisor, Level 3 Lead. Exam + portfolio assessment against the rubric. Annual re-certification (justified: the model landscape changes).
-6. **Annual licence & update service** — quarterly model appendices, new playbooks, updated declaration templates as regulation moves.
-7. **Partner programme** — certified trainers and licensed delivery partners.
-8. **Production seal / audit** — "GVP-konform produziert", per production or as an annual programme.
+1. **GVP-Standard v1.x** — eine versionierte, lizenzierte Spezifikation (ca. 60–90 S.): Rollendefinitionen (Generative DoP, Look Supervisor, Continuity Supervisor, Produktionsprotokollführung), verbindliche Produktions-Gates, die **sechs Kriterien umfassende QC-Rubrik mit Bewertungsankern**, Benennungs- und Versionierungskonventionen sowie die **Produktionsprotokoll-Spezifikation** (Modell, Version, Seeds, Conditioning-Inputs, Parameter, Referenzkorpus, Freigaben), die ein generatives Asset reproduzierbar und auditierbar macht.
+2. **Erklärungs- und Compliance-Paket** — Vorlagen für KI-Einsatz-Erklärungen, abgebildet auf Art. 50 AI Act und Sender-Anforderungen; C2PA-Signaturverfahren; Aufbewahrungsrichtlinie.
+3. **Playbook-Bibliothek** — ausführbare Workflows (Drehbuch → Shot-Liste → First/Last Frame → Video → Assembly → QA), ausgeliefert als Agent-Skills, Prompt-Systeme und Vorlagen. *Version 0 hast du bereits im Einsatz.*
+4. **Implementierung** — 6–10 Wochen Einführung in die reale Toolchain und Freigabestruktur des Kunden.
+5. **Zertifizierung** — Level 1 Practitioner, Level 2 Supervisor, Level 3 Lead. Prüfung plus Portfolio-Bewertung gegen die Rubrik. Jährliche Re-Zertifizierung (begründet: die Modelllandschaft ändert sich).
+6. **Jahreslizenz & Update-Service** — quartalsweise Modell-Anhänge, neue Playbooks, aktualisierte Erklärungsvorlagen bei Regulierungsänderungen.
+7. **Partnerprogramm** — zertifizierte Trainer und lizenzierte Umsetzungspartner.
+8. **Produktionssiegel / Audit** — „GVP-konform produziert“, pro Produktion oder als Jahresprogramm.
 
-### Business model
+### Geschäftsmodell
 
-| Line | Price | Margin |
+| Position | Preis | Marge |
 |---|---|---|
-| Org licence, Team (≤10 seats) | €18,000/yr | 92% |
-| Org licence, Studio (≤30 seats) | €36,000/yr | 92% |
-| Org licence, Enterprise (≤100 seats) | €60,000–90,000/yr | 92% |
-| Implementation (one-off) | €25,000–60,000 | 50–60% |
-| Certification L1 / L2 | €890 / €1,900 per person | 85% |
-| Annual re-certification | €390 | 90% |
-| Trainer certification | €4,900 + €150/certificate issued | 90% |
-| Partner curriculum licence (white-label) | €15,000–40,000/yr + per-seat royalty | 90% |
-| Production audit / seal | €6,000–15,000 | 65% |
+| Organisationslizenz, Team (≤10 Seats) | 18.000 €/Jahr | 92 % |
+| Organisationslizenz, Studio (≤30 Seats) | 36.000 €/Jahr | 92 % |
+| Organisationslizenz, Enterprise (≤100 Seats) | 60.000–90.000 €/Jahr | 92 % |
+| Implementierung (einmalig) | 25.000–60.000 € | 50–60 % |
+| Zertifizierung L1 / L2 | 890 € / 1.900 € pro Person | 85 % |
+| Jährliche Re-Zertifizierung | 390 € | 90 % |
+| Trainerzertifizierung | 4.900 € + 150 € je ausgestelltem Zertifikat | 90 % |
+| Partner-Curriculum-Lizenz (White Label) | 15.000–40.000 €/Jahr + Seat-Royalty | 90 % |
+| Produktionsaudit / Siegel | 6.000–15.000 € | 65 % |
 
-**Upsells:** additional seat tiers, audit programmes, custom playbooks, an assessment platform seat licence, and — later — the Brand Visual System (Finalist B) sold into the same accounts as the premium tier.
+**Upsells:** höhere Seat-Stufen, Auditprogramme, kundenspezifische Playbooks, Seat-Lizenz für die Prüfplattform — und später das Brand Visual System (Finalist B) als Premium-Stufe in dieselben Accounts.
 
-**Licensing potential:** high and central. The endgame is that Pushlabs delivers almost nothing itself; partners deliver, Pushlabs owns the standard, the exam and the registry.
+**Lizenzpotenzial:** hoch und zentral. Das Endbild: Pushlabs liefert fast nichts mehr selbst; Partner liefern, Pushlabs besitzt Standard, Prüfung und Register.
 
-**Blended gross margin at maturity:** 82–88%.
+**Bruttomarge in der Reife (gemischt):** 82–88 %.
 
 ### Moat
 
-- **Calibration, not information.** ChatGPT can write you a rubric in 20 seconds. It cannot produce *inter-rater reliability* — a corps of trained assessors who reach the same verdict on the same frame. That requires a graded body of work, assessor training, and years of accumulated adjudication. It is an operational asset, not a document.
-- **Ecosystem lock-in.** Every certified practitioner, every partner trainer, every job advert that says "GVP-Level-2 von Vorteil", every tender that references the standard raises switching cost. This compounds; nothing else here does.
-- **Authorship and standing.** Standards need an author the market accepts. That cannot be bought quickly.
-- **Institutional embedding.** IHK/Kammern, Verbände, broadcasters and Bildungsträger move slowly in and slowly out.
-- **Regulatory and linguistic specificity.** German-language, German funding mechanics, German collective-agreement context, German broadcaster requirements. A US entrant cannot localise this cheaply, and it is too small a beachhead for them to bother.
+- **Kalibrierung, nicht Information.** ChatGPT schreibt dir in 20 Sekunden eine Rubrik. Es kann keine *Interrater-Reliabilität* herstellen — ein Korps geschulter Prüfer, das beim selben Frame zum selben Urteil kommt. Das braucht einen bewerteten Arbeitskorpus, Prüferschulung und Jahre an Fallpraxis. Ein operatives Asset, kein Dokument.
+- **Ökosystem-Bindung.** Jeder zertifizierte Praktiker, jeder Partner-Trainer, jede Stellenanzeige mit „GVP-Level-2 von Vorteil“, jede Ausschreibung, die den Standard nennt, erhöht die Wechselkosten. Das kumuliert; nichts anderes auf dieser Liste tut das.
+- **Autorschaft und Standing.** Standards brauchen einen Autor, den der Markt akzeptiert. Nicht schnell zu kaufen.
+- **Institutionelle Verankerung.** Kammern, Verbände, Sender und Bildungsträger nehmen langsam auf — und geben langsam wieder ab.
+- **Regulatorische und sprachliche Spezifik.** Deutsche Sprache, deutsche Förderlogik, deutscher Tarifkontext, deutsche Sender-Anforderungen. Für einen US-Anbieter unwirtschaftlich zu lokalisieren und als Brückenkopf zu klein, um sich damit zu befassen.
 
-**Why can't someone copy it with the next model?** Because the product is not the content. It is the *verdict and the registry*. A better model makes the underlying work easier — which increases the volume of work needing a verdict.
+**Warum kann das niemand mit dem nächsten Modell kopieren?** Weil das Produkt nicht der Inhalt ist. Es sind *das Urteil und das Register*. Ein besseres Modell macht die zugrundeliegende Arbeit leichter — und erhöht damit die Menge an Arbeit, die ein Urteil braucht.
 
 ### Distribution
 
-**First 10:** your existing client list and the production companies you already know. Do **not** sell "a standard" — sell a paid implementation engagement (€25–35k) that happens to install one. Target three paid pilots plus one broadcaster subsidiary and one corporate in-house studio via warm intros.
+**Erste 10:** dein bestehender Kundenstamm und die Produktionsfirmen, die du kennst. Verkaufe **nicht** „einen Standard“ — verkaufe ein bezahltes Implementierungsprojekt (25–35 T€), das zufällig einen installiert. Ziel: drei bezahlte Piloten plus eine Sendertochter und ein Inhouse-Studio über warme Kontakte.
 
-**To 100:** (a) Verbände and chambers — Produktionsallianz, VDD, BVK, IHK-Medienakademien; (b) stage presence at FMX, Medientage München, Werbefilmtage, DOK Leipzig — as the person who publishes the standard, not as a vendor; (c) employer-funded cohorts using Qualifizierungsgeld/QCG, where you are the provider and the *employer* is the buyer; (d) launch the certified-trainer programme by month 12 so delivery stops depending on you.
+**Auf 100:** (a) Verbände und Kammern — Produktionsallianz, VDD, BVK, IHK-Medienakademien; (b) Bühne bei FMX, Medientage München, Werbefilmtage, DOK Leipzig — als derjenige, der den Standard veröffentlicht, nicht als Anbieter; (c) arbeitgeberfinanzierte Kohorten über Qualifizierungsgeld/QCG, mit dir als Träger und dem *Arbeitgeber* als Käufer; (d) das Trainer-Programm bis Monat 12, damit die Lieferung aufhört, von dir abzuhängen.
 
-**To 1,000:** partner licensing (Bildungsträger, Berufsschulen, agency in-house academies), English edition, expansion DACH → NL/Nordics/UK through partners, and self-serve individual certification (online exam + portfolio assessment).
+**Auf 1.000:** Partnerlizenzierung (Bildungsträger, Berufsschulen, Inhouse-Akademien von Agenturen), englische Fassung, Ausdehnung DACH → NL/Nordics/UK über Partner, dazu Self-Service-Einzelzertifizierung (Online-Prüfung + Portfolio-Bewertung).
 
-### Unit economics *(modelled assumptions, not observed data)*
+### Unit Economics *(modellierte Annahmen, keine erhobenen Daten)*
 
-Mid-size org account:
+Mittelgroßer Organisations-Account:
 
-- **CAC:** €4,000–8,000. Early on this is mostly your time — roughly 4–6 days per closed account at an internal cost of ~€1,200/day, plus conference and outbound cost.
-- **Year 1 revenue/customer:** implementation €32,000 + licence €30,000 + 12 certifications × €1,200 = **€74,400**
-- **Year 2+ revenue/customer:** licence €30,000 + 12 recerts × €390 = **€34,680**, before upsells
-- **Gross margin:** ~70% in year 1 (implementation is labour-heavy), ~88% from year 2
-- **LTV** at 4-year average life and 80% blended GM: (74,400 + 3 × 34,680) × 0.8 = **€143,000**
-- **LTV/CAC: ~18–35×** — healthy, but note this rests on a 20%/yr churn assumption that is currently a guess, not a measurement.
-- **Operational workload:** 10–14 delivery days per new account in year 1, ~2 days/yr thereafter. **This caps you at roughly 25–30 new accounts per year single-handed** — which is why the trainer programme is not optional, it is the whole business model.
+- **CAC:** 4.000–8.000 €. Anfangs überwiegend deine Zeit — rund 4–6 Tage je gewonnenem Account bei ca. 1.200 €/Tag internem Kostensatz, plus Messe- und Outbound-Kosten.
+- **Umsatz Jahr 1 pro Kunde:** Implementierung 32.000 € + Lizenz 30.000 € + 12 Zertifizierungen × 1.200 € = **74.400 €**
+- **Umsatz ab Jahr 2 pro Kunde:** Lizenz 30.000 € + 12 Re-Zertifizierungen × 390 € = **34.680 €**, vor Upsells
+- **Bruttomarge:** ~70 % in Jahr 1 (Implementierung ist personalintensiv), ~88 % ab Jahr 2
+- **LTV** bei 4 Jahren durchschnittlicher Laufzeit und 80 % gemischter Bruttomarge: (74.400 + 3 × 34.680) × 0,8 = **143.000 €**
+- **LTV/CAC: ~18–35×** — gesund, aber das beruht auf einer angenommenen Abwanderung von 20 %/Jahr, die derzeit eine Schätzung ist, keine Messung.
+- **Operative Last:** 10–14 Liefertage pro Neukunde in Jahr 1, danach ~2 Tage/Jahr. **Das deckelt dich allein bei rund 25–30 Neukunden pro Jahr** — weshalb das Trainer-Programm keine Option, sondern das Geschäftsmodell ist.
 
-### The €1M path
+### Der Weg zu 1 Mio. €
 
-Year 2 target:
+Ziel Jahr 2:
 
-| Line | Volume | Unit | Revenue |
+| Position | Menge | Preis | Umsatz |
 |---|---|---|---|
-| Org licences | 12 | €30,000 | €360,000 |
-| Implementations | 8 | €32,000 | €256,000 |
-| Individual certifications | 220 | €1,200 | €264,000 |
-| Partner / trainer licences | 6 | €7,500 avg | €45,000 |
-| Production audits | 6 | €12,000 | €72,000 |
-| | | **Total** | **€997,000** |
+| Organisationslizenzen | 12 | 30.000 € | 360.000 € |
+| Implementierungen | 8 | 32.000 € | 256.000 € |
+| Einzelzertifizierungen | 220 | 1.200 € | 264.000 € |
+| Partner-/Trainerlizenzen | 6 | 7.500 € Ø | 45.000 € |
+| Produktionsaudits | 6 | 12.000 € | 72.000 € |
+| | | **Summe** | **997.000 €** |
 
-**12 organisations and 220 certified people.** That is a genuinely small number, and it is the single most important reason to prefer this business.
+**Zwölf Organisationen und 220 zertifizierte Personen.** Das ist eine wirklich kleine Zahl — und der stärkste Einzelgrund, dieses Geschäft den anderen vorzuziehen.
 
-### The €10M path
+### Der Weg zu 10 Mio. €
 
-What has to change: delivery decouples from you entirely; revenue shifts from implementation to licence + certification volume + partners; and the standard is referenced by at least one institution outside your control.
+Was sich ändern muss: Die Lieferung löst sich vollständig von dir; der Umsatz verschiebt sich von Implementierung zu Lizenz + Zertifizierungsvolumen + Partnern + Internationalisierung; und der Standard wird von mindestens einer Institution außerhalb deiner Kontrolle referenziert.
 
-| Line | Volume | Unit | Revenue |
+| Position | Menge | Preis | Umsatz |
 |---|---|---|---|
-| Org licences | 120 | €40,000 avg | €4,800,000 |
-| Certifications + recerts | 3,500 | €900 blended | €3,150,000 |
-| Partner / trainer licences + royalties | 40 | €25,000 avg | €1,000,000 |
-| Partner-delivered implementations (40% share) | 60 | €14,000 | €840,000 |
-| Audits / seals | 100 | €12,000 | €1,200,000 |
-| | | **Total** | **€10,990,000** |
+| Organisationslizenzen | 120 | 40.000 € Ø | 4.800.000 € |
+| Zertifizierungen + Re-Zertifizierungen | 3.500 | 900 € gemischt | 3.150.000 € |
+| Partner-/Trainerlizenzen + Royalties | 40 | 25.000 € Ø | 1.000.000 € |
+| Partnergelieferte Implementierungen (40 % Anteil) | 60 | 14.000 € | 840.000 € |
+| Audits / Siegel | 100 | 12.000 € | 1.200.000 € |
+| | | **Summe** | **10.990.000 €** |
 
-Requires ~25 staff (curriculum, assessment operations, partner management, sales), an English edition plus one more language, an assessment platform, and — the hard part — **employer demand for the credential**. 3,500 certifications a year only happens if hiring managers ask for it. That is the binding constraint on €10M, and it should be attacked from day one by selling to employers first.
+Erfordert ca. 25 Mitarbeitende (Curriculum, Prüfungsbetrieb, Partnermanagement, Vertrieb), eine englische plus eine weitere Sprachfassung, eine Prüfplattform — und, das ist der schwierige Teil, **Nachfrage der Arbeitgeber nach dem Zertifikat**. 3.500 Zertifizierungen pro Jahr entstehen nur, wenn Personalverantwortliche danach fragen. Das ist die bindende Restriktion für 10 Mio. € und muss vom ersten Tag an angegangen werden, indem zuerst an Arbeitgeber verkauft wird.
 
-### The Pushlabs test
+### Der Pushlabs-Test
 
-*"Wir produzieren nach dem Pushlabs-Standard." / "Unser Team ist Pushlabs-zertifiziert."*
-**Passes, strongly.** The standard is speakable without you in the room.
+*„Wir produzieren nach dem Pushlabs-Standard.“ / „Unser Team ist Pushlabs-zertifiziert.“*
+**Klar bestanden.** Der Standard lässt sich aussprechen, ohne dass du im Raum bist.
 
-### The AI disruption test
+### Der KI-Disruptionstest
 
-**(A) More valuable.** If models become 10× better, 10× cheaper and instant, then: more output needs more verdicts; more automation needs more documented accountability; more accessible tools make the *tool* worthless as a differentiator and make *verified competence* the only remaining signal. Every axis of improvement increases demand for the standard.
-
----
-
-## 5. Finalist B — Brand Visual System operator
-
-**One sentence:** Pushlabs builds, owns and operates a brand's executable generative visual system — and guarantees the look survives every model change.
-
-**Investor pitch:** Brands can now generate unlimited content, and all of it is slightly wrong and slightly inconsistent. The brand book was written for humans; it does not tell a model what to do. We build the machine-readable equivalent — a proprietary reference corpus (much of it shot by us), character/product/environment locks, a look specification in cinematographic terms, approved model configurations, a prompt system and a pass/fail QC rubric — then operate it under annual licence and re-derive it whenever the underlying models change. Brand consistency becomes a subscription.
-
-**Customer:** Head of Brand / Global Brand Communications Director / Head of In-house Creative Studio at a €500M–€10B revenue brand (automotive tier-1, consumer, OTC pharma, industrial). They already sign off €150–500k brand-guideline projects and own €2–20M annual content budgets.
-
-**Pain:** infinite output, no control. Legal cannot clear it. Agencies deliver inconsistent AI work. The look breaks silently on every model update. Nobody owns "what our brand looks like when a machine makes it." Doing nothing means either freezing AI use (and overpaying for content) or letting brand equity erode one slightly-wrong asset at a time.
-
-**Product:** discovery + reference shoot → Visual System (corpus, locks, look spec, model configs, prompt system, QC rubric) → operating licence → per-campaign validation service → continuity guarantee.
-
-**Business model:** build €90–220k one-off; annual system licence + maintenance €60–150k; per-campaign validation €8–20k; agency-access seats €500/seat/month. Margins: build 45–55% (production costs), licence/maintenance 80–85%.
-
-**Moat:** the reference corpus is proprietary and compounds; the continuity guarantee is an operational capability, not a prompt; switching means re-shooting and re-deriving from scratch. **Real but erodable** — a large brand can in-house it after two years.
-
-**Competition — evidence, not assertion:** Stability AI **Brand Studio** ships "Brand ID" models trained on a brand's photography style, palette, motifs and composition, with self-service training. **Superside** sells brand-trained models and claims ~60% efficiency gains. **LTX** offers brand-style video LoRA training on an open model. Above them sit **WPP Open**, **Publicis CoreAI** (a €300M AI investment with an Adobe generative integration for personalised content at scale), **Media.Monks** and **Accenture Song** — who also own the client relationships. This is a crowded platform layer. The white space is narrow but real: nobody at those firms is a working cinematographer, and none of them guarantees look continuity across model generations.
-
-**€1M path:** 5 builds × €140k = €700k + 4 licences × €90k = €360k → **€1.06M**. Reachable in year 2–3, but enterprise sales cycles run 6–12 months.
-
-**€10M path:** 25 builds × €150k = €3.75M + 45 licences × €110k = €4.95M + validation €1.3M → **€10M**. Requires a 40–60 person organisation with a real enterprise sales function. **This is the trap: at that size it has become an agency again.**
-
-**Pushlabs test:** borderline. Risk of "we hired Pushlabs to build our system." Only passes if the system is named, licensed and operated — not delivered.
-
-**AI test: (A) more valuable**, but partially absorbed by platform vendors who will ship 70% of it for free. **B+ rather than A.**
+**(A) Wertvoller.** Werden Modelle 10× besser, 10× günstiger und praktisch sofort verfügbar, dann gilt: mehr Output braucht mehr Urteile; mehr Automatisierung braucht mehr dokumentierte Verantwortlichkeit; zugängliche Werkzeuge machen das *Werkzeug* als Differenzierungsmerkmal wertlos und lassen *geprüfte Kompetenz* als einziges verbleibendes Signal zurück. Jede Achse der Verbesserung erhöht die Nachfrage nach dem Standard.
 
 ---
 
-## 6. Finalist C — Generative Bildgestaltung Academy (DACH)
+## 5. Finalist B — Brand Visual System Operator
 
-**One sentence:** Employer-funded re-skilling of the German-speaking media workforce for generative production, plus a licensed apprenticeship module for Ausbildungsbetriebe and Berufsschulen.
+**Ein Satz:** Pushlabs baut, besitzt und betreibt das ausführbare generative Bildsystem einer Marke — und garantiert, dass der Look jeden Modellwechsel übersteht.
 
-**Customer:** Personalentwicklung / Ausbildungsleitung at production companies, broadcasters, agencies and corporate communications departments — *not* individuals. The individual market is a consumer business with consumer economics.
+**Investorenpitch:** Marken können jetzt unbegrenzt Content erzeugen, und alles davon ist ein bisschen falsch und ein bisschen uneinheitlich. Das Brand Book wurde für Menschen geschrieben; es sagt einem Modell nichts. Wir bauen das maschinenlesbare Äquivalent — einen proprietären Referenzkorpus (großteils von uns gedreht), Character-, Produkt- und Environment-Locks, eine Look-Spezifikation in kameratechnischer Sprache, freigegebene Modellkonfigurationen, ein Prompt-System und eine Bestanden/Nicht-bestanden-QC-Rubrik — und betreiben es unter Jahreslizenz, mit Neuableitung bei jedem Modellwechsel. Markenkonsistenz wird zum Abonnement.
 
-**Pain:** their staff are self-taught and uneven; their apprenticeship curriculum predates generative video entirely (the Mediengestalter Bild und Ton Ausbildungsordnung dates from 2020 and contains none of this); their seniors are resistant and their juniors are anxious; and they are legally on the hook for output nobody in the building fully understands.
+**Kunde:** Head of Brand / Global Brand Communications Director / Leiter Inhouse-Creative-Studio bei einer Marke mit 500 Mio.–10 Mrd. € Umsatz (Automotive Tier 1, Consumer, OTC-Pharma, Industrie). Sie zeichnen bereits Brand-Guideline-Projekte über 150–500 T€ und verantworten Content-Budgets von 2–20 Mio. € p. a.
 
-**Product:** open cohorts (8 weeks part-time, €2,400–3,900/seat); in-house cohorts (€18–45k per cohort of 12); an Ausbildungs-Modul licensed per site (€4–12k/yr); a "Werkstatt" update subscription (€79–149/month) that exists precisely because the material decays.
+**Schmerz:** unendlicher Output, keine Kontrolle. Legal kann ihn nicht freigeben. Agenturen liefern uneinheitliche KI-Arbeit. Der Look bricht bei jedem Modellupdate lautlos. Niemand verantwortet, „wie unsere Marke aussieht, wenn eine Maschine sie herstellt“. Nichts zu tun heißt: KI-Einsatz einfrieren (und Content überzahlen) oder Markenwert Asset für Asset erodieren lassen.
 
-**Funding lever (this is the point):** **Qualifizierungsgeld** pays employees 60–67% of net salary during training where AI-driven structural change affects ≥10% of the workforce; **QCG** subsidises course fees; the employer pays the rest. Many firms can get close to cost-neutral. This collapses the objection that kills most B2B training.
+**Produkt:** Discovery + Referenzdreh → Visual System (Korpus, Locks, Look-Spec, Modellkonfigurationen, Prompt-System, QC-Rubrik) → Betriebslizenz → kampagnenweise Validierung → Kontinuitätsgarantie.
 
-**€1M path:** ~90 in-house cohort days + ~400 open seats + ~300 subscribers ≈ **€1.05M**. Fast — this is the quickest of the three to first revenue.
+**Geschäftsmodell:** Aufbau 90–220 T€ einmalig; jährliche Systemlizenz + Wartung 60–150 T€; Validierung je Kampagne 8–20 T€; Agentur-Zugangsseats 500 €/Seat/Monat. Margen: Aufbau 45–55 % (Produktionskosten), Lizenz/Wartung 80–85 %.
 
-**€10M path:** needs ~40 trainers, multi-country delivery and curriculum licensing. **Hard**, for two structural reasons: content rots every quarter (a permanent margin drag — Curious Refuge built the largest AI-filmmaking school in the world, ~10,000 students at $149/month, and sold to Promise), and the material is language-locked.
+**Moat:** Der Referenzkorpus ist proprietär und wächst; die Kontinuitätsgarantie ist eine operative Fähigkeit, kein Prompt; ein Wechsel bedeutet Neudreh und Neuableitung. **Real, aber erodierbar** — eine große Marke kann das nach zwei Jahren insourcen.
 
-**Competition:** Curious Refuge (now owned by Promise); AI Video Bootcamp ($9/month, 20,000+ members) at the commodity end; Karlshochschule's KHMI "KI-gestützte Medienproduktion & Design" (AZAV-certified, 396 teaching units) and dozens of AZAV providers at the funded end. **The generic end is already commoditised. The professional-craft end and the Ausbildung end are not.**
+**Wettbewerb — belegt, nicht behauptet:** Stability AI **Brand Studio** liefert „Brand ID“-Modelle, trainiert auf Fotografiestil, Palette, Motive und Komposition einer Marke, im Self-Service. **Superside** verkauft markentrainierte Modelle und nennt ca. 60 % Effizienzgewinn. **LTX** bietet Video-LoRA-Training für Markenstile auf einem offenen Modell. Darüber sitzen **WPP Open**, **Publicis CoreAI** (300 Mio. € KI-Investment mit Adobe-Integration für personalisierten Content in der Breite), **Media.Monks** und **Accenture Song** — die zusätzlich die Kundenbeziehungen besitzen. Eine überfüllte Plattformebene. Der Freiraum ist schmal, aber real: Bei keinem dieser Häuser sitzt ein arbeitender Kameramann, und keines garantiert Look-Kontinuität über Modellgenerationen.
 
-**Pushlabs test:** fails on its own. "I did a course with Daniel" is a person, not a product.
+**Weg zu 1 Mio. €:** 5 Aufbauten × 140 T€ = 700 T€ + 4 Lizenzen × 90 T€ = 360 T€ → **1,06 Mio. €**. Erreichbar in Jahr 2–3, aber Enterprise-Vertriebszyklen laufen 6–12 Monate.
 
-**AI test: (A) more valuable**, but with a permanent re-authoring tax.
+**Weg zu 10 Mio. €:** 25 Aufbauten × 150 T€ = 3,75 Mio. € + 45 Lizenzen × 110 T€ = 4,95 Mio. € + Validierung 1,3 Mio. € → **10 Mio. €**. Erfordert eine Organisation von 40–60 Personen mit echter Enterprise-Vertriebsfunktion. **Das ist die Falle: In dieser Größe ist es wieder eine Agentur.**
 
----
+**Pushlabs-Test:** grenzwertig. Risiko: „Wir haben Pushlabs beauftragt, unser System zu bauen.“ Besteht nur, wenn das System benannt, lizenziert und betrieben wird — nicht geliefert.
 
-## 7. Adversarial review — trying to kill the recommendation
-
-I attacked Finalist A on six fronts before recommending it.
-
-**1. "A standards body needs neutrality. A private company's standard is just a methodology."**
-Correct — and irrelevant, because the proven business model *is* the proprietary methodology. Scaled Agile (SAFe): 2M+ certified professionals, 20,000+ organisations, delivery exclusively through certified partners, enterprise licence bundles built for procurement. Same shape: PRINCE2, Six Sigma, EFQM. **Survives.** Do not chase neutrality early; chase adoption.
-
-**2. "German production companies are cash-poor and project-driven. They don't buy methodology."**
-Partly true, and it is why they cannot be the only segment. The answer is to lead with corporate in-house studios and broadcaster subsidiaries (real budgets), use the Qualifizierungsgeld/QCG lever with the production companies, and let the compliance deadline do the qualifying. **Survives, but segment ordering matters.**
-
-**3. "The standard rots as models change."**
-True — and it is the single best argument *for* the model, because it is the honest justification for an annual licence and annual re-certification. Structure the standard so the **principles, roles, gates and rubric are model-agnostic** and the model-specific material lives in quarterly appendices. Weakness converted into recurring revenue. **Survives.**
-
-**4. "Adobe, Autodesk or the holding companies will ship this."**
-Adobe and Autodesk will ship tools and provenance plumbing — they need a standard to exist, they do not want to be one. Holding companies will build internal versions for their own use and have no incentive to license to the mid-market or to their competitors. Nobody large has a reason to be the neutral method-and-credential layer for the DACH professional ecosystem. **Survives.**
-
-**5. "The DACH market is too small for €10M."**
-Fair pressure. DACH is the beachhead, chosen for language and institutional access; the standard exports through partner trainers without you travelling — that is precisely how SAFe scaled. But be honest: **€10M requires international partner licensing. €1M does not.** **Survives with a caveat.**
-
-**6. The strongest objection: "Nobody pays for a certificate no employer asks for."**
-This is the real risk, and it is a classic chicken-and-egg. If you launch this as an individual credential, it fails. **The mitigation is structural and must be in the plan from day one: sell to employers first.** The organisation buys the implementation and the licence; the certificates are issued to their staff as part of that purchase; employers then ask for it because they already own it. Individual self-serve certification comes *last*, in year 3, once demand exists. **Survives only if sequenced correctly — and this sequencing is the most important operational decision in the plan.**
-
-### Why not Finalist B, which has the bigger market?
-
-Four reasons, in order of weight:
-
-1. **Distribution fit.** Your network is production, media and education — not brand CMOs. Winning brand accounts means fighting Publicis, WPP and Monks on relationships they have owned for 20 years.
-2. **No compounding.** Each brand's visual DNA is its own; client #40 makes you no stronger with client #41. In Finalist A, every certified practitioner and every partner strengthens the core asset.
-3. **AI disruption exposure.** Stability, Superside and LTX are already commoditising the brand-model layer. Finalist A is strictly *strengthened* by better models.
-4. **The Pushlabs test.** B risks staying "we hired Pushlabs." A is "we run Pushlabs."
+**KI-Test: (A) wertvoller**, aber teilweise von Plattformanbietern absorbiert, die 70 % davon kostenlos ausliefern. **B+ statt A.**
 
 ---
 
-## 8. Final decision
+## 6. Finalist C — Akademie Generative Bildgestaltung (DACH)
 
-# Pushlabs GVP Standard
+**Ein Satz:** Arbeitgeberfinanzierte Requalifizierung der deutschsprachigen Medienbelegschaft für generative Produktion, plus ein lizenziertes Ausbildungsmodul für Ausbildungsbetriebe und Berufsschulen.
 
-**A licensed professional standard, certification and audit system for generative visual production.**
-Education is the go-to-market. The standard is the asset. Do not confuse the two.
+**Kunde:** Personalentwicklung / Ausbildungsleitung bei Produktionsfirmen, Sendern, Agenturen und Unternehmenskommunikation — *nicht* Einzelpersonen. Der Einzelmarkt ist ein Consumer-Geschäft mit Consumer-Ökonomie.
 
-### 1. The business concept
+**Schmerz:** Die Belegschaft ist autodidaktisch und ungleich qualifiziert; das Ausbildungscurriculum ist älter als generatives Video (die Ausbildungsordnung Mediengestalter Bild und Ton stammt von 2020 und enthält nichts davon); Senioren wehren sich, Junioren sind verunsichert; und rechtlich haftet das Haus für Output, den niemand vollständig versteht.
 
-Pushlabs authors, licenses and defends the professional standard for generative visual production in the German-speaking media industry: the roles, the production gates, the quality rubric, the production record, the compliance declarations and the executable playbooks. Organisations license it annually. Their people are certified against it. Certified partner trainers deliver it. Pushlabs owns the specification, the exam and the registry.
+**Produkt:** offene Kohorten (8 Wochen berufsbegleitend, 2.400–3.900 €/Platz); Inhouse-Kohorten (18–45 T€ je Kohorte à 12); Ausbildungsmodul, lizenziert pro Standort (4–12 T€/Jahr); „Werkstatt“-Update-Abo (79–149 €/Monat), das genau deshalb existiert, weil das Material verfällt.
 
-### 2. Positioning
+**Förderhebel (das ist der Punkt):** **Qualifizierungsgeld** zahlt Beschäftigten 60–67 % des Nettoentgelts während der Weiterbildung, wenn KI-bedingter Strukturwandel ≥10 % der Belegschaft betrifft; **QCG** bezuschusst die Lehrgangskosten; den Rest zahlt der Arbeitgeber. Viele Häuser kommen nahe an Kostenneutralität. Das räumt den Einwand ab, der die meisten B2B-Weiterbildungen tötet.
 
-> **"Der Standard für Generative Bildgestaltung."**
+**Weg zu 1 Mio. €:** ca. 90 Inhouse-Kohortentage + ca. 400 offene Plätze + ca. 300 Abonnenten ≈ **1,05 Mio. €**. Schnell — der kürzeste Weg zum ersten Umsatz von allen dreien.
 
-Not a tool. Not a course. Not an agency. The reference against which professional generative production work is measured in DACH — authored by someone with 20 years on set, not by a technology vendor.
+**Weg zu 10 Mio. €:** braucht ca. 40 Trainer, Mehrländer-Lieferung und Curriculum-Lizenzierung. **Schwer**, aus zwei strukturellen Gründen: Inhalte verfallen quartalsweise (ein dauerhafter Margenzug — Curious Refuge baute die größte KI-Filmschule der Welt, ca. 10.000 Teilnehmende zu 149 $/Monat, und verkaufte an Promise), und das Material ist sprachgebunden.
 
-Positioning discipline: never say "we help you use AI." Always say "we define what correct looks like, and we certify who can do it."
+**Wettbewerb:** Curious Refuge (jetzt Promise); AI Video Bootcamp (9 $/Monat, 20.000+ Mitglieder) am Commodity-Ende; „KI-gestützte Medienproduktion & Design“ der Karlshochschule/KHMI (AZAV-zertifiziert, 396 Unterrichtseinheiten) und Dutzende AZAV-Träger am geförderten Ende. **Das generische Ende ist bereits Commodity. Das professionelle Handwerksende und das Ausbildungsende sind es nicht.**
 
-### 3. The customer
+**Pushlabs-Test:** allein nicht bestanden. „Ich habe einen Kurs bei Daniel gemacht“ ist eine Person, kein Produkt.
 
-**Primary (year 1):** Leiter Bewegtbild / Head of In-house Studio at a large German corporate with an internal video team of 5–40 and €2–20M annual content spend — co-sponsored by Leiter Personalentwicklung, who holds the training budget and the Qualifizierungsgeld/QCG lever.
+**KI-Test: (A) wertvoller**, aber mit dauerhafter Neuautorierungs-Steuer.
 
-**Secondary (year 1):** Geschäftsführer / Produktionsleiter at production companies of 20–150 staff who are already losing pitches to AI-native shops and are already being asked by broadcasters and brands to declare AI use.
+---
 
-**Tertiary (year 2):** broadcaster production subsidiaries; then Bildungsträger and Berufsschulen as curriculum licensees.
+## 7. Gegenprobe — der Versuch, die Empfehlung zu töten
 
-### 4. The product
+Ich habe Finalist A an sechs Fronten angegriffen, bevor ich ihn empfohlen habe.
 
-A versioned specification (roles, gates, six-criterion QC rubric with scoring anchors, Production Record spec), a compliance and declaration pack mapped to AI Act Art. 50 and broadcaster requirements, an executable playbook library, a 6–10 week implementation, three certification levels with annual re-certification, an annual licence with quarterly model appendices, a partner-trainer programme, and a production audit/seal.
+**1. „Eine Normungsinstanz braucht Neutralität. Der Standard einer Privatfirma ist nur eine Methodik.“**
+Richtig — und irrelevant, denn das bewährte Geschäftsmodell *ist* die proprietäre Methodik. Scaled Agile (SAFe): 2 Mio.+ zertifizierte Fachkräfte, 20.000+ Organisationen, Auslieferung ausschließlich über zertifizierte Partner, Enterprise-Lizenzpakete, die auf Einkaufsabteilungen zugeschnitten sind. Gleiche Form: PRINCE2, Six Sigma, EFQM. **Überlebt.** Neutralität nicht früh anstreben; Verbreitung anstreben.
 
-### 5. Pricing
+**2. „Deutsche Produktionsfirmen sind finanzschwach und projektgetrieben. Die kaufen keine Methodik.“**
+Teilweise richtig — deshalb können sie nicht das einzige Segment sein. Antwort: mit Inhouse-Studios und Sendertöchtern beginnen (echte Budgets), bei Produktionsfirmen den Qualifizierungsgeld-Hebel nutzen und die Compliance-Frist die Qualifizierung übernehmen lassen. **Überlebt, aber die Segmentreihenfolge zählt.**
 
-Org licence €18k/€36k/€60k+ per year by seat tier · implementation €25–60k one-off · certification €890 (L1) / €1,900 (L2) · re-certification €390/yr · trainer certification €4,900 + €150 per certificate · partner curriculum licence €15–40k/yr + royalty · production audit €6–15k. Target blended gross margin 82–88% at maturity.
+**3. „Der Standard verfällt mit jedem Modellwechsel.“**
+Stimmt — und das ist das beste Argument *für* das Modell, weil es die ehrliche Begründung für Jahreslizenz und jährliche Re-Zertifizierung ist. Standard so bauen, dass **Prinzipien, Rollen, Gates und Rubrik modellagnostisch** sind und modellspezifisches Material in Quartalsanhängen lebt. Schwäche in wiederkehrenden Umsatz überführt. **Überlebt.**
 
-### 6. The moat
+**4. „Adobe, Autodesk oder die Holdings liefern das mit aus.“**
+Adobe und Autodesk liefern Werkzeuge und Provenance-Infrastruktur — sie brauchen, dass ein Standard existiert, sie wollen keiner sein. Holdings bauen interne Versionen für den Eigenbedarf und haben keinen Anreiz, an den Mittelstand oder an Wettbewerber zu lizenzieren. Niemand Großes hat einen Grund, die neutrale Methoden- und Zertifikatsebene für das DACH-Profi-Ökosystem zu sein. **Überlebt.**
 
-Calibration (an assessor corps that agrees, built on a graded body of work) · ecosystem lock-in that compounds with every certified practitioner and every partner · authorship and professional standing · institutional embedding in slow-moving German bodies · language and regulatory specificity that is uneconomic for a US entrant to replicate.
+**5. „Der DACH-Markt ist zu klein für 10 Mio. €.“**
+Berechtigter Druck. DACH ist der Brückenkopf, gewählt wegen Sprache und institutionellem Zugang; der Standard exportiert über Partner-Trainer, ohne dass du reist — genau so ist SAFe skaliert. Aber ehrlich: **10 Mio. € brauchen internationale Partnerlizenzierung. 1 Mio. € nicht.** **Überlebt mit Vorbehalt.**
 
-### 7. The first MVP
+**6. Der stärkste Einwand: „Niemand zahlt für ein Zertifikat, nach dem kein Arbeitgeber fragt.“**
+Das ist das reale Risiko, ein klassisches Henne-Ei-Problem. Startest du das als Einzelzertifikat, scheitert es. **Die Gegenmaßnahme ist strukturell und muss ab Tag eins im Plan stehen: zuerst an Arbeitgeber verkaufen.** Die Organisation kauft Implementierung und Lizenz; die Zertifikate werden ihren Mitarbeitenden als Teil dieses Kaufs ausgestellt; Arbeitgeber fragen danach, weil sie es bereits besitzen. Self-Service-Einzelzertifizierung kommt *zuletzt*, in Jahr 3, wenn die Nachfrage existiert. **Überlebt nur bei korrekter Reihenfolge — und diese Reihenfolge ist die wichtigste operative Entscheidung im gesamten Plan.**
 
-**Not a platform. Not an LMS. Not a community.**
+### Warum nicht Finalist B, der den größeren Markt hat?
 
-1. **GVP Standard v0.9** — 40–60 pages. Roles, gates, the six-criterion rubric with written scoring anchors, the Production Record spec, and the AI-usage declaration template. Written, versioned, PDF, watermarked, under NDA to pilot clients.
-2. **Three executable playbooks** — start from what you already run in `movie-studio` and `animated-scene-production`. Formalise the review gate into a scored rubric with anchors, not adjectives.
-3. **One paid implementation** with a real client at €25–35k.
+Vier Gründe, nach Gewicht:
 
-That is the MVP. It is a document, three workflows and one invoice.
+1. **Distributions-Fit.** Dein Netzwerk ist Produktion, Medien und Bildung — nicht Marken-CMOs. Markenaccounts zu gewinnen heißt, gegen Publicis, WPP und Monks um Beziehungen zu kämpfen, die sie seit 20 Jahren halten.
+2. **Kein Kumulationseffekt.** Die visuelle DNA jeder Marke gehört ihr allein; Kunde 40 macht dich bei Kunde 41 nicht stärker. Bei Finalist A kumuliert alles: Jeder zertifizierte Praktiker und jeder Partner verstärkt das Kern-Asset.
+3. **KI-Disruptionsexposition.** Stability, Superside und LTX machen die Brand-Model-Ebene bereits zur Commodity. Finalist A wird durch bessere Modelle strikt *gestärkt*.
+4. **Der Pushlabs-Test.** B riskiert, „Wir haben Pushlabs beauftragt“ zu bleiben. A ist „Wir arbeiten nach Pushlabs“.
 
-### 8. What NOT to build yet
+---
 
-- ❌ **Any software platform.** No LMS, no assessment portal, no asset registry product. Notion, PDFs and spreadsheets until you have 15 paying organisations.
-- ❌ **Self-serve individual certification.** This is the chicken-and-egg trap. Employers first, always.
-- ❌ **An English edition.** Not before month 18. It halves your focus and removes your only structural advantage.
-- ❌ **A community / Discord / membership.** Zero revenue leverage at this stage.
-- ❌ **Your own model or LoRA training product.** Stability, Superside and LTX already own that layer.
-- ❌ **A conference or awards programme.** Year 3, once the standard has standing to confer.
-- ❌ **Company-level certification.** Certify individuals first. Company seals require an audit function you do not yet have.
-- ❌ **Any new production/agency work that does not directly seed the standard.** This is the biggest practical risk: production work pays this month and will eat every hour the standard needs.
+## 8. Die Entscheidung
 
-### 9. First 10 customers
+# Der Pushlabs GVP-Standard
 
-| # | Source | Motion |
+**Ein lizenzierter Berufsstandard mit Zertifizierung und Audit für generative Bildgestaltung.**
+Bildung ist der Markteintritt. Der Standard ist das Asset. Beides nicht verwechseln.
+
+### 1. Das Geschäftskonzept
+
+Pushlabs verfasst, lizenziert und verteidigt den Berufsstandard für generative Bildgestaltung in der deutschsprachigen Medienbranche: Rollen, Produktions-Gates, Qualitätsrubrik, Produktionsprotokoll, Compliance-Erklärungen und ausführbare Playbooks. Organisationen lizenzieren ihn jährlich. Ihre Leute werden dagegen zertifiziert. Zertifizierte Partner-Trainer liefern ihn aus. Pushlabs besitzt Spezifikation, Prüfung und Register.
+
+### 2. Die Positionierung
+
+> **„Der Standard für Generative Bildgestaltung.“**
+
+Kein Werkzeug. Kein Kurs. Keine Agentur. Die Referenz, an der professionelle generative Produktionsarbeit im DACH-Raum gemessen wird — verfasst von jemandem mit 20 Jahren am Set, nicht von einem Technologieanbieter.
+
+Positionierungsdisziplin: Nie sagen „wir helfen euch, KI zu nutzen“. Immer sagen: „wir definieren, was richtig ist, und wir zertifizieren, wer es kann“.
+
+### 3. Der Kunde
+
+**Primär (Jahr 1):** Leiter Bewegtbild / Head of Inhouse-Studio bei einem großen deutschen Unternehmen mit internem Videoteam von 5–40 und 2–20 Mio. € Content-Budget p. a. — mitgetragen von der Leitung Personalentwicklung, die das Weiterbildungsbudget und den Qualifizierungsgeld-/QCG-Hebel hält.
+
+**Sekundär (Jahr 1):** Geschäftsführer / Produktionsleiter bei Produktionsfirmen mit 20–150 Mitarbeitenden, die bereits Pitches an KI-native Anbieter verlieren und bereits von Sendern und Marken zur KI-Erklärung aufgefordert werden.
+
+**Tertiär (Jahr 2):** Produktionstöchter von Sendern; danach Bildungsträger und Berufsschulen als Curriculum-Lizenznehmer.
+
+### 4. Das Produkt
+
+Eine versionierte Spezifikation (Rollen, Gates, sechs Kriterien umfassende QC-Rubrik mit Bewertungsankern, Produktionsprotokoll-Spezifikation), ein Compliance- und Erklärungspaket abgebildet auf Art. 50 AI Act und Sender-Anforderungen, eine ausführbare Playbook-Bibliothek, eine 6–10-wöchige Implementierung, drei Zertifizierungsstufen mit jährlicher Re-Zertifizierung, eine Jahreslizenz mit Quartalsanhängen, ein Partner-Trainer-Programm und ein Produktionsaudit/Siegel.
+
+### 5. Die Preise
+
+Organisationslizenz 18 T€ / 36 T€ / 60 T€+ pro Jahr nach Seat-Stufe · Implementierung 25–60 T€ einmalig · Zertifizierung 890 € (L1) / 1.900 € (L2) · Re-Zertifizierung 390 €/Jahr · Trainerzertifizierung 4.900 € + 150 € je Zertifikat · Partner-Curriculum-Lizenz 15–40 T€/Jahr + Royalty · Produktionsaudit 6–15 T€. Ziel-Bruttomarge gemischt 82–88 %.
+
+### 6. Der Moat
+
+Kalibrierung (ein Prüferkorps, das übereinstimmt, gestützt auf einen bewerteten Arbeitskorpus) · kumulierende Ökosystem-Bindung mit jedem zertifizierten Praktiker und Partner · Autorschaft und Standing · institutionelle Verankerung in langsamen deutschen Gremien · sprachliche und regulatorische Spezifik, deren Nachbau für einen US-Anbieter unwirtschaftlich ist.
+
+### 7. Das erste MVP
+
+**Keine Plattform. Kein LMS. Keine Community.**
+
+1. **GVP-Standard v0.9** — 40–60 Seiten. Rollen, Gates, die sechs Kriterien umfassende Rubrik mit ausformulierten Bewertungsankern, die Produktionsprotokoll-Spezifikation und die Vorlage für die KI-Einsatz-Erklärung. Geschrieben, versioniert, als PDF, mit Wasserzeichen, unter NDA an Pilotkunden.
+2. **Drei ausführbare Playbooks** — ausgehend von dem, was du in `movie-studio` und `animated-scene-production` bereits fährst. Das Review Gate zu einer bewerteten Rubrik mit Ankern formalisieren, nicht mit Adjektiven.
+3. **Eine bezahlte Implementierung** bei einem echten Kunden für 25–35 T€.
+
+Das ist das MVP. Ein Dokument, drei Workflows und eine Rechnung.
+
+### 8. Was noch NICHT gebaut wird
+
+- ❌ **Jede Software-Plattform.** Kein LMS, kein Prüfungsportal, kein Asset-Register-Produkt. Notion, PDFs und Tabellen, bis 15 zahlende Organisationen da sind.
+- ❌ **Self-Service-Einzelzertifizierung.** Das ist die Henne-Ei-Falle. Immer zuerst Arbeitgeber.
+- ❌ **Eine englische Fassung.** Nicht vor Monat 18. Sie halbiert den Fokus und entfernt deinen einzigen strukturellen Vorteil.
+- ❌ **Community / Discord / Mitgliedschaft.** Null Umsatzhebel in dieser Phase.
+- ❌ **Ein eigenes Modell- oder LoRA-Trainingsprodukt.** Stability, Superside und LTX besitzen diese Ebene bereits.
+- ❌ **Eine Konferenz oder ein Award-Programm.** Jahr 3, wenn der Standard das Standing hat, etwas zu verleihen.
+- ❌ **Zertifizierung von Unternehmen.** Zuerst Personen zertifizieren. Firmensiegel brauchen eine Auditfunktion, die es noch nicht gibt.
+- ❌ **Jede neue Produktions-/Agenturarbeit, die nicht direkt den Standard speist.** Das größte praktische Risiko: Produktionsarbeit zahlt diesen Monat und frisst jede Stunde, die der Standard braucht.
+
+### 9. Strategie für die ersten 10 Kunden
+
+| # | Quelle | Vorgehen |
 |---|---|---|
-| 1–3 | Your existing client list | Offer a paid **"GVP Readiness Assessment"** at €6,500: two days on site, audit their current generative workflow against the draft standard, deliver a written gap report. It is a product, it is paid, it qualifies hard, and it converts to implementation. |
-| 4–5 | Corporate in-house studios via warm intros | Same assessment, positioned to Personalentwicklung with the Qualifizierungsgeld/QCG funding path attached to the follow-on cohort. |
-| 6–7 | Production companies you know | Lead with the client-facing pain: "your broadcaster/brand client will ask you to declare AI use — can you?" |
-| 8 | One broadcaster subsidiary | Lead with compliance and internal guideline alignment. Accept a low price for the logo. |
-| 9–10 | Inbound from one public act | Publish the standard's *table of contents and rubric* publicly. Speak once at a Verband event. Let the market self-select. |
+| 1–3 | Bestehender Kundenstamm | Ein bezahltes **„GVP-Readiness-Assessment“ für 6.500 €**: zwei Tage vor Ort, Audit des bestehenden generativen Workflows gegen den Entwurfsstandard, schriftlicher Gap-Report. Es ist ein Produkt, es ist bezahlt, es qualifiziert hart und es konvertiert in die Implementierung. |
+| 4–5 | Inhouse-Studios über warme Kontakte | Gleiches Assessment, adressiert an die Personalentwicklung, mit dem Qualifizierungsgeld-/QCG-Förderweg für die Folgekohorte im Anhang. |
+| 6–7 | Produktionsfirmen, die du kennst | Über den kundenseitigen Schmerz einsteigen: „Euer Sender- oder Markenkunde wird euch zur KI-Erklärung auffordern — könnt ihr die liefern?“ |
+| 8 | Eine Sendertochter | Über Compliance und Abgleich mit internen Richtlinien einsteigen. Niedrigen Preis für das Logo akzeptieren. |
+| 9–10 | Inbound aus einem öffentlichen Auftritt | Inhaltsverzeichnis und Rubrik des Standards öffentlich publizieren. Einmal auf einer Verbandsveranstaltung sprechen. Den Markt sich selbst selektieren lassen. |
 
-Convert 5–6 of these 10 assessments into implementations. Sell the assessment; do not sell the standard.
+Fünf bis sechs der zehn Assessments in Implementierungen überführen. **Das Assessment verkaufen; niemals den Standard verkaufen.**
 
-### 10. 30-day validation plan
+### 10. 30-Tage-Validierungsplan
 
-**Goal: falsify or confirm the one assumption in section 14.**
+**Ziel: die eine Annahme aus Punkt 14 falsifizieren oder bestätigen.**
 
-| Days | Action | Success criterion |
+| Tage | Maßnahme | Erfolgskriterium |
 |---|---|---|
-| 1–5 | Write GVP Standard v0.5 — roles, gates, rubric with scoring anchors, Production Record spec. Formalise your existing review gate. | Document exists, 30+ pages, another professional can apply the rubric without you. |
-| 3–7 | Build the €6,500 Readiness Assessment as a one-page offer. Trademark "Generative Bildgestaltung" as a word mark (DPMA). | Offer document + filing submitted. |
-| 6–20 | **15 paid-intent conversations** with named buyers from your network. Not "would you find this useful" — ask for the €6,500. | ≥10 conversations held. |
-| 10–25 | Test the rubric: apply it blind to 20 pieces of generative work with 2 other professionals. Measure agreement. | ≥70% verdict agreement. **This is the technical proof that the standard is real.** |
-| 15–30 | Approach 2 Bildungsträger and 1 Verband about curriculum licensing — pure signal-gathering. | ≥1 says "send us terms." |
-| 30 | **Decision gate.** | **≥3 signed paid assessments totalling ≥€19,500, where the payer is a company budget and not an individual.** |
+| 1–5 | GVP-Standard v0.5 schreiben — Rollen, Gates, Rubrik mit Bewertungsankern, Produktionsprotokoll-Spezifikation. Dein bestehendes Review Gate formalisieren. | Dokument existiert, 30+ Seiten, eine andere Fachkraft kann die Rubrik ohne dich anwenden. |
+| 3–7 | Das 6.500-€-Assessment als einseitiges Angebot bauen. „Generative Bildgestaltung“ als Wortmarke beim DPMA anmelden. | Angebotsdokument + Anmeldung eingereicht. |
+| 6–20 | **15 Gespräche mit Kaufabsicht** mit namentlich benannten Käufern aus deinem Netzwerk. Nicht „fändet ihr das nützlich“ — nach den 6.500 € fragen. | ≥10 Gespräche geführt. |
+| 10–25 | Die Rubrik testen: blind auf 20 generative Arbeiten anwenden, gemeinsam mit 2 weiteren Fachkräften. Übereinstimmung messen. | ≥70 % Urteilsübereinstimmung. **Das ist der fachliche Beweis, dass der Standard real ist.** |
+| 15–30 | 2 Bildungsträger und 1 Verband zum Thema Curriculum-Lizenzierung ansprechen — reine Signalgewinnung. | ≥1 sagt „schickt uns Konditionen“. |
+| 30 | **Entscheidungspunkt.** | **≥3 unterschriebene, bezahlte Assessments über insgesamt ≥19.500 €, bei denen der Zahler ein Firmenbudget ist und keine Privatperson.** |
 
-If you cannot sell three €6,500 assessments to your *existing warm network* in 30 days, the organisational pain is not yet acute and you should re-run this in Q1 2027 when the AI Act enforcement bites. That is a valid outcome, not a failure.
+Wenn du drei Assessments zu 6.500 € nicht innerhalb von 30 Tagen in dein *bestehendes, warmes* Netzwerk verkaufen kannst, ist der organisationale Schmerz noch nicht akut genug — dann wiederhole das in Q1 2027, wenn die AI-Act-Durchsetzung greift. Das ist ein gültiges Ergebnis, kein Scheitern.
 
-### 11. 90-day launch plan
+### 11. 90-Tage-Launchplan
 
-**Days 31–60 — deliver and harden.**
-Run the 3–5 assessments. Every one is field research: record what they actually cannot do, what their clients actually demand in writing, and what their approval chain actually looks like. Rewrite the standard to v0.9 against reality. Convert at least 2 assessments into implementation contracts at €25–32k. Draft the certification exam and portfolio brief for Level 1.
+**Tag 31–60 — liefern und härten.**
+Die 3–5 Assessments durchführen. Jedes ist Feldforschung: festhalten, was sie tatsächlich nicht können, was ihre Kunden tatsächlich schriftlich verlangen und wie ihre Freigabekette tatsächlich aussieht. Den Standard gegen die Realität auf v0.9 umschreiben. Mindestens 2 Assessments in Implementierungsverträge zu 25–32 T€ überführen. Prüfung und Portfolio-Aufgabe für Level 1 entwerfen.
 
-**Days 61–90 — first cohort and first proof.**
-Deliver one implementation. Run the **first certification cohort of 10–14 people inside a paying client**, funded where possible through QCG/Qualifizierungsgeld — this is the moment the credential comes into existence. Publish the standard's table of contents and rubric publicly. Speak once. Sign the first partner-trainer letter of intent. Package your existing skills into the licensed playbook library.
+**Tag 61–90 — erste Kohorte, erster Beweis.**
+Eine Implementierung liefern. Die **erste Zertifizierungskohorte mit 10–14 Personen innerhalb eines zahlenden Kunden** durchführen, wo möglich über QCG/Qualifizierungsgeld gefördert — das ist der Moment, in dem das Zertifikat entsteht. Inhaltsverzeichnis und Rubrik des Standards veröffentlichen. Einmal sprechen. Die erste Absichtserklärung mit einem Partner-Trainer unterzeichnen. Deine bestehenden Skills in die lizenzierte Playbook-Bibliothek überführen.
 
-**Day 90 target:** 2 signed org licences, 1 implementation delivered, 12+ certified practitioners, 1 partner LOI, ~€90–130k contracted.
+**Ziel Tag 90:** 2 unterzeichnete Organisationslizenzen, 1 gelieferte Implementierung, 12+ zertifizierte Praktiker, 1 Partner-LOI, ca. 90–130 T€ kontrahiert.
 
-### 12. Revenue targets
+### 12. Umsatzziele
 
-| | Year 1 | Year 2 | Year 3 |
+| | Jahr 1 | Jahr 2 | Jahr 3 |
 |---|---|---|---|
-| Assessments | 12 × €6.5k = €78k | 15 × €6.5k = €98k | 20 × €6.5k = €130k |
-| Implementations | 5 × €30k = €150k | 8 × €32k = €256k | 14 × €34k = €476k |
-| Org licences | 5 × €26k = €130k | 12 × €30k = €360k | 28 × €34k = €952k |
-| Certifications / recerts | 60 × €1.1k = €66k | 220 × €1.2k = €264k | 600 × €1.1k = €660k |
-| Partner / trainer licences | — | 6 × €7.5k = €45k | 16 × €14k = €224k |
-| Audits / seals | 2 × €10k = €20k | 6 × €12k = €72k | 18 × €12k = €216k |
-| **Total** | **~€444k** | **~€1,095k** | **~€2,658k** |
-| Recurring share | ~30% | ~40% | ~52% |
-| Headcount | 1 + contractors | 3–4 | 8–10 |
+| Assessments | 12 × 6,5 T€ = 78 T€ | 15 × 6,5 T€ = 98 T€ | 20 × 6,5 T€ = 130 T€ |
+| Implementierungen | 5 × 30 T€ = 150 T€ | 8 × 32 T€ = 256 T€ | 14 × 34 T€ = 476 T€ |
+| Organisationslizenzen | 5 × 26 T€ = 130 T€ | 12 × 30 T€ = 360 T€ | 28 × 34 T€ = 952 T€ |
+| Zertifizierungen / Re-Zert. | 60 × 1,1 T€ = 66 T€ | 220 × 1,2 T€ = 264 T€ | 600 × 1,1 T€ = 660 T€ |
+| Partner-/Trainerlizenzen | — | 6 × 7,5 T€ = 45 T€ | 16 × 14 T€ = 224 T€ |
+| Audits / Siegel | 2 × 10 T€ = 20 T€ | 6 × 12 T€ = 72 T€ | 18 × 12 T€ = 216 T€ |
+| **Summe** | **~444 T€** | **~1.095 T€** | **~2.658 T€** |
+| Anteil wiederkehrend | ~30 % | ~40 % | ~52 % |
+| Mitarbeitende | 1 + Freie | 3–4 | 8–10 |
 
-Year 1 is deliberately modest and mostly non-recurring — it is a year of building the asset while staying cash-positive. The inflection is the **recurring share**, not the top line. If year 3 recurring is below 45%, the business has become consulting and needs correcting.
+Jahr 1 ist bewusst bescheiden und überwiegend nicht wiederkehrend — ein Jahr des Asset-Aufbaus bei positivem Cashflow. Der Wendepunkt ist der **Anteil wiederkehrender Erlöse**, nicht der Gesamtumsatz. Liegt der wiederkehrende Anteil in Jahr 3 unter 45 %, ist das Geschäft zur Beratung geworden und muss korrigiert werden.
 
-### 13. Biggest reasons this could fail
+### 13. Die größten Gründe, warum das scheitern könnte
 
-1. **The credential never gets demanded.** You certify people, nobody's HR department cares, and re-certification churns to zero. *This is the number-one risk.* Mitigation: employers buy first, always; get the standard named in one tender or one job specification you do not control within 18 months.
-2. **Production work eats the company.** Your existing business pays this month; the standard pays in year 2. Ninety percent of the realistic failure modes are this one. Mitigation: a hard, written cap on production days per month from day one, and treat any breach as an emergency.
-3. **The market moves too slowly.** German media adopts slowly and is currently cash-constrained. Mitigation: lead with corporate in-house studios and the compliance deadline, not with production companies.
-4. **A platform vendor bundles "good enough."** Adobe or Autodesk ships built-in QC and provenance and the standard looks redundant. Mitigation: stay above the tool layer — roles, gates, verdicts and credentials, never features.
-5. **You cannot decouple delivery from yourself.** If trainers are not certified by month 12–15, revenue caps at roughly €600–800k and you have bought yourself a job. Mitigation: make the trainer programme a year-1 deliverable, not a year-2 one.
-6. **The rubric does not survive contact with other assessors.** If three professionals cannot agree on a verdict, there is no standard — only your opinion, which does not scale. Mitigation: this is the day-10–25 test in the validation plan. Do not skip it.
-7. **Regulatory drift.** Article 50 enforcement is diluted or delayed and the urgency evaporates. Mitigation: compliance is one pillar of the value, not the whole of it — quality and reproducibility must stand on their own.
+1. **Das Zertifikat wird nie nachgefragt.** Du zertifizierst Leute, keine Personalabteilung interessiert sich, die Re-Zertifizierung fällt auf null. *Das ist Risiko Nummer eins.* Gegenmaßnahme: Arbeitgeber kaufen immer zuerst; den Standard innerhalb von 18 Monaten in mindestens einer Ausschreibung oder Stellenbeschreibung außerhalb deiner Kontrolle verankern.
+2. **Die Produktionsarbeit frisst das Unternehmen.** Das Bestandsgeschäft zahlt diesen Monat; der Standard zahlt in Jahr 2. Neunzig Prozent der realistischen Scheiterns-Szenarien sind dieses. Gegenmaßnahme: eine harte, schriftliche Obergrenze für Produktionstage pro Monat ab Tag eins — und jeder Verstoß gilt als Notfall.
+3. **Der Markt bewegt sich zu langsam.** Deutsche Medien adoptieren langsam und sind derzeit finanziell angespannt. Gegenmaßnahme: mit Inhouse-Studios und der Compliance-Frist einsteigen, nicht mit Produktionsfirmen.
+4. **Ein Plattformanbieter bündelt „gut genug“.** Adobe oder Autodesk liefern QC und Provenance eingebaut aus, und der Standard wirkt überflüssig. Gegenmaßnahme: oberhalb der Werkzeugebene bleiben — Rollen, Gates, Urteile und Zertifikate, niemals Features.
+5. **Du kannst die Lieferung nicht von dir lösen.** Sind bis Monat 12–15 keine Trainer zertifiziert, deckelt der Umsatz bei rund 600–800 T€ und du hast dir einen Job gekauft. Gegenmaßnahme: das Trainer-Programm ist ein Jahr-1-Ergebnis, kein Jahr-2-Ergebnis.
+6. **Die Rubrik übersteht andere Prüfer nicht.** Können sich drei Fachkräfte nicht auf ein Urteil einigen, gibt es keinen Standard — nur deine Meinung, und die skaliert nicht. Gegenmaßnahme: genau dafür ist der Test an Tag 10–25 da. Nicht überspringen.
+7. **Regulatorische Verwässerung.** Die Durchsetzung von Artikel 50 wird abgeschwächt oder verschoben und die Dringlichkeit verschwindet. Gegenmaßnahme: Compliance ist eine Säule des Wertes, nicht der ganze Wert — Qualität und Reproduzierbarkeit müssen für sich stehen.
 
-### 14. The single assumption to validate FIRST
+### 14. Die eine Annahme, die ZUERST zu validieren ist
 
-> **That an employer — not an individual — will pay real money for an external standard and certification for their team.**
+> **Dass ein Arbeitgeber — nicht eine Einzelperson — echtes Geld für einen externen Standard und eine Zertifizierung seines Teams zahlt.**
 
-Everything rests on this. If only individuals pay, this is a course business (Finalist C) with course economics, course margins and course content-rot, and you should build that instead and stop pretending otherwise.
+Alles hängt daran. Zahlen nur Einzelpersonen, ist das ein Kursgeschäft (Finalist C) mit Kursökonomie, Kursmargen und Kursinhaltsverfall — und dann solltest du das bauen und aufhören, etwas anderes zu behaupten.
 
-**The falsification test:** within 30 days, three signed paid Readiness Assessments at €6,500 each, **where the invoice goes to a company and the buyer is a department budget holder.** Individual buyers do not count, even at full price. Friends who pay to be supportive do not count.
+**Der Falsifikationstest:** innerhalb von 30 Tagen drei unterschriebene, bezahlte Readiness-Assessments zu je 6.500 €, **bei denen die Rechnung an ein Unternehmen geht und der Käufer ein Budgetverantwortlicher einer Abteilung ist.** Privatkäufer zählen nicht, auch nicht zum vollen Preis. Freunde, die aus Wohlwollen zahlen, zählen nicht.
 
-If you get three, build the standard. If you get one, the pain is real but early — re-run in Q1 2027. If you get zero, you have saved yourself two years, and Finalist C is still a genuinely good €1–3M business sitting right there.
+Bei drei: den Standard bauen. Bei einem: der Schmerz ist real, aber zu früh — in Q1 2027 wiederholen. Bei null: Du hast dir zwei Jahre gespart, und Finalist C ist immer noch ein wirklich gutes 1–3-Mio.-€-Geschäft, das genau dort liegt.
 
 ---
 
-## Sources
+## Quellen
 
-- [EU AI Act Article 50 — practical guide](https://artificialintelligenceact.eu/transparency-rules-article-50/) · [Sidley: preparing for 2 August 2026](https://datamatters.sidley.com/2026/06/24/eu-ai-act-transparency-obligations-preparing-for-compliance-by-2-august-2026/) · [European Commission: transparency obligations FAQ](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act) · [Commission guidelines on marking and labelling AI-generated content](https://digital-strategy.ec.europa.eu/en/policies/guidelines-transparency-ai-generated-content)
+- [EU AI Act Artikel 50 — Praxisleitfaden](https://artificialintelligenceact.eu/transparency-rules-article-50/) · [Sidley: Vorbereitung auf den 2. August 2026](https://datamatters.sidley.com/2026/06/24/eu-ai-act-transparency-obligations-preparing-for-compliance-by-2-august-2026/) · [Europäische Kommission: FAQ zu den Transparenzpflichten](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act) · [Leitlinien der Kommission zur Kennzeichnung KI-generierter Inhalte](https://digital-strategy.ec.europa.eu/en/policies/guidelines-transparency-ai-generated-content)
 - [ZDF: KI-Grundsätze](https://www.zdf.de/unternehmen/organisation/technik/ki-grundsaetze-des-zdf-100.html) · [ZDF: Kenntlichmachung von KI](https://www.zdf.de/unternehmen/organisation/technik/kenntlichmachung-ki-100.html) · [ver.di: erster KI-Tarifvertrag in Deutschland](https://innovation-gute-arbeit.verdi.de/++file++69723ee1b887c29ea7fb2f44/download/20260120_Erster_KI-Tarifvertrag_verdi.pdf) · [Produktionsallianz Produktionshandbuch](https://produktionsallianz.de/produktionshandbuch/)
-- [Content Authenticity Initiative: state of content authenticity 2026](https://contentauthenticity.org/blog/the-state-of-content-authenticity-in-2026) · [C2PA adoption tracker 2026](https://editorsweblog.org/2026/04/12/c2pa-adoption-tracker-platforms-content-credentials-2026)
+- [Content Authenticity Initiative: State of Content Authenticity 2026](https://contentauthenticity.org/blog/the-state-of-content-authenticity-in-2026) · [C2PA Adoption Tracker 2026](https://editorsweblog.org/2026/04/12/c2pa-adoption-tracker-platforms-content-credentials-2026)
 - [Qualifizierungsgeld (IBB)](https://www.ibb.com/foerderung/qualifizierungsgeld) · [QCG und KI-Weiterbildung für Unternehmen](https://www.ifadw.de/qualifizierungschancengesetz-ki-weiterbildung/) · [AZAV-zertifizierte KI-Weiterbildungen 2026](https://skill-sprinters.de/blog/foerderung/ki-weiterbildung-bildungsgutschein-2026-azav-anbieter/) · [KHMI: KI-gestützte Medienproduktion & Design](https://www.khmi.de/weiterbildung-ki-gestuetzte-medienproduktion-und-design/)
 - [IHK Hannover: Neuordnung Mediengestalter Bild und Ton](https://www.ihk.de/hannover/hauptnavigation/ausbildung-und-weiterbildung/ausbildung/ausbildung-a-z/neuordnungen/neuordnung-mediengestalter-bild-und-ton-5190040)
-- [Hollywood Reporter: Curious Refuge / AI film school](https://www.hollywoodreporter.com/movies/movie-features/curious-refuge-ai-film-school-hollywood-1236546505/) · [Rise of the AI film studio](https://intelligentjello.substack.com/p/rise-of-the-ai-film-studio) · [Variety: AI entertainment studios](https://variety.com/vip/ai-entertainment-studios-production-promise-tcl-edglrd-asteria-1236245068/) · [THR: Promise raises from Google and Crossbeam](https://www.hollywoodreporter.com/business/digital/ai-studio-promise-raises-google-ovitz-crossbeam-1236222355/) · [Variety: Asteria × ZeroSpace](https://variety.com/2026/biz/news/ai-studio-asteria-strikes-strategic-partnership-zerospace-1236825083/)
-- [Stability AI Brand Studio](https://stability.ai/news-updates/brand-studio-by-stability-ai-creative-production-platform-for-brands) · [Superside: training AI on brand assets](https://www.superside.com/blog/train-ai-on-brand-assets) · [LTX LoRA training for video](https://ltx.io/model/capabilities/lora-training) · [WPP Open](https://www.wpp.com/en/open) · [Digiday: Publicis CoreAI and €300M AI investment](https://digiday.com/media/publicis-groupe-debuts-new-coreai-platform-and-e300-million-ai-investment/)
+- [Hollywood Reporter: Curious Refuge / KI-Filmschule](https://www.hollywoodreporter.com/movies/movie-features/curious-refuge-ai-film-school-hollywood-1236546505/) · [Rise of the AI Film Studio](https://intelligentjello.substack.com/p/rise-of-the-ai-film-studio) · [Variety: AI Entertainment Studios](https://variety.com/vip/ai-entertainment-studios-production-promise-tcl-edglrd-asteria-1236245068/) · [THR: Promise mit Investment von Google und Crossbeam](https://www.hollywoodreporter.com/business/digital/ai-studio-promise-raises-google-ovitz-crossbeam-1236222355/) · [Variety: Asteria × ZeroSpace](https://variety.com/2026/biz/news/ai-studio-asteria-strikes-strategic-partnership-zerospace-1236825083/)
+- [Stability AI Brand Studio](https://stability.ai/news-updates/brand-studio-by-stability-ai-creative-production-platform-for-brands) · [Superside: KI auf Markenassets trainieren](https://www.superside.com/blog/train-ai-on-brand-assets) · [LTX LoRA-Training für Video](https://ltx.io/model/capabilities/lora-training) · [WPP Open](https://www.wpp.com/en/open) · [Digiday: Publicis CoreAI und 300 Mio. € KI-Investment](https://digiday.com/media/publicis-groupe-debuts-new-coreai-platform-and-e300-million-ai-investment/)
 - [Autodesk: Flow, Flow Studio, Flow Production Tracking](https://blogs.autodesk.com/media-and-entertainment/2026/04/13/understanding-the-differences-between-autodesk-flow-flow-studio-flow-capture-and-flow-production-tracking/)
-- [Vermillio $16M Series A led by Sony Music](https://www.businesswire.com/news/home/20250228026074/en/Vermillio-Completes-$16-Million-Series-A-Funding-Round-Led-by-Sony-Music-and-DNS-Capital) · [Loti × CMG Worldwide](https://www.prnewswire.com/news-releases/loti-selected-by-cmg-worldwide-to-protect-digital-likeness-of-legendary-talent-and-estates-302583610.html)
-- [Scaled Agile: certifications and partner model](https://scaledagile.com/certification/) · [Scaled Agile: why certify](https://legacy.scaledagile.com/certifications/certification-advantage/)
+- [Vermillio: 16-Mio.-$-Series-A unter Führung von Sony Music](https://www.businesswire.com/news/home/20250228026074/en/Vermillio-Completes-$16-Million-Series-A-Funding-Round-Led-by-Sony-Music-and-DNS-Capital) · [Loti × CMG Worldwide](https://www.prnewswire.com/news-releases/loti-selected-by-cmg-worldwide-to-protect-digital-likeness-of-legendary-talent-and-estates-302583610.html)
+- [Scaled Agile: Zertifizierungen und Partnermodell](https://scaledagile.com/certification/) · [Scaled Agile: Why Certify](https://legacy.scaledagile.com/certifications/certification-advantage/)
 - [VAUNET: Audio- und audiovisuelle Werbung in Deutschland 2025/2026](https://vau.net/wp-content/uploads/2026/05/VAUNET-Publikation_Audio-und-Audiovisuelle-Werbung-in-Deutschland-2025-2026.pdf) · [OVK-Prognose digitaler Werbemarkt 2026](https://www.absatzwirtschaft.de/ovk-prognose-digitaler-werbemarkt-knackt-2026-die-8-milliarden-marke-279714/) · [Statista: größte Werbefilmproduktionen in Deutschland](https://de.statista.com/statistik/daten/studie/192079/umfrage/die-groessten-werbefilmproduktionen-in-deutschland)
 
 ---
 
-*All unit economics, LTV/CAC figures and revenue paths in this document are modelled assumptions based on comparable business models, not observed data from Pushlabs. They are intended as targets to test, not forecasts to trust.*
+*Sämtliche Unit Economics, LTV/CAC-Werte und Umsatzpfade in diesem Dokument sind modellierte Annahmen auf Basis vergleichbarer Geschäftsmodelle — keine erhobenen Pushlabs-Daten. Sie sind Zielwerte zum Testen, keine Prognosen zum Vertrauen.*
