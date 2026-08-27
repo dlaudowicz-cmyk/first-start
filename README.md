@@ -9,7 +9,7 @@ It has two layers:
 - **Company layer** — the roof: ventures, people, contracts, access, tools, tasks
 - **Operations layer** — the work: clients, projects, offers, invoices, travel expenses
 
-Every venture (Pushlabs Studio, Backsley, the podcast, whatever comes next) runs **under the Pushlabs roof** and can be viewed in isolation or exported as a self-contained archive.
+Every venture (Pushlabs Studio, Bexly, the podcast, whatever comes next) runs **under the Pushlabs roof** and can be viewed in isolation or exported as a self-contained archive.
 
 ## Stack
 
@@ -126,7 +126,7 @@ PUSHLABS  (holding)
 ├── People · Contracts · Vault · Tools · Tasks     ← company-wide or venture-scoped
 └── Ventures
     ├── Pushlabs Studio ── clients · projects · offers · invoices · expenses
-    ├── Backsley ───────── clients · projects · offers · invoices · expenses
+    ├── Bexly ───────── clients · projects · offers · invoices · expenses
     └── Podcast ────────── …
 ```
 
@@ -135,7 +135,7 @@ PUSHLABS  (holding)
 `/ventures/<slug>/export` builds a ZIP containing everything that venture owns:
 
 ```
-backsley-export-2026-08-09.zip
+bexly-export-2026-08-09.zip
 ├── README.md                        overview, key figures, shared-record notes
 ├── data/*.json                      complete records, machine-readable
 ├── data/*.csv                       flat views for Excel / accounting

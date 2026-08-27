@@ -28,6 +28,7 @@ async function main() {
   await prisma.companySettings.create({
     data: {
       id: "singleton",
+      demoData: true,
       companyName: "Pushlabs",
       owner: "Daniel Laudowicz",
       tagline: "We make brands move",
@@ -62,10 +63,10 @@ async function main() {
     },
   });
 
-  const backsley = await prisma.venture.create({
+  const bexly = await prisma.venture.create({
     data: {
-      name: "Backsley",
-      slug: "backsley",
+      name: "Bexly",
+      slug: "bexly",
       kind: "brand",
       status: "incubating",
       tagline: "Own brand venture",
@@ -135,7 +136,7 @@ async function main() {
   await prisma.ventureMember.createMany({
     data: [
       { personId: daniel.id, ventureId: studio.id, role: "Executive Producer", allocation: 60 },
-      { personId: daniel.id, ventureId: backsley.id, role: "Owner", allocation: 20 },
+      { personId: daniel.id, ventureId: bexly.id, role: "Owner", allocation: 20 },
       { personId: daniel.id, ventureId: podcast.id, role: "Host & Producer", allocation: 20 },
       { personId: donPiz.id, ventureId: studio.id, role: "Technical Lead", allocation: 70 },
       { personId: donPiz.id, ventureId: podcast.id, role: "Technical Lead", allocation: 30 },
@@ -153,7 +154,7 @@ async function main() {
       address: "Industriestraße 22\n80331 München",
       vatId: "DE123456789",
       notes: "Premium electric vehicle launches. Prefers cinematic look.",
-      ventures: { create: [{ ventureId: studio.id }, { ventureId: backsley.id }] },
+      ventures: { create: [{ ventureId: studio.id }, { ventureId: bexly.id }] },
     },
   });
 
@@ -188,8 +189,8 @@ async function main() {
       companyName: "Poro Ventures",
       contactPerson: "Kickoff contact",
       address: "Berlin",
-      notes: "Met at kickoff event. Potential cooperation via Backsley.",
-      ventures: { create: [{ ventureId: backsley.id }] },
+      notes: "Met at kickoff event. Potential cooperation via Bexly.",
+      ventures: { create: [{ ventureId: bexly.id }] },
     },
   });
 
@@ -240,17 +241,17 @@ async function main() {
     },
   });
 
-  const backsleyProject = await prisma.project.create({
+  const bexlyProject = await prisma.project.create({
     data: {
-      title: "Backsley — Brand Launch Film",
+      title: "Bexly — Brand Launch Film",
       type: "AI film",
       status: "lead",
       location: "Remote / AI pipeline",
       budget: 15000,
-      notes: "First own-brand production under the Backsley venture.",
+      notes: "First own-brand production under the Bexly venture.",
       pipelineKey: "color-pipeline-v2",
       clientId: poro.id,
-      ventureId: backsley.id,
+      ventureId: bexly.id,
     },
   });
 
@@ -301,8 +302,8 @@ async function main() {
       vatRate: 19,
       status: "draft",
       clientId: poro.id,
-      projectId: backsleyProject.id,
-      ventureId: backsley.id,
+      projectId: bexlyProject.id,
+      ventureId: bexly.id,
       items: {
         create: [
           { position: 1, description: "AI-Konzept & Moodboard", quantity: 1, unit: "Pauschale", unitPrice: 2200 },
@@ -425,11 +426,11 @@ async function main() {
         notes: "Monatliche Miete. Kündigungsfrist 3 Monate zum Quartalsende.",
       },
       {
-        title: "NDA — Backsley Brand Development",
+        title: "NDA — Bexly Brand Development",
         type: "nda",
         counterparty: "Poro Ventures",
         status: "draft",
-        ventureId: backsley.id,
+        ventureId: bexly.id,
         clientId: poro.id,
       },
     ],

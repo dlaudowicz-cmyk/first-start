@@ -341,6 +341,10 @@ model Expense {
 
 model CompanySettings {
   id             String   @id @default("singleton")
+  /// True while the database still holds seeded demo records. The UI shows a
+  /// banner so figures from the seed can never be mistaken for real business
+  /// data — that mistake has been made once already.
+  demoData       Boolean  @default(false)
   companyName    String   @default("Pushlabs")
   owner          String   @default("Daniel Laudowicz")
   tagline        String?  @default("We make brands move")
