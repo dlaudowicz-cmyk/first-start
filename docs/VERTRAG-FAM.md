@@ -36,6 +36,25 @@ Code in diesem Repo — hier nur als Referenz festgehalten.
 - FAM kann bei Nicht-/Schlechterfüllung **fristlos** kündigen; danach entfallen Vergütungsansprüche
 - Kein Kündigungsschutz oder Gegenrecht für den Lehrbeauftragten im Vertrag genannt
 
+**Genauer Wortlaut §5(3):** "Bei Nicht- oder Schlechterfüllung der vertraglichen Vereinbarungen durch
+den Lehrbeauftragten sowie **aus sonstigen Gründen** kann der Vertrag von Seiten der Fernseh Akademie
+Mitteldeutschland gGmbH **ohne Frist gekündigt werden**. Somit entfallen auch Vergütungsansprüche für
+die Zeit nach der Kündigung."
+
+**Einseitigkeit im Detail — geprüft, Stand heute:**
+
+1. "Aus sonstigen Gründen" ist keine reine Für-Grund-Klausel, sondern ein Auffangtatbestand — kommt
+   faktisch einer freien Kündigung durch FAM gleich.
+2. "Ohne Frist" bedeutet sofortige Wirkung, keine Ankündigungsfrist.
+3. Keine Spiegelklausel im gesamten Dokument (§1–§6 geprüft): kein entsprechendes Recht für Daniel,
+   den Vertrag ebenso zu beenden, und keine Abfindung/Ausgleich bei FAM-seitiger Kündigung.
+4. In Kombination mit §5(1)–(2) (kein Anspruch auf Festanstellung auch bei durchgehender
+   Auftragsfolge) trägt Daniel das gesamte Beendigungsrisiko einseitig.
+
+→ Sinnvoller Ansatzpunkt für eine Nachverhandlung (per §6(1) nur schriftlich möglich): eine angemessene
+Kündigungsfrist auch für den Für-Grund-Fall, Eingrenzung von "aus sonstigen Gründen" auf konkret
+benannte Fälle, und/oder ein reziprokes Kündigungsrecht für den Lehrbeauftragten.
+
 ## Sonstiges (§6)
 
 - Nebenabreden/Änderungen nur schriftlich wirksam
