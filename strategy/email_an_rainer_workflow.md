@@ -12,7 +12,7 @@ Hey Rainer,
 
 bevor du bei RTL sitzt, will ich dir kurz zeigen, was ich technisch wirklich mache — nicht damit du es 1:1 erzählst, sondern damit du selbst einschätzen kannst, was du zeigen willst und was du dir für später aufhebst.
 
-**Was ich benutze:** Eine spezialisierte KI-Videoplattform. Ich lade Referenzbilder unserer Figuren hoch (Cal, Liv, Sammy usw.), und daraus entstehen Videos, in denen die Figuren konsistent aussehen — gleiches Design, gleicher Look, über beliebig viele Shots hinweg. Kein Zeichnen, kein Rigging, kein klassisches Rendering. Welche Plattform genau, sag ich dir gern mündlich — das will ich nicht schriftlich rumschicken.
+**Was ich benutze:** Zwei Ebenen. Das Gehirn dahinter ist Claude von Anthropic — darauf haben wir „Bexly OS" gebaut, ein System, das unseren kompletten Markenkern kennt (Figuren, Ton, Regeln, Canon) und damit Texte, Entscheidungen und Produktionsschritte konsistent hält. Für die eigentliche Bildgenerierung nutze ich daneben eine spezialisierte KI-Videoplattform: Ich lade Referenzbilder unserer Figuren hoch (Cal, Liv, Sammy usw.), und daraus entstehen Videos, in denen die Figuren konsistent aussehen — gleiches Design, gleicher Look, über beliebig viele Shots hinweg. Kein Zeichnen, kein Rigging, kein klassisches Rendering. Welche Plattform genau, sag ich dir gern mündlich — das will ich nicht schriftlich rumschicken.
 
 **Was schon bewiesen ist, nicht nur behauptet:**
 - Das Demo-Reel (Waldverfolgung + Cal, Liv, Sammy einzeln) — jede Maus hat einen eigenen Bewegungsstil, den ich gezielt reingeschrieben habe: Cal ängstlich-zittrig, Liv energisch-federnd, Sammy schwer-tollpatschig. Das funktioniert nachweislich.
