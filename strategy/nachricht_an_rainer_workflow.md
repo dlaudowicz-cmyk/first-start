@@ -53,6 +53,12 @@ Europa kostet am Markt 8.000–15.000 € pro Minute. Wir liegen also **grob
 behaupten. Genaue Stückpreise und welcher Anbieter dahintersteckt bespreche
 ich lieber persönlich mit dir als schriftlich.
 
+Wichtig dabei: Das ist der reine **Pushlabs-Herstellungspreis** — was es
+mich kostet, das Material zu produzieren. Drumrum kommt noch einiges, das
+hier nicht mitgerechnet ist: Infrastruktur, und das Team, das die Pipeline
+trägt (du, Sandro, ich). Das ist also die Produktionskosten-Basis, nicht
+der Preis, den irgendjemand am Ende zahlt.
+
 **Der eigentlich interessante Punkt für RTL:** Die Rechenleistung ist nicht
 der Flaschenhals — ich könnte mit meinem aktuellen Kontingent locker das
 Doppelte oder Dreifache produzieren. Der Flaschenhals bin **ich selbst**,

@@ -24,6 +24,8 @@ bevor du bei RTL sitzt, will ich dir kurz zeigen, was ich technisch wirklich mac
 **Die Zahlen, ehrlich — als Verhältnis, nicht als Preisliste:**
 Die reine Rechenleistung ist im Vergleich zur klassischen Produktion lächerlich günstig — wir reden über einen Bruchteil eines Cents pro Sekunde Rohmaterial. Aber das ist **nur die Rechenleistung**, nicht die Arbeit. Rechnet man meine eigene Zeit mit ein (ich muss ja trotzdem planen, prompten, aussuchen, schneiden), landen wir realistisch bei ca. 800–2.400 € pro fertiger Minute. Zum Vergleich: klassische Mittelklasse-3D-Animation in Europa kostet am Markt 8.000–15.000 € pro Minute. Wir liegen also **grob 4- bis 10-mal günstiger** — nicht hundertmal, das wäre unredlich zu behaupten. Genaue Stückpreise und welcher Anbieter dahintersteckt bespreche ich lieber persönlich mit dir als schriftlich.
 
+Wichtig dabei: Das ist der reine **Pushlabs-Herstellungspreis** — was es mich kostet, das Material zu produzieren. Drumrum kommt noch einiges, das hier nicht mitgerechnet ist: Infrastruktur, und das Team, das die Pipeline trägt (du, Sandro, ich). Das ist also die Produktionskosten-Basis, nicht der Preis, den irgendjemand am Ende zahlt.
+
 **Der eigentlich interessante Punkt für RTL:** Die Rechenleistung ist nicht der Flaschenhals — ich könnte mit meinem aktuellen Kontingent locker das Doppelte oder Dreifache produzieren. Der Flaschenhals bin **ich selbst**, meine Zeit. Das heißt: Skalierung passiert nicht über mehr Rechenpower, sondern über mehr Leute, die die Pipeline bedienen. Das ist ein anderes Investitionsargument als „gebt uns Geld für teure Animation" — eher „gebt uns ein kleines Team, das das hier professionell hochfährt".
 
 **Was noch nicht bewiesen ist — bitte nicht überversprechen:**
