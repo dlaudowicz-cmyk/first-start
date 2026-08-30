@@ -72,7 +72,7 @@ export default async function ContractsPage() {
 
       {contracts.length === 0 ? (
         <EmptyState
-          title="No contracts recorded"
+          title="Keine Verträge erfasst"
           description="Ersten Vertrag erfassen, um Konditionen und Fristen im Blick zu behalten."
           action={
             <Link href="/contracts/new" className="btn-primary">

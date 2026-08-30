@@ -95,7 +95,7 @@ export function ExpenseCalculator({ projects }: Props) {
 
         <div className="flex justify-end pt-2">
           <button type="submit" className="btn-primary" disabled={pending}>
-            {pending ? "Speichere…" : "Save expense"}
+            {pending ? "Speichere…" : "Spesen speichern"}
           </button>
         </div>
       </div>

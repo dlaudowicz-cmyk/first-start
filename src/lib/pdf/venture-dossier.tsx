@@ -91,7 +91,7 @@ export function VentureDossierPdf({
               <Text style={styles.holding}>{(holding?.companyName ?? "PUSHLABS").toUpperCase()}</Text>
             </>
           )}
-          <Text style={styles.sub}>Venture Dossier</Text>
+          <Text style={styles.sub}>Venture-Dossier</Text>
         </View>
 
         <Text style={styles.title}>{v.name}</Text>
@@ -102,39 +102,39 @@ export function VentureDossierPdf({
 
         {v.description && (
           <>
-            <Text style={styles.sectionTitle}>About</Text>
+            <Text style={styles.sectionTitle}>Kurzbeschreibung</Text>
             <Text style={styles.paragraph}>{v.description}</Text>
           </>
         )}
 
-        <Text style={styles.sectionTitle}>Key figures</Text>
+        <Text style={styles.sectionTitle}>Kennzahlen</Text>
         <Kv label="Revenue (paid Rechnungen)" value={fmt(s.revenuePaid)} />
         <Kv label="Open Rechnungen" value={fmt(s.revenueOpen)} />
         <Kv label="Angebots-Pipeline" value={fmt(s.offerPipeline)} />
-        <Kv label="Tool cost per month" value={fmt(s.toolCostPerMonth)} />
+        <Kv label="Werkzeugkosten pro Monat" value={fmt(s.toolCostPerMonth)} />
         <Kv
-          label="Invoicing period"
+          label="Abrechnungszeitraum"
           value={`${s.firstInvoice ? fmtDate(s.firstInvoice) : "—"} → ${s.lastInvoice ? fmtDate(s.lastInvoice) : "—"}`}
         />
         <Kv label="Gegründet" value={fmtDate(v.foundedAt)} />
 
-        <Text style={styles.sectionTitle}>Scope</Text>
+        <Text style={styles.sectionTitle}>Umfang</Text>
         <Kv
-          label="Clients"
-          value={`${s.clients}${s.sharedClients > 0 ? ` (${s.sharedClients} shared with other ventures)` : ""}`}
+          label="Kunden"
+          value={`${s.clients}${s.sharedClients > 0 ? ` (${s.sharedClients} auch in anderen Ventures)` : ""}`}
         />
-        <Kv label="Team members" value={String(s.teamSize)} />
-        <Kv label="Projects" value={String(s.projects)} />
-        <Kv label="Offers / Invoices" value={`${s.offers} / ${s.invoices}`} />
-        <Kv label="Contracts" value={String(s.contracts)} />
-        <Kv label="Tool subscriptions" value={String(s.tools)} />
-        <Kv label="Offene Aufgaben" value={`${s.openTasks} of ${s.tasks}`} />
+        <Kv label="Teamgröße" value={String(s.teamSize)} />
+        <Kv label="Projekte" value={String(s.projects)} />
+        <Kv label="Angebote / Rechnungen" value={`${s.offers} / ${s.invoices}`} />
+        <Kv label="Verträge" value={String(s.contracts)} />
+        <Kv label="Werkzeug-Abos" value={String(s.tools)} />
+        <Kv label="Offene Aufgaben" value={`${s.openTasks} von ${s.tasks}`} />
 
         <View style={styles.footer} fixed>
           <Text>
             {holding?.companyName ?? "Pushlabs"} · {v.name}
           </Text>
-          <Text>Confidential — internal venture dossier</Text>
+          <Text>Vertraulich — internes Venture-Dossier</Text>
         </View>
       </Page>
 
@@ -146,9 +146,9 @@ export function VentureDossierPdf({
           <>
             <View style={styles.thRow}>
               <Text style={[styles.th, styles.colWide]}>Name</Text>
-              <Text style={[styles.th, styles.colMed]}>Role in venture</Text>
-              <Text style={[styles.th, styles.colSmall]}>Type</Text>
-              <Text style={[styles.th, styles.colNum]}>Alloc.</Text>
+              <Text style={[styles.th, styles.colMed]}>Rolle im Venture</Text>
+              <Text style={[styles.th, styles.colSmall]}>Art</Text>
+              <Text style={[styles.th, styles.colNum]}>Anteil</Text>
             </View>
             {data.people.map((p) => (
               <View key={p.id} style={styles.row}>
@@ -167,22 +167,22 @@ export function VentureDossierPdf({
         ) : (
           <>
             <View style={styles.thRow}>
-              <Text style={[styles.th, styles.colWide]}>Company</Text>
-              <Text style={[styles.th, styles.colMed]}>Contact</Text>
-              <Text style={[styles.th, styles.colMed]}>VAT ID</Text>
-              <Text style={[styles.th, styles.colSmall]}>Shared</Text>
+              <Text style={[styles.th, styles.colWide]}>Firma</Text>
+              <Text style={[styles.th, styles.colMed]}>Kontakt</Text>
+              <Text style={[styles.th, styles.colMed]}>USt-IdNr.</Text>
+              <Text style={[styles.th, styles.colSmall]}>Geteilt</Text>
             </View>
             {data.clients.map((c) => (
               <View key={c.id} style={styles.row}>
                 <Text style={styles.colWide}>{c.companyName}</Text>
                 <Text style={styles.colMed}>{c.contactPerson || "—"}</Text>
                 <Text style={styles.colMed}>{c.vatId || "—"}</Text>
-                <Text style={styles.colSmall}>{c.shared ? "yes" : "no"}</Text>
+                <Text style={styles.colSmall}>{c.shared ? "ja" : "nein"}</Text>
               </View>
             ))}
             {sharedClients.length > 0 && (
               <Text style={styles.sharedNote}>
-                Shared clients are also active in:{" "}
+                Geteilte Kunden sind außerdem aktiv in:{" "}
                 {sharedClients.map((c) => `${c.companyName} → ${c.alsoInVentures.join(", ")}`).join(" · ")}
               </Text>
             )}
@@ -191,12 +191,12 @@ export function VentureDossierPdf({
 
         <Text style={styles.sectionTitle}>Projekte</Text>
         {data.projects.length === 0 ? (
-          <Text style={styles.paragraph}>No projects.</Text>
+          <Text style={styles.paragraph}>Keine Projekte.</Text>
         ) : (
           <>
             <View style={styles.thRow}>
-              <Text style={[styles.th, styles.colWide]}>Project</Text>
-              <Text style={[styles.th, styles.colMed]}>Client</Text>
+              <Text style={[styles.th, styles.colWide]}>Projekt</Text>
+              <Text style={[styles.th, styles.colMed]}>Kunde</Text>
               <Text style={[styles.th, styles.colSmall]}>Status</Text>
               <Text style={[styles.th, styles.colNum]}>Budget</Text>
             </View>
@@ -215,7 +215,7 @@ export function VentureDossierPdf({
           <Text>
             {holding?.companyName ?? "Pushlabs"} · {v.name}
           </Text>
-          <Text>Confidential — internal venture dossier</Text>
+          <Text>Vertraulich — internes Venture-Dossier</Text>
         </View>
       </Page>
 
@@ -226,8 +226,8 @@ export function VentureDossierPdf({
         ) : (
           <>
             <View style={styles.thRow}>
-              <Text style={[styles.th, styles.colMed]}>Number</Text>
-              <Text style={[styles.th, styles.colWide]}>Client</Text>
+              <Text style={[styles.th, styles.colMed]}>Nummer</Text>
+              <Text style={[styles.th, styles.colWide]}>Kunde</Text>
               <Text style={[styles.th, styles.colSmall]}>Status</Text>
               <Text style={[styles.th, styles.colNum]}>Netto</Text>
               <Text style={[styles.th, styles.colNum]}>Brutto</Text>
@@ -250,10 +250,10 @@ export function VentureDossierPdf({
         ) : (
           <>
             <View style={styles.thRow}>
-              <Text style={[styles.th, styles.colWide]}>Title</Text>
-              <Text style={[styles.th, styles.colMed]}>Counterparty</Text>
+              <Text style={[styles.th, styles.colWide]}>Titel</Text>
+              <Text style={[styles.th, styles.colMed]}>Vertragspartner</Text>
               <Text style={[styles.th, styles.colSmall]}>Status</Text>
-              <Text style={[styles.th, styles.colNum]}>Ends</Text>
+              <Text style={[styles.th, styles.colNum]}>Endet</Text>
             </View>
             {data.contracts.map((c) => (
               <View key={c.id} style={styles.row}>
@@ -266,7 +266,7 @@ export function VentureDossierPdf({
           </>
         )}
 
-        <Text style={styles.sectionTitle}>Access register</Text>
+        <Text style={styles.sectionTitle}>Zugangsverzeichnis</Text>
         <Text style={styles.paragraph}>
           {data.credentials.length} vault reference{data.credentials.length === 1 ? "" : "s"}. References only — no
           secret values are stored in the Pushlabs OS.
@@ -274,10 +274,10 @@ export function VentureDossierPdf({
         {data.credentials.length > 0 && (
           <>
             <View style={styles.thRow}>
-              <Text style={[styles.th, styles.colWide]}>Service</Text>
-              <Text style={[styles.th, styles.colMed]}>Secret lives in</Text>
-              <Text style={[styles.th, styles.colMed]}>Owner</Text>
-              <Text style={[styles.th, styles.colSmall]}>Criticality</Text>
+              <Text style={[styles.th, styles.colWide]}>Dienst</Text>
+              <Text style={[styles.th, styles.colMed]}>Secret liegt in</Text>
+              <Text style={[styles.th, styles.colMed]}>Verantwortlich</Text>
+              <Text style={[styles.th, styles.colSmall]}>Kritikalität</Text>
             </View>
             {data.credentials.map((c) => (
               <View key={c.id} style={styles.row}>
@@ -294,7 +294,7 @@ export function VentureDossierPdf({
           <Text>
             {holding?.companyName ?? "Pushlabs"} · {v.name}
           </Text>
-          <Text>Confidential — internal venture dossier</Text>
+          <Text>Vertraulich — internes Venture-Dossier</Text>
         </View>
       </Page>
     </Document>

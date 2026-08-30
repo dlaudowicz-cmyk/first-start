@@ -7,78 +7,78 @@ export function buildExportReadme(data: NonNullable<VentureExport>, generatedAt:
   const v = data.venture;
   const shared = data.clients.filter((c) => c.shared);
 
-  return `# ${v.name} — Venture Export
+  return `# ${v.name} — Venture-Export
 
-Generated: ${formatDate(generatedAt, { dateStyle: "long" })}
+Erstellt: ${formatDate(generatedAt, { dateStyle: "long" })}
 ${data.holding ? `Holding: ${data.holding.companyName} (${data.holding.owner})` : ""}
 
 ${v.tagline ? `> ${v.tagline}\n` : ""}
-## Profile
+## Profil
 
-| Field | Value |
+| Feld | Wert |
 |---|---|
 | Name | ${v.name} |
-| Slug | \`${v.slug}\` |
-| Kind | ${v.kind} |
+| Kürzel | \`${v.slug}\` |
+| Art | ${v.kind} |
 | Status | ${v.status} |
-| Founded | ${v.foundedAt ? formatDate(v.foundedAt) : "—"} |
+| Gegründet | ${v.foundedAt ? formatDate(v.foundedAt) : "—"} |
 
 ${v.description ? `${v.description}\n` : ""}
-## Key figures
+## Kennzahlen
 
-| Metric | Value |
+| Kennzahl | Wert |
 |---|---|
-| Revenue (paid invoices) | ${formatCurrency(s.revenuePaid)} |
-| Open invoices | ${formatCurrency(s.revenueOpen)} |
-| Offer pipeline | ${formatCurrency(s.offerPipeline)} |
-| Tool cost per month | ${formatCurrency(s.toolCostPerMonth)} |
-| Invoicing period | ${s.firstInvoice ? formatDate(s.firstInvoice) : "—"} → ${s.lastInvoice ? formatDate(s.lastInvoice) : "—"} |
+| Umsatz (bezahlte Rechnungen) | ${formatCurrency(s.revenuePaid)} |
+| Offene Rechnungen | ${formatCurrency(s.revenueOpen)} |
+| Angebots-Pipeline | ${formatCurrency(s.offerPipeline)} |
+| Werkzeugkosten pro Monat | ${formatCurrency(s.toolCostPerMonth)} |
+| Abrechnungszeitraum | ${s.firstInvoice ? formatDate(s.firstInvoice) : "—"} → ${s.lastInvoice ? formatDate(s.lastInvoice) : "—"} |
 
-## Contents
+## Inhalt
 
-| Records | Count |
+| Datensätze | Anzahl |
 |---|---|
-| Clients | ${s.clients}${s.sharedClients > 0 ? ` (${s.sharedClients} shared)` : ""} |
-| Team members | ${s.teamSize} |
-| Projects | ${s.projects} |
-| Offers | ${s.offers} |
-| Invoices | ${s.invoices} |
-| Contracts | ${s.contracts} |
-| Vault references | ${s.credentials} |
-| Tool subscriptions | ${s.tools} |
-| Tasks | ${s.tasks} (${s.openTasks} open) |
-| Project files | ${s.files} |
+| Kunden | ${s.clients}${s.sharedClients > 0 ? ` (${s.sharedClients} geteilt)` : ""} |
+| Teamgröße | ${s.teamSize} |
+| Projekte | ${s.projects} |
+| Angebote | ${s.offers} |
+| Rechnungen | ${s.invoices} |
+| Verträge | ${s.contracts} |
+| Zugangsverweise | ${s.credentials} |
+| Werkzeug-Abos | ${s.tools} |
+| Aufgaben | ${s.tasks} (${s.openTasks} offen) |
+| Projektdateien | ${s.files} |
 
-## Archive layout
+## Aufbau des Archivs
 
 \`\`\`
-README.md              this file
-data/*.json            complete records, machine-readable and re-importable
-data/*.csv             flat views for Excel / accounting
-documents/offers/      offer PDFs
-documents/invoices/    invoice PDFs
-documents/projects/    filed project documents, grouped by project and category
-zugferd/               structured invoice data, ready for ZUGFeRD XML mapping
+README.md              diese Datei
+data/*.json            vollständige Datensätze, maschinenlesbar
+data/*.csv             flache Sichten für Excel und Buchhaltung
+documents/offers/      Angebots-PDFs
+documents/invoices/    Rechnungs-PDFs
+documents/projects/    abgelegte Projektdokumente, nach Projekt und Kategorie
+zugferd/               strukturierte Rechnungsdaten, vorbereitet für ZUGFeRD-XML
 \`\`\`
 
 ${
   shared.length > 0
-    ? `## Shared records
+    ? `## Geteilte Datensätze
 
-${shared.length} client${shared.length === 1 ? " is" : "s are"} also active in other Pushlabs ventures. They are
-included here in full and flagged with \`"shared": true\` in \`data/clients.json\`:
+${shared.length} Kunde(n) sind auch in anderen Pushlabs-Ventures aktiv. Sie sind hier
+vollständig enthalten und markiert mit \`"shared": true\` in \`data/clients.json\`:
 
-${shared.map((c) => `- **${c.companyName}** — also in ${c.alsoInVentures.join(", ")}`).join("\n")}
+${shared.map((c) => `- **${c.companyName}** — außerdem in ${c.alsoInVentures.join(", ")}`).join("\n")}
 `
-    : `## Shared records
+    : `## Geteilte Datensätze
 
-No client of this venture is active in another Pushlabs venture — this export is fully self-contained.
+Kein Kunde dieses Ventures ist in einem anderen Pushlabs-Venture aktiv — dieser Export steht für sich.
 `
 }
-## Notes on the vault export
+## Hinweis zum Zugangsverzeichnis
 
-\`data/credentials.json\` contains **references only**: which service exists, who owns it, and where the secret is
-kept. No passwords, keys or tokens are stored in the Pushlabs OS database, so this archive cannot be used to gain
-access to any system.
+\`data/credentials.json\` enthält **nur Verweise**: welcher Dienst existiert, wer zuständig ist und wo das Secret liegt.
+Im Pushlabs OS werden keine Passwörter, Schlüssel oder Tokens gespeichert — dieses Archiv verschafft
+niemandem Zugang zu irgendeinem System.
 `;
 }

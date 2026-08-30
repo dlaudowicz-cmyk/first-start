@@ -4,7 +4,7 @@ import { ClientForm } from "../client-form";
 export default function NewClientPage() {
   return (
     <>
-      <PageHeader title="Neuer Kunde" description="Add a company to your client database." />
+      <PageHeader title="Neuer Kunde" description="Firma in die Kundendatenbank aufnehmen." />
       <ClientForm />
     </>
   );

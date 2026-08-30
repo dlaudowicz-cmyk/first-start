@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
+import { Download } from "lucide-react";
 import { useTransition } from "react";
 import { settingsSchema, type SettingsInput } from "@/lib/schemas";
 import { updateSettings, uploadLogo } from "./actions";
@@ -136,7 +137,22 @@ export function SettingsForm({ initial, logoPath }: Props) {
           </button>
         </form>
         <p className="text-[11px] text-ink-mute">
-          Logos are stored locally in <code className="font-mono">public/uploads</code>. PNG, JPG, SVG or WebP.
+          Logos liegen lokal in <code className="font-mono">public/uploads</code>. PNG, JPG, SVG oder WebP.
+        </p>
+      </aside>
+
+      <aside className="card p-6 h-fit space-y-3 lg:col-start-3">
+        <h3 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Sicherung</h3>
+        <p className="text-xs text-ink-mute">
+          Alle Firmendaten liegen in einer einzigen Datei auf diesem Rechner. Ohne Sicherung sind sie
+          weg, wenn der Rechner ausfällt.
+        </p>
+        <a href="/backup" className="btn-primary w-full">
+          <Download className="h-4 w-4" /> Sicherung herunterladen
+        </a>
+        <p className="text-[11px] text-ink-faint">
+          ZIP mit Datenbank und allen Projektdateien. Enthält Kundendaten und Bankverbindung im
+          Klartext — an einen Ort legen, den du kontrollierst.
         </p>
       </aside>
     </div>
