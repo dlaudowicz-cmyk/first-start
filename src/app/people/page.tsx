@@ -21,30 +21,30 @@ export default async function PeoplePage() {
   return (
     <>
       <PageHeader
-        title="People"
+        title="Personen"
         description={
           active
             ? `Team assigned to ${active.name}.`
-            : "Founders, employees, freelancers, partners and advisors across all ventures."
+            : "Gründer, Angestellte, Freelancer, Partner und Berater über alle Ventures."
         }
         actions={
           <Link href="/people/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> Add person
+            <Plus className="h-4 w-4" /> Person hinzufügen
           </Link>
         }
       />
 
       {people.length === 0 ? (
         <EmptyState
-          title={active ? `No one assigned to ${active.name}` : "No people yet"}
+          title={active ? `No one assigned to ${active.name}` : "Noch keine Personen"}
           description={
             active
-              ? "Assign someone from a person's detail page, or switch to All ventures."
-              : "Add the founders first, then freelancers and partners."
+              ? "Assign someone from a person's detail page, or switch to Alle Ventures."
+              : "Zuerst die Gründer, dann Freelancer und Partner."
           }
           action={
             <Link href="/people/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> Add person
+              <Plus className="h-4 w-4" /> Person hinzufügen
             </Link>
           }
         />
@@ -54,11 +54,11 @@ export default async function PeoplePage() {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Role</th>
-                <th>Type</th>
+                <th>Rolle</th>
+                <th>Art</th>
                 <th>Ventures</th>
-                <th>Contact</th>
-                <th className="text-right">Day rate</th>
+                <th>Kontakt</th>
+                <th className="text-right">Tagessatz</th>
                 <th>Status</th>
               </tr>
             </thead>

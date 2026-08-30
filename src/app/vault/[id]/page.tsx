@@ -36,16 +36,16 @@ export default async function CredentialDetailPage({ params }: { params: Promise
           <>
             {credential.url && (
               <a href={credential.url} target="_blank" rel="noreferrer" className="btn-secondary">
-                <ExternalLink className="h-4 w-4" /> Open
+                <ExternalLink className="h-4 w-4" /> Öffnen
               </a>
             )}
             <form action={handleRotate}>
               <button type="submit" className="btn-secondary">
-                <RotateCw className="h-4 w-4" /> Mark rotated today
+                <RotateCw className="h-4 w-4" /> Heute rotiert
               </button>
             </form>
             <Link href={`/vault/${credential.id}/edit`} className="btn-primary">
-              <Pencil className="h-4 w-4" /> Edit
+              <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
           </>
         }
@@ -54,18 +54,18 @@ export default async function CredentialDetailPage({ params }: { params: Promise
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-2">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Access record</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Zugangsdaten</h2>
             <StatusBadge status={credential.criticality} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Category" value={credential.category} />
+            <Row label="Kategorie" value={credential.category} />
             <Row label="Login" value={credential.identifier} />
             <Row label="URL" value={credential.url} />
             <Row label="Secret lives in" value={credential.storageLocation} />
-            <Row label="Vault path" value={credential.vaultRef} />
+            <Row label="Pfad im Tresor" value={credential.vaultRef} />
             <Row label="2FA lives in" value={credential.mfaLocation} />
-            <Row label="Shared with" value={credential.sharedWith} />
-            {credential.notes && <Row label="Notes" value={credential.notes} multiline />}
+            <Row label="Freigegeben für" value={credential.sharedWith} />
+            {credential.notes && <Row label="Notizen" value={credential.notes} multiline />}
           </dl>
           <p className="mt-4 pt-3 border-t border-line-soft text-xs text-ink-mute">
             No secret value is stored in this app — retrieve it from {credential.storageLocation}.
@@ -73,7 +73,7 @@ export default async function CredentialDetailPage({ params }: { params: Promise
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Ownership & rotation</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Verantwortung & Rotation</h2>
           <dl className="text-sm space-y-2">
             <div className="grid grid-cols-3 gap-2">
               <dt className="text-ink-mute">Owner</dt>
@@ -83,7 +83,7 @@ export default async function CredentialDetailPage({ params }: { params: Promise
                     {credential.owner.name}
                   </Link>
                 ) : (
-                  <span className="text-ink-faint">Unassigned</span>
+                  <span className="text-ink-faint">Nicht zugewiesen</span>
                 )}
               </dd>
             </div>
@@ -95,11 +95,11 @@ export default async function CredentialDetailPage({ params }: { params: Promise
                     {credential.venture.name}
                   </Link>
                 ) : (
-                  <span className="text-ink-faint">Company-wide</span>
+                  <span className="text-ink-faint">Unternehmensweit</span>
                 )}
               </dd>
             </div>
-            <Row label="Last rotated" value={credential.rotatedAt ? formatDate(credential.rotatedAt) : null} />
+            <Row label="Zuletzt rotiert" value={credential.rotatedAt ? formatDate(credential.rotatedAt) : null} />
             <Row
               label="Interval"
               value={credential.rotateEveryDays != null ? `every ${credential.rotateEveryDays} days` : null}

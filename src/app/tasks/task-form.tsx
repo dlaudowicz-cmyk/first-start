@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { taskSchema, type TaskInput } from "@/lib/schemas";
+import { de } from "@/lib/labels";
 import { TASK_PRIORITIES, TASK_STATUSES } from "@/lib/utils";
 import { Field, FormActions, FormSection } from "@/components/form-field";
 import { createTask, updateTask, deleteTask } from "./actions";
@@ -53,7 +54,7 @@ export function TaskForm({
 
   const handleDelete = () => {
     if (!initial?.id) return;
-    if (!confirm("Delete this task?")) return;
+    if (!confirm("Aufgabe löschen?")) return;
     startTransition(async () => {
       await deleteTask(initial.id!);
     });
@@ -62,42 +63,42 @@ export function TaskForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
       <FormSection>
-        <Field label="Title" error={errors.title?.message} className="md:col-span-2">
+        <Field label="Titel" error={errors.title?.message} className="md:col-span-2">
           <input className="input" {...register("title")} />
         </Field>
-        <Field label="Detail" error={errors.detail?.message} className="md:col-span-2">
+        <Field label="Details" error={errors.detail?.message} className="md:col-span-2">
           <textarea className="input min-h-[100px]" {...register("detail")} />
         </Field>
         <Field label="Status" error={errors.status?.message}>
-          <select className="input capitalize" {...register("status")}>
+          <select className="input" {...register("status")}>
             {TASK_STATUSES.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {de.taskStatus(s)}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Priority" error={errors.priority?.message}>
-          <select className="input capitalize" {...register("priority")}>
+        <Field label="Priorität" error={errors.priority?.message}>
+          <select className="input" {...register("priority")}>
             {TASK_PRIORITIES.map((p) => (
               <option key={p} value={p}>
-                {p}
+                {de.taskPriority(p)}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Due date" error={errors.dueDate?.message}>
+        <Field label="Fällig am" error={errors.dueDate?.message}>
           <input className="input" type="date" {...register("dueDate")} />
         </Field>
-        <Field label="Source" error={errors.source?.message} hint="e.g. the meeting this came from">
+        <Field label="Herkunft" error={errors.source?.message} hint="e.g. the meeting this came from">
           <input className="input" {...register("source")} />
         </Field>
       </FormSection>
 
       <FormSection title="Assignment">
-        <Field label="Assignee" error={errors.assigneeId?.message}>
+        <Field label="Zuständig" error={errors.assigneeId?.message}>
           <select className="input" {...register("assigneeId")}>
-            <option value="">Unassigned</option>
+            <option value="">Nicht zugewiesen</option>
             {people.map((p) => (
               <option key={p.id} value={p.id}>
                 {p.label}
@@ -106,7 +107,7 @@ export function TaskForm({
           </select>
         </Field>
         <Field
-          label="Assignee label"
+          label="Zuständig (frei)"
           error={errors.assigneeLabel?.message}
           hint='For groups or externals, e.g. "Die Gruppe"'
         >
@@ -114,7 +115,7 @@ export function TaskForm({
         </Field>
         <Field label="Venture" error={errors.ventureId?.message}>
           <select className="input" {...register("ventureId")}>
-            <option value="">Company-wide</option>
+            <option value="">Unternehmensweit</option>
             {ventures.map((v) => (
               <option key={v.id} value={v.id}>
                 {v.label}
@@ -138,7 +139,7 @@ export function TaskForm({
         cancelHref="/tasks"
         onDelete={isEdit ? handleDelete : undefined}
         pending={pending}
-        submitLabel={isEdit ? "Save changes" : "Add task"}
+        submitLabel={isEdit ? "Änderungen speichern" : "Aufgabe anlegen"}
       />
     </form>
   );

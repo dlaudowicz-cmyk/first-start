@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { personSchema, type PersonInput } from "@/lib/schemas";
+import { de } from "@/lib/labels";
 import { PERSON_STATUSES, PERSON_TYPES } from "@/lib/utils";
 import { Field, FormActions, FormSection } from "@/components/form-field";
 import { createPerson, updatePerson, deletePerson } from "./actions";
@@ -41,7 +42,7 @@ export function PersonForm({ initial }: { initial?: Partial<PersonInput> & { id?
 
   const handleDelete = () => {
     if (!initial?.id) return;
-    if (!confirm("Remove this person? Records they own stay but become unassigned.")) return;
+    if (!confirm("Person entfernen? Zugeordnete Einträge bleiben bestehen, verlieren aber die Zuordnung.")) return;
     startTransition(async () => {
       await deletePerson(initial.id!);
     });
@@ -53,43 +54,43 @@ export function PersonForm({ initial }: { initial?: Partial<PersonInput> & { id?
         <Field label="Name" error={errors.name?.message}>
           <input className="input" {...register("name")} />
         </Field>
-        <Field label="Role" error={errors.role?.message} hint="e.g. DOP, Editor, Executive Producer">
+        <Field label="Rolle" error={errors.role?.message} hint="e.g. DOP, Editor, Executive Producer">
           <input className="input" {...register("role")} />
         </Field>
-        <Field label="Type" error={errors.type?.message}>
-          <select className="input capitalize" {...register("type")}>
+        <Field label="Art" error={errors.type?.message}>
+          <select className="input" {...register("type")}>
             {PERSON_TYPES.map((t) => (
               <option key={t} value={t}>
-                {t}
+                {de.personType(t)}
               </option>
             ))}
           </select>
         </Field>
         <Field label="Status" error={errors.status?.message}>
-          <select className="input capitalize" {...register("status")}>
+          <select className="input" {...register("status")}>
             {PERSON_STATUSES.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {de.personStatus(s)}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Email" error={errors.email?.message}>
+        <Field label="E-Mail" error={errors.email?.message}>
           <input className="input" type="email" {...register("email")} />
         </Field>
-        <Field label="Phone" error={errors.phone?.message}>
+        <Field label="Telefon" error={errors.phone?.message}>
           <input className="input" {...register("phone")} />
         </Field>
-        <Field label="Location" error={errors.location?.message}>
+        <Field label="Drehort" error={errors.location?.message}>
           <input className="input" {...register("location")} />
         </Field>
-        <Field label="Day rate (€)" error={errors.dayRate?.message}>
+        <Field label="Tagessatz (€)" error={errors.dayRate?.message}>
           <input className="input" type="number" step="0.01" {...register("dayRate")} />
         </Field>
-        <Field label="Skills" error={errors.skills?.message} className="md:col-span-2" hint="Comma separated">
+        <Field label="Fähigkeiten" error={errors.skills?.message} className="md:col-span-2" hint="Komma-getrennt">
           <input className="input" {...register("skills")} />
         </Field>
-        <Field label="Notes" error={errors.notes?.message} className="md:col-span-2">
+        <Field label="Notizen" error={errors.notes?.message} className="md:col-span-2">
           <textarea className="input min-h-[90px]" {...register("notes")} />
         </Field>
       </FormSection>
@@ -98,8 +99,8 @@ export function PersonForm({ initial }: { initial?: Partial<PersonInput> & { id?
         cancelHref="/people"
         onDelete={isEdit ? handleDelete : undefined}
         pending={pending}
-        submitLabel={isEdit ? "Save changes" : "Add person"}
-        deleteLabel="Remove"
+        submitLabel={isEdit ? "Änderungen speichern" : "Person anlegen"}
+        deleteLabel="Entfernen"
       />
     </form>
   );

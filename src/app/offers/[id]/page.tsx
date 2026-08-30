@@ -28,10 +28,10 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
         actions={
           <>
             <a href={`/offers/${offer.id}/pdf`} target="_blank" rel="noreferrer" className="btn-secondary">
-              <Download className="h-4 w-4" /> Download PDF
+              <Download className="h-4 w-4" /> PDF herunterladen
             </a>
             <Link href={`/offers/${offer.id}/edit`} className="btn-primary">
-              <Pencil className="h-4 w-4" /> Edit
+              <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
           </>
         }
@@ -44,26 +44,26 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
             <StatusBadge status={offer.status} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Client" value={offer.client.companyName} />
+            <Row label="Kunde" value={offer.client.companyName} />
             <Row label="Project" value={offer.project?.title ?? null} />
-            <Row label="Date" value={formatDate(offer.date)} />
-            <Row label="Valid until" value={offer.validUntil ? formatDate(offer.validUntil) : null} />
+            <Row label="Datum" value={formatDate(offer.date)} />
+            <Row label="Gültig bis" value={offer.validUntil ? formatDate(offer.validUntil) : null} />
             <Row label="VAT rate" value={`${offer.vatRate}%`} />
-            {offer.paymentTerms && <Row label="Payment terms" value={offer.paymentTerms} multiline />}
-            {offer.notes && <Row label="Notes" value={offer.notes} multiline />}
+            {offer.paymentTerms && <Row label="Zahlungsbedingungen" value={offer.paymentTerms} multiline />}
+            {offer.notes && <Row label="Notizen" value={offer.notes} multiline />}
           </dl>
         </section>
 
         <section className="card p-5 lg:col-span-2">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Line items</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Positionen</h2>
           <table className="table-base">
             <thead>
               <tr>
                 <th className="w-10">#</th>
-                <th>Description</th>
-                <th className="text-right w-24">Qty</th>
-                <th className="text-right w-28">Unit price</th>
-                <th className="text-right w-32">Line total</th>
+                <th>Leistung</th>
+                <th className="text-right w-24">Menge</th>
+                <th className="text-right w-28">Einzelpreis</th>
+                <th className="text-right w-32">Summe</th>
               </tr>
             </thead>
             <tbody>
@@ -84,7 +84,7 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
           <div className="mt-5 flex justify-end">
             <div className="w-72 space-y-1.5 text-sm">
               <div className="flex justify-between">
-                <span className="text-ink-mute">Net</span>
+                <span className="text-ink-mute">Netto</span>
                 <span className="tabular-nums">{formatCurrency(totals.net)}</span>
               </div>
               <div className="flex justify-between">
@@ -92,7 +92,7 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
                 <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
               </div>
               <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">
-                <span>Gross</span>
+                <span>Brutto</span>
                 <span className="tabular-nums">{formatCurrency(totals.gross)}</span>
               </div>
             </div>

@@ -15,7 +15,7 @@ export default async function NewContractPage() {
 
   return (
     <>
-      <PageHeader title="Add contract" description="Record terms, dates and notice periods so renewals never surprise you." />
+      <PageHeader title="Vertrag hinzufügen" description="Konditionen, Termine und Kündigungsfristen festhalten, damit keine Verlängerung überrascht." />
       <ContractForm
         ventures={ventures.map((v) => ({ id: v.id, label: v.name }))}
         clients={clients.map((c) => ({ id: c.id, label: c.companyName }))}

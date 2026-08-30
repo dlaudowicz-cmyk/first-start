@@ -15,7 +15,7 @@ export default async function NewTaskPage() {
 
   return (
     <>
-      <PageHeader title="Add task" description="An action item with an owner and, ideally, a due date." />
+      <PageHeader title="Aufgabe hinzufügen" description="Eine Aufgabe mit Zuständigkeit und möglichst einem Termin." />
       <TaskForm
         ventures={ventures.map((v) => ({ id: v.id, label: v.name }))}
         people={people.map((p) => ({ id: p.id, label: p.name }))}

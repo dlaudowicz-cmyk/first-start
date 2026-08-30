@@ -25,7 +25,7 @@ const ICONS = {
   clients: Users,
   projects: Clapperboard,
   offers: FileText,
-  invoices: ReceiptEuro,
+  Rechnungen: ReceiptEuro,
   expenses: Plane,
   ventures: Layers,
   people: Contact,
@@ -41,32 +41,32 @@ type IconKey = keyof typeof ICONS;
 
 const SECTIONS: Array<{ label: string | null; items: Array<{ href: string; label: string; icon: IconKey }> }> = [
   {
-    label: "Operations",
+    label: "Betrieb",
     items: [
-      { href: "/", label: "Dashboard", icon: "dashboard" },
-      { href: "/clients", label: "Clients", icon: "clients" },
-      { href: "/projects", label: "Projects", icon: "projects" },
-      { href: "/offers", label: "Offers", icon: "offers" },
-      { href: "/invoices", label: "Invoices", icon: "invoices" },
-      { href: "/expenses", label: "Travel & Spesen", icon: "expenses" },
+      { href: "/", label: "Übersicht", icon: "dashboard" },
+      { href: "/clients", label: "Kunden", icon: "clients" },
+      { href: "/projects", label: "Projekte", icon: "projects" },
+      { href: "/offers", label: "Angebote", icon: "offers" },
+      { href: "/Rechnungen", label: "Rechnungen", icon: "Rechnungen" },
+      { href: "/expenses", label: "Reisen & Spesen", icon: "expenses" },
     ],
   },
   {
-    label: "Company",
+    label: "Unternehmen",
     items: [
       { href: "/ventures", label: "Ventures", icon: "ventures" },
-      { href: "/people", label: "People", icon: "people" },
-      { href: "/contracts", label: "Contracts", icon: "contracts" },
-      { href: "/vault", label: "Vault", icon: "vault" },
-      { href: "/tools", label: "Tools & SaaS", icon: "tools" },
-      { href: "/tasks", label: "Tasks", icon: "tasks" },
+      { href: "/people", label: "Personen", icon: "people" },
+      { href: "/contracts", label: "Verträge", icon: "contracts" },
+      { href: "/vault", label: "Zugänge", icon: "vault" },
+      { href: "/tools", label: "Werkzeuge & Abos", icon: "tools" },
+      { href: "/tasks", label: "Aufgaben", icon: "tasks" },
     ],
   },
   {
     label: null,
     items: [
-      { href: "/assistant", label: "AI Assistant", icon: "assistant" },
-      { href: "/settings", label: "Settings", icon: "settings" },
+      { href: "/assistant", label: "KI-Assistent", icon: "assistant" },
+      { href: "/settings", label: "Einstellungen", icon: "settings" },
     ],
   },
 ];

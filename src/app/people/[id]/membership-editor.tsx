@@ -43,21 +43,21 @@ export function MembershipEditor({
     });
   };
 
-  const unassigned = ventures.filter((v) => !memberships.some((m) => m.ventureName === v.name));
+  const nichtZugeordnet = ventures.filter((v) => !memberships.some((m) => m.ventureName === v.name));
 
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Venture assignments</h2>
-        {!adding && unassigned.length > 0 && (
+        <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Venture-Zuordnung</h2>
+        {!adding && nichtZugeordnet.length > 0 && (
           <button type="button" onClick={() => setAdding(true)} className="btn-secondary text-xs">
-            <Plus className="h-3.5 w-3.5" /> Assign
+            <Plus className="h-3.5 w-3.5" /> Zuordnen
           </button>
         )}
       </div>
 
       {memberships.length === 0 && !adding && (
-        <p className="text-sm text-ink-mute">Not assigned to any venture yet.</p>
+        <p className="text-sm text-ink-mute">Noch keinem Venture zugeordnet.</p>
       )}
 
       <ul className="divide-y divide-line-soft">
@@ -100,8 +100,8 @@ export function MembershipEditor({
           <div>
             <label className="label">Venture</label>
             <select className="input" value={ventureId} onChange={(e) => setVentureId(e.target.value)}>
-              <option value="">Select…</option>
-              {unassigned.map((v) => (
+              <option value="">Auswählen…</option>
+              {nichtZugeordnet.map((v) => (
                 <option key={v.id} value={v.id}>
                   {v.name}
                 </option>
@@ -131,7 +131,7 @@ export function MembershipEditor({
               Cancel
             </button>
             <button type="button" className="btn-primary text-xs" onClick={submit} disabled={pending}>
-              {pending ? "Saving…" : "Assign"}
+              {pending ? "Speichere…" : "Assign"}
             </button>
           </div>
         </div>

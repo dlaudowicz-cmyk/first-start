@@ -6,6 +6,7 @@ import { StatusBadge } from "@/components/status-badge";
 import { EmptyState } from "@/components/empty-state";
 import { calculateTotals } from "@/lib/calculations";
 import { formatCurrency } from "@/lib/utils";
+import { de } from "@/lib/labels";
 
 export const dynamic = "force-dynamic";
 
@@ -22,21 +23,21 @@ export default async function VenturesPage() {
     <>
       <PageHeader
         title="Ventures"
-        description="Every business line under the Pushlabs roof. Switch scope in the sidebar to work inside one venture."
+        description="Jede Geschäftslinie unter dem Pushlabs-Dach. Über die Leiste links auf ein Venture umschalten."
         actions={
           <Link href="/ventures/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> New venture
+            <Plus className="h-4 w-4" /> Neues Venture
           </Link>
         }
       />
 
       {ventures.length === 0 ? (
         <EmptyState
-          title="No ventures yet"
+          title="Noch keine Ventures"
           description="Create your first venture — e.g. Pushlabs Studio or Backsley."
           action={
             <Link href="/ventures/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> New venture
+              <Plus className="h-4 w-4" /> Neues Venture
             </Link>
           }
         />
@@ -65,7 +66,7 @@ export default async function VenturesPage() {
                     />
                     <div className="min-w-0">
                       <div className="font-medium truncate">{v.name}</div>
-                      <div className="text-xs text-ink-mute capitalize">{v.kind}</div>
+                      <div className="text-xs text-ink-mute">{de.ventureKind(v.kind)}</div>
                     </div>
                   </div>
                   <StatusBadge status={v.status} />

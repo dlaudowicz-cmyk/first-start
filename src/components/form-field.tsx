@@ -54,7 +54,7 @@ export function FormActions({
   onDelete,
   pending,
   submitLabel,
-  deleteLabel = "Delete",
+  deleteLabel = "Löschen",
 }: {
   cancelHref: string;
   onDelete?: () => void;
@@ -75,7 +75,7 @@ export function FormActions({
         )}
       </div>
       <button type="submit" className="btn-primary" disabled={pending}>
-        {pending ? "Saving…" : submitLabel}
+        {pending ? "Speichere…" : submitLabel}
       </button>
     </div>
   );

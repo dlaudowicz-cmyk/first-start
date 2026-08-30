@@ -43,44 +43,44 @@ export function SettingsForm({ initial, logoPath }: Props) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl">
       <form onSubmit={handleSubmit(onSubmit)} className="lg:col-span-2 space-y-6">
-        <Section title="Company">
-          <Field label="Company name" error={errors.companyName?.message}>
+        <Section title="Unternehmen">
+          <Field label="Firma" error={errors.companyName?.message}>
             <input className="input" {...register("companyName")} />
           </Field>
-          <Field label="Owner" error={errors.owner?.message}>
+          <Field label="Inhaber" error={errors.owner?.message}>
             <input className="input" {...register("owner")} />
           </Field>
-          <Field label="Tagline" error={errors.tagline?.message} full>
+          <Field label="Claim" error={errors.tagline?.message} full>
             <input className="input" placeholder="We make brands move" {...register("tagline")} />
           </Field>
-          <Field label="Email" error={errors.email?.message}>
+          <Field label="E-Mail" error={errors.email?.message}>
             <input className="input" type="email" {...register("email")} />
           </Field>
-          <Field label="Phone" error={errors.phone?.message}>
+          <Field label="Telefon" error={errors.phone?.message}>
             <input className="input" {...register("phone")} />
           </Field>
           <Field label="Website" error={errors.website?.message}>
             <input className="input" {...register("website")} />
           </Field>
-          <Field label="Address" full>
+          <Field label="Anschrift" full>
             <textarea className="input min-h-[80px]" {...register("address")} />
           </Field>
         </Section>
 
-        <Section title="Tax">
-          <Field label="Tax number" error={errors.taxNumber?.message}>
+        <Section title="Steuer">
+          <Field label="Steuernummer" error={errors.taxNumber?.message}>
             <input className="input" {...register("taxNumber")} />
           </Field>
-          <Field label="VAT ID" error={errors.vatId?.message}>
+          <Field label="USt-IdNr." error={errors.vatId?.message}>
             <input className="input" {...register("vatId")} />
           </Field>
-          <Field label="Default VAT %" error={errors.defaultVatRate?.message}>
+          <Field label="USt-Satz %" error={errors.defaultVatRate?.message}>
             <input className="input" type="number" step="0.01" {...register("defaultVatRate")} />
           </Field>
         </Section>
 
-        <Section title="Banking">
-          <Field label="Bank name" error={errors.bankName?.message}>
+        <Section title="Bankverbindung">
+          <Field label="Bank" error={errors.bankName?.message}>
             <input className="input" {...register("bankName")} />
           </Field>
           <Field label="IBAN" error={errors.iban?.message}>
@@ -91,24 +91,24 @@ export function SettingsForm({ initial, logoPath }: Props) {
           </Field>
         </Section>
 
-        <Section title="Numbering">
-          <Field label="Invoice prefix" error={errors.invoicePrefix?.message}>
+        <Section title="Nummernkreise">
+          <Field label="Rechnungs-Präfix" error={errors.invoicePrefix?.message}>
             <input className="input" {...register("invoicePrefix")} />
           </Field>
-          <Field label="Next invoice number" error={errors.nextInvoiceNo?.message}>
+          <Field label="Nächste Rechnungsnr." error={errors.nextInvoiceNo?.message}>
             <input className="input" type="number" {...register("nextInvoiceNo")} />
           </Field>
-          <Field label="Offer prefix" error={errors.offerPrefix?.message}>
+          <Field label="Angebots-Präfix" error={errors.offerPrefix?.message}>
             <input className="input" {...register("offerPrefix")} />
           </Field>
-          <Field label="Next offer number" error={errors.nextOfferNo?.message}>
+          <Field label="Nächste Angebotsnr." error={errors.nextOfferNo?.message}>
             <input className="input" type="number" {...register("nextOfferNo")} />
           </Field>
         </Section>
 
         <div className="flex justify-end">
           <button type="submit" className="btn-primary" disabled={pending}>
-            {pending ? "Saving…" : "Save settings"}
+            {pending ? "Speichere…" : "Einstellungen speichern"}
           </button>
         </div>
       </form>
@@ -126,13 +126,13 @@ export function SettingsForm({ initial, logoPath }: Props) {
               unoptimized
             />
           ) : (
-            <span className="text-ink-faint text-sm">No logo uploaded</span>
+            <span className="text-ink-faint text-sm">Kein Logo hinterlegt</span>
           )}
         </div>
         <form onSubmit={onLogoSubmit} className="space-y-3">
           <input type="file" name="logo" accept="image/*" className="text-xs w-full text-ink-mute file:mr-3 file:rounded-md file:border-0 file:bg-surface-3 file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-ink hover:file:bg-line file:cursor-pointer" />
           <button type="submit" className="btn-secondary w-full" disabled={pending}>
-            {pending ? "Uploading…" : "Upload logo"}
+            {pending ? "Lade hoch…" : "Logo hochladen"}
           </button>
         </form>
         <p className="text-[11px] text-ink-mute">

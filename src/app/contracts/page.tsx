@@ -30,15 +30,15 @@ export default async function ContractsPage() {
   return (
     <>
       <PageHeader
-        title="Contracts"
+        title="Verträge"
         description={
           active
             ? `Contract register for ${active.name}.`
-            : "Every agreement Pushlabs is party to — clients, freelancers, cooperations, leases."
+            : "Jede Vereinbarung, an der Pushlabs beteiligt ist — Kunden, Freelance, Kooperationen, Miete."
         }
         actions={
           <Link href="/contracts/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> Add contract
+            <Plus className="h-4 w-4" /> Vertrag hinzufügen
           </Link>
         }
       />
@@ -59,8 +59,8 @@ export default async function ContractsPage() {
                       <Link href={`/contracts/${c.id}`} className="underline hover:no-underline">
                         {c.title}
                       </Link>{" "}
-                      — {d < 0 ? `${Math.abs(d)} days overdue` : `in ${d} days`}
-                      {c.noticePeriodDays ? ` · ${c.noticePeriodDays} days notice` : ""}
+                      — {d < 0 ? `${Math.abs(d)} Tage überfällig` : `in ${d} days`}
+                      {c.noticePeriodDays ? ` · ${c.noticePeriodDays} Tage Kündigungsfrist` : ""}
                     </li>
                   );
                 })}
@@ -73,10 +73,10 @@ export default async function ContractsPage() {
       {contracts.length === 0 ? (
         <EmptyState
           title="No contracts recorded"
-          description="Add your first contract to keep track of terms and renewal dates."
+          description="Ersten Vertrag erfassen, um Konditionen und Fristen im Blick zu behalten."
           action={
             <Link href="/contracts/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> Add contract
+              <Plus className="h-4 w-4" /> Vertrag hinzufügen
             </Link>
           }
         />
@@ -85,13 +85,13 @@ export default async function ContractsPage() {
           <table className="table-base">
             <thead>
               <tr>
-                <th>Contract</th>
-                <th>Type</th>
-                <th>Counterparty</th>
+                <th>Vertrag</th>
+                <th>Art</th>
+                <th>Vertragspartner</th>
                 {!active && <th>Venture</th>}
-                <th>Term</th>
+                <th>Laufzeit</th>
                 <th>Status</th>
-                <th className="text-right">Value</th>
+                <th className="text-right">Wert</th>
               </tr>
             </thead>
             <tbody>

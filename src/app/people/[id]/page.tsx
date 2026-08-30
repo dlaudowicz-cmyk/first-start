@@ -33,7 +33,7 @@ export default async function PersonDetailPage({ params }: { params: Promise<{ i
         description={person.role ?? undefined}
         actions={
           <Link href={`/people/${person.id}/edit`} className="btn-primary">
-            <Pencil className="h-4 w-4" /> Edit
+            <Pencil className="h-4 w-4" /> Bearbeiten
           </Link>
         }
       />
@@ -45,13 +45,13 @@ export default async function PersonDetailPage({ params }: { params: Promise<{ i
             <StatusBadge status={person.status} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Type" value={person.type} />
-            <Row label="Email" value={person.email} />
-            <Row label="Phone" value={person.phone} />
-            <Row label="Location" value={person.location} />
+            <Row label="Art" value={person.type} />
+            <Row label="E-Mail" value={person.email} />
+            <Row label="Telefon" value={person.phone} />
+            <Row label="Drehort" value={person.location} />
             <Row label="Day rate" value={person.dayRate != null ? formatCurrency(person.dayRate) : null} />
-            <Row label="Skills" value={person.skills} />
-            {person.notes && <Row label="Notes" value={person.notes} multiline />}
+            <Row label="Fähigkeiten" value={person.skills} />
+            {person.notes && <Row label="Notizen" value={person.notes} multiline />}
           </dl>
         </section>
 
@@ -70,9 +70,9 @@ export default async function PersonDetailPage({ params }: { params: Promise<{ i
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Open tasks</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Offene Aufgaben</h2>
           {person.tasks.length === 0 ? (
-            <p className="text-sm text-ink-mute">Nothing assigned.</p>
+            <p className="text-sm text-ink-mute">Nichts zugewiesen.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {person.tasks.map((t) => (
@@ -95,7 +95,7 @@ export default async function PersonDetailPage({ params }: { params: Promise<{ i
             Owned accesses &amp; tools
           </h2>
           {person.ownedCredentials.length === 0 && person.ownedTools.length === 0 ? (
-            <p className="text-sm text-ink-mute">Nothing owned.</p>
+            <p className="text-sm text-ink-mute">Nichts zugeordnet.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
               <div>
@@ -129,9 +129,9 @@ export default async function PersonDetailPage({ params }: { params: Promise<{ i
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Contracts</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Verträge</h2>
           {person.contracts.length === 0 ? (
-            <p className="text-sm text-ink-mute">No contracts.</p>
+            <p className="text-sm text-ink-mute">Keine Verträge.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {person.contracts.map((c) => (

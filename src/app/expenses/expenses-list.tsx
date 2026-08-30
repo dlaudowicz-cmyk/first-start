@@ -25,11 +25,11 @@ export function ExpensesList({ rows }: { rows: Row[] }) {
       <table className="table-base">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Project</th>
-            <th className="text-right">People</th>
-            <th>Meals</th>
-            <th className="text-right">Total</th>
+            <th>Datum</th>
+            <th>Projekt</th>
+            <th className="text-right">Personen</th>
+            <th>Mahlzeiten</th>
+            <th className="text-right">Summe</th>
             <th></th>
           </tr>
         </thead>
@@ -52,12 +52,12 @@ export function ExpensesList({ rows }: { rows: Row[] }) {
                   className="btn-ghost text-danger hover:bg-danger/10"
                   disabled={pending}
                   onClick={() => {
-                    if (!confirm("Delete this expense?")) return;
+                    if (!confirm("Spesen-Eintrag löschen?")) return;
                     start(async () => {
                       await deleteExpense(r.id);
                     });
                   }}
-                  aria-label="Delete"
+                  aria-label="Löschen"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>

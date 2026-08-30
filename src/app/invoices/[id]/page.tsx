@@ -33,21 +33,21 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
         description={`${invoice.client.companyName} · ${formatDate(invoice.date)}`}
         actions={
           <>
-            <a href={`/invoices/${invoice.id}/zugferd.json`} target="_blank" rel="noreferrer" className="btn-secondary">
-              <FileJson className="h-4 w-4" /> ZUGFeRD JSON
+            <a href={`/Rechnungen/${invoice.id}/zugferd.json`} target="_blank" rel="noreferrer" className="btn-secondary">
+              <FileJson className="h-4 w-4" /> ZUGFeRD-JSON
             </a>
-            <a href={`/invoices/${invoice.id}/pdf`} target="_blank" rel="noreferrer" className="btn-secondary">
-              <Download className="h-4 w-4" /> Download PDF
+            <a href={`/Rechnungen/${invoice.id}/pdf`} target="_blank" rel="noreferrer" className="btn-secondary">
+              <Download className="h-4 w-4" /> PDF herunterladen
             </a>
             {invoice.status !== "paid" && (
               <form action={handleMarkPaid}>
                 <button type="submit" className="btn-secondary">
-                  <CheckCircle2 className="h-4 w-4" /> Mark paid
+                  <CheckCircle2 className="h-4 w-4" /> Als bezahlt markieren
                 </button>
               </form>
             )}
-            <Link href={`/invoices/${invoice.id}/edit`} className="btn-primary">
-              <Pencil className="h-4 w-4" /> Edit
+            <Link href={`/Rechnungen/${invoice.id}/edit`} className="btn-primary">
+              <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
           </>
         }
@@ -60,27 +60,27 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
             <StatusBadge status={invoice.status} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Client" value={invoice.client.companyName} />
+            <Row label="Kunde" value={invoice.client.companyName} />
             <Row label="Project" value={invoice.project?.title ?? null} />
-            <Row label="Invoice date" value={formatDate(invoice.date)} />
-            <Row label="Due date" value={invoice.dueDate ? formatDate(invoice.dueDate) : null} />
+            <Row label="Rechnungsdatum" value={formatDate(invoice.date)} />
+            <Row label="Fällig am" value={invoice.dueDate ? formatDate(invoice.dueDate) : null} />
             <Row label="VAT rate" value={`${invoice.vatRate}%`} />
             {invoice.paidAt && <Row label="Paid on" value={formatDate(invoice.paidAt)} />}
-            {invoice.paymentTerms && <Row label="Payment terms" value={invoice.paymentTerms} multiline />}
-            {invoice.notes && <Row label="Notes" value={invoice.notes} multiline />}
+            {invoice.paymentTerms && <Row label="Zahlungsbedingungen" value={invoice.paymentTerms} multiline />}
+            {invoice.notes && <Row label="Notizen" value={invoice.notes} multiline />}
           </dl>
         </section>
 
         <section className="card p-5 lg:col-span-2">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Line items</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Positionen</h2>
           <table className="table-base">
             <thead>
               <tr>
                 <th className="w-10">#</th>
-                <th>Description</th>
-                <th className="text-right w-24">Qty</th>
-                <th className="text-right w-28">Unit price</th>
-                <th className="text-right w-32">Line total</th>
+                <th>Leistung</th>
+                <th className="text-right w-24">Menge</th>
+                <th className="text-right w-28">Einzelpreis</th>
+                <th className="text-right w-32">Summe</th>
               </tr>
             </thead>
             <tbody>
@@ -101,7 +101,7 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
           <div className="mt-5 flex justify-end">
             <div className="w-72 space-y-1.5 text-sm">
               <div className="flex justify-between">
-                <span className="text-ink-mute">Net</span>
+                <span className="text-ink-mute">Netto</span>
                 <span className="tabular-nums">{formatCurrency(totals.net)}</span>
               </div>
               <div className="flex justify-between">
@@ -109,7 +109,7 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
                 <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
               </div>
               <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">
-                <span>Gross</span>
+                <span>Brutto</span>
                 <span className="tabular-nums">{formatCurrency(totals.gross)}</span>
               </div>
             </div>

@@ -46,35 +46,35 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         actions={
           <>
             <a href={`/ventures/${venture.slug}/dossier`} target="_blank" rel="noreferrer" className="btn-secondary">
-              <FileText className="h-4 w-4" /> Dossier PDF
+              <FileText className="h-4 w-4" /> Dossier-PDF
             </a>
             <a href={`/ventures/${venture.slug}/export`} className="btn-secondary">
-              <Archive className="h-4 w-4" /> Export ZIP
+              <Archive className="h-4 w-4" /> Export (ZIP)
             </a>
             <Link href={`/ventures/${venture.slug}/edit`} className="btn-primary">
-              <Pencil className="h-4 w-4" /> Edit
+              <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
           </>
         }
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Stat label="Revenue paid" value={formatCurrency(paid)} hint={`${venture.invoices.length} invoices`} />
-        <Stat label="Open invoices" value={formatCurrency(open)} />
-        <Stat label="Offer pipeline" value={formatCurrency(pipeline)} hint={`${venture.offers.length} offers`} />
-        <Stat label="Tool cost / month" value={formatCurrency(toolCost)} hint={`${venture.tools.length} subscriptions`} />
+        <Stat label="Umsatz bezahlt" value={formatCurrency(paid)} hint={`${venture.invoices.length} Rechnungen`} />
+        <Stat label="Open Rechnungen" value={formatCurrency(open)} />
+        <Stat label="Angebots-Pipeline" value={formatCurrency(pipeline)} hint={`${venture.offers.length} offers`} />
+        <Stat label="Werkzeugkosten / Monat" value={formatCurrency(toolCost)} hint={`${venture.tools.length} subscriptions`} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Profile</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Profil</h2>
             <StatusBadge status={venture.status} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Kind" value={venture.kind} />
-            <Row label="Slug" value={venture.slug} />
-            <Row label="Founded" value={venture.foundedAt ? formatDate(venture.foundedAt) : null} />
+            <Row label="Art" value={venture.kind} />
+            <Row label="Kürzel" value={venture.slug} />
+            <Row label="Gegründet" value={venture.foundedAt ? formatDate(venture.foundedAt) : null} />
             {venture.description && <Row label="About" value={venture.description} multiline />}
           </dl>
         </section>
@@ -83,7 +83,7 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
           <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Team</h2>
           {venture.members.length === 0 ? (
             <p className="text-sm text-ink-mute">
-              No one assigned.{" "}
+              Niemand zugeordnet.{" "}
               <Link href="/people" className="underline hover:no-underline">
                 Assign people
               </Link>
@@ -109,9 +109,9 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Clients</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Kunden</h2>
           {venture.clients.length === 0 ? (
-            <p className="text-sm text-ink-mute">No clients linked.</p>
+            <p className="text-sm text-ink-mute">Keine Kunden verknüpft.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {venture.clients.map((cv) => (
@@ -129,9 +129,9 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5 lg:col-span-2">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Projects</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Projekte</h2>
           {venture.projects.length === 0 ? (
-            <p className="text-sm text-ink-mute">No projects yet.</p>
+            <p className="text-sm text-ink-mute">Noch keine Projekte.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {venture.projects.map((p) => (
@@ -153,9 +153,9 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Open tasks</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Offene Aufgaben</h2>
           {venture.tasks.length === 0 ? (
-            <p className="text-sm text-ink-mute">Nothing open.</p>
+            <p className="text-sm text-ink-mute">Nichts offen.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {venture.tasks.map((t) => (
@@ -164,7 +164,7 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
                     {t.title}
                   </Link>
                   <div className="text-xs text-ink-mute">
-                    {t.dueDate ? formatDate(t.dueDate) : "no due date"}
+                    {t.dueDate ? formatDate(t.dueDate) : "kein Termin"}
                   </div>
                 </li>
               ))}
@@ -173,19 +173,19 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5 lg:col-span-3">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Contracts</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Verträge</h2>
           {venture.contracts.length === 0 ? (
-            <p className="text-sm text-ink-mute">No contracts recorded.</p>
+            <p className="text-sm text-ink-mute">Keine Verträge erfasst.</p>
           ) : (
             <table className="table-base">
               <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Type</th>
-                  <th>Counterparty</th>
+                  <th>Art</th>
+                  <th>Vertragspartner</th>
                   <th>Runs until</th>
                   <th>Status</th>
-                  <th className="text-right">Value</th>
+                  <th className="text-right">Wert</th>
                 </tr>
               </thead>
               <tbody>

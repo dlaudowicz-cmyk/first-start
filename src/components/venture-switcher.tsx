@@ -45,7 +45,7 @@ export function VentureSwitcher({
         ) : (
           <Layers className="h-3.5 w-3.5 text-white/50 shrink-0" />
         )}
-        <span className="flex-1 truncate">{active ? active.name : "All ventures"}</span>
+        <span className="flex-1 truncate">{active ? active.name : "Alle Ventures"}</span>
         <ChevronsUpDown className="h-3.5 w-3.5 text-white/40 shrink-0" />
       </button>
 
@@ -54,7 +54,7 @@ export function VentureSwitcher({
           role="listbox"
           className="absolute z-20 mt-1 w-full overflow-hidden rounded-lg border border-white/10 bg-graphite-900 py-1 shadow-lg"
         >
-          <Option label="All ventures" selected={!active} onSelect={() => choose("all")} icon />
+          <Option label="Alle Ventures" selected={!active} onSelect={() => choose("all")} icon />
           {ventures.map((v) => (
             <Option
               key={v.id}

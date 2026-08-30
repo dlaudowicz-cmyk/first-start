@@ -7,6 +7,7 @@ import { EmptyState } from "@/components/empty-state";
 import { VentureBadge } from "@/components/venture-badge";
 import { getActiveVenture, ventureScope } from "@/lib/venture-context";
 import { formatCurrency, formatDate } from "@/lib/utils";
+import { de } from "@/lib/labels";
 
 export const dynamic = "force-dynamic";
 
@@ -21,24 +22,24 @@ export default async function ProjectsPage() {
   return (
     <>
       <PageHeader
-        title="Projects"
+        title="Projekte"
         description={
-          active ? `Productions inside ${active.name}.` : "Every production from lead to delivered."
+          active ? `Productions inside ${active.name}.` : "Jede Produktion von der Anfrage bis zur Auslieferung."
         }
         actions={
           <Link href="/projects/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> New project
+            <Plus className="h-4 w-4" /> Neues Projekt
           </Link>
         }
       />
 
       {projects.length === 0 ? (
         <EmptyState
-          title="No projects yet"
-          description="Create your first project to start tracking productions."
+          title="Noch keine Projekte"
+          description="Erstes Projekt anlegen, um Produktionen zu verfolgen."
           action={
             <Link href="/projects/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> New project
+              <Plus className="h-4 w-4" /> Neues Projekt
             </Link>
           }
         />
@@ -47,11 +48,11 @@ export default async function ProjectsPage() {
           <table className="table-base">
             <thead>
               <tr>
-                <th>Project</th>
-                <th>Client</th>
-                <th>Type</th>
+                <th>Projekt</th>
+                <th>Kunde</th>
+                <th>Art</th>
                 {!active && <th>Venture</th>}
-                <th>Shoot dates</th>
+                <th>Drehtermin</th>
                 <th>Status</th>
                 <th className="text-right">Budget</th>
               </tr>
@@ -69,7 +70,7 @@ export default async function ProjectsPage() {
                       {p.client.companyName}
                     </Link>
                   </td>
-                  <td className="capitalize text-ink">{p.type}</td>
+                  <td className="text-ink">{de.projectType(p.type)}</td>
                   {!active && (
                     <td>
                       <VentureBadge name={p.venture?.name} accent={p.venture?.accent} muted />

@@ -14,8 +14,8 @@ export default async function SettingsPage() {
   return (
     <>
       <PageHeader
-        title="Settings"
-        description="Company details, banking, invoice numbering and logo. These values appear on every offer & invoice PDF."
+        title="Einstellungen"
+        description="Firmendaten, Bankverbindung, Nummernkreise und Logo. Diese Angaben stehen auf jedem Angebot und jeder Rechnung."
       />
       <SettingsForm
         initial={{

@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { ShieldCheck } from "lucide-react";
 import { credentialSchema, type CredentialInput } from "@/lib/schemas";
+import { de } from "@/lib/labels";
 import { CREDENTIAL_CATEGORIES, CRITICALITY_LEVELS } from "@/lib/utils";
 import { Field, FormActions, FormSection } from "@/components/form-field";
 import { createCredential, updateCredential, deleteCredential } from "./actions";
@@ -56,7 +57,7 @@ export function CredentialForm({
 
   const handleDelete = () => {
     if (!initial?.id) return;
-    if (!confirm("Delete this vault entry? This only removes the reference, not the actual credential.")) return;
+    if (!confirm("Zugang löschen? Entfernt nur den Verweis, nicht die eigentlichen Zugangsdaten.")) return;
     startTransition(async () => {
       await deleteCredential(initial.id!);
     });
@@ -68,7 +69,7 @@ export function CredentialForm({
         <div className="flex items-start gap-2.5 text-sm">
           <ShieldCheck className="h-4 w-4 text-ok mt-0.5 shrink-0" />
           <p className="text-ink">
-            <span className="font-medium">No secrets are stored here.</span> This form has no password or key field by
+            <span className="font-medium">Hier werden keine Secrets gespeichert.</span> This form has no password or key field by
             design. Record <em>where</em> the credential lives so the team can find it — the actual secret stays in
             your password manager.
           </p>
@@ -76,26 +77,26 @@ export function CredentialForm({
       </div>
 
       <FormSection>
-        <Field label="Service" error={errors.service?.message} hint="e.g. Google Workspace, Anthropic API">
+        <Field label="Dienst" error={errors.service?.message} hint="e.g. Google Workspace, Anthropic API">
           <input className="input" {...register("service")} />
         </Field>
-        <Field label="Login / identifier" error={errors.identifier?.message} hint="Username or email — not the password">
+        <Field label="Login / Kennung" error={errors.identifier?.message} hint="Username or email — not the password">
           <input className="input" {...register("identifier")} />
         </Field>
-        <Field label="Category" error={errors.category?.message}>
-          <select className="input capitalize" {...register("category")}>
+        <Field label="Kategorie" error={errors.category?.message}>
+          <select className="input" {...register("category")}>
             {CREDENTIAL_CATEGORIES.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {de.credentialCategory(c)}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Criticality" error={errors.criticality?.message}>
-          <select className="input capitalize" {...register("criticality")}>
+        <Field label="Kritikalität" error={errors.criticality?.message}>
+          <select className="input" {...register("criticality")}>
             {CRITICALITY_LEVELS.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {de.criticality(c)}
               </option>
             ))}
           </select>
@@ -105,31 +106,31 @@ export function CredentialForm({
         </Field>
       </FormSection>
 
-      <FormSection title="Where the secret lives">
-        <Field label="Storage location" error={errors.storageLocation?.message} hint="e.g. 1Password, Bitwarden, bank app">
+      <FormSection title="Wo das Secret liegt">
+        <Field label="Aufbewahrungsort" error={errors.storageLocation?.message} hint="e.g. 1Password, Bitwarden, bank app">
           <input className="input" {...register("storageLocation")} />
         </Field>
-        <Field label="Vault path" error={errors.vaultRef?.message} hint="e.g. 1Password → Pushlabs → Google">
+        <Field label="Pfad im Tresor" error={errors.vaultRef?.message} hint="e.g. 1Password → Pushlabs → Google">
           <input className="input" {...register("vaultRef")} />
         </Field>
-        <Field label="Where 2FA lives" error={errors.mfaLocation?.message}>
+        <Field label="Wo 2FA liegt" error={errors.mfaLocation?.message}>
           <input className="input" {...register("mfaLocation")} />
         </Field>
-        <Field label="Shared with" error={errors.sharedWith?.message} hint="Who has access today">
+        <Field label="Freigegeben für" error={errors.sharedWith?.message} hint="Who has access today">
           <input className="input" {...register("sharedWith")} />
         </Field>
       </FormSection>
 
-      <FormSection title="Rotation & ownership">
-        <Field label="Last rotated" error={errors.rotatedAt?.message}>
+      <FormSection title="Rotation & Verantwortung">
+        <Field label="Zuletzt rotiert" error={errors.rotatedAt?.message}>
           <input className="input" type="date" {...register("rotatedAt")} />
         </Field>
-        <Field label="Rotate every (days)" error={errors.rotateEveryDays?.message}>
+        <Field label="Rotation alle (Tage)" error={errors.rotateEveryDays?.message}>
           <input className="input" type="number" {...register("rotateEveryDays")} />
         </Field>
-        <Field label="Owner" error={errors.ownerId?.message}>
+        <Field label="Inhaber" error={errors.ownerId?.message}>
           <select className="input" {...register("ownerId")}>
-            <option value="">Unassigned</option>
+            <option value="">Nicht zugewiesen</option>
             {people.map((p) => (
               <option key={p.id} value={p.id}>
                 {p.label}
@@ -139,7 +140,7 @@ export function CredentialForm({
         </Field>
         <Field label="Venture" error={errors.ventureId?.message}>
           <select className="input" {...register("ventureId")}>
-            <option value="">Company-wide</option>
+            <option value="">Unternehmensweit</option>
             {ventures.map((v) => (
               <option key={v.id} value={v.id}>
                 {v.label}
@@ -147,7 +148,7 @@ export function CredentialForm({
             ))}
           </select>
         </Field>
-        <Field label="Notes" error={errors.notes?.message} className="md:col-span-2">
+        <Field label="Notizen" error={errors.notes?.message} className="md:col-span-2">
           <textarea className="input min-h-[90px]" {...register("notes")} />
         </Field>
       </FormSection>
@@ -156,7 +157,7 @@ export function CredentialForm({
         cancelHref="/vault"
         onDelete={isEdit ? handleDelete : undefined}
         pending={pending}
-        submitLabel={isEdit ? "Save changes" : "Add vault entry"}
+        submitLabel={isEdit ? "Änderungen speichern" : "Zugang anlegen"}
       />
     </form>
   );

@@ -25,28 +25,28 @@ export default async function ToolsPage() {
   return (
     <>
       <PageHeader
-        title="Tools & SaaS"
-        description="Every subscription the company pays for — who owns it, what it costs, when it renews."
+        title="Werkzeuge & Abos"
+        description="Jedes Abo, das die Firma zahlt — wer zuständig ist, was es kostet, wann es sich verlängert."
         actions={
           <Link href="/tools/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> Add tool
+            <Plus className="h-4 w-4" /> Werkzeug hinzufügen
           </Link>
         }
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-        <Stat label="Monthly run rate" value={formatCurrency(monthlyTotal)} hint="active subscriptions, normalized" />
-        <Stat label="Yearly run rate" value={formatCurrency(monthlyTotal * 12)} />
-        <Stat label="Active tools" value={String(activeTools.length)} hint={`${seatTotal} seats`} />
+        <Stat label="Monatliche Belastung" value={formatCurrency(monthlyTotal)} hint="aktive Abos, umgerechnet" />
+        <Stat label="Jährliche Belastung" value={formatCurrency(monthlyTotal * 12)} />
+        <Stat label="Aktive Werkzeuge" value={String(activeTools.length)} hint={`${seatTotal} seats`} />
       </div>
 
       {tools.length === 0 ? (
         <EmptyState
-          title="No tools recorded"
-          description="Add your subscriptions to see the monthly run rate."
+          title="Keine Werkzeuge erfasst"
+          description="Abos erfassen, um die monatliche Belastung zu sehen."
           action={
             <Link href="/tools/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> Add tool
+              <Plus className="h-4 w-4" /> Werkzeug hinzufügen
             </Link>
           }
         />
@@ -55,15 +55,15 @@ export default async function ToolsPage() {
           <table className="table-base">
             <thead>
               <tr>
-                <th>Tool</th>
-                <th>Category</th>
-                <th>Plan</th>
-                <th className="text-right">Seats</th>
-                <th>Owner</th>
+                <th>Werkzeug</th>
+                <th>Kategorie</th>
+                <th>Tarif</th>
+                <th className="text-right">Plätze</th>
+                <th>Verantwortlich</th>
                 {!active && <th>Venture</th>}
-                <th>Renews</th>
+                <th>Verlängert</th>
                 <th>Status</th>
-                <th className="text-right">Per month</th>
+                <th className="text-right">Pro Monat</th>
               </tr>
             </thead>
             <tbody>

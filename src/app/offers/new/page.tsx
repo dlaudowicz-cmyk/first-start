@@ -22,13 +22,13 @@ export default async function NewOfferPage({
   if (clients.length === 0) {
     return (
       <>
-        <PageHeader title="New offer" />
+        <PageHeader title="Neues Angebot" />
         <EmptyState
-          title="Add a client first"
-          description="Offers are addressed to a client."
+          title="Zuerst einen Kunden anlegen"
+          description="Angebote richten sich an einen Kunden."
           action={
             <Link href="/clients/new" className="btn-primary">
-              Create a client
+              Kunde anlegen
             </Link>
           }
         />
@@ -40,7 +40,7 @@ export default async function NewOfferPage({
 
   return (
     <>
-      <PageHeader title="New offer" description="A clean, cinematic proposal — generates a PDF on save." />
+      <PageHeader title="Neues Angebot" description="Angebot in Markenoptik — beim Speichern entsteht das PDF." />
       <OfferForm
         clients={clients}
         projects={projects}

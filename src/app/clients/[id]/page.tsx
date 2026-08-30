@@ -33,10 +33,10 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
         actions={
           <>
             <Link href={`/clients/${client.id}/edit`} className="btn-secondary">
-              <Pencil className="h-4 w-4" /> Edit
+              <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
             <Link href="/projects/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> New project
+              <Plus className="h-4 w-4" /> Neues Projekt
             </Link>
           </>
         }
@@ -46,11 +46,11 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
         <section className="card p-5 lg:col-span-1">
           <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Details</h2>
           <dl className="text-sm space-y-2">
-            <Row label="Email" value={client.email} />
-            <Row label="Phone" value={client.phone} />
-            <Row label="VAT ID" value={client.vatId} />
-            <Row label="Address" value={client.address} multiline />
-            {client.notes && <Row label="Notes" value={client.notes} multiline />}
+            <Row label="E-Mail" value={client.email} />
+            <Row label="Telefon" value={client.phone} />
+            <Row label="USt-IdNr." value={client.vatId} />
+            <Row label="Anschrift" value={client.address} multiline />
+            {client.notes && <Row label="Notizen" value={client.notes} multiline />}
           </dl>
         </section>
 
@@ -63,9 +63,9 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
         </section>
 
         <section className="card p-5 lg:col-span-3">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Projects</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Projekte</h2>
           {client.projects.length === 0 ? (
-            <p className="text-sm text-ink-mute">No projects yet.</p>
+            <p className="text-sm text-ink-mute">Noch keine Projekte.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {client.projects.map((p) => (

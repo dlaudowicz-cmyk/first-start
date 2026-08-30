@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { contractSchema, type ContractInput } from "@/lib/schemas";
+import { de } from "@/lib/labels";
 import { CONTRACT_STATUSES, CONTRACT_TYPES } from "@/lib/utils";
 import { Field, FormActions, FormSection } from "@/components/form-field";
 import { createContract, updateContract, deleteContract } from "./actions";
@@ -56,7 +57,7 @@ export function ContractForm({
 
   const handleDelete = () => {
     if (!initial?.id) return;
-    if (!confirm("Delete this contract record?")) return;
+    if (!confirm("Vertragseintrag löschen?")) return;
     startTransition(async () => {
       await deleteContract(initial.id!);
     });
@@ -65,54 +66,54 @@ export function ContractForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
       <FormSection>
-        <Field label="Title" error={errors.title?.message} className="md:col-span-2">
+        <Field label="Titel" error={errors.title?.message} className="md:col-span-2">
           <input className="input" {...register("title")} />
         </Field>
-        <Field label="Counterparty" error={errors.counterparty?.message}>
+        <Field label="Vertragspartner" error={errors.counterparty?.message}>
           <input className="input" {...register("counterparty")} />
         </Field>
-        <Field label="Type" error={errors.type?.message}>
-          <select className="input capitalize" {...register("type")}>
+        <Field label="Art" error={errors.type?.message}>
+          <select className="input" {...register("type")}>
             {CONTRACT_TYPES.map((t) => (
               <option key={t} value={t}>
-                {t}
+                {de.contractType(t)}
               </option>
             ))}
           </select>
         </Field>
         <Field label="Status" error={errors.status?.message}>
-          <select className="input capitalize" {...register("status")}>
+          <select className="input" {...register("status")}>
             {CONTRACT_STATUSES.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {de.contractStatus(s)}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Value (€)" error={errors.value?.message}>
+        <Field label="Wert (€)" error={errors.value?.message}>
           <input className="input" type="number" step="0.01" {...register("value")} />
         </Field>
       </FormSection>
 
-      <FormSection title="Dates">
-        <Field label="Signed" error={errors.signedAt?.message}>
+      <FormSection title="Termine">
+        <Field label="Unterschrieben" error={errors.signedAt?.message}>
           <input className="input" type="date" {...register("signedAt")} />
         </Field>
-        <Field label="Notice period (days)" error={errors.noticePeriodDays?.message}>
+        <Field label="Kündigungsfrist (Tage)" error={errors.noticePeriodDays?.message}>
           <input className="input" type="number" {...register("noticePeriodDays")} />
         </Field>
-        <Field label="Start" error={errors.startDate?.message}>
+        <Field label="Beginn" error={errors.startDate?.message}>
           <input className="input" type="date" {...register("startDate")} />
         </Field>
-        <Field label="End" error={errors.endDate?.message} hint="Used for the expiry warning on the list">
+        <Field label="Ende" error={errors.endDate?.message} hint="Für die Ablaufwarnung in der Liste">
           <input className="input" type="date" {...register("endDate")} />
         </Field>
       </FormSection>
 
-      <FormSection title="Links" description="Attach the contract to a venture and the other party.">
+      <FormSection title="Verknüpfungen" description="Attach the contract to a venture and the other party.">
         <Field label="Venture" error={errors.ventureId?.message}>
           <select className="input" {...register("ventureId")}>
-            <option value="">Company-wide</option>
+            <option value="">Unternehmensweit</option>
             {ventures.map((v) => (
               <option key={v.id} value={v.id}>
                 {v.label}
@@ -120,7 +121,7 @@ export function ContractForm({
             ))}
           </select>
         </Field>
-        <Field label="Client" error={errors.clientId?.message}>
+        <Field label="Kunde" error={errors.clientId?.message}>
           <select className="input" {...register("clientId")}>
             <option value="">—</option>
             {clients.map((c) => (
@@ -140,7 +141,7 @@ export function ContractForm({
             ))}
           </select>
         </Field>
-        <Field label="Notes" error={errors.notes?.message} className="md:col-span-2">
+        <Field label="Notizen" error={errors.notes?.message} className="md:col-span-2">
           <textarea className="input min-h-[90px]" {...register("notes")} />
         </Field>
       </FormSection>
@@ -149,7 +150,7 @@ export function ContractForm({
         cancelHref="/contracts"
         onDelete={isEdit ? handleDelete : undefined}
         pending={pending}
-        submitLabel={isEdit ? "Save changes" : "Add contract"}
+        submitLabel={isEdit ? "Änderungen speichern" : "Vertrag anlegen"}
       />
     </form>
   );

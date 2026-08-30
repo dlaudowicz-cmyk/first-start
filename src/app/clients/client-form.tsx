@@ -48,7 +48,7 @@ export function ClientForm({ initial }: Props) {
 
   const handleDelete = () => {
     if (!initial?.id) return;
-    if (!confirm("Delete this client and all associated projects? This cannot be undone.")) return;
+    if (!confirm("Kunde und alle zugehörigen Projekte löschen? Das lässt sich nicht rückgängig machen.")) return;
     startTransition(async () => {
       await deleteClient(initial.id!);
     });
@@ -57,44 +57,44 @@ export function ClientForm({ initial }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card p-6 space-y-5 max-w-3xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <Field label="Company name" error={errors.companyName?.message}>
+        <Field label="Firma" error={errors.companyName?.message}>
           <input className="input" {...register("companyName")} />
         </Field>
-        <Field label="Contact person" error={errors.contactPerson?.message}>
+        <Field label="Ansprechpartner" error={errors.contactPerson?.message}>
           <input className="input" {...register("contactPerson")} />
         </Field>
-        <Field label="Email" error={errors.email?.message}>
+        <Field label="E-Mail" error={errors.email?.message}>
           <input className="input" type="email" {...register("email")} />
         </Field>
-        <Field label="Phone" error={errors.phone?.message}>
+        <Field label="Telefon" error={errors.phone?.message}>
           <input className="input" {...register("phone")} />
         </Field>
-        <Field label="VAT ID" error={errors.vatId?.message}>
+        <Field label="USt-IdNr." error={errors.vatId?.message}>
           <input className="input" {...register("vatId")} />
         </Field>
       </div>
 
-      <Field label="Address" error={errors.address?.message}>
+      <Field label="Anschrift" error={errors.address?.message}>
         <textarea className="input min-h-[80px]" {...register("address")} />
       </Field>
 
-      <Field label="Notes" error={errors.notes?.message}>
+      <Field label="Notizen" error={errors.notes?.message}>
         <textarea className="input min-h-[100px]" {...register("notes")} />
       </Field>
 
       <div className="flex items-center justify-between pt-2">
         <div className="flex gap-2">
           <Link href="/clients" className="btn-secondary">
-            Cancel
+            Abbrechen
           </Link>
           {isEdit && (
             <button type="button" onClick={handleDelete} className="btn-danger" disabled={pending}>
-              Delete
+              Löschen
             </button>
           )}
         </div>
         <button type="submit" className="btn-primary" disabled={pending}>
-          {pending ? "Saving…" : isEdit ? "Save changes" : "Create client"}
+          {pending ? "Speichere…" : isEdit ? "Änderungen speichern" : "Kunde anlegen"}
         </button>
       </div>
     </form>

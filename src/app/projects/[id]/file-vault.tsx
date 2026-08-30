@@ -43,14 +43,14 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-2">
           <FolderOpen className="h-4 w-4 text-ink-mute" />
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Project files</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Projektdateien</h2>
         </div>
         <span className="text-xs text-ink-faint">
           {files.length} file{files.length === 1 ? "" : "s"} · max {formatBytes(MAX_FILE_BYTES)} each
         </span>
       </div>
       <p className="text-xs text-ink-mute mb-4">
-        Every project uses the same categories, so the structure is identical across productions.
+        Jedes Projekt nutzt dieselben Kategorien — die Ablage ist über alle Produktionen gleich.
       </p>
 
       <form ref={formRef} onSubmit={submit} className="rounded-lg border border-line-soft bg-surface-2 p-3 mb-5">
@@ -89,7 +89,7 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
       </form>
 
       {files.length === 0 ? (
-        <p className="text-sm text-ink-mute">No files yet.</p>
+        <p className="text-sm text-ink-mute">Noch keine Dateien.</p>
       ) : (
         <div className="space-y-4">
           {FILE_CATEGORIES.map((cat) => {

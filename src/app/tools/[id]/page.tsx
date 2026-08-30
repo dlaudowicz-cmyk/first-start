@@ -27,11 +27,11 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ id:
           <>
             {tool.url && (
               <a href={tool.url} target="_blank" rel="noreferrer" className="btn-secondary">
-                <ExternalLink className="h-4 w-4" /> Open
+                <ExternalLink className="h-4 w-4" /> Öffnen
               </a>
             )}
             <Link href={`/tools/${tool.id}/edit`} className="btn-primary">
-              <Pencil className="h-4 w-4" /> Edit
+              <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
           </>
         }
@@ -40,27 +40,27 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ id:
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-2">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Subscription</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Abo</h2>
             <StatusBadge status={tool.status} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Category" value={tool.category} />
-            <Row label="Plan" value={tool.plan} />
-            <Row label="Seats" value={tool.seats != null ? String(tool.seats) : null} />
+            <Row label="Kategorie" value={tool.category} />
+            <Row label="Tarif" value={tool.plan} />
+            <Row label="Plätze" value={tool.seats != null ? String(tool.seats) : null} />
             <Row label="Billing" value={tool.billingCycle} />
             <Row
-              label="Cost"
+              label="Kosten"
               value={tool.costPerMonth != null ? `${formatCurrency(tool.costPerMonth)} / ${tool.billingCycle}` : null}
             />
             <Row label="Per month" value={formatCurrency(perMonth)} />
             <Row label="Per year" value={formatCurrency(perMonth * 12)} />
             <Row label="Renews" value={tool.renewalDate ? formatDate(tool.renewalDate) : null} />
-            {tool.notes && <Row label="Notes" value={tool.notes} multiline />}
+            {tool.notes && <Row label="Notizen" value={tool.notes} multiline />}
           </dl>
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Ownership</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Verantwortung</h2>
           <dl className="text-sm space-y-2">
             <div className="grid grid-cols-3 gap-2">
               <dt className="text-ink-mute">Owner</dt>
@@ -70,7 +70,7 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ id:
                     {tool.owner.name}
                   </Link>
                 ) : (
-                  <span className="text-ink-faint">Unassigned</span>
+                  <span className="text-ink-faint">Nicht zugewiesen</span>
                 )}
               </dd>
             </div>
@@ -82,7 +82,7 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ id:
                     {tool.venture.name}
                   </Link>
                 ) : (
-                  <span className="text-ink-faint">Company-wide</span>
+                  <span className="text-ink-faint">Unternehmensweit</span>
                 )}
               </dd>
             </div>

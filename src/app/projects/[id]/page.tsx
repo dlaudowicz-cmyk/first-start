@@ -41,16 +41,16 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               rel="noreferrer"
               className="btn-secondary"
             >
-              <FileText className="h-4 w-4" /> Status report
+              <FileText className="h-4 w-4" /> Statusbericht
             </a>
             <Link href={`/projects/${project.id}/edit`} className="btn-secondary">
-              <Pencil className="h-4 w-4" /> Edit
+              <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
             <Link href={`/offers/new?projectId=${project.id}`} className="btn-secondary">
-              <FilePlus2 className="h-4 w-4" /> New offer
+              <FilePlus2 className="h-4 w-4" /> Neues Angebot
             </Link>
-            <Link href={`/invoices/new?projectId=${project.id}`} className="btn-primary">
-              <ReceiptEuro className="h-4 w-4" /> New invoice
+            <Link href={`/Rechnungen/new?projectId=${project.id}`} className="btn-primary">
+              <ReceiptEuro className="h-4 w-4" /> Neue Rechnung
             </Link>
           </>
         }
@@ -63,22 +63,22 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <StatusBadge status={project.status} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Client" value={project.client.companyName} />
-            <Row label="Type" value={project.type} />
-            <Row label="Location" value={project.location} />
-            <Row label="Shoot start" value={project.shootStart ? formatDate(project.shootStart) : null} />
-            <Row label="Shoot end" value={project.shootEnd ? formatDate(project.shootEnd) : null} />
+            <Row label="Kunde" value={project.client.companyName} />
+            <Row label="Art" value={project.type} />
+            <Row label="Drehort" value={project.location} />
+            <Row label="Drehbeginn" value={project.shootStart ? formatDate(project.shootStart) : null} />
+            <Row label="Drehende" value={project.shootEnd ? formatDate(project.shootEnd) : null} />
             <Row label="Budget" value={project.budget != null ? formatCurrency(project.budget) : null} />
             <Row label="Pipeline" value={pipeline ? `${pipeline.name} ${pipeline.version}` : null} />
-            {project.notes && <Row label="Notes" value={project.notes} multiline />}
+            {project.notes && <Row label="Notizen" value={project.notes} multiline />}
           </dl>
         </section>
 
         <div className="lg:col-span-2 space-y-6">
           <section className="card p-5">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Offers</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Angebote</h2>
             {project.offers.length === 0 ? (
-              <p className="text-sm text-ink-mute">No offers yet.</p>
+              <p className="text-sm text-ink-mute">Noch keine Angebote.</p>
             ) : (
               <ul className="divide-y divide-line-soft">
                 {project.offers.map((o) => {
@@ -103,9 +103,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </section>
 
           <section className="card p-5">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Invoices</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Rechnungen</h2>
             {project.invoices.length === 0 ? (
-              <p className="text-sm text-ink-mute">No invoices yet.</p>
+              <p className="text-sm text-ink-mute">Noch keine Rechnungen.</p>
             ) : (
               <ul className="divide-y divide-line-soft">
                 {project.invoices.map((inv) => {
@@ -113,7 +113,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   return (
                     <li key={inv.id} className="py-2.5 flex items-center justify-between">
                       <div>
-                        <Link href={`/invoices/${inv.id}`} className="font-medium hover:underline">
+                        <Link href={`/Rechnungen/${inv.id}`} className="font-medium hover:underline">
                           {inv.number}
                         </Link>
                         <div className="text-xs text-ink-mute">{formatDate(inv.date)}</div>
@@ -150,9 +150,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </section>
 
           <section className="card p-5">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Travel expenses</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Spesen</h2>
             {project.expenses.length === 0 ? (
-              <p className="text-sm text-ink-mute">No expenses logged.</p>
+              <p className="text-sm text-ink-mute">Keine Spesen erfasst.</p>
             ) : (
               <ul className="divide-y divide-line-soft">
                 {project.expenses.map((e) => (

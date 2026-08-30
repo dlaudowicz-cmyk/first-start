@@ -4,7 +4,7 @@ import { PersonForm } from "../person-form";
 export default function NewPersonPage() {
   return (
     <>
-      <PageHeader title="Add person" description="Founders, crew, freelancers, partners and advisors." />
+      <PageHeader title="Person hinzufügen" description="Gründer, Crew, Freelancer, Partner und Berater." />
       <PersonForm />
     </>
   );

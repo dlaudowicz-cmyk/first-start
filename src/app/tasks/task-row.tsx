@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useTransition } from "react";
 import { Check, Circle, CircleDot, Ban } from "lucide-react";
 import { TASK_STATUSES, cn } from "@/lib/utils";
+import { de } from "@/lib/labels";
 import { setTaskStatus } from "./actions";
 
 const ICONS: Record<string, typeof Circle> = {
@@ -103,7 +104,7 @@ export function TaskRow({ task }: { task: TaskRowData }) {
         >
           {TASK_STATUSES.map((s) => (
             <option key={s} value={s}>
-              {s}
+              {de.taskStatus(s)}
             </option>
           ))}
         </select>

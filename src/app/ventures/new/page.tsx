@@ -5,8 +5,8 @@ export default function NewVenturePage() {
   return (
     <>
       <PageHeader
-        title="New venture"
-        description="A venture is a business line under the Pushlabs roof — an agency arm, an own brand, a format."
+        title="Neues Venture"
+        description="Ein Venture ist eine Geschäftslinie unter dem Pushlabs-Dach — ein Agenturzweig, eine eigene Marke, ein Format."
       />
       <VentureForm />
     </>

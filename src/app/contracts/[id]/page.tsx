@@ -25,7 +25,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
         description={`${contract.type} · ${contract.counterparty}`}
         actions={
           <Link href={`/contracts/${contract.id}/edit`} className="btn-primary">
-            <Pencil className="h-4 w-4" /> Edit
+            <Pencil className="h-4 w-4" /> Bearbeiten
           </Link>
         }
       />
@@ -33,22 +33,22 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-2">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Terms</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Konditionen</h2>
             <StatusBadge status={contract.status} />
           </div>
           <dl className="text-sm space-y-2">
-            <Row label="Counterparty" value={contract.counterparty} />
-            <Row label="Type" value={contract.type} />
-            <Row label="Signed" value={contract.signedAt ? formatDate(contract.signedAt) : null} />
-            <Row label="Start" value={contract.startDate ? formatDate(contract.startDate) : null} />
+            <Row label="Vertragspartner" value={contract.counterparty} />
+            <Row label="Art" value={contract.type} />
+            <Row label="Unterschrieben" value={contract.signedAt ? formatDate(contract.signedAt) : null} />
+            <Row label="Beginn" value={contract.startDate ? formatDate(contract.startDate) : null} />
             <Row
-              label="End"
+              label="Ende"
               value={
                 contract.endDate
                   ? `${formatDate(contract.endDate)}${
                       remaining != null
                         ? remaining < 0
-                          ? ` · ${Math.abs(remaining)} days overdue`
+                          ? ` · ${Math.abs(remaining)} Tage überfällig`
                           : ` · in ${remaining} days`
                         : ""
                     }`
@@ -60,12 +60,12 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
               value={contract.noticePeriodDays != null ? `${contract.noticePeriodDays} days` : null}
             />
             <Row label="Value" value={contract.value != null ? formatCurrency(contract.value) : null} />
-            {contract.notes && <Row label="Notes" value={contract.notes} multiline />}
+            {contract.notes && <Row label="Notizen" value={contract.notes} multiline />}
           </dl>
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Linked to</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Verknüpft mit</h2>
           <dl className="text-sm space-y-3">
             <div>
               <dt className="text-ink-mute text-xs uppercase tracking-wider">Venture</dt>
@@ -75,7 +75,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
                     {contract.venture.name}
                   </Link>
                 ) : (
-                  <span className="text-ink-faint">Company-wide</span>
+                  <span className="text-ink-faint">Unternehmensweit</span>
                 )}
               </dd>
             </div>

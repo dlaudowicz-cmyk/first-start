@@ -24,7 +24,7 @@ export function VentureLinks({
         A client can work with more than one venture. Exports mark these as shared.
       </p>
       {ventures.length === 0 ? (
-        <p className="text-sm text-ink-mute">No ventures defined yet.</p>
+        <p className="text-sm text-ink-mute">Noch keine Ventures angelegt.</p>
       ) : (
         <ul className="space-y-1.5">
           {ventures.map((v) => (

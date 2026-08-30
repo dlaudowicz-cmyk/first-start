@@ -24,7 +24,7 @@ export default async function TaskDetailPage({ params }: { params: Promise<{ id:
         description={task.source ? `From: ${task.source}` : undefined}
         actions={
           <Link href="/tasks" className="btn-secondary">
-            Back to tasks
+            Zurück zu den Aufgaben
           </Link>
         }
       />

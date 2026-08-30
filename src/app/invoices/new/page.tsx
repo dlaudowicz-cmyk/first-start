@@ -23,13 +23,13 @@ export default async function NewInvoicePage({
   if (clients.length === 0) {
     return (
       <>
-        <PageHeader title="New invoice" />
+        <PageHeader title="Neue Rechnung" />
         <EmptyState
-          title="Add a client first"
-          description="Invoices are addressed to a client."
+          title="Zuerst einen Kunden anlegen"
+          description="Rechnungen richten sich an einen Kunden."
           action={
             <Link href="/clients/new" className="btn-primary">
-              Create a client
+              Kunde anlegen
             </Link>
           }
         />
@@ -43,7 +43,7 @@ export default async function NewInvoicePage({
   return (
     <>
       <PageHeader
-        title="New invoice"
+        title="Neue Rechnung"
         description={`Next number on save: ${nextNumber}`}
       />
       <InvoiceForm

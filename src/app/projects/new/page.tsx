@@ -14,13 +14,13 @@ export default async function NewProjectPage() {
   if (clients.length === 0) {
     return (
       <>
-        <PageHeader title="New project" />
+        <PageHeader title="Neues Projekt" />
         <EmptyState
-          title="Add a client first"
-          description="Projects must belong to a client."
+          title="Zuerst einen Kunden anlegen"
+          description="Ein Projekt gehört immer zu einem Kunden."
           action={
             <Link href="/clients/new" className="btn-primary">
-              Create a client
+              Kunde anlegen
             </Link>
           }
         />
@@ -29,7 +29,7 @@ export default async function NewProjectPage() {
   }
   return (
     <>
-      <PageHeader title="New project" />
+      <PageHeader title="Neues Projekt" />
       <ProjectForm clients={clients} ventures={ventures} initial={active ? { ventureId: active.id } : undefined} />
     </>
   );

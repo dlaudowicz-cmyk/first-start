@@ -31,11 +31,11 @@ export default async function VaultPage() {
   return (
     <>
       <PageHeader
-        title="Vault"
-        description="Which accounts, APIs and access the company holds — and where each secret is kept."
+        title="Zugänge"
+        description="Welche Konten, APIs und Zugänge es gibt — und wo das jeweilige Secret liegt."
         actions={
           <Link href="/vault/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> Add entry
+            <Plus className="h-4 w-4" /> Zugang hinzufügen
           </Link>
         }
       />
@@ -44,7 +44,7 @@ export default async function VaultPage() {
         <div className="flex items-start gap-2.5 text-sm">
           <ShieldCheck className="h-4 w-4 text-ok mt-0.5 shrink-0" />
           <p className="text-ink">
-            <span className="font-medium">Reference vault — no passwords stored.</span> This register tracks what
+            <span className="font-medium">Verweis-Tresor — hier stehen keine Passwörter.</span> This register tracks what
             exists, who owns it and where the secret lives. The secrets themselves stay in your password manager, so a
             copy of this database never exposes company access.
           </p>
@@ -75,11 +75,11 @@ export default async function VaultPage() {
 
       {credentials.length === 0 ? (
         <EmptyState
-          title="Vault is empty"
-          description="Add the critical accounts first: email, domain, bank, key APIs."
+          title="Keine Zugänge erfasst"
+          description="Zuerst die kritischen Zugänge: E-Mail, Domain, Bank, wichtige APIs."
           action={
             <Link href="/vault/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> Add entry
+              <Plus className="h-4 w-4" /> Zugang hinzufügen
             </Link>
           }
         />
@@ -88,14 +88,14 @@ export default async function VaultPage() {
           <table className="table-base">
             <thead>
               <tr>
-                <th>Service</th>
-                <th>Category</th>
+                <th>Dienst</th>
+                <th>Kategorie</th>
                 <th>Login</th>
-                <th>Secret lives in</th>
-                <th>Owner</th>
+                <th>Secret liegt in</th>
+                <th>Verantwortlich</th>
                 {!active && <th>Venture</th>}
-                <th>Rotated</th>
-                <th>Criticality</th>
+                <th>Rotiert</th>
+                <th>Kritikalität</th>
               </tr>
             </thead>
             <tbody>

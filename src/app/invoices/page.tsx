@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 
 export default async function InvoicesPage() {
   const active = await getActiveVenture();
-  const invoices = await prisma.invoice.findMany({
+  const Rechnungen = await prisma.invoice.findMany({
     where: ventureScope(active),
     orderBy: [{ date: "desc" }, { number: "desc" }],
     include: { items: true, client: true, project: true, venture: true },
@@ -22,26 +22,26 @@ export default async function InvoicesPage() {
   return (
     <>
       <PageHeader
-        title="Invoices"
+        title="Rechnungen"
         description={
           active
             ? `Invoices issued by ${active.name}.`
-            : "ZUGFeRD-ready invoice structure with PDF + JSON export."
+            : "Rechnungen mit PDF-Export und ZUGFeRD-fähiger Datenstruktur."
         }
         actions={
-          <Link href="/invoices/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> New invoice
+          <Link href="/Rechnungen/new" className="btn-primary">
+            <Plus className="h-4 w-4" /> Neue Rechnung
           </Link>
         }
       />
 
-      {invoices.length === 0 ? (
+      {Rechnungen.length === 0 ? (
         <EmptyState
-          title="No invoices yet"
+          title="Noch keine Rechnungen"
           description="Create your first invoice — numbering starts at RE-001-0026."
           action={
-            <Link href="/invoices/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> New invoice
+            <Link href="/Rechnungen/new" className="btn-primary">
+              <Plus className="h-4 w-4" /> Neue Rechnung
             </Link>
           }
         />
@@ -50,23 +50,23 @@ export default async function InvoicesPage() {
           <table className="table-base">
             <thead>
               <tr>
-                <th>Number</th>
-                <th>Date</th>
-                <th>Due</th>
-                <th>Client</th>
+                <th>Nummer</th>
+                <th>Datum</th>
+                <th>Fällig</th>
+                <th>Kunde</th>
                 {!active && <th>Venture</th>}
-                <th>Project</th>
+                <th>Projekt</th>
                 <th>Status</th>
-                <th className="text-right">Gross</th>
+                <th className="text-right">Brutto</th>
               </tr>
             </thead>
             <tbody>
-              {invoices.map((inv) => {
+              {Rechnungen.map((inv) => {
                 const t = calculateTotals(inv.items, inv.vatRate);
                 return (
                   <tr key={inv.id}>
                     <td className="font-medium">
-                      <Link href={`/invoices/${inv.id}`} className="hover:underline">
+                      <Link href={`/Rechnungen/${inv.id}`} className="hover:underline">
                         {inv.number}
                       </Link>
                     </td>

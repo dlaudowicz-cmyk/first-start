@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useTransition } from "react";
 import { projectSchema, type ProjectInput } from "@/lib/schemas";
+import { de } from "@/lib/labels";
 import { PROJECT_STATUSES, PROJECT_TYPES } from "@/lib/utils";
 import { PIPELINES } from "@/lib/pipelines";
 import { createProject, updateProject, deleteProject } from "./actions";
@@ -54,7 +55,7 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
 
   const handleDelete = () => {
     if (!initial?.id) return;
-    if (!confirm("Delete this project? Offers, invoices and expenses linked to it will be unlinked.")) return;
+    if (!confirm("Projekt löschen? Angebote, Rechnungen und Spesen bleiben erhalten, verlieren aber die Zuordnung.")) return;
     startTransition(async () => {
       await deleteProject(initial.id!);
     });
@@ -63,13 +64,13 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card p-6 space-y-5 max-w-3xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <Field label="Project title" error={errors.title?.message} className="md:col-span-2">
+        <Field label="Projekttitel" error={errors.title?.message} className="md:col-span-2">
           <input className="input" {...register("title")} />
         </Field>
 
-        <Field label="Client" error={errors.clientId?.message}>
+        <Field label="Kunde" error={errors.clientId?.message}>
           <select className="input" {...register("clientId")}>
-            <option value="">Select client…</option>
+            <option value="">Kunde wählen…</option>
             {clients.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.companyName}
@@ -78,11 +79,11 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
           </select>
         </Field>
 
-        <Field label="Type" error={errors.type?.message}>
-          <select className="input capitalize" {...register("type")}>
+        <Field label="Art" error={errors.type?.message}>
+          <select className="input" {...register("type")}>
             {PROJECT_TYPES.map((t) => (
               <option key={t} value={t} className="capitalize">
-                {t}
+                {de.projectType(t)}
               </option>
             ))}
           </select>
@@ -90,7 +91,7 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
 
         <Field label="Venture" error={errors.ventureId?.message}>
           <select className="input" {...register("ventureId")}>
-            <option value="">Unassigned</option>
+            <option value="">Nicht zugewiesen</option>
             {ventures.map((v) => (
               <option key={v.id} value={v.id}>
                 {v.name}
@@ -100,10 +101,10 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
         </Field>
 
         <Field label="Status" error={errors.status?.message}>
-          <select className="input capitalize" {...register("status")}>
+          <select className="input" {...register("status")}>
             {PROJECT_STATUSES.map((s) => (
               <option key={s} value={s} className="capitalize">
-                {s}
+                {de.projectStatus(s)}
               </option>
             ))}
           </select>
@@ -113,11 +114,11 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
           <input className="input" type="number" step="0.01" {...register("budget")} />
         </Field>
 
-        <Field label="Shoot start" error={errors.shootStart?.message}>
+        <Field label="Drehbeginn" error={errors.shootStart?.message}>
           <input className="input" type="date" {...register("shootStart")} />
         </Field>
 
-        <Field label="Shoot end" error={errors.shootEnd?.message}>
+        <Field label="Drehende" error={errors.shootEnd?.message}>
           <input className="input" type="date" {...register("shootEnd")} />
         </Field>
 
@@ -136,28 +137,28 @@ export function ProjectForm({ initial, clients, ventures }: Props) {
           </select>
         </Field>
 
-        <Field label="Location" error={errors.location?.message} className="md:col-span-2">
+        <Field label="Drehort" error={errors.location?.message} className="md:col-span-2">
           <input className="input" {...register("location")} />
         </Field>
       </div>
 
-      <Field label="Notes" error={errors.notes?.message}>
+      <Field label="Notizen" error={errors.notes?.message}>
         <textarea className="input min-h-[100px]" {...register("notes")} />
       </Field>
 
       <div className="flex items-center justify-between pt-2">
         <div className="flex gap-2">
           <Link href="/projects" className="btn-secondary">
-            Cancel
+            Abbrechen
           </Link>
           {isEdit && (
             <button type="button" onClick={handleDelete} className="btn-danger" disabled={pending}>
-              Delete
+              Löschen
             </button>
           )}
         </div>
         <button type="submit" className="btn-primary" disabled={pending}>
-          {pending ? "Saving…" : isEdit ? "Save changes" : "Create project"}
+          {pending ? "Speichere…" : isEdit ? "Änderungen speichern" : "Projekt anlegen"}
         </button>
       </div>
     </form>

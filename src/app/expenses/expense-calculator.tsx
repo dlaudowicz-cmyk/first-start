@@ -58,10 +58,10 @@ export function ExpenseCalculator({ projects }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="card p-6 lg:col-span-2 space-y-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <Field label="Travel date" error={errors.travelDate?.message}>
+          <Field label="Reisedatum" error={errors.travelDate?.message}>
             <input className="input" type="date" {...register("travelDate")} />
           </Field>
-          <Field label="Project (optional)">
+          <Field label="Projekt (optional)">
             <select className="input" {...register("projectId")}>
               <option value="">—</option>
               {projects.map((p) => (
@@ -71,31 +71,31 @@ export function ExpenseCalculator({ projects }: Props) {
               ))}
             </select>
           </Field>
-          <Field label="Start time" error={errors.startTime?.message}>
+          <Field label="Beginn" error={errors.startTime?.message}>
             <input className="input" type="time" {...register("startTime")} />
           </Field>
-          <Field label="End time" error={errors.endTime?.message}>
+          <Field label="Ende" error={errors.endTime?.message}>
             <input className="input" type="time" {...register("endTime")} />
           </Field>
-          <Field label="Number of people">
+          <Field label="Personenzahl">
             <input className="input" type="number" min={1} {...register("people")} />
           </Field>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
-          <Toggle label="Overnight stay" {...register("overnight")} />
-          <Toggle label="Breakfast included" {...register("breakfast")} />
-          <Toggle label="Lunch included" {...register("lunch")} />
-          <Toggle label="Dinner included" {...register("dinner")} />
+          <Toggle label="Übernachtung" {...register("overnight")} />
+          <Toggle label="Frühstück gestellt" {...register("breakfast")} />
+          <Toggle label="Mittag gestellt" {...register("lunch")} />
+          <Toggle label="Abendessen gestellt" {...register("dinner")} />
         </div>
 
-        <Field label="Notes">
+        <Field label="Notizen">
           <textarea className="input min-h-[80px]" {...register("notes")} />
         </Field>
 
         <div className="flex justify-end pt-2">
           <button type="submit" className="btn-primary" disabled={pending}>
-            {pending ? "Saving…" : "Save expense"}
+            {pending ? "Speichere…" : "Save expense"}
           </button>
         </div>
       </div>

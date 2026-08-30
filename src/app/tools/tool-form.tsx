@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { toolSchema, type ToolInput } from "@/lib/schemas";
+import { de } from "@/lib/labels";
 import { BILLING_CYCLES, TOOL_CATEGORIES, TOOL_STATUSES, formatCurrency, monthlyCost } from "@/lib/utils";
 import { Field, FormActions, FormSection } from "@/components/form-field";
 import { createTool, updateTool, deleteTool } from "./actions";
@@ -57,7 +58,7 @@ export function ToolForm({
 
   const handleDelete = () => {
     if (!initial?.id) return;
-    if (!confirm("Delete this subscription record?")) return;
+    if (!confirm("Abo-Eintrag löschen?")) return;
     startTransition(async () => {
       await deleteTool(initial.id!);
     });
@@ -66,26 +67,26 @@ export function ToolForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
       <FormSection>
-        <Field label="Tool name" error={errors.name?.message}>
+        <Field label="Werkzeug" error={errors.name?.message}>
           <input className="input" {...register("name")} />
         </Field>
-        <Field label="Plan" error={errors.plan?.message}>
+        <Field label="Tarif" error={errors.plan?.message}>
           <input className="input" {...register("plan")} />
         </Field>
-        <Field label="Category" error={errors.category?.message}>
-          <select className="input capitalize" {...register("category")}>
+        <Field label="Kategorie" error={errors.category?.message}>
+          <select className="input" {...register("category")}>
             {TOOL_CATEGORIES.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {de.toolCategory(c)}
               </option>
             ))}
           </select>
         </Field>
         <Field label="Status" error={errors.status?.message}>
-          <select className="input capitalize" {...register("status")}>
+          <select className="input" {...register("status")}>
             {TOOL_STATUSES.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {de.toolStatus(s)}
               </option>
             ))}
           </select>
@@ -96,33 +97,33 @@ export function ToolForm({
       </FormSection>
 
       <FormSection
-        title="Cost"
+        title="Kosten"
         description={`Normalized to ${formatCurrency(normalized)} per month for the company-wide rollup.`}
       >
-        <Field label="Cost" error={errors.costPerMonth?.message} hint="Amount per billing cycle">
+        <Field label="Kosten" error={errors.costPerMonth?.message} hint="Amount per billing cycle">
           <input className="input" type="number" step="0.01" {...register("costPerMonth")} />
         </Field>
-        <Field label="Billing cycle" error={errors.billingCycle?.message}>
-          <select className="input capitalize" {...register("billingCycle")}>
+        <Field label="Abrechnung" error={errors.billingCycle?.message}>
+          <select className="input" {...register("billingCycle")}>
             {BILLING_CYCLES.map((b) => (
               <option key={b} value={b}>
-                {b}
+                {de.billingCycle(b)}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Seats" error={errors.seats?.message}>
+        <Field label="Plätze" error={errors.seats?.message}>
           <input className="input" type="number" {...register("seats")} />
         </Field>
-        <Field label="Renewal date" error={errors.renewalDate?.message}>
+        <Field label="Verlängert am" error={errors.renewalDate?.message}>
           <input className="input" type="date" {...register("renewalDate")} />
         </Field>
       </FormSection>
 
       <FormSection title="Ownership">
-        <Field label="Owner" error={errors.ownerId?.message}>
+        <Field label="Inhaber" error={errors.ownerId?.message}>
           <select className="input" {...register("ownerId")}>
-            <option value="">Unassigned</option>
+            <option value="">Nicht zugewiesen</option>
             {people.map((p) => (
               <option key={p.id} value={p.id}>
                 {p.label}
@@ -132,7 +133,7 @@ export function ToolForm({
         </Field>
         <Field label="Venture" error={errors.ventureId?.message}>
           <select className="input" {...register("ventureId")}>
-            <option value="">Company-wide</option>
+            <option value="">Unternehmensweit</option>
             {ventures.map((v) => (
               <option key={v.id} value={v.id}>
                 {v.label}
@@ -140,7 +141,7 @@ export function ToolForm({
             ))}
           </select>
         </Field>
-        <Field label="Notes" error={errors.notes?.message} className="md:col-span-2">
+        <Field label="Notizen" error={errors.notes?.message} className="md:col-span-2">
           <textarea className="input min-h-[90px]" {...register("notes")} />
         </Field>
       </FormSection>
@@ -149,7 +150,7 @@ export function ToolForm({
         cancelHref="/tools"
         onDelete={isEdit ? handleDelete : undefined}
         pending={pending}
-        submitLabel={isEdit ? "Save changes" : "Add tool"}
+        submitLabel={isEdit ? "Änderungen speichern" : "Werkzeug anlegen"}
       />
     </form>
   );

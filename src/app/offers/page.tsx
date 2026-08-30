@@ -22,26 +22,26 @@ export default async function OffersPage() {
   return (
     <>
       <PageHeader
-        title="Offers"
+        title="Angebote"
         description={
           active
             ? `Proposals for ${active.name}.`
-            : "Cinematic, professional proposals — exportable as PDF."
+            : "Angebote in Markenoptik, als PDF exportierbar."
         }
         actions={
           <Link href="/offers/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> New offer
+            <Plus className="h-4 w-4" /> Neues Angebot
           </Link>
         }
       />
 
       {offers.length === 0 ? (
         <EmptyState
-          title="No offers yet"
-          description="Create your first offer to start sending proposals."
+          title="Noch keine Angebote"
+          description="Erstes Angebot anlegen."
           action={
             <Link href="/offers/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> New offer
+              <Plus className="h-4 w-4" /> Neues Angebot
             </Link>
           }
         />
@@ -50,14 +50,14 @@ export default async function OffersPage() {
           <table className="table-base">
             <thead>
               <tr>
-                <th>Number</th>
-                <th>Date</th>
-                <th>Client</th>
+                <th>Nummer</th>
+                <th>Datum</th>
+                <th>Kunde</th>
                 {!active && <th>Venture</th>}
-                <th>Project</th>
-                <th>Valid until</th>
+                <th>Projekt</th>
+                <th>Gültig bis</th>
                 <th>Status</th>
-                <th className="text-right">Gross</th>
+                <th className="text-right">Brutto</th>
               </tr>
             </thead>
             <tbody>

@@ -11,7 +11,7 @@ type LineItemFields = {
 
 type Props = {
   // We accept any RHF Control/Register because this editor is reused for offers
-  // & invoices which have different surrounding fields. Field paths under
+  // & Rechnungen which have different surrounding fields. Field paths under
   // `items.*` are stable so we cast inside.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: any;
@@ -28,13 +28,13 @@ export function LineItemsEditor({ control, register, errors, watchItems }: Props
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-medium">Line items</h3>
+        <h3 className="text-sm font-medium">Positionen</h3>
         <button
           type="button"
           onClick={() => append({ description: "", quantity: 1, unitPrice: 0, unit: "Stk." })}
           className="btn-secondary text-xs"
         >
-          <Plus className="h-3.5 w-3.5" /> Add item
+          <Plus className="h-3.5 w-3.5" /> Position hinzufügen
         </button>
       </div>
 
@@ -72,7 +72,7 @@ export function LineItemsEditor({ control, register, errors, watchItems }: Props
                 </div>
               </div>
               <div className="mt-2 text-right text-xs text-ink-mute tabular-nums">
-                Line total: <span className="text-ink font-medium">{formatCurrency(lineNet)}</span>
+                Positionssumme: <span className="text-ink font-medium">{formatCurrency(lineNet)}</span>
               </div>
             </div>
           );

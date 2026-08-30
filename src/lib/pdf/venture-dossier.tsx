@@ -108,15 +108,15 @@ export function VentureDossierPdf({
         )}
 
         <Text style={styles.sectionTitle}>Key figures</Text>
-        <Kv label="Revenue (paid invoices)" value={fmt(s.revenuePaid)} />
-        <Kv label="Open invoices" value={fmt(s.revenueOpen)} />
-        <Kv label="Offer pipeline" value={fmt(s.offerPipeline)} />
+        <Kv label="Revenue (paid Rechnungen)" value={fmt(s.revenuePaid)} />
+        <Kv label="Open Rechnungen" value={fmt(s.revenueOpen)} />
+        <Kv label="Angebots-Pipeline" value={fmt(s.offerPipeline)} />
         <Kv label="Tool cost per month" value={fmt(s.toolCostPerMonth)} />
         <Kv
           label="Invoicing period"
           value={`${s.firstInvoice ? fmtDate(s.firstInvoice) : "—"} → ${s.lastInvoice ? fmtDate(s.lastInvoice) : "—"}`}
         />
-        <Kv label="Founded" value={fmtDate(v.foundedAt)} />
+        <Kv label="Gegründet" value={fmtDate(v.foundedAt)} />
 
         <Text style={styles.sectionTitle}>Scope</Text>
         <Kv
@@ -128,7 +128,7 @@ export function VentureDossierPdf({
         <Kv label="Offers / Invoices" value={`${s.offers} / ${s.invoices}`} />
         <Kv label="Contracts" value={String(s.contracts)} />
         <Kv label="Tool subscriptions" value={String(s.tools)} />
-        <Kv label="Open tasks" value={`${s.openTasks} of ${s.tasks}`} />
+        <Kv label="Offene Aufgaben" value={`${s.openTasks} of ${s.tasks}`} />
 
         <View style={styles.footer} fixed>
           <Text>
@@ -141,7 +141,7 @@ export function VentureDossierPdf({
       <Page size="A4" style={styles.page}>
         <Text style={styles.sectionTitle}>Team</Text>
         {data.people.length === 0 ? (
-          <Text style={styles.paragraph}>No one assigned.</Text>
+          <Text style={styles.paragraph}>Niemand zugeordnet.</Text>
         ) : (
           <>
             <View style={styles.thRow}>
@@ -161,9 +161,9 @@ export function VentureDossierPdf({
           </>
         )}
 
-        <Text style={styles.sectionTitle}>Clients</Text>
+        <Text style={styles.sectionTitle}>Kunden</Text>
         {data.clients.length === 0 ? (
-          <Text style={styles.paragraph}>No clients linked.</Text>
+          <Text style={styles.paragraph}>Keine Kunden verknüpft.</Text>
         ) : (
           <>
             <View style={styles.thRow}>
@@ -189,7 +189,7 @@ export function VentureDossierPdf({
           </>
         )}
 
-        <Text style={styles.sectionTitle}>Projects</Text>
+        <Text style={styles.sectionTitle}>Projekte</Text>
         {data.projects.length === 0 ? (
           <Text style={styles.paragraph}>No projects.</Text>
         ) : (
@@ -220,17 +220,17 @@ export function VentureDossierPdf({
       </Page>
 
       <Page size="A4" style={styles.page}>
-        <Text style={styles.sectionTitle}>Invoices</Text>
+        <Text style={styles.sectionTitle}>Rechnungen</Text>
         {data.invoices.length === 0 ? (
-          <Text style={styles.paragraph}>No invoices.</Text>
+          <Text style={styles.paragraph}>No Rechnungen.</Text>
         ) : (
           <>
             <View style={styles.thRow}>
               <Text style={[styles.th, styles.colMed]}>Number</Text>
               <Text style={[styles.th, styles.colWide]}>Client</Text>
               <Text style={[styles.th, styles.colSmall]}>Status</Text>
-              <Text style={[styles.th, styles.colNum]}>Net</Text>
-              <Text style={[styles.th, styles.colNum]}>Gross</Text>
+              <Text style={[styles.th, styles.colNum]}>Netto</Text>
+              <Text style={[styles.th, styles.colNum]}>Brutto</Text>
             </View>
             {data.invoices.map((i) => (
               <View key={i.id} style={styles.row}>
@@ -244,9 +244,9 @@ export function VentureDossierPdf({
           </>
         )}
 
-        <Text style={styles.sectionTitle}>Contracts</Text>
+        <Text style={styles.sectionTitle}>Verträge</Text>
         {data.contracts.length === 0 ? (
-          <Text style={styles.paragraph}>No contracts.</Text>
+          <Text style={styles.paragraph}>Keine Verträge.</Text>
         ) : (
           <>
             <View style={styles.thRow}>

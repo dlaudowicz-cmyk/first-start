@@ -14,7 +14,7 @@ export default async function NewToolPage() {
 
   return (
     <>
-      <PageHeader title="Add tool" description="Track a subscription, its cost and who owns it." />
+      <PageHeader title="Werkzeug hinzufügen" description="Abo mit Kosten und Zuständigkeit erfassen." />
       <ToolForm
         ventures={ventures.map((v) => ({ id: v.id, label: v.name }))}
         people={people.map((p) => ({ id: p.id, label: p.name }))}

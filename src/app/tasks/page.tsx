@@ -45,26 +45,26 @@ export default async function TasksPage() {
   return (
     <>
       <PageHeader
-        title="Tasks"
+        title="Aufgaben"
         description={
           active
             ? `Action items for ${active.name}.`
-            : "Company-wide action items — from meetings, decisions and follow-ups."
+            : "Aufgaben aus Meetings, Entscheidungen und Nachfassaktionen."
         }
         actions={
           <Link href="/tasks/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> Add task
+            <Plus className="h-4 w-4" /> Aufgabe hinzufügen
           </Link>
         }
       />
 
       {rows.length === 0 ? (
         <EmptyState
-          title="No tasks"
-          description="Add action items so nothing from a meeting gets lost."
+          title="Keine Aufgaben"
+          description="Aufgaben erfassen, damit aus Meetings nichts verlorengeht."
           action={
             <Link href="/tasks/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> Add task
+              <Plus className="h-4 w-4" /> Aufgabe hinzufügen
             </Link>
           }
         />

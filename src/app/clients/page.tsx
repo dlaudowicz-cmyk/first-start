@@ -22,22 +22,22 @@ export default async function ClientsPage() {
   return (
     <>
       <PageHeader
-        title="Clients"
-        description={active ? `Clients booking ${active.name}.` : "Companies you produce for, across all ventures."}
+        title="Kunden"
+        description={active ? `Clients booking ${active.name}.` : "Firmen, für die ihr produziert — über alle Ventures."}
         actions={
           <Link href="/clients/new" className="btn-primary">
-            <Plus className="h-4 w-4" /> New client
+            <Plus className="h-4 w-4" /> Neuer Kunde
           </Link>
         }
       />
 
       {clients.length === 0 ? (
         <EmptyState
-          title="No clients yet"
-          description="Add your first client to start creating projects."
+          title="Noch keine Kunden"
+          description="Ersten Kunden anlegen, dann lassen sich Projekte erfassen."
           action={
             <Link href="/clients/new" className="btn-primary">
-              <Plus className="h-4 w-4" /> New client
+              <Plus className="h-4 w-4" /> Neuer Kunde
             </Link>
           }
         />
@@ -46,13 +46,13 @@ export default async function ClientsPage() {
           <table className="table-base">
             <thead>
               <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Email</th>
-                <th>VAT ID</th>
+                <th>Firma</th>
+                <th>Kontakt</th>
+                <th>E-Mail</th>
+                <th>USt-IdNr.</th>
                 {!active && <th>Ventures</th>}
-                <th className="text-right">Projects</th>
-                <th className="text-right">Invoices</th>
+                <th className="text-right">Projekte</th>
+                <th className="text-right">Rechnungen</th>
               </tr>
             </thead>
             <tbody>

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { ventureSchema, type VentureInput } from "@/lib/schemas";
+import { de } from "@/lib/labels";
 import { VENTURE_KINDS, VENTURE_STATUSES } from "@/lib/utils";
 import { slugify } from "@/lib/form";
 import { Field, FormActions, FormSection } from "@/components/form-field";
@@ -44,7 +45,7 @@ export function VentureForm({ initial }: { initial?: Partial<VentureInput> & { i
     if (!initial?.id) return;
     if (
       !confirm(
-        "Delete this venture? Projects, invoices and other records stay intact but become company-wide (unassigned).",
+        "Delete this venture? Projects, Rechnungen and other records stay intact but become company-wide (nicht zugewiesen).",
       )
     )
       return;
@@ -56,7 +57,7 @@ export function VentureForm({ initial }: { initial?: Partial<VentureInput> & { i
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
       <FormSection>
-        <Field label="Venture name" error={errors.name?.message}>
+        <Field label="Name" error={errors.name?.message}>
           <input
             className="input"
             {...register("name", {
@@ -67,37 +68,37 @@ export function VentureForm({ initial }: { initial?: Partial<VentureInput> & { i
             })}
           />
         </Field>
-        <Field label="Slug" error={errors.slug?.message} hint="Used in URLs and exports">
+        <Field label="Kürzel" error={errors.slug?.message} hint="Used in URLs and exports">
           <input className="input font-mono text-[13px]" {...register("slug")} />
         </Field>
-        <Field label="Kind" error={errors.kind?.message}>
-          <select className="input capitalize" {...register("kind")}>
+        <Field label="Art" error={errors.kind?.message}>
+          <select className="input" {...register("kind")}>
             {VENTURE_KINDS.map((k) => (
               <option key={k} value={k}>
-                {k}
+                {de.ventureKind(k)}
               </option>
             ))}
           </select>
         </Field>
         <Field label="Status" error={errors.status?.message}>
-          <select className="input capitalize" {...register("status")}>
+          <select className="input" {...register("status")}>
             {VENTURE_STATUSES.map((s) => (
               <option key={s} value={s}>
-                {s}
+                {de.ventureStatus(s)}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Founded" error={errors.foundedAt?.message}>
+        <Field label="Gegründet" error={errors.foundedAt?.message}>
           <input className="input" type="date" {...register("foundedAt")} />
         </Field>
-        <Field label="Accent colour" error={errors.accent?.message} hint="Shown as a dot in the venture switcher">
+        <Field label="Akzentfarbe" error={errors.accent?.message} hint="Shown as a dot in the venture switcher">
           <input className="input h-10 p-1" type="color" {...register("accent")} />
         </Field>
-        <Field label="Tagline" error={errors.tagline?.message} className="md:col-span-2">
+        <Field label="Claim" error={errors.tagline?.message} className="md:col-span-2">
           <input className="input" {...register("tagline")} />
         </Field>
-        <Field label="Description" error={errors.description?.message} className="md:col-span-2">
+        <Field label="Beschreibung" error={errors.description?.message} className="md:col-span-2">
           <textarea className="input min-h-[90px]" {...register("description")} />
         </Field>
       </FormSection>
@@ -106,7 +107,7 @@ export function VentureForm({ initial }: { initial?: Partial<VentureInput> & { i
         cancelHref="/ventures"
         onDelete={isEdit ? handleDelete : undefined}
         pending={pending}
-        submitLabel={isEdit ? "Save changes" : "Create venture"}
+        submitLabel={isEdit ? "Änderungen speichern" : "Venture anlegen"}
       />
     </form>
   );

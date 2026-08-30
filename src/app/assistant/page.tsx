@@ -6,7 +6,7 @@ export default function AssistantPage() {
   return (
     <>
       <PageHeader
-        title="AI Assistant"
+        title="KI-Assistent"
         description="Structured prompt templates — paste your notes, copy the rendered prompt to your model of choice. API integration is intentionally not wired yet (see TODO in README)."
       />
       <AssistantWorkspace

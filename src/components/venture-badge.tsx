@@ -8,7 +8,7 @@ export function VentureBadge({
   muted?: boolean;
 }) {
   if (!name) {
-    return <span className="text-xs text-ink-faint">Company-wide</span>;
+    return <span className="text-xs text-ink-faint">Unternehmensweit</span>;
   }
   return (
     <span

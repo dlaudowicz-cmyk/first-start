@@ -5,6 +5,7 @@ import { StatusBadge } from "@/components/status-badge";
 import { VentureBadge } from "@/components/venture-badge";
 import { calculateTotals } from "@/lib/calculations";
 import { formatCurrency, formatDate, daysUntil, monthlyCost } from "@/lib/utils";
+import { de } from "@/lib/labels";
 import { clientVentureScope, getActiveVenture, ventureScope } from "@/lib/venture-context";
 import { ArrowRight, FilePlus2, Users, ReceiptEuro, Clapperboard, ListChecks, FileSignature, Boxes } from "lucide-react";
 
@@ -90,33 +91,33 @@ export default async function DashboardPage() {
         title={data.active ? data.active.name : "Company OS"}
         description={
           data.active
-            ? "Scoped view — projects, invoices and tasks for this venture."
-            : "Everything under the Pushlabs roof — ventures, production, money, obligations."
+            ? "Gefilterte Ansicht — Projekte, Rechnungen und Aufgaben dieses Ventures."
+            : "Alles unter dem Pushlabs-Dach — Ventures, Produktion, Geld, Verpflichtungen."
         }
         actions={
           <>
             <Link href="/offers/new" className="btn-secondary">
-              <FilePlus2 className="h-4 w-4" /> New offer
+              <FilePlus2 className="h-4 w-4" /> Neues Angebot
             </Link>
-            <Link href="/invoices/new" className="btn-primary">
-              <ReceiptEuro className="h-4 w-4" /> New invoice
+            <Link href="/Rechnungen/new" className="btn-primary">
+              <ReceiptEuro className="h-4 w-4" /> Neue Rechnung
             </Link>
           </>
         }
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <StatCard label="Active projects" value={String(data.activeProjects.length)} hint="confirmed + in production" />
+        <StatCard label="Laufende Projekte" value={String(data.activeProjects.length)} hint="beauftragt + in Produktion" />
         <StatCard
-          label="Unpaid invoices"
+          label="Offene Rechnungen"
           value={String(data.unpaidInvoices.length)}
           hint={formatCurrency(data.unpaidTotal)}
         />
-        <StatCard label="Monthly revenue" value={formatCurrency(data.monthlyRevenue)} hint="paid this month" />
+        <StatCard label="Umsatz im Monat" value={formatCurrency(data.monthlyRevenue)} hint="in diesem Monat bezahlt" />
         <StatCard
-          label="Open tasks"
+          label="Offene Aufgaben"
           value={String(data.openTasks.length)}
-          hint={`tool run rate ${formatCurrency(data.toolMonthly)}/mo`}
+          hint={`Werkzeuge ${formatCurrency(data.toolMonthly)}/Monat`}
         />
       </div>
 
@@ -135,7 +136,7 @@ export default async function DashboardPage() {
                   <span className="font-medium truncate">{v.name}</span>
                 </div>
                 <div className="mt-1 text-xs text-ink-mute capitalize">
-                  {v.kind} · {v.status}
+                  {de.ventureKind(v.kind)} · {de.ventureStatus(v.status)}
                 </div>
               </Link>
             ))}
@@ -145,9 +146,9 @@ export default async function DashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-2">
-          <SectionHeader title="Active projects" href="/projects" icon={Clapperboard} />
+          <SectionHeader title="Laufende Projekte" href="/projects" icon={Clapperboard} />
           {data.activeProjects.length === 0 ? (
-            <p className="text-sm text-ink-mute mt-2">No active projects.</p>
+            <p className="text-sm text-ink-mute mt-2">Keine laufenden Projekte.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {data.activeProjects.map((p) => (
@@ -158,7 +159,7 @@ export default async function DashboardPage() {
                     </Link>
                     <div className="text-xs text-ink-mute truncate flex flex-wrap items-center gap-x-2">
                       <span>
-                        {p.client.companyName} · {p.type}
+                        {p.client.companyName} · {de.projectType(p.type)}
                         {p.shootStart && ` · ${formatDate(p.shootStart)}`}
                       </span>
                       {!data.active && p.venture && (
@@ -174,9 +175,9 @@ export default async function DashboardPage() {
         </section>
 
         <section className="card p-5">
-          <SectionHeader title="Open tasks" href="/tasks" icon={ListChecks} />
+          <SectionHeader title="Offene Aufgaben" href="/tasks" icon={ListChecks} />
           {data.openTasks.length === 0 ? (
-            <p className="text-sm text-ink-mute mt-2">Nothing open.</p>
+            <p className="text-sm text-ink-mute mt-2">Nichts offen.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {data.openTasks.map((t) => {
@@ -190,7 +191,7 @@ export default async function DashboardPage() {
                       {t.title}
                     </Link>
                     <div className="text-xs text-ink-mute truncate">
-                      {t.assignee?.name ?? t.assigneeLabel ?? "unassigned"}
+                      {t.assignee?.name ?? t.assigneeLabel ?? "nicht zugewiesen"}
                       {t.dueDate && (
                         <span className={overdue ? " text-danger font-medium" : undefined}>
                           {" "}
@@ -206,9 +207,9 @@ export default async function DashboardPage() {
         </section>
 
         <section className="card p-5 lg:col-span-2">
-          <SectionHeader title="Upcoming shoots" href="/projects" icon={Clapperboard} />
+          <SectionHeader title="Kommende Drehs" href="/projects" icon={Clapperboard} />
           {data.upcomingProjects.length === 0 ? (
-            <p className="text-sm text-ink-mute mt-2">Nothing scheduled.</p>
+            <p className="text-sm text-ink-mute mt-2">Nichts geplant.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {data.upcomingProjects.map((p) => (
@@ -232,16 +233,16 @@ export default async function DashboardPage() {
         </section>
 
         <section className="card p-5">
-          <SectionHeader title="Unpaid invoices" href="/invoices" icon={ReceiptEuro} />
+          <SectionHeader title="Offene Rechnungen" href="/Rechnungen" icon={ReceiptEuro} />
           {data.unpaidInvoices.length === 0 ? (
-            <p className="text-sm text-ink-mute mt-2">All clear.</p>
+            <p className="text-sm text-ink-mute mt-2">Alles beglichen.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {data.unpaidInvoices.slice(0, 5).map((inv) => {
                 const totals = calculateTotals(inv.items, inv.vatRate);
                 return (
                   <li key={inv.id} className="py-3">
-                    <Link href={`/invoices/${inv.id}`} className="font-medium hover:underline">
+                    <Link href={`/Rechnungen/${inv.id}`} className="font-medium hover:underline">
                       {inv.number}
                     </Link>
                     <div className="text-xs text-ink-mute">
@@ -255,9 +256,9 @@ export default async function DashboardPage() {
         </section>
 
         <section className="card p-5">
-          <SectionHeader title="Recent clients" href="/clients" icon={Users} />
+          <SectionHeader title="Neueste Kunden" href="/clients" icon={Users} />
           {data.recentClients.length === 0 ? (
-            <p className="text-sm text-ink-mute mt-2">No clients yet.</p>
+            <p className="text-sm text-ink-mute mt-2">Noch keine Kunden.</p>
           ) : (
             <ul className="divide-y divide-line-soft">
               {data.recentClients.map((c) => (
@@ -273,10 +274,10 @@ export default async function DashboardPage() {
         </section>
 
         <section className="card p-5 lg:col-span-2">
-          <SectionHeader title="Contracts needing attention" href="/contracts" icon={FileSignature} />
+          <SectionHeader title="Verträge mit Handlungsbedarf" href="/contracts" icon={FileSignature} />
           {data.expiringContracts.length === 0 ? (
             <p className="text-sm text-ink-mute mt-2">
-              Nothing ending within {CONTRACT_WARNING_DAYS} days.
+              Nichts endet in den nächsten {CONTRACT_WARNING_DAYS} Tagen.
             </p>
           ) : (
             <ul className="divide-y divide-line-soft">
@@ -290,11 +291,11 @@ export default async function DashboardPage() {
                       </Link>
                       <div className="text-xs text-ink-mute truncate">
                         {c.counterparty}
-                        {c.noticePeriodDays ? ` · ${c.noticePeriodDays} days notice` : ""}
+                        {c.noticePeriodDays ? ` · ${c.noticePeriodDays} Tage Kündigungsfrist` : ""}
                       </div>
                     </div>
                     <span className={`text-xs shrink-0 ${d < 0 ? "text-danger font-medium" : "text-ink"}`}>
-                      {d < 0 ? `${Math.abs(d)} days overdue` : `in ${d} days`}
+                      {d < 0 ? `${Math.abs(d)} Tage überfällig` : `in ${d} days`}
                     </span>
                   </li>
                 );
@@ -333,7 +334,7 @@ function SectionHeader({
         <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">{title}</h2>
       </div>
       <Link href={href} className="text-xs text-ink-mute hover:text-ink inline-flex items-center gap-1">
-        View all <ArrowRight className="h-3 w-3" />
+        Alle anzeigen <ArrowRight className="h-3 w-3" />
       </Link>
     </div>
   );
