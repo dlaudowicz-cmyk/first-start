@@ -129,10 +129,12 @@ Feinschliff-Historie):
 Ton **getrennt** von Bild erzeugen und **im Schnitt zusammenführen** (TTS
 generieren → prüfen/freigeben → auf vorhandenes/generiertes stummes
 Videomaterial legen) — **nicht** über `audio_references` direkt in die
-Seedance-Generierung geben. Grund: Lip-Sync ist eine bekannte Schwäche der
-Pipeline; der getrennte Weg ist bereits erfolgreich erprobt (Cal-Zeile im
-Demo-Reel). `audio_references` als Direktweg ist technisch vorhanden, aber
-**nie getestet** — Verhalten unbekannt.
+Seedance-Generierung geben. Grund: der getrennte Weg ist bereits erfolgreich
+erprobt (Cal-Zeile im Demo-Reel). `audio_references` als Direktweg ist
+technisch vorhanden, aber **nie getestet** — Verhalten unbekannt.
+⚠️ **Update:** Lip-Sync selbst ist inzwischen kein Schwachpunkt mehr — der
+getrennte Weg bleibt trotzdem die erprobte, verifizierte Methode, solange
+`audio_references` ungetestet ist.
 
 **Materialbasis:** Fast vollständig aus vorhandenem Material (Locomotion-Tests
 Cal/Liv/Sammy, Verfolgungsszene) — nur die paar Sprechzeilen sind neu (unter

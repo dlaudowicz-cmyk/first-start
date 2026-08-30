@@ -38,6 +38,8 @@ gern mündlich — das will ich nicht schriftlich rumschicken.
   ein Zusammenspiel aus unseren beiden Seiten.
 - Die Bildqualität hält mit professioneller Sender-/Kino-Animation mit —
   das haben wir am Testlauf gesehen, nicht nur behauptet.
+- Lippensynchron zu exaktem Dialog — lange eine Schwäche des Systems, ist
+  mittlerweile kein Problem mehr.
 
 **Die Zahlen, ehrlich — als Verhältnis, nicht als Preisliste:**
 Die reine Rechenleistung ist im Vergleich zur klassischen Produktion
@@ -60,9 +62,6 @@ Investitionsargument als „gebt uns Geld für teure Animation" — eher „gebt
 uns ein kleines Team, das das hier professionell hochfährt".
 
 **Was noch nicht bewiesen ist — bitte nicht überversprechen:**
-- Lippensynchron zu exaktem Dialog ist eine Schwäche des Systems. Deshalb
-  arbeite ich bewusst mit Reaktionen, Körpersprache und Off-Text statt mit
-  Nahaufnahmen sprechender Münder.
 - Meine aktuelle Auflösung ist 720p. Für Kino/4K gibt es einen Weg (direkter
   Zugriff auf das Modell statt über die Plattform), aber der ist noch nicht
   fertig kalkuliert.
