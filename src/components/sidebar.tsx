@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { prisma } from "@/lib/db";
 import { getActiveVenture, listVentures } from "@/lib/venture-context";
-import { PushlabsMark } from "./pushlabs-mark";
 import { SidebarNav } from "./sidebar-nav";
 import { VentureSwitcher } from "./venture-switcher";
 
@@ -10,24 +10,23 @@ export async function Sidebar() {
     getActiveVenture(),
     prisma.companySettings.findUnique({
       where: { id: "singleton" },
-      select: { companyName: true, owner: true, tagline: true },
+      select: { companyName: true, owner: true },
     }),
   ]);
 
   return (
     <aside className="hidden md:flex w-64 shrink-0 flex-col bg-graphite-950 text-white sticky top-0 h-screen">
       <div className="p-5 border-b border-white/10 space-y-4">
-        <div className="flex items-center gap-3">
-          <PushlabsMark size={36} />
-          <div className="min-w-0">
-            <div className="text-sm font-semibold tracking-tight text-neon-300 truncate">
-              {(settings?.companyName ?? "Pushlabs").toUpperCase()}
-            </div>
-            <div className="text-[10px] text-white/50 -mt-0.5 uppercase tracking-wider truncate">
-              {settings?.tagline ?? "We make brands move"}
-            </div>
-          </div>
-        </div>
+        {/* Helle Wortmarke mit Alphakanal — die dunkle Variante hat einen
+            weissen Grund und wuerde hier als Kasten stehen. */}
+        <Image
+          src="/brand/pushlabs-logo-light.png"
+          alt={settings?.companyName ?? "Pushlabs"}
+          width={2172}
+          height={724}
+          className="w-full h-auto"
+          priority
+        />
         <VentureSwitcher ventures={ventures} activeSlug={active?.slug ?? null} />
       </div>
 

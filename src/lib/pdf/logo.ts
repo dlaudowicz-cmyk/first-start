@@ -24,12 +24,17 @@ export async function loadLogoDataUri(logoPath: string | null | undefined): Prom
   const mime = EMBEDDABLE[ext];
   if (!mime) return null;
 
-  // logoPath is a public URL path like "/uploads/logo-123.png".
+  // logoPath is a public URL path like "/uploads/logo-123.png" or, for the
+  // brand assets committed with the repo, "/brand/pushlabs-logo-dark.png".
   const absolute = path.join(process.cwd(), "public", logoPath.replace(/^\/+/, ""));
 
-  // Keep the read inside public/uploads even if the stored path contains "..".
-  const uploadsRoot = path.join(process.cwd(), "public", "uploads");
-  if (!absolute.startsWith(uploadsRoot + path.sep)) return null;
+  // Confine the read to the two directories that may hold a logo, even if the
+  // stored path contains "..".
+  const allowedRoots = [
+    path.join(process.cwd(), "public", "uploads"),
+    path.join(process.cwd(), "public", "brand"),
+  ];
+  if (!allowedRoots.some((root) => absolute.startsWith(root + path.sep))) return null;
 
   try {
     const buffer = await fs.readFile(absolute);
