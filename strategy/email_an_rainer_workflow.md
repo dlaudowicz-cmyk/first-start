@@ -29,7 +29,7 @@ Die reine Rechenleistung ist im Vergleich zur klassischen Produktion lächerlich
 - Meine aktuelle Auflösung ist 720p. Für Kino/4K gibt es einen Weg (direkter Zugriff auf das Modell statt über die Plattform), aber der ist noch nicht fertig kalkuliert.
 - Ob die Bildqualität wirklich mit professioneller Sender-/Kino-Animation mithält, muss sich am nächsten größeren Testlauf zeigen — ich glaube ja, aber „bewiesen" ist es erst, wenn wir's gezeigt haben.
 
-Mach draus, was für dich Sinn ergibt — zeig das Reel, zeig die Figuren, oder erzähl nur in eigenen Worten, dass wir eine schnelle, günstige KI-Produktionspipeline haben. Du kennst Jan Lacher und den Raum besser als ich. Sag mir einfach, was du für den Termin brauchst, dann bereite ich's vor.
+Mach draus, was für dich Sinn ergibt — zeig das Reel, zeig die Figuren, oder erzähl nur in eigenen Worten, dass wir eine schnelle, günstige KI-Produktionspipeline haben. Du kennst Jan Lacher und den Raum besser als ich. Du meintest, genau sowas brauchst du für den Termin — hier ist es.
 
 Viele Grüße
 Daniel

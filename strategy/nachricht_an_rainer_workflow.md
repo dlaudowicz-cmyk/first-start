@@ -67,6 +67,6 @@ uns ein kleines Team, das das hier professionell hochfährt".
 Mach draus, was für dich Sinn ergibt — zeig das Reel, zeig die Figuren, oder
 erzähl nur in eigenen Worten, dass wir eine schnelle, günstige
 KI-Produktionspipeline haben. Du kennst Jan Lacher und den Raum besser als
-ich. Sag mir einfach, was du für den Termin brauchst, dann bereite ich's vor.
+ich. Du meintest, genau sowas brauchst du für den Termin — hier ist es.
 
 Daniel
