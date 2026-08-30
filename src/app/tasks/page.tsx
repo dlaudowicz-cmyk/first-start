@@ -70,7 +70,7 @@ export default async function TasksPage() {
         />
       ) : (
         <>
-          <p className="text-sm text-graphite-500 mb-4">
+          <p className="text-sm text-ink-mute mb-4">
             {openCount} open of {rows.length} total
           </p>
           <div className="space-y-6">
@@ -79,11 +79,11 @@ export default async function TasksPage() {
               if (groupRows.length === 0) return null;
               return (
                 <section key={group.key} className="card p-5">
-                  <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-1">
+                  <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-1">
                     {group.label}{" "}
-                    <span className="text-graphite-400 font-normal">({groupRows.length})</span>
+                    <span className="text-ink-faint font-normal">({groupRows.length})</span>
                   </h2>
-                  <ul className="divide-y divide-graphite-100">
+                  <ul className="divide-y divide-line-soft">
                     {groupRows.map((task) => (
                       <TaskRow key={task.id} task={task} />
                     ))}

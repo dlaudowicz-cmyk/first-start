@@ -54,7 +54,7 @@ export default async function CredentialDetailPage({ params }: { params: Promise
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-2">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Access record</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Access record</h2>
             <StatusBadge status={credential.criticality} />
           </div>
           <dl className="text-sm space-y-2">
@@ -67,35 +67,35 @@ export default async function CredentialDetailPage({ params }: { params: Promise
             <Row label="Shared with" value={credential.sharedWith} />
             {credential.notes && <Row label="Notes" value={credential.notes} multiline />}
           </dl>
-          <p className="mt-4 pt-3 border-t border-graphite-100 text-xs text-graphite-500">
+          <p className="mt-4 pt-3 border-t border-line-soft text-xs text-ink-mute">
             No secret value is stored in this app — retrieve it from {credential.storageLocation}.
           </p>
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Ownership & rotation</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Ownership & rotation</h2>
           <dl className="text-sm space-y-2">
             <div className="grid grid-cols-3 gap-2">
-              <dt className="text-graphite-500">Owner</dt>
+              <dt className="text-ink-mute">Owner</dt>
               <dd className="col-span-2">
                 {credential.owner ? (
                   <Link href={`/people/${credential.owner.id}`} className="hover:underline">
                     {credential.owner.name}
                   </Link>
                 ) : (
-                  <span className="text-graphite-400">Unassigned</span>
+                  <span className="text-ink-faint">Unassigned</span>
                 )}
               </dd>
             </div>
             <div className="grid grid-cols-3 gap-2">
-              <dt className="text-graphite-500">Venture</dt>
+              <dt className="text-ink-mute">Venture</dt>
               <dd className="col-span-2">
                 {credential.venture ? (
                   <Link href={`/ventures/${credential.venture.slug}`} className="hover:underline">
                     {credential.venture.name}
                   </Link>
                 ) : (
-                  <span className="text-graphite-400">Company-wide</span>
+                  <span className="text-ink-faint">Company-wide</span>
                 )}
               </dd>
             </div>
@@ -115,7 +115,7 @@ export default async function CredentialDetailPage({ params }: { params: Promise
 function Row({ label, value, multiline }: { label: string; value: string | null; multiline?: boolean }) {
   return (
     <div className="grid grid-cols-3 gap-2">
-      <dt className="text-graphite-500 col-span-1">{label}</dt>
+      <dt className="text-ink-mute col-span-1">{label}</dt>
       <dd className={`col-span-2 break-words ${multiline ? "whitespace-pre-line" : ""}`}>{value || "—"}</dd>
     </div>
   );

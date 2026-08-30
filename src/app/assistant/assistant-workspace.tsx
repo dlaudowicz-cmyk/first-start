@@ -41,14 +41,14 @@ export function AssistantWorkspace({ templates }: { templates: TemplateMeta[] })
                   "w-full text-left rounded-lg px-3 py-2.5 text-sm transition-colors",
                   t.id === active.id
                     ? "bg-graphite-900 text-white"
-                    : "text-graphite-700 hover:bg-graphite-100",
+                    : "text-ink hover:bg-surface-3",
                 )}
               >
                 <div className="font-medium">{t.title}</div>
                 <div
                   className={cn(
                     "text-xs mt-0.5 line-clamp-2",
-                    t.id === active.id ? "text-graphite-200" : "text-graphite-500",
+                    t.id === active.id ? "text-white/70" : "text-ink-mute",
                   )}
                 >
                   {t.description}
@@ -62,12 +62,12 @@ export function AssistantWorkspace({ templates }: { templates: TemplateMeta[] })
       <section className="lg:col-span-3 space-y-6">
         <div className="card p-6">
           <div className="flex items-start gap-3">
-            <div className="h-9 w-9 rounded-lg bg-sand-100 text-sand-700 flex items-center justify-center shrink-0">
+            <div className="h-9 w-9 rounded-lg bg-warn/10 text-warn flex items-center justify-center shrink-0">
               <Sparkles className="h-4 w-4" />
             </div>
             <div className="flex-1">
-              <h2 className="font-display text-xl text-graphite-900">{active.title}</h2>
-              <p className="text-sm text-graphite-500 mt-1">{active.description}</p>
+              <h2 className="font-display font-semibold text-xl text-ink">{active.title}</h2>
+              <p className="text-sm text-ink-mute mt-1">{active.description}</p>
             </div>
           </div>
 
@@ -83,14 +83,14 @@ export function AssistantWorkspace({ templates }: { templates: TemplateMeta[] })
         </div>
 
         <div className="card p-0 overflow-hidden">
-          <div className="flex items-center justify-between px-5 py-3 border-b border-graphite-100">
-            <h3 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Generated prompt preview</h3>
+          <div className="flex items-center justify-between px-5 py-3 border-b border-line-soft">
+            <h3 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Generated prompt preview</h3>
             <button onClick={copy} className="btn-secondary text-xs">
               {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
               {copied ? "Copied" : "Copy"}
             </button>
           </div>
-          <pre className="px-5 py-4 text-[13px] leading-relaxed whitespace-pre-wrap font-mono text-graphite-800 bg-graphite-50/50 max-h-[60vh] overflow-y-auto">
+          <pre className="px-5 py-4 text-[13px] leading-relaxed whitespace-pre-wrap font-mono text-ink bg-surface-2 max-h-[60vh] overflow-y-auto">
             {generatedPrompt}
           </pre>
         </div>

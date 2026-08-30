@@ -44,14 +44,14 @@ export default async function ContractsPage() {
       />
 
       {expiring.length > 0 && (
-        <div className="card p-4 mb-6 border-sand-200 bg-sand-50">
+        <div className="card p-4 mb-6 border-warn/30 bg-warn/10">
           <div className="flex items-start gap-2.5">
-            <AlertTriangle className="h-4 w-4 text-sand-700 mt-0.5 shrink-0" />
+            <AlertTriangle className="h-4 w-4 text-warn mt-0.5 shrink-0" />
             <div className="text-sm">
-              <span className="font-medium text-sand-900">
+              <span className="font-medium text-warn">
                 {expiring.length} contract{expiring.length === 1 ? "" : "s"} ending within {EXPIRY_WARNING_DAYS} days
               </span>
-              <ul className="mt-1 text-sand-800 space-y-0.5">
+              <ul className="mt-1 text-ink space-y-0.5">
                 {expiring.map((c) => {
                   const d = daysUntil(c.endDate)!;
                   return (
@@ -102,14 +102,14 @@ export default async function ContractsPage() {
                       {c.title}
                     </Link>
                   </td>
-                  <td className="capitalize text-graphite-700">{c.type}</td>
-                  <td className="text-graphite-700">{c.counterparty}</td>
+                  <td className="capitalize text-ink">{c.type}</td>
+                  <td className="text-ink">{c.counterparty}</td>
                   {!active && (
                     <td>
                       <VentureBadge name={c.venture?.name} accent={c.venture?.accent} muted />
                     </td>
                   )}
-                  <td className="text-xs text-graphite-500">
+                  <td className="text-xs text-ink-mute">
                     {c.startDate ? formatDate(c.startDate) : "—"}
                     {c.endDate ? ` → ${formatDate(c.endDate)}` : ""}
                   </td>

@@ -51,10 +51,10 @@ export function TaskRow({ task }: { task: TaskRowData }) {
         className={cn(
           "mt-0.5 h-5 w-5 rounded-full border flex items-center justify-center shrink-0 transition-colors",
           isDone
-            ? "bg-emerald-600 border-emerald-600 text-white"
+            ? "bg-ok border-ok text-white"
             : task.status === "blocked"
-              ? "border-red-300 text-red-600"
-              : "border-graphite-300 text-graphite-400 hover:border-graphite-900 hover:text-graphite-900",
+              ? "border-danger/40 text-danger"
+              : "border-line text-ink-faint hover:border-neon hover:text-ink",
         )}
       >
         <Icon className="h-3 w-3" />
@@ -63,11 +63,11 @@ export function TaskRow({ task }: { task: TaskRowData }) {
       <div className="min-w-0 flex-1">
         <Link
           href={`/tasks/${task.id}`}
-          className={cn("font-medium hover:underline block truncate", isDone && "line-through text-graphite-400")}
+          className={cn("font-medium hover:underline block truncate", isDone && "line-through text-ink-faint")}
         >
           {task.title}
         </Link>
-        <div className="text-xs text-graphite-500 flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-0.5">
+        <div className="text-xs text-ink-mute flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-0.5">
           {task.assignee && <span>{task.assignee}</span>}
           {task.ventureName && (
             <span className="inline-flex items-center gap-1">
@@ -80,18 +80,18 @@ export function TaskRow({ task }: { task: TaskRowData }) {
             </span>
           )}
           {task.due && (
-            <span className={task.overdue && !isDone ? "text-red-600 font-medium" : undefined}>
+            <span className={task.overdue && !isDone ? "text-danger font-medium" : undefined}>
               due {task.due}
             </span>
           )}
-          {task.source && <span className="text-graphite-400">· {task.source}</span>}
+          {task.source && <span className="text-ink-faint">· {task.source}</span>}
         </div>
       </div>
 
       <div className="flex items-center gap-2 shrink-0">
         {task.priority === "high" && !isDone && <span className="badge-warning text-[10px]">high</span>}
         <select
-          className="text-xs rounded-md border border-graphite-200 bg-white px-1.5 py-1 capitalize"
+          className="text-xs rounded-md border border-line bg-surface px-1.5 py-1 capitalize"
           value={task.status}
           disabled={pending}
           onChange={(e) =>

@@ -63,13 +63,13 @@ export default async function ClientsPage() {
                       {c.companyName}
                     </Link>
                   </td>
-                  <td className="text-graphite-700">{c.contactPerson || "—"}</td>
-                  <td className="text-graphite-700">{c.email || "—"}</td>
-                  <td className="text-graphite-500">{c.vatId || "—"}</td>
+                  <td className="text-ink">{c.contactPerson || "—"}</td>
+                  <td className="text-ink">{c.email || "—"}</td>
+                  <td className="text-ink-mute">{c.vatId || "—"}</td>
                   {!active && (
                     <td>
                       {c.ventures.length === 0 ? (
-                        <span className="text-xs text-graphite-400">—</span>
+                        <span className="text-xs text-ink-faint">—</span>
                       ) : (
                         <div className="flex flex-wrap gap-x-3 gap-y-1">
                           {c.ventures.map((cv) => (

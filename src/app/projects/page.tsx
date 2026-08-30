@@ -64,18 +64,18 @@ export default async function ProjectsPage() {
                       {p.title}
                     </Link>
                   </td>
-                  <td className="text-graphite-700">
+                  <td className="text-ink">
                     <Link href={`/clients/${p.client.id}`} className="hover:underline">
                       {p.client.companyName}
                     </Link>
                   </td>
-                  <td className="capitalize text-graphite-700">{p.type}</td>
+                  <td className="capitalize text-ink">{p.type}</td>
                   {!active && (
                     <td>
                       <VentureBadge name={p.venture?.name} accent={p.venture?.accent} muted />
                     </td>
                   )}
-                  <td className="text-graphite-500 text-xs">
+                  <td className="text-ink-mute text-xs">
                     {p.shootStart ? formatDate(p.shootStart) : "—"}
                     {p.shootEnd ? ` → ${formatDate(p.shootEnd)}` : ""}
                   </td>

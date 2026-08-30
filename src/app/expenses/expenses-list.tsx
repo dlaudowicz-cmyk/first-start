@@ -37,9 +37,9 @@ export function ExpensesList({ rows }: { rows: Row[] }) {
           {rows.map((r) => (
             <tr key={r.id}>
               <td>{r.date}</td>
-              <td className="text-graphite-700 truncate max-w-[260px]">{r.project}</td>
+              <td className="text-ink truncate max-w-[260px]">{r.project}</td>
               <td className="text-right tabular-nums">{r.people}</td>
-              <td className="text-graphite-500 text-xs">
+              <td className="text-ink-mute text-xs">
                 {r.overnight && "ÜN "}
                 {r.breakfast && "F "}
                 {r.lunch && "M "}
@@ -49,7 +49,7 @@ export function ExpensesList({ rows }: { rows: Row[] }) {
               <td className="text-right tabular-nums font-medium">{formatCurrency(r.total)}</td>
               <td className="text-right">
                 <button
-                  className="btn-ghost text-red-600 hover:bg-red-50"
+                  className="btn-ghost text-danger hover:bg-danger/10"
                   disabled={pending}
                   onClick={() => {
                     if (!confirm("Delete this expense?")) return;

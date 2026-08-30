@@ -74,16 +74,16 @@ export default async function ToolsPage() {
                       {t.name}
                     </Link>
                   </td>
-                  <td className="capitalize text-graphite-700">{t.category}</td>
-                  <td className="text-graphite-500 text-xs">{t.plan || "—"}</td>
+                  <td className="capitalize text-ink">{t.category}</td>
+                  <td className="text-ink-mute text-xs">{t.plan || "—"}</td>
                   <td className="text-right tabular-nums">{t.seats ?? "—"}</td>
-                  <td className="text-graphite-700">
+                  <td className="text-ink">
                     {t.owner ? (
                       <Link href={`/people/${t.owner.id}`} className="hover:underline">
                         {t.owner.name}
                       </Link>
                     ) : (
-                      <span className="text-graphite-400">—</span>
+                      <span className="text-ink-faint">—</span>
                     )}
                   </td>
                   {!active && (
@@ -91,7 +91,7 @@ export default async function ToolsPage() {
                       <VentureBadge name={t.venture?.name} accent={t.venture?.accent} muted />
                     </td>
                   )}
-                  <td className="text-xs text-graphite-500">
+                  <td className="text-xs text-ink-mute">
                     {t.renewalDate ? formatDate(t.renewalDate) : "—"}
                   </td>
                   <td>
@@ -100,7 +100,7 @@ export default async function ToolsPage() {
                   <td className="text-right tabular-nums">
                     {formatCurrency(monthlyCost(t.costPerMonth, t.billingCycle))}
                     {t.billingCycle === "yearly" && (
-                      <div className="text-[10px] text-graphite-400">
+                      <div className="text-[10px] text-ink-faint">
                         {formatCurrency(t.costPerMonth ?? 0)}/yr
                       </div>
                     )}
@@ -118,9 +118,9 @@ export default async function ToolsPage() {
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <div className="card p-5">
-      <div className="text-xs uppercase tracking-wider text-graphite-500">{label}</div>
-      <div className="font-display text-2xl mt-2 text-graphite-900 tabular-nums">{value}</div>
-      {hint && <div className="text-xs text-graphite-500 mt-1">{hint}</div>}
+      <div className="text-xs uppercase tracking-wider text-ink-mute">{label}</div>
+      <div className="font-display font-semibold text-2xl mt-2 text-ink tabular-nums">{value}</div>
+      {hint && <div className="text-xs text-ink-mute mt-1">{hint}</div>}
     </div>
   );
 }

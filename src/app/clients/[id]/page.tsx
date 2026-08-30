@@ -44,7 +44,7 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-1">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Details</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Details</h2>
           <dl className="text-sm space-y-2">
             <Row label="Email" value={client.email} />
             <Row label="Phone" value={client.phone} />
@@ -63,18 +63,18 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
         </section>
 
         <section className="card p-5 lg:col-span-3">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Projects</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Projects</h2>
           {client.projects.length === 0 ? (
-            <p className="text-sm text-graphite-500">No projects yet.</p>
+            <p className="text-sm text-ink-mute">No projects yet.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {client.projects.map((p) => (
                 <li key={p.id} className="py-3 flex items-center justify-between gap-4">
                   <div className="min-w-0">
                     <Link href={`/projects/${p.id}`} className="font-medium hover:underline truncate block">
                       {p.title}
                     </Link>
-                    <div className="text-xs text-graphite-500">
+                    <div className="text-xs text-ink-mute">
                       {p.type}
                       {p.shootStart && ` · ${formatDate(p.shootStart)}`}
                     </div>
@@ -93,7 +93,7 @@ export default async function ClientDetailPage({ params }: { params: Promise<{ i
 function Row({ label, value, multiline }: { label: string; value: string | null; multiline?: boolean }) {
   return (
     <div className="grid grid-cols-3 gap-2">
-      <dt className="text-graphite-500 col-span-1">{label}</dt>
+      <dt className="text-ink-mute col-span-1">{label}</dt>
       <dd className={`col-span-2 ${multiline ? "whitespace-pre-line" : ""}`}>{value || "—"}</dd>
     </div>
   );

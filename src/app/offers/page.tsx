@@ -77,7 +77,7 @@ export default async function OffersPage() {
                         <VentureBadge name={o.venture?.name} accent={o.venture?.accent} muted />
                       </td>
                     )}
-                    <td className="text-graphite-500 truncate max-w-[200px]">{o.project?.title || "—"}</td>
+                    <td className="text-ink-mute truncate max-w-[200px]">{o.project?.title || "—"}</td>
                     <td>{o.validUntil ? formatDate(o.validUntil) : "—"}</td>
                     <td>
                       <StatusBadge status={o.status} />

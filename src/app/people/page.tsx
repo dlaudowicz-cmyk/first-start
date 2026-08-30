@@ -70,11 +70,11 @@ export default async function PeoplePage() {
                       {p.name}
                     </Link>
                   </td>
-                  <td className="text-graphite-700">{p.role || "—"}</td>
-                  <td className="capitalize text-graphite-700">{p.type}</td>
+                  <td className="text-ink">{p.role || "—"}</td>
+                  <td className="capitalize text-ink">{p.type}</td>
                   <td>
                     {p.memberships.length === 0 ? (
-                      <span className="text-xs text-graphite-400">—</span>
+                      <span className="text-xs text-ink-faint">—</span>
                     ) : (
                       <div className="flex flex-wrap gap-x-3 gap-y-1">
                         {p.memberships.map((m) => (
@@ -83,7 +83,7 @@ export default async function PeoplePage() {
                       </div>
                     )}
                   </td>
-                  <td className="text-graphite-500 text-xs">{p.email || p.phone || "—"}</td>
+                  <td className="text-ink-mute text-xs">{p.email || p.phone || "—"}</td>
                   <td className="text-right tabular-nums">{p.dayRate != null ? formatCurrency(p.dayRate) : "—"}</td>
                   <td>
                     <StatusBadge status={p.status} />

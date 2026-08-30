@@ -33,7 +33,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-2">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Terms</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Terms</h2>
             <StatusBadge status={contract.status} />
           </div>
           <dl className="text-sm space-y-2">
@@ -65,41 +65,41 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Linked to</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Linked to</h2>
           <dl className="text-sm space-y-3">
             <div>
-              <dt className="text-graphite-500 text-xs uppercase tracking-wider">Venture</dt>
+              <dt className="text-ink-mute text-xs uppercase tracking-wider">Venture</dt>
               <dd className="mt-0.5">
                 {contract.venture ? (
                   <Link href={`/ventures/${contract.venture.slug}`} className="hover:underline">
                     {contract.venture.name}
                   </Link>
                 ) : (
-                  <span className="text-graphite-400">Company-wide</span>
+                  <span className="text-ink-faint">Company-wide</span>
                 )}
               </dd>
             </div>
             <div>
-              <dt className="text-graphite-500 text-xs uppercase tracking-wider">Client</dt>
+              <dt className="text-ink-mute text-xs uppercase tracking-wider">Client</dt>
               <dd className="mt-0.5">
                 {contract.client ? (
                   <Link href={`/clients/${contract.client.id}`} className="hover:underline">
                     {contract.client.companyName}
                   </Link>
                 ) : (
-                  <span className="text-graphite-400">—</span>
+                  <span className="text-ink-faint">—</span>
                 )}
               </dd>
             </div>
             <div>
-              <dt className="text-graphite-500 text-xs uppercase tracking-wider">Person</dt>
+              <dt className="text-ink-mute text-xs uppercase tracking-wider">Person</dt>
               <dd className="mt-0.5">
                 {contract.person ? (
                   <Link href={`/people/${contract.person.id}`} className="hover:underline">
                     {contract.person.name}
                   </Link>
                 ) : (
-                  <span className="text-graphite-400">—</span>
+                  <span className="text-ink-faint">—</span>
                 )}
               </dd>
             </div>
@@ -113,7 +113,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
 function Row({ label, value, multiline }: { label: string; value: string | null; multiline?: boolean }) {
   return (
     <div className="grid grid-cols-3 gap-2">
-      <dt className="text-graphite-500 col-span-1">{label}</dt>
+      <dt className="text-ink-mute col-span-1">{label}</dt>
       <dd className={`col-span-2 ${multiline ? "whitespace-pre-line" : ""}`}>{value || "—"}</dd>
     </div>
   );

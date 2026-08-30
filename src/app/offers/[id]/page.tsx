@@ -40,7 +40,7 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-1">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Details</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Details</h2>
             <StatusBadge status={offer.status} />
           </div>
           <dl className="text-sm space-y-2">
@@ -55,7 +55,7 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
         </section>
 
         <section className="card p-5 lg:col-span-2">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Line items</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Line items</h2>
           <table className="table-base">
             <thead>
               <tr>
@@ -69,7 +69,7 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
             <tbody>
               {items.map((it, idx) => (
                 <tr key={it.id}>
-                  <td className="text-graphite-500">{idx + 1}</td>
+                  <td className="text-ink-mute">{idx + 1}</td>
                   <td>{it.description}</td>
                   <td className="text-right tabular-nums">
                     {it.quantity} {it.unit || ""}
@@ -84,14 +84,14 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
           <div className="mt-5 flex justify-end">
             <div className="w-72 space-y-1.5 text-sm">
               <div className="flex justify-between">
-                <span className="text-graphite-500">Net</span>
+                <span className="text-ink-mute">Net</span>
                 <span className="tabular-nums">{formatCurrency(totals.net)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-graphite-500">VAT {offer.vatRate}%</span>
+                <span className="text-ink-mute">VAT {offer.vatRate}%</span>
                 <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
               </div>
-              <div className="flex justify-between border-t border-graphite-200 pt-1.5 mt-1.5 font-semibold text-base">
+              <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">
                 <span>Gross</span>
                 <span className="tabular-nums">{formatCurrency(totals.gross)}</span>
               </div>
@@ -106,7 +106,7 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
 function Row({ label, value, multiline }: { label: string; value: string | null; multiline?: boolean }) {
   return (
     <div className="grid grid-cols-3 gap-2">
-      <dt className="text-graphite-500 col-span-1">{label}</dt>
+      <dt className="text-ink-mute col-span-1">{label}</dt>
       <dd className={`col-span-2 ${multiline ? "whitespace-pre-line" : ""}`}>{value || "—"}</dd>
     </div>
   );

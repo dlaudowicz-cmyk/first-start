@@ -134,7 +134,7 @@ export default async function DashboardPage() {
                   />
                   <span className="font-medium truncate">{v.name}</span>
                 </div>
-                <div className="mt-1 text-xs text-graphite-500 capitalize">
+                <div className="mt-1 text-xs text-ink-mute capitalize">
                   {v.kind} · {v.status}
                 </div>
               </Link>
@@ -147,16 +147,16 @@ export default async function DashboardPage() {
         <section className="card p-5 lg:col-span-2">
           <SectionHeader title="Active projects" href="/projects" icon={Clapperboard} />
           {data.activeProjects.length === 0 ? (
-            <p className="text-sm text-graphite-500 mt-2">No active projects.</p>
+            <p className="text-sm text-ink-mute mt-2">No active projects.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {data.activeProjects.map((p) => (
                 <li key={p.id} className="py-3 flex items-center justify-between gap-4">
                   <div className="min-w-0">
                     <Link href={`/projects/${p.id}`} className="font-medium hover:underline truncate block">
                       {p.title}
                     </Link>
-                    <div className="text-xs text-graphite-500 truncate flex flex-wrap items-center gap-x-2">
+                    <div className="text-xs text-ink-mute truncate flex flex-wrap items-center gap-x-2">
                       <span>
                         {p.client.companyName} · {p.type}
                         {p.shootStart && ` · ${formatDate(p.shootStart)}`}
@@ -176,9 +176,9 @@ export default async function DashboardPage() {
         <section className="card p-5">
           <SectionHeader title="Open tasks" href="/tasks" icon={ListChecks} />
           {data.openTasks.length === 0 ? (
-            <p className="text-sm text-graphite-500 mt-2">Nothing open.</p>
+            <p className="text-sm text-ink-mute mt-2">Nothing open.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {data.openTasks.map((t) => {
                 const overdue = (() => {
                   const d = daysUntil(t.dueDate);
@@ -189,10 +189,10 @@ export default async function DashboardPage() {
                     <Link href={`/tasks/${t.id}`} className="text-sm font-medium hover:underline block truncate">
                       {t.title}
                     </Link>
-                    <div className="text-xs text-graphite-500 truncate">
+                    <div className="text-xs text-ink-mute truncate">
                       {t.assignee?.name ?? t.assigneeLabel ?? "unassigned"}
                       {t.dueDate && (
-                        <span className={overdue ? " text-red-600 font-medium" : undefined}>
+                        <span className={overdue ? " text-danger font-medium" : undefined}>
                           {" "}
                           · due {formatDate(t.dueDate)}
                         </span>
@@ -208,22 +208,22 @@ export default async function DashboardPage() {
         <section className="card p-5 lg:col-span-2">
           <SectionHeader title="Upcoming shoots" href="/projects" icon={Clapperboard} />
           {data.upcomingProjects.length === 0 ? (
-            <p className="text-sm text-graphite-500 mt-2">Nothing scheduled.</p>
+            <p className="text-sm text-ink-mute mt-2">Nothing scheduled.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {data.upcomingProjects.map((p) => (
                 <li key={p.id} className="py-3 flex items-center justify-between gap-4">
                   <div className="min-w-0">
                     <Link href={`/projects/${p.id}`} className="font-medium hover:underline truncate block">
                       {p.title}
                     </Link>
-                    <div className="text-xs text-graphite-500 truncate">
+                    <div className="text-xs text-ink-mute truncate">
                       {p.client.companyName} · {p.location || "—"}
                     </div>
                   </div>
-                  <div className="text-right text-xs text-graphite-700">
+                  <div className="text-right text-xs text-ink">
                     <div>{formatDate(p.shootStart)}</div>
-                    {p.shootEnd && <div className="text-graphite-400">→ {formatDate(p.shootEnd)}</div>}
+                    {p.shootEnd && <div className="text-ink-faint">→ {formatDate(p.shootEnd)}</div>}
                   </div>
                 </li>
               ))}
@@ -234,9 +234,9 @@ export default async function DashboardPage() {
         <section className="card p-5">
           <SectionHeader title="Unpaid invoices" href="/invoices" icon={ReceiptEuro} />
           {data.unpaidInvoices.length === 0 ? (
-            <p className="text-sm text-graphite-500 mt-2">All clear.</p>
+            <p className="text-sm text-ink-mute mt-2">All clear.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {data.unpaidInvoices.slice(0, 5).map((inv) => {
                 const totals = calculateTotals(inv.items, inv.vatRate);
                 return (
@@ -244,7 +244,7 @@ export default async function DashboardPage() {
                     <Link href={`/invoices/${inv.id}`} className="font-medium hover:underline">
                       {inv.number}
                     </Link>
-                    <div className="text-xs text-graphite-500">
+                    <div className="text-xs text-ink-mute">
                       {inv.client.companyName} · {formatCurrency(totals.gross)}
                     </div>
                   </li>
@@ -257,15 +257,15 @@ export default async function DashboardPage() {
         <section className="card p-5">
           <SectionHeader title="Recent clients" href="/clients" icon={Users} />
           {data.recentClients.length === 0 ? (
-            <p className="text-sm text-graphite-500 mt-2">No clients yet.</p>
+            <p className="text-sm text-ink-mute mt-2">No clients yet.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {data.recentClients.map((c) => (
                 <li key={c.id} className="py-3">
                   <Link href={`/clients/${c.id}`} className="font-medium hover:underline">
                     {c.companyName}
                   </Link>
-                  <div className="text-xs text-graphite-500">{c.contactPerson || c.email || "—"}</div>
+                  <div className="text-xs text-ink-mute">{c.contactPerson || c.email || "—"}</div>
                 </li>
               ))}
             </ul>
@@ -275,11 +275,11 @@ export default async function DashboardPage() {
         <section className="card p-5 lg:col-span-2">
           <SectionHeader title="Contracts needing attention" href="/contracts" icon={FileSignature} />
           {data.expiringContracts.length === 0 ? (
-            <p className="text-sm text-graphite-500 mt-2">
+            <p className="text-sm text-ink-mute mt-2">
               Nothing ending within {CONTRACT_WARNING_DAYS} days.
             </p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {data.expiringContracts.map((c) => {
                 const d = daysUntil(c.endDate)!;
                 return (
@@ -288,12 +288,12 @@ export default async function DashboardPage() {
                       <Link href={`/contracts/${c.id}`} className="font-medium hover:underline truncate block">
                         {c.title}
                       </Link>
-                      <div className="text-xs text-graphite-500 truncate">
+                      <div className="text-xs text-ink-mute truncate">
                         {c.counterparty}
                         {c.noticePeriodDays ? ` · ${c.noticePeriodDays} days notice` : ""}
                       </div>
                     </div>
-                    <span className={`text-xs shrink-0 ${d < 0 ? "text-red-600 font-medium" : "text-graphite-700"}`}>
+                    <span className={`text-xs shrink-0 ${d < 0 ? "text-danger font-medium" : "text-ink"}`}>
                       {d < 0 ? `${Math.abs(d)} days overdue` : `in ${d} days`}
                     </span>
                   </li>
@@ -310,9 +310,9 @@ export default async function DashboardPage() {
 function StatCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <div className="card p-5">
-      <div className="text-xs uppercase tracking-wider text-graphite-500">{label}</div>
-      <div className="font-display text-3xl mt-2 text-graphite-900">{value}</div>
-      {hint && <div className="text-xs text-graphite-500 mt-1">{hint}</div>}
+      <div className="text-xs uppercase tracking-wider text-ink-mute">{label}</div>
+      <div className="font-display font-semibold text-3xl mt-2 text-ink">{value}</div>
+      {hint && <div className="text-xs text-ink-mute mt-1">{hint}</div>}
     </div>
   );
 }
@@ -329,10 +329,10 @@ function SectionHeader({
   return (
     <div className="flex items-center justify-between mb-2">
       <div className="flex items-center gap-2">
-        <Icon className="h-4 w-4 text-graphite-500" />
-        <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">{title}</h2>
+        <Icon className="h-4 w-4 text-ink-mute" />
+        <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">{title}</h2>
       </div>
-      <Link href={href} className="text-xs text-graphite-500 hover:text-graphite-900 inline-flex items-center gap-1">
+      <Link href={href} className="text-xs text-ink-mute hover:text-ink inline-flex items-center gap-1">
         View all <ArrowRight className="h-3 w-3" />
       </Link>
     </div>

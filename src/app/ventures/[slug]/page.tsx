@@ -68,7 +68,7 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Profile</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Profile</h2>
             <StatusBadge status={venture.status} />
           </div>
           <dl className="text-sm space-y-2">
@@ -80,9 +80,9 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Team</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Team</h2>
           {venture.members.length === 0 ? (
-            <p className="text-sm text-graphite-500">
+            <p className="text-sm text-ink-mute">
               No one assigned.{" "}
               <Link href="/people" className="underline hover:no-underline">
                 Assign people
@@ -90,17 +90,17 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
               .
             </p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {venture.members.map((m) => (
                 <li key={m.id} className="py-2.5 flex items-center justify-between gap-3">
                   <div className="min-w-0">
                     <Link href={`/people/${m.person.id}`} className="font-medium hover:underline truncate block">
                       {m.person.name}
                     </Link>
-                    <div className="text-xs text-graphite-500 truncate">{m.role}</div>
+                    <div className="text-xs text-ink-mute truncate">{m.role}</div>
                   </div>
                   {m.allocation != null && (
-                    <span className="text-xs text-graphite-500 tabular-nums shrink-0">{m.allocation}%</span>
+                    <span className="text-xs text-ink-mute tabular-nums shrink-0">{m.allocation}%</span>
                   )}
                 </li>
               ))}
@@ -109,11 +109,11 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Clients</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Clients</h2>
           {venture.clients.length === 0 ? (
-            <p className="text-sm text-graphite-500">No clients linked.</p>
+            <p className="text-sm text-ink-mute">No clients linked.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {venture.clients.map((cv) => (
                 <li key={cv.id} className="py-2.5 flex items-center justify-between gap-3">
                   <Link href={`/clients/${cv.client.id}`} className="font-medium hover:underline truncate">
@@ -129,18 +129,18 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5 lg:col-span-2">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Projects</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Projects</h2>
           {venture.projects.length === 0 ? (
-            <p className="text-sm text-graphite-500">No projects yet.</p>
+            <p className="text-sm text-ink-mute">No projects yet.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {venture.projects.map((p) => (
                 <li key={p.id} className="py-2.5 flex items-center justify-between gap-4">
                   <div className="min-w-0">
                     <Link href={`/projects/${p.id}`} className="font-medium hover:underline truncate block">
                       {p.title}
                     </Link>
-                    <div className="text-xs text-graphite-500 truncate">
+                    <div className="text-xs text-ink-mute truncate">
                       {p.client.companyName}
                       {p.shootStart ? ` · ${formatDate(p.shootStart)}` : ""}
                     </div>
@@ -153,17 +153,17 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Open tasks</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Open tasks</h2>
           {venture.tasks.length === 0 ? (
-            <p className="text-sm text-graphite-500">Nothing open.</p>
+            <p className="text-sm text-ink-mute">Nothing open.</p>
           ) : (
-            <ul className="divide-y divide-graphite-100">
+            <ul className="divide-y divide-line-soft">
               {venture.tasks.map((t) => (
                 <li key={t.id} className="py-2.5">
                   <Link href={`/tasks/${t.id}`} className="text-sm font-medium hover:underline">
                     {t.title}
                   </Link>
-                  <div className="text-xs text-graphite-500">
+                  <div className="text-xs text-ink-mute">
                     {t.dueDate ? formatDate(t.dueDate) : "no due date"}
                   </div>
                 </li>
@@ -173,9 +173,9 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="card p-5 lg:col-span-3">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Contracts</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Contracts</h2>
           {venture.contracts.length === 0 ? (
-            <p className="text-sm text-graphite-500">No contracts recorded.</p>
+            <p className="text-sm text-ink-mute">No contracts recorded.</p>
           ) : (
             <table className="table-base">
               <thead>
@@ -196,8 +196,8 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
                         {c.title}
                       </Link>
                     </td>
-                    <td className="capitalize text-graphite-700">{c.type}</td>
-                    <td className="text-graphite-700">{c.counterparty}</td>
+                    <td className="capitalize text-ink">{c.type}</td>
+                    <td className="text-ink">{c.counterparty}</td>
                     <td>{c.endDate ? formatDate(c.endDate) : "—"}</td>
                     <td>
                       <StatusBadge status={c.status} />
@@ -217,9 +217,9 @@ export default async function VentureDetailPage({ params }: { params: Promise<{ 
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <div className="card p-5">
-      <div className="text-xs uppercase tracking-wider text-graphite-500">{label}</div>
-      <div className="font-display text-2xl mt-2 text-graphite-900 tabular-nums">{value}</div>
-      {hint && <div className="text-xs text-graphite-500 mt-1">{hint}</div>}
+      <div className="text-xs uppercase tracking-wider text-ink-mute">{label}</div>
+      <div className="font-display font-semibold text-2xl mt-2 text-ink tabular-nums">{value}</div>
+      {hint && <div className="text-xs text-ink-mute mt-1">{hint}</div>}
     </div>
   );
 }
@@ -227,7 +227,7 @@ function Stat({ label, value, hint }: { label: string; value: string; hint?: str
 function Row({ label, value, multiline }: { label: string; value: string | null; multiline?: boolean }) {
   return (
     <div className="grid grid-cols-3 gap-2">
-      <dt className="text-graphite-500 col-span-1">{label}</dt>
+      <dt className="text-ink-mute col-span-1">{label}</dt>
       <dd className={`col-span-2 ${multiline ? "whitespace-pre-line" : "capitalize"}`}>{value || "—"}</dd>
     </div>
   );

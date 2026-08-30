@@ -78,7 +78,7 @@ export default async function InvoicesPage() {
                         <VentureBadge name={inv.venture?.name} accent={inv.venture?.accent} muted />
                       </td>
                     )}
-                    <td className="text-graphite-500 truncate max-w-[200px]">{inv.project?.title || "—"}</td>
+                    <td className="text-ink-mute truncate max-w-[200px]">{inv.project?.title || "—"}</td>
                     <td>
                       <StatusBadge status={inv.status} />
                     </td>

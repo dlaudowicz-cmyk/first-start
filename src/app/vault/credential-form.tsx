@@ -64,10 +64,10 @@ export function CredentialForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
-      <div className="card p-4 border-emerald-200 bg-emerald-50">
+      <div className="card p-4 border-ok/30 bg-ok/10">
         <div className="flex items-start gap-2.5 text-sm">
-          <ShieldCheck className="h-4 w-4 text-emerald-700 mt-0.5 shrink-0" />
-          <p className="text-emerald-900">
+          <ShieldCheck className="h-4 w-4 text-ok mt-0.5 shrink-0" />
+          <p className="text-ink">
             <span className="font-medium">No secrets are stored here.</span> This form has no password or key field by
             design. Record <em>where</em> the credential lives so the team can find it — the actual secret stays in
             your password manager.

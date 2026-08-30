@@ -114,8 +114,8 @@ export function SettingsForm({ initial, logoPath }: Props) {
       </form>
 
       <aside className="card p-6 h-fit space-y-4">
-        <h3 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Logo</h3>
-        <div className="aspect-square rounded-lg border border-dashed border-graphite-200 bg-graphite-50 flex items-center justify-center overflow-hidden">
+        <h3 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Logo</h3>
+        <div className="aspect-square rounded-lg border border-dashed border-line bg-surface-2 flex items-center justify-center overflow-hidden">
           {logoPath ? (
             <Image
               src={logoPath}
@@ -126,16 +126,16 @@ export function SettingsForm({ initial, logoPath }: Props) {
               unoptimized
             />
           ) : (
-            <span className="text-graphite-400 text-sm">No logo uploaded</span>
+            <span className="text-ink-faint text-sm">No logo uploaded</span>
           )}
         </div>
         <form onSubmit={onLogoSubmit} className="space-y-3">
-          <input type="file" name="logo" accept="image/*" className="text-xs w-full" />
+          <input type="file" name="logo" accept="image/*" className="text-xs w-full text-ink-mute file:mr-3 file:rounded-md file:border-0 file:bg-surface-3 file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-ink hover:file:bg-line file:cursor-pointer" />
           <button type="submit" className="btn-secondary w-full" disabled={pending}>
             {pending ? "Uploading…" : "Upload logo"}
           </button>
         </form>
-        <p className="text-[11px] text-graphite-500">
+        <p className="text-[11px] text-ink-mute">
           Logos are stored locally in <code className="font-mono">public/uploads</code>. PNG, JPG, SVG or WebP.
         </p>
       </aside>
@@ -146,7 +146,7 @@ export function SettingsForm({ initial, logoPath }: Props) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="card p-6">
-      <h3 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-4">{title}</h3>
+      <h3 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-4">{title}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">{children}</div>
     </section>
   );
@@ -167,7 +167,7 @@ function Field({
     <div className={full ? "md:col-span-2" : ""}>
       <label className="label">{label}</label>
       {children}
-      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
+      {error && <p className="mt-1 text-xs text-danger">{error}</p>}
     </div>
   );
 }

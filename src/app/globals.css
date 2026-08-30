@@ -2,25 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Marken-Tokens ────────────────────────────────────────────────────────────
+   Pushlabs lebt auf Schwarz mit Neon-Lime. Die Oberfläche ist deshalb dunkel
+   angelegt, nicht hell mit dunkler Leiste. Neon ist der einzige Akzent —
+   Statusfarben (rot/amber/grün) sind bewusst davon getrennt, sonst frisst der
+   Akzent die Warnungen.
+   Alle Flächen und Schriftfarben laufen über diese Variablen; die
+   Komponentenklassen unten greifen ausschließlich darauf zu. */
 :root {
-  --background: 255 255 255;
-  --foreground: 20 20 26;
-  --muted: 247 247 248;
-  --muted-foreground: 94 94 107;
-  --border: 222 222 227;
-  --accent: 191 140 52;
-  --accent-foreground: 20 20 26;
+  --ground: 11 11 16;        /* #0B0B10  Seitenhintergrund */
+  --surface: 20 20 26;       /* #14141A  Karten */
+  --surface-2: 27 27 35;     /* #1B1B23  eingelassene Flächen */
+  --surface-3: 34 34 43;     /* #22222B  Hover */
+  --line: 38 38 47;          /* #26262F  Rahmen */
+  --line-soft: 30 30 38;     /* #1E1E26  Trennlinien */
+
+  --ink: 237 237 240;        /* #EDEDF0  Fließtext */
+  --ink-mute: 138 138 150;   /* #8A8A96  Sekundär */
+  --ink-faint: 94 94 107;    /* #5E5E6B  Tertiär */
+
+  --accent: 202 255 61;      /* #CAFF3D  Pushlabs-Lime */
+  --accent-ink: 11 11 16;    /*          Schrift auf Lime */
+
+  --danger: 255 122 107;
+  --warn: 245 165 36;
+  --ok: 72 196 107;
 }
 
 * {
-  border-color: rgb(var(--border));
+  border-color: rgb(var(--line));
 }
 
 html,
 body {
-  background: rgb(var(--background));
-  color: rgb(var(--foreground));
-  font-feature-settings: "ss01", "cv11";
+  background: rgb(var(--ground));
+  color: rgb(var(--ink));
 }
 
 body {
@@ -28,59 +44,90 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Zahlenkolonnen laufen sonst auseinander. */
+.tabular-nums,
+table {
+  font-variant-numeric: tabular-nums;
+}
+
 @layer components {
   .card {
-    @apply rounded-xl border border-graphite-100 bg-white shadow-card;
+    @apply rounded-xl border bg-[rgb(var(--surface))] border-[rgb(var(--line))];
   }
+
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border px-3.5 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border px-3.5 py-2 text-sm font-medium
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
   }
+  /* Der Hauptknopf trägt den Akzent — deshalb höchstens einer pro Ansicht. */
   .btn-primary {
-    @apply btn bg-graphite-900 text-white border-graphite-900 hover:bg-graphite-800;
+    @apply btn bg-[rgb(var(--accent))] text-[rgb(var(--accent-ink))] border-[rgb(var(--accent))]
+           hover:brightness-95 font-semibold;
   }
   .btn-secondary {
-    @apply btn bg-white text-graphite-900 border-graphite-200 hover:bg-graphite-50;
+    @apply btn bg-[rgb(var(--surface-2))] text-[rgb(var(--ink))] border-[rgb(var(--line))]
+           hover:bg-[rgb(var(--surface-3))];
   }
   .btn-ghost {
-    @apply btn bg-transparent text-graphite-700 border-transparent hover:bg-graphite-100;
+    @apply btn bg-transparent text-[rgb(var(--ink-mute))] border-transparent
+           hover:bg-[rgb(var(--surface-2))] hover:text-[rgb(var(--ink))];
   }
   .btn-danger {
-    @apply btn bg-white text-red-700 border-red-200 hover:bg-red-50;
+    @apply btn bg-transparent text-[rgb(var(--danger))] border-[rgb(var(--danger))]/40
+           hover:bg-[rgb(var(--danger))]/10;
   }
+
   .input {
-    @apply w-full rounded-lg border border-graphite-200 bg-white px-3 py-2 text-sm placeholder:text-graphite-400 focus:border-graphite-900 focus:outline-none focus:ring-1 focus:ring-graphite-900;
+    @apply w-full rounded-lg border bg-[rgb(var(--surface-2))] border-[rgb(var(--line))]
+           px-3 py-2 text-sm text-[rgb(var(--ink))] placeholder:text-[rgb(var(--ink-faint))]
+           focus:border-[rgb(var(--accent))] focus:outline-none focus:ring-1 focus:ring-[rgb(var(--accent))];
   }
+  /* Dateifeld: der native Knopf ist sonst hellgrau und bricht das Thema. */
+  .input[type="file"],
+  input[type="file"] {
+    @apply text-[rgb(var(--ink-mute))]
+           file:mr-3 file:rounded-md file:border-0 file:bg-[rgb(var(--surface-3))]
+           file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-[rgb(var(--ink))]
+           hover:file:bg-[rgb(var(--line))] file:cursor-pointer;
+  }
+  select.input option {
+    @apply bg-[rgb(var(--surface-2))] text-[rgb(var(--ink))];
+  }
+
   .label {
-    @apply block text-xs font-medium uppercase tracking-wider text-graphite-500 mb-1.5;
+    @apply block text-[11px] font-medium uppercase tracking-[0.12em] text-[rgb(var(--ink-mute))] mb-1.5;
   }
+
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium border;
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-medium border;
   }
   .badge-neutral {
-    @apply badge bg-graphite-50 text-graphite-700 border-graphite-200;
+    @apply badge bg-[rgb(var(--surface-2))] text-[rgb(var(--ink-mute))] border-[rgb(var(--line))];
   }
   .badge-info {
-    @apply badge bg-blue-50 text-blue-700 border-blue-200;
+    @apply badge bg-sky-400/10 text-sky-300 border-sky-400/30;
   }
   .badge-warning {
-    @apply badge bg-sand-50 text-sand-700 border-sand-200;
+    @apply badge bg-[rgb(var(--warn))]/10 text-[rgb(var(--warn))] border-[rgb(var(--warn))]/30;
   }
   .badge-success {
-    @apply badge bg-emerald-50 text-emerald-700 border-emerald-200;
+    @apply badge bg-[rgb(var(--ok))]/10 text-[rgb(var(--ok))] border-[rgb(var(--ok))]/30;
   }
   .badge-danger {
-    @apply badge bg-red-50 text-red-700 border-red-200;
+    @apply badge bg-[rgb(var(--danger))]/10 text-[rgb(var(--danger))] border-[rgb(var(--danger))]/30;
   }
+
   .table-base {
     @apply w-full text-sm;
   }
   .table-base thead th {
-    @apply text-left text-xs font-medium uppercase tracking-wider text-graphite-500 px-4 py-3 border-b border-graphite-100;
+    @apply text-left text-[11px] font-medium uppercase tracking-[0.12em] text-[rgb(var(--ink-mute))]
+           px-4 py-3 border-b border-[rgb(var(--line))];
   }
   .table-base tbody td {
-    @apply px-4 py-3 border-b border-graphite-100;
+    @apply px-4 py-3 border-b border-[rgb(var(--line-soft))] text-[rgb(var(--ink))];
   }
   .table-base tbody tr:hover {
-    @apply bg-graphite-50/60;
+    @apply bg-[rgb(var(--surface-2))];
   }
 }

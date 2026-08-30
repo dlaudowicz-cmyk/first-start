@@ -65,13 +65,13 @@ export default async function VenturesPage() {
                     />
                     <div className="min-w-0">
                       <div className="font-medium truncate">{v.name}</div>
-                      <div className="text-xs text-graphite-500 capitalize">{v.kind}</div>
+                      <div className="text-xs text-ink-mute capitalize">{v.kind}</div>
                     </div>
                   </div>
                   <StatusBadge status={v.status} />
                 </div>
 
-                {v.tagline && <p className="mt-3 text-sm text-graphite-500 line-clamp-2">{v.tagline}</p>}
+                {v.tagline && <p className="mt-3 text-sm text-ink-mute line-clamp-2">{v.tagline}</p>}
 
                 <dl className="mt-4 grid grid-cols-2 gap-y-2 text-xs">
                   <Stat label="Projects" value={String(v._count.projects)} />
@@ -80,13 +80,13 @@ export default async function VenturesPage() {
                   <Stat label="Contracts" value={String(v._count.contracts)} />
                 </dl>
 
-                <div className="mt-4 pt-3 border-t border-graphite-100 flex items-baseline justify-between">
+                <div className="mt-4 pt-3 border-t border-line-soft flex items-baseline justify-between">
                   <div>
-                    <div className="text-[10px] uppercase tracking-wider text-graphite-500">Paid</div>
+                    <div className="text-[10px] uppercase tracking-wider text-ink-mute">Paid</div>
                     <div className="text-sm font-medium tabular-nums">{formatCurrency(paidRevenue)}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-[10px] uppercase tracking-wider text-graphite-500">Open</div>
+                    <div className="text-[10px] uppercase tracking-wider text-ink-mute">Open</div>
                     <div className="text-sm font-medium tabular-nums">{formatCurrency(openRevenue)}</div>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default async function VenturesPage() {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center gap-1.5">
-      <dt className="text-graphite-500">{label}</dt>
+      <dt className="text-ink-mute">{label}</dt>
       <dd className="font-medium tabular-nums">{value}</dd>
     </div>
   );

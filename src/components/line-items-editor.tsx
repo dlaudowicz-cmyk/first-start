@@ -44,13 +44,13 @@ export function LineItemsEditor({ control, register, errors, watchItems }: Props
           const lineNet = item ? calculateItemNet({ quantity: Number(item.quantity), unitPrice: Number(item.unitPrice) }) : 0;
           const itemErrors = (errors?.items as Array<Record<string, { message?: string }>> | undefined)?.[idx];
           return (
-            <div key={field.id} className="rounded-lg border border-graphite-100 p-3 bg-graphite-50/40">
+            <div key={field.id} className="rounded-lg border border-line-soft p-3 bg-surface-2">
               <div className="grid grid-cols-12 gap-2 items-start">
                 <div className="col-span-12 md:col-span-6">
                   <label className="label">Description</label>
                   <input className="input" placeholder="e.g. Drehtag inkl. Crew" {...register(`items.${idx}.description` as const)} />
                   {itemErrors?.description && (
-                    <p className="mt-1 text-xs text-red-600">{itemErrors.description.message}</p>
+                    <p className="mt-1 text-xs text-danger">{itemErrors.description.message}</p>
                   )}
                 </div>
                 <div className="col-span-4 md:col-span-2">
@@ -66,13 +66,13 @@ export function LineItemsEditor({ control, register, errors, watchItems }: Props
                   <input className="input text-right" type="number" step="0.01" {...register(`items.${idx}.unitPrice` as const)} />
                 </div>
                 <div className="col-span-12 md:col-span-1 md:pt-7 flex md:justify-end">
-                  <button type="button" onClick={() => remove(idx)} className="btn-ghost text-red-600 hover:bg-red-50" aria-label="Remove">
+                  <button type="button" onClick={() => remove(idx)} className="btn-ghost text-danger hover:bg-danger/10" aria-label="Remove">
                     <Trash2 className="h-4 w-4" />
                   </button>
                 </div>
               </div>
-              <div className="mt-2 text-right text-xs text-graphite-500 tabular-nums">
-                Line total: <span className="text-graphite-900 font-medium">{formatCurrency(lineNet)}</span>
+              <div className="mt-2 text-right text-xs text-ink-mute tabular-nums">
+                Line total: <span className="text-ink font-medium">{formatCurrency(lineNet)}</span>
               </div>
             </div>
           );
@@ -80,7 +80,7 @@ export function LineItemsEditor({ control, register, errors, watchItems }: Props
       </div>
 
       {typeof errors?.items?.message === "string" && (
-        <p className="mt-2 text-xs text-red-600">{errors.items.message}</p>
+        <p className="mt-2 text-xs text-danger">{errors.items.message}</p>
       )}
     </div>
   );

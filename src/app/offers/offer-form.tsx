@@ -125,14 +125,14 @@ export function OfferForm({ initial, clients, projects, defaultVatRate }: Props)
         <div className="mt-6 flex justify-end">
           <div className="w-72 space-y-1.5 text-sm">
             <div className="flex justify-between">
-              <span className="text-graphite-500">Net</span>
+              <span className="text-ink-mute">Net</span>
               <span className="tabular-nums">{formatCurrency(totals.net)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-graphite-500">VAT {watched.vatRate || 0}%</span>
+              <span className="text-ink-mute">VAT {watched.vatRate || 0}%</span>
               <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
             </div>
-            <div className="flex justify-between border-t border-graphite-200 pt-1.5 mt-1.5 font-semibold text-base">
+            <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">
               <span>Gross</span>
               <span className="tabular-nums">{formatCurrency(totals.gross)}</span>
             </div>
@@ -173,7 +173,7 @@ function Field({ label, error, children }: { label: string; error?: string; chil
     <div>
       <label className="label">{label}</label>
       {children}
-      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
+      {error && <p className="mt-1 text-xs text-danger">{error}</p>}
     </div>
   );
 }

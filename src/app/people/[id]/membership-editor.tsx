@@ -48,7 +48,7 @@ export function MembershipEditor({
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Venture assignments</h2>
+        <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Venture assignments</h2>
         {!adding && unassigned.length > 0 && (
           <button type="button" onClick={() => setAdding(true)} className="btn-secondary text-xs">
             <Plus className="h-3.5 w-3.5" /> Assign
@@ -57,10 +57,10 @@ export function MembershipEditor({
       </div>
 
       {memberships.length === 0 && !adding && (
-        <p className="text-sm text-graphite-500">Not assigned to any venture yet.</p>
+        <p className="text-sm text-ink-mute">Not assigned to any venture yet.</p>
       )}
 
-      <ul className="divide-y divide-graphite-100">
+      <ul className="divide-y divide-line-soft">
         {memberships.map((m) => (
           <li key={m.id} className="py-2.5 flex items-center justify-between gap-3">
             <div className="min-w-0 flex items-center gap-2">
@@ -71,7 +71,7 @@ export function MembershipEditor({
               />
               <div className="min-w-0">
                 <div className="font-medium truncate">{m.ventureName}</div>
-                <div className="text-xs text-graphite-500 truncate">
+                <div className="text-xs text-ink-mute truncate">
                   {m.role}
                   {m.allocation != null ? ` · ${m.allocation}%` : ""}
                 </div>
@@ -79,7 +79,7 @@ export function MembershipEditor({
             </div>
             <button
               type="button"
-              className="btn-ghost text-red-600 hover:bg-red-50 shrink-0"
+              className="btn-ghost text-danger hover:bg-danger/10 shrink-0"
               disabled={pending}
               onClick={() => {
                 if (!confirm(`Remove from ${m.ventureName}?`)) return;
@@ -96,7 +96,7 @@ export function MembershipEditor({
       </ul>
 
       {adding && (
-        <div className="mt-3 rounded-lg border border-graphite-100 bg-graphite-50/40 p-3 space-y-3">
+        <div className="mt-3 rounded-lg border border-line-soft bg-surface-2 p-3 space-y-3">
           <div>
             <label className="label">Venture</label>
             <select className="input" value={ventureId} onChange={(e) => setVentureId(e.target.value)}>
@@ -125,7 +125,7 @@ export function MembershipEditor({
               />
             </div>
           </div>
-          {error && <p className="text-xs text-red-600">{error}</p>}
+          {error && <p className="text-xs text-danger">{error}</p>}
           <div className="flex justify-end gap-2">
             <button type="button" className="btn-secondary text-xs" onClick={() => setAdding(false)}>
               Cancel

@@ -40,10 +40,10 @@ export default async function VaultPage() {
         }
       />
 
-      <div className="card p-4 mb-6 border-emerald-200 bg-emerald-50">
+      <div className="card p-4 mb-6 border-ok/30 bg-ok/10">
         <div className="flex items-start gap-2.5 text-sm">
-          <ShieldCheck className="h-4 w-4 text-emerald-700 mt-0.5 shrink-0" />
-          <p className="text-emerald-900">
+          <ShieldCheck className="h-4 w-4 text-ok mt-0.5 shrink-0" />
+          <p className="text-ink">
             <span className="font-medium">Reference vault — no passwords stored.</span> This register tracks what
             exists, who owns it and where the secret lives. The secrets themselves stay in your password manager, so a
             copy of this database never exposes company access.
@@ -52,14 +52,14 @@ export default async function VaultPage() {
       </div>
 
       {due.length > 0 && (
-        <div className="card p-4 mb-6 border-sand-200 bg-sand-50">
+        <div className="card p-4 mb-6 border-warn/30 bg-warn/10">
           <div className="flex items-start gap-2.5 text-sm">
-            <RotateCw className="h-4 w-4 text-sand-700 mt-0.5 shrink-0" />
+            <RotateCw className="h-4 w-4 text-warn mt-0.5 shrink-0" />
             <div>
-              <span className="font-medium text-sand-900">
+              <span className="font-medium text-warn">
                 {due.length} credential{due.length === 1 ? "" : "s"} due for rotation
               </span>
-              <ul className="mt-1 text-sand-800 space-y-0.5">
+              <ul className="mt-1 text-ink space-y-0.5">
                 {due.map((c) => (
                   <li key={c.id}>
                     <Link href={`/vault/${c.id}`} className="underline hover:no-underline">
@@ -106,16 +106,16 @@ export default async function VaultPage() {
                       {c.service}
                     </Link>
                   </td>
-                  <td className="capitalize text-graphite-700">{c.category}</td>
-                  <td className="text-graphite-500 text-xs">{c.identifier || "—"}</td>
-                  <td className="text-graphite-700 text-xs">{c.storageLocation}</td>
-                  <td className="text-graphite-700">
+                  <td className="capitalize text-ink">{c.category}</td>
+                  <td className="text-ink-mute text-xs">{c.identifier || "—"}</td>
+                  <td className="text-ink text-xs">{c.storageLocation}</td>
+                  <td className="text-ink">
                     {c.owner ? (
                       <Link href={`/people/${c.owner.id}`} className="hover:underline">
                         {c.owner.name}
                       </Link>
                     ) : (
-                      <span className="text-graphite-400">—</span>
+                      <span className="text-ink-faint">—</span>
                     )}
                   </td>
                   {!active && (
@@ -123,10 +123,10 @@ export default async function VaultPage() {
                       <VentureBadge name={c.venture?.name} accent={c.venture?.accent} muted />
                     </td>
                   )}
-                  <td className="text-xs text-graphite-500">
+                  <td className="text-xs text-ink-mute">
                     {c.rotatedAt ? formatDate(c.rotatedAt) : "—"}
                     {rotationDue(c.rotatedAt, c.rotateEveryDays) && (
-                      <span className="ml-1.5 text-sand-700 font-medium">due</span>
+                      <span className="ml-1.5 text-warn font-medium">due</span>
                     )}
                   </td>
                   <td>

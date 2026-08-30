@@ -8,11 +8,11 @@ export function VentureBadge({
   muted?: boolean;
 }) {
   if (!name) {
-    return <span className="text-xs text-graphite-400">Company-wide</span>;
+    return <span className="text-xs text-ink-faint">Company-wide</span>;
   }
   return (
     <span
-      className={`inline-flex items-center gap-1.5 text-xs ${muted ? "text-graphite-500" : "text-graphite-700"}`}
+      className={`inline-flex items-center gap-1.5 text-xs ${muted ? "text-ink-mute" : "text-ink"}`}
     >
       <span
         aria-hidden

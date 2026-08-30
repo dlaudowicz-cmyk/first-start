@@ -11,8 +11,8 @@ export function EmptyState({
 }) {
   return (
     <div className="card p-10 text-center">
-      <h3 className="font-display text-lg text-graphite-900">{title}</h3>
-      {description && <p className="mt-1 text-sm text-graphite-500">{description}</p>}
+      <h3 className="font-display font-semibold text-lg text-ink">{title}</h3>
+      {description && <p className="mt-1 text-sm text-ink-mute">{description}</p>}
       {action && <div className="mt-4 flex justify-center">{action}</div>}
     </div>
   );

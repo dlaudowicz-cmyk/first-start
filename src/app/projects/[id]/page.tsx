@@ -59,7 +59,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="card p-5 lg:col-span-1">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Details</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Details</h2>
             <StatusBadge status={project.status} />
           </div>
           <dl className="text-sm space-y-2">
@@ -76,11 +76,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
         <div className="lg:col-span-2 space-y-6">
           <section className="card p-5">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Offers</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Offers</h2>
             {project.offers.length === 0 ? (
-              <p className="text-sm text-graphite-500">No offers yet.</p>
+              <p className="text-sm text-ink-mute">No offers yet.</p>
             ) : (
-              <ul className="divide-y divide-graphite-100">
+              <ul className="divide-y divide-line-soft">
                 {project.offers.map((o) => {
                   const t = calculateTotals(o.items, o.vatRate);
                   return (
@@ -89,7 +89,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                         <Link href={`/offers/${o.id}`} className="font-medium hover:underline">
                           {o.number}
                         </Link>
-                        <div className="text-xs text-graphite-500">{formatDate(o.date)}</div>
+                        <div className="text-xs text-ink-mute">{formatDate(o.date)}</div>
                       </div>
                       <div className="text-right">
                         <div className="tabular-nums text-sm">{formatCurrency(t.gross)}</div>
@@ -103,11 +103,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </section>
 
           <section className="card p-5">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Invoices</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Invoices</h2>
             {project.invoices.length === 0 ? (
-              <p className="text-sm text-graphite-500">No invoices yet.</p>
+              <p className="text-sm text-ink-mute">No invoices yet.</p>
             ) : (
-              <ul className="divide-y divide-graphite-100">
+              <ul className="divide-y divide-line-soft">
                 {project.invoices.map((inv) => {
                   const t = calculateTotals(inv.items, inv.vatRate);
                   return (
@@ -116,7 +116,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                         <Link href={`/invoices/${inv.id}`} className="font-medium hover:underline">
                           {inv.number}
                         </Link>
-                        <div className="text-xs text-graphite-500">{formatDate(inv.date)}</div>
+                        <div className="text-xs text-ink-mute">{formatDate(inv.date)}</div>
                       </div>
                       <div className="text-right">
                         <div className="tabular-nums text-sm">{formatCurrency(t.gross)}</div>
@@ -150,16 +150,16 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </section>
 
           <section className="card p-5">
-            <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500 mb-3">Travel expenses</h2>
+            <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute mb-3">Travel expenses</h2>
             {project.expenses.length === 0 ? (
-              <p className="text-sm text-graphite-500">No expenses logged.</p>
+              <p className="text-sm text-ink-mute">No expenses logged.</p>
             ) : (
-              <ul className="divide-y divide-graphite-100">
+              <ul className="divide-y divide-line-soft">
                 {project.expenses.map((e) => (
                   <li key={e.id} className="py-2.5 flex items-center justify-between text-sm">
                     <div>
                       <div className="font-medium">{formatDate(e.travelDate)}</div>
-                      <div className="text-xs text-graphite-500">
+                      <div className="text-xs text-ink-mute">
                         {e.people} pax · {e.overnight ? "overnight" : "same day"}
                       </div>
                     </div>
@@ -178,7 +178,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 function Row({ label, value, multiline }: { label: string; value: string | null; multiline?: boolean }) {
   return (
     <div className="grid grid-cols-3 gap-2">
-      <dt className="text-graphite-500 col-span-1">{label}</dt>
+      <dt className="text-ink-mute col-span-1">{label}</dt>
       <dd className={`col-span-2 ${multiline ? "whitespace-pre-line" : ""}`}>{value || "—"}</dd>
     </div>
   );

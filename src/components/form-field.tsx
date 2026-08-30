@@ -19,8 +19,8 @@ export function Field({
     <div className={className}>
       <label className="label">{label}</label>
       {children}
-      {hint && !error && <p className="mt-1 text-xs text-graphite-500">{hint}</p>}
-      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
+      {hint && !error && <p className="mt-1 text-xs text-ink-mute">{hint}</p>}
+      {error && <p className="mt-1 text-xs text-danger">{error}</p>}
     </div>
   );
 }
@@ -40,8 +40,8 @@ export function FormSection({
     <section className="card p-6">
       {title && (
         <div className="mb-4">
-          <h3 className="text-sm font-medium uppercase tracking-wider text-graphite-500">{title}</h3>
-          {description && <p className="mt-1 text-xs text-graphite-500">{description}</p>}
+          <h3 className="text-sm font-medium uppercase tracking-wider text-ink-mute">{title}</h3>
+          {description && <p className="mt-1 text-xs text-ink-mute">{description}</p>}
         </div>
       )}
       <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-5", className)}>{children}</div>

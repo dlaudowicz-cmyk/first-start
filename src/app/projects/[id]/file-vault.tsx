@@ -42,18 +42,18 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
     <div>
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-2">
-          <FolderOpen className="h-4 w-4 text-graphite-500" />
-          <h2 className="text-sm font-medium uppercase tracking-wider text-graphite-500">Project files</h2>
+          <FolderOpen className="h-4 w-4 text-ink-mute" />
+          <h2 className="text-sm font-medium uppercase tracking-wider text-ink-mute">Project files</h2>
         </div>
-        <span className="text-xs text-graphite-400">
+        <span className="text-xs text-ink-faint">
           {files.length} file{files.length === 1 ? "" : "s"} · max {formatBytes(MAX_FILE_BYTES)} each
         </span>
       </div>
-      <p className="text-xs text-graphite-500 mb-4">
+      <p className="text-xs text-ink-mute mb-4">
         Every project uses the same categories, so the structure is identical across productions.
       </p>
 
-      <form ref={formRef} onSubmit={submit} className="rounded-lg border border-graphite-100 bg-graphite-50/40 p-3 mb-5">
+      <form ref={formRef} onSubmit={submit} className="rounded-lg border border-line-soft bg-surface-2 p-3 mb-5">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-2 items-end">
           <div className="md:col-span-4">
             <label className="label">Category</label>
@@ -72,7 +72,7 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
           </div>
           <div className="md:col-span-4">
             <label className="label">File</label>
-            <input ref={fileInput} type="file" name="file" className="text-xs w-full" />
+            <input ref={fileInput} type="file" name="file" className="text-xs w-full text-ink-mute file:mr-3 file:rounded-md file:border-0 file:bg-surface-3 file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-ink hover:file:bg-line file:cursor-pointer" />
           </div>
           <div className="md:col-span-3">
             <label className="label">Note (optional)</label>
@@ -85,11 +85,11 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
             </button>
           </div>
         </div>
-        {error && <p className="mt-2 text-xs text-red-600">{error}</p>}
+        {error && <p className="mt-2 text-xs text-danger">{error}</p>}
       </form>
 
       {files.length === 0 ? (
-        <p className="text-sm text-graphite-500">No files yet.</p>
+        <p className="text-sm text-ink-mute">No files yet.</p>
       ) : (
         <div className="space-y-4">
           {FILE_CATEGORIES.map((cat) => {
@@ -97,8 +97,8 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
             if (inCat.length === 0) return null;
             return (
               <div key={cat.key}>
-                <div className="text-xs uppercase tracking-wider text-graphite-400 mb-1">{cat.label}</div>
-                <ul className="divide-y divide-graphite-100">
+                <div className="text-xs uppercase tracking-wider text-ink-faint mb-1">{cat.label}</div>
+                <ul className="divide-y divide-line-soft">
                   {inCat.map((f) => (
                     <li key={f.id} className="py-2.5 flex items-center justify-between gap-3">
                       <div className="min-w-0">
@@ -108,7 +108,7 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
                         >
                           {f.originalName}
                         </a>
-                        <div className="text-xs text-graphite-500 truncate">
+                        <div className="text-xs text-ink-mute truncate">
                           {formatBytes(f.size)} · {formatDate(f.createdAt)}
                           {f.notes ? ` · ${f.notes}` : ""}
                         </div>
@@ -123,7 +123,7 @@ export function FileVault({ projectId, files }: { projectId: string; files: Vaul
                         </a>
                         <button
                           type="button"
-                          className="btn-ghost text-red-600 hover:bg-red-50"
+                          className="btn-ghost text-danger hover:bg-danger/10"
                           disabled={pending}
                           onClick={() => {
                             if (!confirm(`Delete ${f.originalName}? This removes the file from disk.`)) return;
