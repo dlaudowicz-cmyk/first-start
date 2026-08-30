@@ -189,8 +189,11 @@ An invoice must state when the service was rendered. `Invoice.serviceDate` (opti
 `serviceEndDate` for a period) covers this; when it is left empty the PDF prints the invoice date with
 the accepted wording *„entspricht dem Rechnungsdatum"*, so the field can never be silently missing.
 
-Still required before the first real invoice goes out: the company **address** in Settings — § 14 needs
-the full name and address of both parties, and the template renders it only once it is filled in.
+Pushlabs invoices under the **Regelbesteuerung**, not § 19 UStG: 19 % VAT is shown with its own amount
+on every invoice, which is what § 14 Abs. 4 Nr. 8 requires. `defaultVatRate` in Settings carries it.
+
+§ 14 also needs the full name and address of **both** parties. The sender side is filled in; the
+recipient side comes from `Client.address`, and the template prints it only once that field is set.
 
 ## Checking your own work
 
