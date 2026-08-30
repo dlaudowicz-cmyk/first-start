@@ -83,6 +83,9 @@ export const invoiceSchema = z.object({
   projectId: z.string().optional().or(z.literal("")),
   date: z.string().min(1, "Date required"),
   dueDate: z.string().optional().or(z.literal("")),
+  // § 14 Abs. 4 Nr. 6 UStG: an invoice must state when the service was rendered.
+  serviceDate: z.string().optional().or(z.literal("")),
+  serviceEndDate: z.string().optional().or(z.literal("")),
   paymentTerms: z.string().optional().or(z.literal("")),
   notes: z.string().optional().or(z.literal("")),
   vatRate: z.coerce.number().min(0).max(100),

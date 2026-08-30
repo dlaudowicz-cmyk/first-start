@@ -29,7 +29,7 @@ export default async function InvoicesPage() {
             : "Rechnungen mit PDF-Export und ZUGFeRD-fähiger Datenstruktur."
         }
         actions={
-          <Link href="/Rechnungen/new" className="btn-primary">
+          <Link href="/invoices/new" className="btn-primary">
             <Plus className="h-4 w-4" /> Neue Rechnung
           </Link>
         }
@@ -40,7 +40,7 @@ export default async function InvoicesPage() {
           title="Noch keine Rechnungen"
           description="Create your first invoice — numbering starts at RE-001-0026."
           action={
-            <Link href="/Rechnungen/new" className="btn-primary">
+            <Link href="/invoices/new" className="btn-primary">
               <Plus className="h-4 w-4" /> Neue Rechnung
             </Link>
           }
@@ -66,7 +66,7 @@ export default async function InvoicesPage() {
                 return (
                   <tr key={inv.id}>
                     <td className="font-medium">
-                      <Link href={`/Rechnungen/${inv.id}`} className="hover:underline">
+                      <Link href={`/invoices/${inv.id}`} className="hover:underline">
                         {inv.number}
                       </Link>
                     </td>

@@ -99,7 +99,7 @@ export default async function DashboardPage() {
             <Link href="/offers/new" className="btn-secondary">
               <FilePlus2 className="h-4 w-4" /> Neues Angebot
             </Link>
-            <Link href="/Rechnungen/new" className="btn-primary">
+            <Link href="/invoices/new" className="btn-primary">
               <ReceiptEuro className="h-4 w-4" /> Neue Rechnung
             </Link>
           </>
@@ -233,7 +233,7 @@ export default async function DashboardPage() {
         </section>
 
         <section className="card p-5">
-          <SectionHeader title="Offene Rechnungen" href="/Rechnungen" icon={ReceiptEuro} />
+          <SectionHeader title="Offene Rechnungen" href="/invoices" icon={ReceiptEuro} />
           {data.unpaidInvoices.length === 0 ? (
             <p className="text-sm text-ink-mute mt-2">Alles beglichen.</p>
           ) : (
@@ -242,7 +242,7 @@ export default async function DashboardPage() {
                 const totals = calculateTotals(inv.items, inv.vatRate);
                 return (
                   <li key={inv.id} className="py-3">
-                    <Link href={`/Rechnungen/${inv.id}`} className="font-medium hover:underline">
+                    <Link href={`/invoices/${inv.id}`} className="font-medium hover:underline">
                       {inv.number}
                     </Link>
                     <div className="text-xs text-ink-mute">

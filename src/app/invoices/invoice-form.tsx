@@ -36,6 +36,8 @@ export function InvoiceForm({ initial, clients, projects, defaultVatRate }: Prop
       projectId: initial?.projectId ?? "",
       date: initial?.date ?? new Date().toISOString().slice(0, 10),
       dueDate: initial?.dueDate ?? new Date(Date.now() + 14 * 86400000).toISOString().slice(0, 10),
+      serviceDate: initial?.serviceDate ?? "",
+      serviceEndDate: initial?.serviceEndDate ?? "",
       paymentTerms: initial?.paymentTerms ?? "Zahlbar innerhalb 14 Tagen ohne Abzug.",
       notes: initial?.notes ?? "",
       vatRate: initial?.vatRate ?? defaultVatRate,
@@ -106,6 +108,16 @@ export function InvoiceForm({ initial, clients, projects, defaultVatRate }: Prop
         <Field label="Fällig am" error={errors.dueDate?.message}>
           <input className="input" type="date" {...register("dueDate")} />
         </Field>
+        <Field label="Leistungsdatum" error={errors.serviceDate?.message}>
+          <input className="input" type="date" {...register("serviceDate")} />
+          <p className="mt-1 text-xs text-ink-mute">
+            Pflichtangabe nach § 14 UStG. Leer = „entspricht dem Rechnungsdatum“.
+          </p>
+        </Field>
+        <Field label="Leistungszeitraum bis (optional)" error={errors.serviceEndDate?.message}>
+          <input className="input" type="date" {...register("serviceEndDate")} />
+          <p className="mt-1 text-xs text-ink-mute">Nur ausfüllen, wenn sich die Leistung über mehrere Tage zog.</p>
+        </Field>
         <Field label="USt-Satz (%)" error={errors.vatRate?.message}>
           <input className="input" type="number" step="0.01" {...register("vatRate")} />
         </Field>
@@ -130,7 +142,7 @@ export function InvoiceForm({ initial, clients, projects, defaultVatRate }: Prop
               <span className="tabular-nums">{formatCurrency(totals.net)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-ink-mute">VAT {watched.vatRate || 0}%</span>
+              <span className="text-ink-mute">MwSt {watched.vatRate || 0}%</span>
               <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
             </div>
             <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">
@@ -152,7 +164,7 @@ export function InvoiceForm({ initial, clients, projects, defaultVatRate }: Prop
 
       <div className="flex items-center justify-between">
         <div className="flex gap-2">
-          <Link href="/Rechnungen" className="btn-secondary">
+          <Link href="/invoices" className="btn-secondary">
             Abbrechen
           </Link>
           {isEdit && (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Pencil, Download } from "lucide-react";
+import { Pencil, Download, ReceiptEuro } from "lucide-react";
 import { prisma } from "@/lib/db";
 import { PageHeader } from "@/components/page-header";
 import { StatusBadge } from "@/components/status-badge";
@@ -30,8 +30,11 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
             <a href={`/offers/${offer.id}/pdf`} target="_blank" rel="noreferrer" className="btn-secondary">
               <Download className="h-4 w-4" /> PDF herunterladen
             </a>
-            <Link href={`/offers/${offer.id}/edit`} className="btn-primary">
+            <Link href={`/offers/${offer.id}/edit`} className="btn-secondary">
               <Pencil className="h-4 w-4" /> Bearbeiten
+            </Link>
+            <Link href={`/invoices/new?fromOffer=${offer.id}`} className="btn-primary">
+              <ReceiptEuro className="h-4 w-4" /> Rechnung daraus erstellen
             </Link>
           </>
         }
@@ -45,10 +48,10 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
           </div>
           <dl className="text-sm space-y-2">
             <Row label="Kunde" value={offer.client.companyName} />
-            <Row label="Project" value={offer.project?.title ?? null} />
+            <Row label="Projekt" value={offer.project?.title ?? null} />
             <Row label="Datum" value={formatDate(offer.date)} />
             <Row label="Gültig bis" value={offer.validUntil ? formatDate(offer.validUntil) : null} />
-            <Row label="VAT rate" value={`${offer.vatRate}%`} />
+            <Row label="USt-Satz" value={`${offer.vatRate}%`} />
             {offer.paymentTerms && <Row label="Zahlungsbedingungen" value={offer.paymentTerms} multiline />}
             {offer.notes && <Row label="Notizen" value={offer.notes} multiline />}
           </dl>
@@ -88,7 +91,7 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ id
                 <span className="tabular-nums">{formatCurrency(totals.net)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-ink-mute">VAT {offer.vatRate}%</span>
+                <span className="text-ink-mute">MwSt {offer.vatRate}%</span>
                 <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
               </div>
               <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">

@@ -15,7 +15,7 @@ export default async function EditToolPage({ params }: { params: Promise<{ id: s
 
   return (
     <>
-      <PageHeader title={`Edit · ${tool.name}`} />
+      <PageHeader title={`Bearbeiten · ${tool.name}`} />
       <ToolForm
         ventures={ventures.map((v) => ({ id: v.id, label: v.name }))}
         people={people.map((p) => ({ id: p.id, label: p.name }))}

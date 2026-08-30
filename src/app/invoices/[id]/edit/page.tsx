@@ -23,7 +23,7 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
 
   return (
     <>
-      <PageHeader title={`Edit · ${invoice.number}`} />
+      <PageHeader title={`Bearbeiten · ${invoice.number}`} />
       <InvoiceForm
         clients={clients}
         projects={projects}
@@ -34,6 +34,8 @@ export default async function EditInvoicePage({ params }: { params: Promise<{ id
           projectId: invoice.projectId ?? "",
           date: dateInputValue(invoice.date),
           dueDate: dateInputValue(invoice.dueDate),
+          serviceDate: dateInputValue(invoice.serviceDate),
+          serviceEndDate: dateInputValue(invoice.serviceEndDate),
           paymentTerms: invoice.paymentTerms ?? "",
           notes: invoice.notes ?? "",
           vatRate: invoice.vatRate,

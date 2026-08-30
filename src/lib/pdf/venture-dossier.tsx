@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
   },
   accentBar: { width: 28, height: 3, backgroundColor: "#caff3d", marginBottom: 6 },
-  logo: { height: 34, maxWidth: 150, objectFit: "contain", marginBottom: 6 },
+  logo: { width: 180, marginBottom: 8 },
   holding: { fontSize: 11, fontWeight: 700, color: "#14141a", letterSpacing: 1 },
   sub: { fontSize: 8, color: "#888893", textTransform: "uppercase", letterSpacing: 1, marginTop: 2 },
   title: { fontSize: 26, fontWeight: 700, color: "#14141a", marginTop: 28 },

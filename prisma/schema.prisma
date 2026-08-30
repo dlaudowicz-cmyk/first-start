@@ -288,6 +288,9 @@ model Invoice {
   number       String    @unique
   date         DateTime  @default(now())
   dueDate      DateTime?
+  /// Zeitpunkt der Leistung — § 14 Abs. 4 Nr. 6 UStG. With serviceEndDate it becomes a period.
+  serviceDate    DateTime?
+  serviceEndDate DateTime?
   paymentTerms String?
   notes        String?
   vatRate      Float     @default(19)

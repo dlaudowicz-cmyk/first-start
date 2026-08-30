@@ -10,7 +10,7 @@ export default async function EditPersonPage({ params }: { params: Promise<{ id:
 
   return (
     <>
-      <PageHeader title={`Edit · ${person.name}`} />
+      <PageHeader title={`Bearbeiten · ${person.name}`} />
       <PersonForm
         initial={{
           id: person.id,

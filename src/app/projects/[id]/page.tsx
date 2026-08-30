@@ -49,7 +49,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <Link href={`/offers/new?projectId=${project.id}`} className="btn-secondary">
               <FilePlus2 className="h-4 w-4" /> Neues Angebot
             </Link>
-            <Link href={`/Rechnungen/new?projectId=${project.id}`} className="btn-primary">
+            <Link href={`/invoices/new?projectId=${project.id}`} className="btn-primary">
               <ReceiptEuro className="h-4 w-4" /> Neue Rechnung
             </Link>
           </>
@@ -113,7 +113,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   return (
                     <li key={inv.id} className="py-2.5 flex items-center justify-between">
                       <div>
-                        <Link href={`/Rechnungen/${inv.id}`} className="font-medium hover:underline">
+                        <Link href={`/invoices/${inv.id}`} className="font-medium hover:underline">
                           {inv.number}
                         </Link>
                         <div className="text-xs text-ink-mute">{formatDate(inv.date)}</div>

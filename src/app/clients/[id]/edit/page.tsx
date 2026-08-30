@@ -10,7 +10,7 @@ export default async function EditClientPage({ params }: { params: Promise<{ id:
 
   return (
     <>
-      <PageHeader title={`Edit · ${client.companyName}`} />
+      <PageHeader title={`Bearbeiten · ${client.companyName}`} />
       <ClientForm
         initial={{
           id: client.id,

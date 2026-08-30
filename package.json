@@ -12,7 +12,9 @@
     "db:seed": "tsx prisma/seed.ts",
     "db:reset": "prisma db push --force-reset && tsx prisma/seed.ts",
     "postinstall": "prisma generate",
-    "screenshots": "node scripts/screenshots.mjs"
+    "screenshots": "node scripts/screenshots.mjs",
+    "linkcheck": "node scripts/linkcheck.mjs",
+    "pdf:preview": "node scripts/pdf-preview.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -36,6 +38,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.17.0",
     "eslint-config-next": "15.1.3",
+    "pdfjs-dist": "^3.11.174",
     "playwright": "^1.62.1",
     "postcss": "^8.4.49",
     "prisma": "^5.22.0",

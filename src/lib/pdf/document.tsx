@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 28,
   },
   brandBar: { width: 28, height: 3, backgroundColor: "#caff3d", marginBottom: 6 },
-  logo: { height: 34, maxWidth: 150, objectFit: "contain", marginBottom: 6 },
+  logo: { width: 180, marginBottom: 8 },
   brand: { fontSize: 16, fontWeight: 700, color: "#14141a", letterSpacing: 1 },
   brandSub: { fontSize: 8, color: "#888893", textTransform: "uppercase", letterSpacing: 1, marginTop: 2 },
   metaCol: { textAlign: "right", fontSize: 9, color: "#454552" },
@@ -71,6 +71,9 @@ const fmt = (n: number) =>
 const fmtDate = (d: Date | null | undefined) =>
   d ? new Intl.DateTimeFormat("de-DE", { dateStyle: "medium" }).format(new Date(d)) : "—";
 
+/** Drops empty fields so the footer never shows a dangling separator. */
+const join = (parts: (string | null | undefined)[]) => parts.filter(Boolean).join(" · ");
+
 type Item = Pick<OfferItem | InvoiceItem, "description" | "quantity" | "unitPrice" | "unit" | "position">;
 
 export type DocumentPdfProps = {
@@ -85,9 +88,25 @@ export type DocumentPdfProps = {
   settings: CompanySettings;
   items: Item[];
   projectTitle?: string | null;
+  /** Zeitpunkt der Leistung (§ 14 Abs. 4 Nr. 6 UStG). Invoices only. */
+  serviceDate?: Date | null;
+  serviceEndDate?: Date | null;
   /** Data URI from `loadLogoDataUri`; null falls back to the text wordmark. */
   logo?: string | null;
 };
+
+/**
+ * § 14 Abs. 4 Nr. 6 UStG requires the date of supply on every invoice. When it is
+ * not recorded separately the accepted wording is that it equals the invoice date —
+ * so this never returns nothing for an invoice.
+ */
+function serviceLine(date: Date, from?: Date | null, to?: Date | null) {
+  if (from && to && fmtDate(from) !== fmtDate(to)) {
+    return { label: "Leistungszeitraum", value: `${fmtDate(from)} – ${fmtDate(to)}` };
+  }
+  if (from) return { label: "Leistungsdatum", value: fmtDate(from) };
+  return { label: "Leistungsdatum", value: `${fmtDate(date)} (entspricht dem Rechnungsdatum)` };
+}
 
 export function DocumentPdf({
   kind,
@@ -101,9 +120,20 @@ export function DocumentPdf({
   settings,
   items,
   projectTitle,
+  serviceDate,
+  serviceEndDate,
   logo,
 }: DocumentPdfProps) {
+  const service = kind === "Rechnung" ? serviceLine(date, serviceDate, serviceEndDate) : null;
   const sortedItems = [...items].sort((a, b) => (a.position || 0) - (b.position || 0));
+  const taxParts = [
+    settings.taxNumber ? `St.-Nr.: ${settings.taxNumber}` : null,
+    settings.vatId ? `USt-IdNr.: ${settings.vatId}` : null,
+  ];
+  const bankParts = [
+    settings.iban ? `IBAN: ${settings.iban}` : null,
+    settings.bic ? `BIC: ${settings.bic}` : null,
+  ];
   const totals = calculateTotals(
     sortedItems.map((i) => ({ description: i.description, quantity: i.quantity, unitPrice: i.unitPrice })),
     vatRate,
@@ -118,12 +148,13 @@ export function DocumentPdf({
               // eslint-disable-next-line jsx-a11y/alt-text
               <Image src={logo} style={styles.logo} />
             ) : (
+              // The wordmark already carries the tagline, so it only appears in the fallback.
               <>
                 <View style={styles.brandBar} />
                 <Text style={styles.brand}>{settings.companyName.toUpperCase()}</Text>
+                <Text style={styles.brandSub}>{settings.tagline || "Cinematic Production"}</Text>
               </>
             )}
-            <Text style={styles.brandSub}>{settings.tagline || "Cinematic Production"}</Text>
           </View>
           <View style={styles.metaCol}>
             <Text>{settings.owner}</Text>
@@ -156,6 +187,12 @@ export function DocumentPdf({
               <>
                 <Text style={[styles.label, { marginTop: 8 }]}>{secondaryDate.label}</Text>
                 <Text>{fmtDate(secondaryDate.value)}</Text>
+              </>
+            )}
+            {service && (
+              <>
+                <Text style={[styles.label, { marginTop: 8 }]}>{service.label}</Text>
+                <Text>{service.value}</Text>
               </>
             )}
           </View>
@@ -213,14 +250,8 @@ export function DocumentPdf({
           <Text>
             {settings.companyName} · {settings.owner}
           </Text>
-          <Text>
-            {settings.taxNumber ? `St.-Nr.: ${settings.taxNumber} · ` : ""}
-            {settings.vatId ? `USt-IdNr.: ${settings.vatId}` : ""}
-          </Text>
-          <Text>
-            {settings.iban ? `IBAN: ${settings.iban}` : ""}
-            {settings.bic ? ` · BIC: ${settings.bic}` : ""}
-          </Text>
+          <Text>{join(taxParts)}</Text>
+          <Text>{join(bankParts)}</Text>
         </View>
       </Page>
     </Document>

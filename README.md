@@ -65,7 +65,7 @@ npm run db:reset     # wipe and re-seed
 | **Clients** | CRUD, VAT ID, **many-to-many venture links** (a client can book several ventures) |
 | **Projects** | 7 production types, 6-step status workflow, shoot dates, budget, venture assignment, **pipeline**, **status report PDF**, **file vault** |
 | **Offers** | Dynamic line items, live totals, validity, payment terms, PDF export |
-| **Invoices** | Auto-numbered from `RE-001-0026`, PDF export, **ZUGFeRD-ready JSON** |
+| **Invoices** | Auto-numbered from `RE-001-0026`, **created from an accepted offer in one click**, service date per § 14 UStG, PDF export, **ZUGFeRD-ready JSON** |
 | **Travel / Spesen** | German per-diem calculator with configurable rates |
 | **AI Assistant** | 9 structured prompt templates with live preview + copy (no API call yet), incl. two QC protocols |
 | **Settings** | Company info, banking, tax, VAT default, numbering, logo upload |
@@ -176,6 +176,37 @@ Tool costs normalize through `monthlyCost()` so yearly and monthly subscriptions
 ## Invoice numbering
 
 Starts at `RE-001-0026` and auto-increments. `reserveNextInvoiceNumber()` in `src/lib/invoice-numbering.ts` reserves the next number; prefix and counter are editable in **Settings**.
+
+## From offer to invoice
+
+An accepted offer becomes an invoice via **Rechnung daraus erstellen** on the offer page, which opens
+`/invoices/new?fromOffer=<id>` with the client, project, VAT rate, terms and all line items carried over.
+Nothing is written and no number is burned until you save, so the draft stays editable.
+
+## § 14 UStG
+
+An invoice must state when the service was rendered. `Invoice.serviceDate` (optionally with
+`serviceEndDate` for a period) covers this; when it is left empty the PDF prints the invoice date with
+the accepted wording *„entspricht dem Rechnungsdatum"*, so the field can never be silently missing.
+
+Still required before the first real invoice goes out: the company **address** in Settings — § 14 needs
+the full name and address of both parties, and the template renders it only once it is filled in.
+
+## Checking your own work
+
+Three scripts, all against a running `npm run dev`:
+
+| Command | What it catches |
+|---|---|
+| `npm run linkcheck` | dead internal links and JS errors, by crawling every page and following every `href` |
+| `npm run pdf:preview /invoices/<id>/pdf out.png` | how a generated PDF actually looks — a 200 and a plausible file size prove nothing about layout |
+| `npm run screenshots` | non-200 pages and console errors across the main routes |
+
+`linkcheck` exists for a concrete reason: a translation pass rewrote `/invoices` to `/Rechnungen`
+inside `href` strings, so every invoice page still loaded but nothing linked to it — including the
+sidebar. Page-level checks were green the whole time.
+
+Set `CHROMIUM_PATH` if Playwright cannot find a browser.
 
 ## Project structure
 

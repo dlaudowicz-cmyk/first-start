@@ -23,7 +23,7 @@ export default async function EditOfferPage({ params }: { params: Promise<{ id: 
 
   return (
     <>
-      <PageHeader title={`Edit · ${offer.number}`} />
+      <PageHeader title={`Bearbeiten · ${offer.number}`} />
       <OfferForm
         clients={clients}
         projects={projects}

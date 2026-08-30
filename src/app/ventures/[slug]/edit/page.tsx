@@ -11,7 +11,7 @@ export default async function EditVenturePage({ params }: { params: Promise<{ sl
 
   return (
     <>
-      <PageHeader title={`Edit · ${venture.name}`} />
+      <PageHeader title={`Bearbeiten · ${venture.name}`} />
       <VentureForm
         initial={{
           id: venture.id,

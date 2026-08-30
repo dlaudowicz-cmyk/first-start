@@ -16,7 +16,7 @@ export default async function EditContractPage({ params }: { params: Promise<{ i
 
   return (
     <>
-      <PageHeader title={`Edit · ${contract.title}`} />
+      <PageHeader title={`Bearbeiten · ${contract.title}`} />
       <ContractForm
         ventures={ventures.map((v) => ({ id: v.id, label: v.name }))}
         clients={clients.map((c) => ({ id: c.id, label: c.companyName }))}

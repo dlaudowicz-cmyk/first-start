@@ -130,7 +130,7 @@ export function OfferForm({ initial, clients, projects, defaultVatRate }: Props)
               <span className="tabular-nums">{formatCurrency(totals.net)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-ink-mute">VAT {watched.vatRate || 0}%</span>
+              <span className="text-ink-mute">MwSt {watched.vatRate || 0}%</span>
               <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
             </div>
             <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">

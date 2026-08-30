@@ -33,10 +33,10 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
         description={`${invoice.client.companyName} · ${formatDate(invoice.date)}`}
         actions={
           <>
-            <a href={`/Rechnungen/${invoice.id}/zugferd.json`} target="_blank" rel="noreferrer" className="btn-secondary">
+            <a href={`/invoices/${invoice.id}/zugferd.json`} target="_blank" rel="noreferrer" className="btn-secondary">
               <FileJson className="h-4 w-4" /> ZUGFeRD-JSON
             </a>
-            <a href={`/Rechnungen/${invoice.id}/pdf`} target="_blank" rel="noreferrer" className="btn-secondary">
+            <a href={`/invoices/${invoice.id}/pdf`} target="_blank" rel="noreferrer" className="btn-secondary">
               <Download className="h-4 w-4" /> PDF herunterladen
             </a>
             {invoice.status !== "paid" && (
@@ -46,7 +46,7 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
                 </button>
               </form>
             )}
-            <Link href={`/Rechnungen/${invoice.id}/edit`} className="btn-primary">
+            <Link href={`/invoices/${invoice.id}/edit`} className="btn-primary">
               <Pencil className="h-4 w-4" /> Bearbeiten
             </Link>
           </>
@@ -61,10 +61,10 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
           </div>
           <dl className="text-sm space-y-2">
             <Row label="Kunde" value={invoice.client.companyName} />
-            <Row label="Project" value={invoice.project?.title ?? null} />
+            <Row label="Projekt" value={invoice.project?.title ?? null} />
             <Row label="Rechnungsdatum" value={formatDate(invoice.date)} />
             <Row label="Fällig am" value={invoice.dueDate ? formatDate(invoice.dueDate) : null} />
-            <Row label="VAT rate" value={`${invoice.vatRate}%`} />
+            <Row label="USt-Satz" value={`${invoice.vatRate}%`} />
             {invoice.paidAt && <Row label="Paid on" value={formatDate(invoice.paidAt)} />}
             {invoice.paymentTerms && <Row label="Zahlungsbedingungen" value={invoice.paymentTerms} multiline />}
             {invoice.notes && <Row label="Notizen" value={invoice.notes} multiline />}
@@ -105,7 +105,7 @@ export default async function InvoiceDetailPage({ params }: { params: Promise<{ 
                 <span className="tabular-nums">{formatCurrency(totals.net)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-ink-mute">VAT {invoice.vatRate}%</span>
+                <span className="text-ink-mute">MwSt {invoice.vatRate}%</span>
                 <span className="tabular-nums">{formatCurrency(totals.vat)}</span>
               </div>
               <div className="flex justify-between border-t border-line pt-1.5 mt-1.5 font-semibold text-base">

@@ -15,7 +15,7 @@ export default async function EditCredentialPage({ params }: { params: Promise<{
 
   return (
     <>
-      <PageHeader title={`Edit · ${credential.service}`} />
+      <PageHeader title={`Bearbeiten · ${credential.service}`} />
       <CredentialForm
         ventures={ventures.map((v) => ({ id: v.id, label: v.name }))}
         people={people.map((p) => ({ id: p.id, label: p.name }))}

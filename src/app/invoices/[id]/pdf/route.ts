@@ -34,6 +34,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
       settings,
       items: invoice.items,
       projectTitle: invoice.project?.title ?? null,
+      serviceDate: invoice.serviceDate,
+      serviceEndDate: invoice.serviceEndDate,
       logo,
     }),
   );

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   header: { flexDirection: "row", justifyContent: "space-between", marginBottom: 24 },
   accentBar: { width: 28, height: 3, backgroundColor: "#caff3d", marginBottom: 6 },
-  logo: { height: 34, maxWidth: 150, objectFit: "contain", marginBottom: 6 },
+  logo: { width: 180, marginBottom: 8 },
   brand: { fontSize: 14, fontWeight: 700, color: "#14141a", letterSpacing: 1 },
   sub: { fontSize: 8, color: "#888893", textTransform: "uppercase", letterSpacing: 1, marginTop: 2 },
   metaCol: { textAlign: "right", fontSize: 9, color: "#454552" },

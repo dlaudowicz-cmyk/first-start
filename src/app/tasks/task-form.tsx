@@ -123,7 +123,7 @@ export function TaskForm({
             ))}
           </select>
         </Field>
-        <Field label="Project" error={errors.projectId?.message}>
+        <Field label="Projekt" error={errors.projectId?.message}>
           <select className="input" {...register("projectId")}>
             <option value="">—</option>
             {projects.map((p) => (

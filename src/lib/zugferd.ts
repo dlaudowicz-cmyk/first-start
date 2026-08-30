@@ -19,6 +19,9 @@ export type ZugferdInvoice = {
     id: string;
     issueDate: string;
     dueDate: string | null;
+    /** Zeitpunkt der Leistung — § 14 Abs. 4 Nr. 6 UStG / BT-72, BG-14. */
+    serviceDate: string | null;
+    serviceEndDate: string | null;
     currencyCode: "EUR";
     paymentTerms: string | null;
     note: string | null;
@@ -78,6 +81,9 @@ export function buildZugferdInvoice(args: {
       id: invoice.number,
       issueDate: invoice.date.toISOString(),
       dueDate: invoice.dueDate ? invoice.dueDate.toISOString() : null,
+      // Falls kein Leistungsdatum erfasst ist, gilt das Rechnungsdatum.
+      serviceDate: (invoice.serviceDate ?? invoice.date).toISOString(),
+      serviceEndDate: invoice.serviceEndDate ? invoice.serviceEndDate.toISOString() : null,
       currencyCode: "EUR",
       paymentTerms: invoice.paymentTerms,
       note: invoice.notes,

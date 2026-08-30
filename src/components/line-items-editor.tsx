@@ -47,22 +47,22 @@ export function LineItemsEditor({ control, register, errors, watchItems }: Props
             <div key={field.id} className="rounded-lg border border-line-soft p-3 bg-surface-2">
               <div className="grid grid-cols-12 gap-2 items-start">
                 <div className="col-span-12 md:col-span-6">
-                  <label className="label">Description</label>
+                  <label className="label">Leistung</label>
                   <input className="input" placeholder="e.g. Drehtag inkl. Crew" {...register(`items.${idx}.description` as const)} />
                   {itemErrors?.description && (
                     <p className="mt-1 text-xs text-danger">{itemErrors.description.message}</p>
                   )}
                 </div>
                 <div className="col-span-4 md:col-span-2">
-                  <label className="label">Qty</label>
+                  <label className="label">Menge</label>
                   <input className="input text-right" type="number" step="0.01" {...register(`items.${idx}.quantity` as const)} />
                 </div>
                 <div className="col-span-4 md:col-span-1">
-                  <label className="label">Unit</label>
+                  <label className="label">Einheit</label>
                   <input className="input" {...register(`items.${idx}.unit` as const)} />
                 </div>
                 <div className="col-span-4 md:col-span-2">
-                  <label className="label">Unit price (€)</label>
+                  <label className="label">Einzelpreis (€)</label>
                   <input className="input text-right" type="number" step="0.01" {...register(`items.${idx}.unitPrice` as const)} />
                 </div>
                 <div className="col-span-12 md:col-span-1 md:pt-7 flex md:justify-end">

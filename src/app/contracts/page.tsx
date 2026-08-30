@@ -33,7 +33,7 @@ export default async function ContractsPage() {
         title="Verträge"
         description={
           active
-            ? `Contract register for ${active.name}.`
+            ? `Vertragsregister für ${active.name}.`
             : "Jede Vereinbarung, an der Pushlabs beteiligt ist — Kunden, Freelance, Kooperationen, Miete."
         }
         actions={
@@ -49,7 +49,8 @@ export default async function ContractsPage() {
             <AlertTriangle className="h-4 w-4 text-warn mt-0.5 shrink-0" />
             <div className="text-sm">
               <span className="font-medium text-warn">
-                {expiring.length} contract{expiring.length === 1 ? "" : "s"} ending within {EXPIRY_WARNING_DAYS} days
+                {expiring.length} {expiring.length === 1 ? "Vertrag endet" : "Verträge enden"} in den nächsten{" "}
+                {EXPIRY_WARNING_DAYS} Tagen
               </span>
               <ul className="mt-1 text-ink space-y-0.5">
                 {expiring.map((c) => {
@@ -59,7 +60,7 @@ export default async function ContractsPage() {
                       <Link href={`/contracts/${c.id}`} className="underline hover:no-underline">
                         {c.title}
                       </Link>{" "}
-                      — {d < 0 ? `${Math.abs(d)} Tage überfällig` : `in ${d} days`}
+                      — {d < 0 ? `seit ${Math.abs(d)} Tagen abgelaufen` : `in ${d} Tagen`}
                       {c.noticePeriodDays ? ` · ${c.noticePeriodDays} Tage Kündigungsfrist` : ""}
                     </li>
                   );
