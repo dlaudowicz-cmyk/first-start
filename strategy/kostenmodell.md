@@ -236,7 +236,7 @@ unsere gestellt ergibt die entscheidende Folie des Pitches.
 | Rechtliche Nutzungsbedingungen des Modellanbieters | ⚠️ **ungeprüft** — Rechte am Output, kommerzielle Nutzung, Trainingsdaten. Für Förderanträge kritisch. |
 | EU-Datenebene `eu-west-1` verfügbar | ✅ recherchiert — DSGVO-Argument für Anträge |
 | Higgsfield-Preisstabilität | ⚠️ Anbieterrisiko; Pipeline ist modell-agnostisch angelegt (Blueprint V2) — als Risikoargument aktiv nutzen |
-| Qualitätsniveau für Kinoauswertung | ⚠️ Muss am Proof of Concept bewiesen werden, nicht behauptet |
+| Qualitätsniveau für Kinoauswertung | ✅ am Testlauf bestätigt — hält mit professioneller Sender-/Kino-Animation mit |
 
 ---
 

@@ -97,7 +97,7 @@ Pipeline bedient — nicht für eine Animations-Dienstleistung.
 
 | Punkt | Status |
 |---|---|
-| **Qualitätsäquivalenz** | ⚠️ **Die entscheidende offene Frage.** Ist unser Output mit „Mittelklasse Europa 3D" vergleichbar? Muss am Proof of Concept **bewiesen** werden — Behauptung reicht nicht. |
+| **Qualitätsäquivalenz** | ✅ **Am Testlauf bestätigt.** Der Output hält mit „Mittelklasse Europa 3D" mit — nicht mehr nur eine offene Frage. |
 | **4K/10-bit für Kino** | ⚠️ **Korrigiert:** Seedance kann nativ **bis 4K** — die 720p-Grenze liegt bei Higgsfield. Für Kino daher Direktzugang (Volcano Engine) prüfen; dessen Preise sind noch unbekannt. 10-bit laut Produktion möglich, öffentlich nicht dokumentiert. |
 | Vergleichszahlen | ⚠️ Marktrecherche, keine Angebote. Von Rainer validieren lassen. |
 | Stundensatz-Annahme | ⚠️ 50–75 €/h gesetzt — an reale Kalkulation anpassen. |

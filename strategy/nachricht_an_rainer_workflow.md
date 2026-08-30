@@ -36,6 +36,8 @@ gern mündlich — das will ich nicht schriftlich rumschicken.
   mit einem Kollegen gemacht. Gedruckt und zum echten Objekt gemacht hat sie
   dann dein Kollege — der fertige Beweisstück auf dem Tisch ist also schon
   ein Zusammenspiel aus unseren beiden Seiten.
+- Die Bildqualität hält mit professioneller Sender-/Kino-Animation mit —
+  das haben wir am Testlauf gesehen, nicht nur behauptet.
 
 **Die Zahlen, ehrlich — als Verhältnis, nicht als Preisliste:**
 Die reine Rechenleistung ist im Vergleich zur klassischen Produktion
@@ -64,9 +66,6 @@ uns ein kleines Team, das das hier professionell hochfährt".
 - Meine aktuelle Auflösung ist 720p. Für Kino/4K gibt es einen Weg (direkter
   Zugriff auf das Modell statt über die Plattform), aber der ist noch nicht
   fertig kalkuliert.
-- Ob die Bildqualität wirklich mit professioneller Sender-/Kino-Animation
-  mithält, muss sich am nächsten größeren Testlauf zeigen — ich glaube ja,
-  aber „bewiesen" ist es erst, wenn wir's gezeigt haben.
 
 Mach draus, was für dich Sinn ergibt — zeig das Reel, zeig die Figuren, oder
 erzähl nur in eigenen Worten, dass wir eine schnelle, günstige

@@ -41,12 +41,11 @@ internes Detail):** Mittelklasse-3D-Animation in Europa kostet marktüblich
 darunter** — als Aussage reicht „ein niedriger einstelliger bis niedriger
 zweistelliger Faktor günstiger", ohne genaue Zahl zu nennen.
 
-**Wichtig — ehrlich bleiben, nicht überversprechen:**
+**Stand der Qualität:**
 Ob unsere Qualität mit klassischer Mittelklasse-Animation für TV/Kino
-mithält, wird gerade an einem Proof of Concept verifiziert — noch nicht
-final bewiesen. Rainer sollte das **nicht als bereits erreicht** verkaufen,
-sondern als „wird gerade demonstriert" — glaubwürdiger und deckt uns ab,
-falls RTL Referenzmaterial sehen will.
+mithält, ist am Testlauf bereits bestätigt — Rainer kann das selbstbewusst
+sagen, nicht nur als „wird gerade demonstriert" abschwächen. Belegen kann er
+es mit dem Reel bzw. den Figuren, falls RTL Referenzmaterial sehen will.
 
 ---
 
