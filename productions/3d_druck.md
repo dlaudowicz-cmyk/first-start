@@ -79,6 +79,10 @@ Beides ist vertretbar — aber bewusst entscheiden und benennen können.
 
 ## 4. Figurenstand
 
+> Arbeitsteilung: Mesh-Erzeugung aus den Referenzbildern (Abschnitt 1) lief
+> bei Daniel + Kollege. Gedruckt wurden die Testdrucke von Rainers Kollegen —
+> Rainer hat den Druck organisiert.
+
 | Figur | Media-ID (Quelle) | 3D-Job | Status |
 |---|---|---|---|
 | Cal | `620065cb-…` | — | gedruckt (Testdruck) |

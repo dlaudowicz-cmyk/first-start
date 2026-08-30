@@ -27,9 +27,11 @@ gern mündlich — das will ich nicht schriftlich rumschicken.
 - Nachträgliche Vertonung ohne Bildverlust — ich kann einem bereits
   fertigen, stummen Clip im Nachhinein Sounddesign geben, ohne das Bild neu
   zu würfeln. Bild bleibt zu 98,5 % identisch.
-- Die 3D-gedruckten Figuren stammen aus genau denselben Referenzbildern —
-  vom digitalen Charakterdesign zum anfassbaren Objekt, ohne dass jemand
-  modelliert hat.
+- Die 3D-Meshes für die Sammelfiguren entstehen direkt aus denselben
+  Referenzbildern — ohne dass jemand von Hand modelliert hat, das habe ich
+  mit einem Kollegen gemacht. Gedruckt und zum echten Objekt gemacht hat sie
+  dann dein Kollege — der fertige Beweisstück auf dem Tisch ist also schon
+  ein Zusammenspiel aus unseren beiden Seiten.
 
 **Die Zahlen, ehrlich — als Verhältnis, nicht als Preisliste:**
 Die reine Rechenleistung ist im Vergleich zur klassischen Produktion
