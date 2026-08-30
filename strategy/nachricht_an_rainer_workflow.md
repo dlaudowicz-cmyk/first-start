@@ -12,12 +12,12 @@ bevor du bei RTL sitzt, will ich dir kurz zeigen, was ich technisch wirklich
 mache — nicht damit du es 1:1 erzählst, sondern damit du selbst einschätzen
 kannst, was du zeigen willst und was du dir für später aufhebst.
 
-**Was ich benutze:** Eine Plattform namens Higgsfield, die Zugriff auf
-ByteDances Video-Modell „Seedance" gibt. Ich lade Referenzbilder unserer
-Figuren hoch (Cal, Liv, Sammy usw.), und das Modell generiert daraus Videos,
-in denen die Figuren konsistent aussehen — gleiches Design, gleicher Look,
-über beliebig viele Shots hinweg. Kein Zeichnen, kein Rigging, kein
-klassisches Rendering.
+**Was ich benutze:** Eine spezialisierte KI-Videoplattform. Ich lade
+Referenzbilder unserer Figuren hoch (Cal, Liv, Sammy usw.), und daraus
+entstehen Videos, in denen die Figuren konsistent aussehen — gleiches
+Design, gleicher Look, über beliebig viele Shots hinweg. Kein Zeichnen, kein
+Rigging, kein klassisches Rendering. Welche Plattform genau, sag ich dir
+gern mündlich — das will ich nicht schriftlich rumschicken.
 
 **Was schon bewiesen ist, nicht nur behauptet:**
 - Das Demo-Reel (Waldverfolgung + Cal, Liv, Sammy einzeln) — jede Maus hat
@@ -31,18 +31,17 @@ klassisches Rendering.
   vom digitalen Charakterdesign zum anfassbaren Objekt, ohne dass jemand
   modelliert hat.
 
-**Die Zahlen, ehrlich:**
-Ein 10-Sekunden-Clip mit Figur kostet mich rechnerisch rund 35 „Credits" —
-zum Listenpreis unseres Vertrags sind das ca. 1,50 €. Eine fertige Filmminute
-(realistisch gerechnet, mit Fehlversuchen) liegt bei ungefähr 34 € reinen
-Rechenkosten. Klingt absurd günstig — ist es auch, aber:
-
-Das ist **nur die Rechenleistung**, nicht die Arbeit. Rechnet man meine
-eigene Zeit mit ein (ich muss ja trotzdem planen, prompten, aussuchen,
-schneiden), landen wir bei ca. 800–2.400 € pro fertiger Minute. Zum
-Vergleich: klassische Mittelklasse-3D-Animation in Europa kostet am Markt
-8.000–15.000 € pro Minute. Wir liegen also **grob 4- bis 10-mal günstiger**
-— nicht hundertmal, das wäre unredlich zu behaupten.
+**Die Zahlen, ehrlich — als Verhältnis, nicht als Preisliste:**
+Die reine Rechenleistung ist im Vergleich zur klassischen Produktion
+lächerlich günstig — wir reden über einen Bruchteil eines Cents pro Sekunde
+Rohmaterial. Aber das ist **nur die Rechenleistung**, nicht die Arbeit.
+Rechnet man meine eigene Zeit mit ein (ich muss ja trotzdem planen,
+prompten, aussuchen, schneiden), landen wir realistisch bei ca. 800–2.400 €
+pro fertiger Minute. Zum Vergleich: klassische Mittelklasse-3D-Animation in
+Europa kostet am Markt 8.000–15.000 € pro Minute. Wir liegen also **grob
+4- bis 10-mal günstiger** — nicht hundertmal, das wäre unredlich zu
+behaupten. Genaue Stückpreise und welcher Anbieter dahintersteckt bespreche
+ich lieber persönlich mit dir als schriftlich.
 
 **Der eigentlich interessante Punkt für RTL:** Die Rechenleistung ist nicht
 der Flaschenhals — ich könnte mit meinem aktuellen Kontingent locker das
